@@ -105,17 +105,17 @@
 
 
 
-<meta name="description" content="** JDK的安装&amp;amp;&amp;amp;全局环境变量**">
+<meta name="description" content="JDK的安装&amp;amp;&amp;amp;全局环境变量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jdk1.8安装">
 <meta property="og:url" content="http://yoursite.com/2019/04/05/jdk1.8安装/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="** JDK的安装&amp;amp;&amp;amp;全局环境变量**">
+<meta property="og:description" content="JDK的安装&amp;amp;&amp;amp;全局环境变量">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T10:55:12.442Z">
+<meta property="og:updated_time" content="2019-04-05T11:17:41.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jdk1.8安装">
-<meta name="twitter:description" content="** JDK的安装&amp;amp;&amp;amp;全局环境变量**">
+<meta name="twitter:description" content="JDK的安装&amp;amp;&amp;amp;全局环境变量">
 
 
 
@@ -432,9 +432,7 @@
       
 
       
-        <p>**</p>
-<h2 id="JDK的安装-amp-amp-全局环境变量"><a href="#JDK的安装-amp-amp-全局环境变量" class="headerlink" title="JDK的安装&amp;&amp;全局环境变量"></a>JDK的安装&amp;&amp;全局环境变量</h2><p>**</p>
-<a id="more"></a>
+        <h2 id="JDK的安装-amp-amp-全局环境变量"><a href="#JDK的安装-amp-amp-全局环境变量" class="headerlink" title="JDK的安装&amp;&amp;全局环境变量"></a>JDK的安装&amp;&amp;全局环境变量</h2><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">jdk 文件必须放到:  /usr/ java目录下，否则后期安装上CDH之后会出现一些坑。</span><br><span class="line">解压jdk的 tar包:  tar -xzvf jdk-8u45-linux-x64.gz</span><br><span class="line">注意:</span><br><span class="line">    解压之后，修改jdk文件夹的权限</span><br><span class="line">       chown -R root:root jdk1.8.0_45  文件夹和文件夹里面的文件夹和文件</span><br><span class="line">       chown -R root:root jdk1.8.0_45/*</span><br><span class="line">配置环境变量：</span><br><span class="line">  vi /etc/profile</span><br><span class="line">      #add JAVA_HOME</span><br><span class="line">      export JAVA_HOME=/usr/java/jdk1.8.0_45</span><br><span class="line">      export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br><span class="line">   生效：</span><br><span class="line">      source /etc/profile</span><br><span class="line">查看是否成功：</span><br><span class="line">      java -version</span><br></pre></td></tr></table></figure>
       
     </div>
