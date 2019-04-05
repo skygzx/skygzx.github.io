@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="mysql,数据库,">
 
 
 
@@ -105,17 +105,18 @@
 
 
 
-<meta name="description" content="Linux基本命令：">
+<meta name="description" content="创建三个表并添加数据：">
+<meta name="keywords" content="mysql,数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux一些常用命令">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/Linux一些常用命令/index.html">
+<meta property="og:title" content="mysql查询语法">
+<meta property="og:url" content="http://yoursite.com/2019/04/05/mysql中的查询语法/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="Linux基本命令：">
+<meta property="og:description" content="创建三个表并添加数据：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T10:29:23.243Z">
+<meta property="og:updated_time" content="2019-04-05T11:41:27.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux一些常用命令">
-<meta name="twitter:description" content="Linux基本命令：">
+<meta name="twitter:title" content="mysql查询语法">
+<meta name="twitter:description" content="创建三个表并添加数据：">
 
 
 
@@ -145,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/04/Linux一些常用命令/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/05/mysql中的查询语法/">
 
 
 
 
 
-  <title>Linux一些常用命令 | skygzx</title>
+  <title>mysql查询语法 | skygzx</title>
   
 
 
@@ -332,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/Linux一些常用命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/mysql中的查询语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -349,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux一些常用命令</h1>
+          <h1 class="post-title" itemprop="name headline">mysql查询语法</h1>
         
 
         <div class="post-meta">
@@ -361,8 +362,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T17:40:23+08:00">
-                2019-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T19:37:04+08:00">
+                2019-04-05
               </time>
             
 
@@ -371,6 +372,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -395,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  727
+                  1.4k
                 </span>
               
 
@@ -411,7 +434,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  7
                 </span>
               
             </div>
@@ -432,43 +455,13 @@
       
 
       
-        <h2 id="Linux基本命令："><a href="#Linux基本命令：" class="headerlink" title="Linux基本命令："></a><strong>Linux基本命令：</strong></h2><a id="more"></a>
-<p><strong>查看IP:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ipconfig(windows)</span><br></pre></td></tr></table></figure>
-<p><strong>关闭防护墙：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service ipconfig stop</span><br><span class="line">chkconfig off</span><br></pre></td></tr></table></figure>
-<p><strong>查看当前光标所在路径：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
-<p><strong>Linux系统中根目录是指：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/</span><br></pre></td></tr></table></figure>
-<p><strong>有关于cd相关命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd 或者 cd~ (切换到根目录)</span><br><span class="line">cd - (切换到上次目录)</span><br><span class="line">cd ../ (切换到上层目录)</span><br><span class="line">cd ../ ../ (切换到上两层目录)</span><br></pre></td></tr></table></figure>
-<p><strong>目录路径：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">绝对路径 (例如： /home/etc  /为开头)</span><br><span class="line">相对路径 (当前目录开始，没有/为开头)</span><br></pre></td></tr></table></figure>
-<p><strong>清空屏幕：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br></pre></td></tr></table></figure>
-<p><strong>有关于ll ls 相关知识点：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls (查看当前目录下所有文件和文件夹)</span><br><span class="line">ll (查看当前目录下所有文件和文件夹详细信息)</span><br><span class="line">ls -l == ll (别名)</span><br><span class="line">ls -l -a == ls -la (查看所有隐藏文件和文件夹)</span><br><span class="line">-a 表示查看隐藏的文件和文件夹 (以.开头的文件或者文件夹)</span><br><span class="line">ll -h (查看文件大小)</span><br><span class="line">ll -rt (文件或者文件夹按时间顺序排序)</span><br></pre></td></tr></table></figure>
-<p><strong>创建目录：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir (列如：mkdir ruozedate/)</span><br><span class="line">mkdir -p 4/5/6 (创建级联目录)</span><br><span class="line">mkdir 4 5 6 (创建并行目录)</span><br></pre></td></tr></table></figure>
-<p><strong>移动命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mv 原路径文件夹/文件 目标端的路径文件夹/文件</span><br><span class="line">列如 (mv instail.log ruozedate/)</span><br><span class="line">也可以在移动的过程中重命名</span><br><span class="line">列如 (mv instail.log ruozedate/instail.log2019)</span><br><span class="line">注意 (移动只有一份)</span><br></pre></td></tr></table></figure>
-<p><strong>复制命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp 原路径文件夹/文件 目标路径文件夹/文件</span><br><span class="line"> 列如 (cp instail.log ruozedate/instail.log2019&quot;复制的过程中可以重新命名&quot;)</span><br><span class="line">如果复制的是文件夹的话 需要加 -r</span><br><span class="line"> 列如 (cp -r d66 ruozedate/d6&quot;复制的过程可以重命名&quot;)</span><br></pre></td></tr></table></figure>
-<p><strong>查看帮助命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列如: ls --help</span><br></pre></td></tr></table></figure>
-<p><strong>查看文件内容：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat (文件内容一下子全部显示)</span><br><span class="line">more (文件内容分页显示，按空格往下查看，不能往回查看，按q退出)</span><br><span class="line">less（文件内容分页显示，按下箭头往下查看，上箭头往回查看，按q退出）</span><br></pre></td></tr></table></figure>
-<p><strong>实时查看：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail -f xxx.log</span><br><span class="line">tail -F xxx.log F=f+retry</span><br></pre></td></tr></table></figure>
-<p><strong>别名：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls -l==ll (ll就是别名)</span><br><span class="line">alias rzcd=&apos;cd /home/jepson/&apos; (在当前窗口输入 rzcd命令 就可以进入jespon下，注意：当前 session生效)</span><br><span class="line">永久生效该怎么配置：</span><br><span class="line"> (1)全局环境变量文件： vi /etc/profile (在profile中输入 alias rzcd=&apos;cd /home/jepson/&apos; )，wq退出，输入 source /etc/profile，这样就可以永久生效了。</span><br><span class="line">   (2)个人环境变量文件： vi .bash_profile (在profile中输入 alias rzcd=&apos;cd /home/jepson/&apos; ),退出，输入source .bash_profile或者 . .bash_profile,这样也可以永久生效。</span><br></pre></td></tr></table></figure>
-<p><strong>创建空文件：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch (列如：touch instail.log)</span><br></pre></td></tr></table></figure>
-<p><strong>删除命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm xxx.log (删除文件)</span><br><span class="line">rm -r xxx (删除文件夹)</span><br><span class="line">rm -f xxx.log (强制删除)</span><br><span class="line">注意：(-r 只代表文件夹   -f 表示强制)</span><br></pre></td></tr></table></figure>
-<p><strong>设置变量:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置 key=value (前后不能有空格) 使用 $&#123;key&#125;</span><br><span class="line">列如：设置path=&quot;123&quot;   之后echo $&#123;path&#125;,就会输出&quot;123&quot;</span><br></pre></td></tr></table></figure>
+        <h1 id="创建三个表并添加数据："><a href="#创建三个表并添加数据：" class="headerlink" title="创建三个表并添加数据："></a>创建三个表并添加数据：</h1><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">--部门表</span><br><span class="line">dept部门表(deptno部门编号/dname部门名称/loc地点)</span><br><span class="line">create table dept (</span><br><span class="line">    deptno numeric(2),</span><br><span class="line">    dname varchar(14),</span><br><span class="line">    loc varchar(13)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into dept values (10, &apos;ACCOUNTING&apos;, &apos;NEW YORK&apos;);</span><br><span class="line">insert into dept values (20, &apos;RESEARCH&apos;, &apos;DALLAS&apos;);</span><br><span class="line">insert into dept values (30, &apos;SALES&apos;, &apos;CHICAGO&apos;);</span><br><span class="line">insert into dept values (40, &apos;OPERATIONS&apos;, &apos;BOSTON&apos;);</span><br><span class="line"></span><br><span class="line">--工资等级表</span><br><span class="line">salgrade工资等级表(grade 等级/losal此等级的最低/hisal此等级的最高)</span><br><span class="line">create table salgrade (</span><br><span class="line">    grade numeric,</span><br><span class="line">    losal numeric,</span><br><span class="line">    hisal numeric</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">insert into salgrade values (1, 700, 1200);</span><br><span class="line">insert into salgrade values (2, 1201, 1400);</span><br><span class="line">insert into salgrade values (3, 1401, 2000);</span><br><span class="line">insert into salgrade values (4, 2001, 3000);</span><br><span class="line">insert into salgrade values (5, 3001, 9999);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--员工表</span><br><span class="line">emp员工表(empno员工号/ename员工姓名/job工作/mgr上级编号/hiredate受雇日期/sal薪金/comm佣金/deptno部门编号)</span><br><span class="line">工资 ＝ 薪金 ＋ 佣金</span><br><span class="line"></span><br><span class="line">1.表自己跟自己连接</span><br><span class="line"></span><br><span class="line">create table emp (</span><br><span class="line">    empno numeric(4) not null,</span><br><span class="line">    ename varchar(10),</span><br><span class="line">    job varchar(9),</span><br><span class="line">    mgr numeric(4),</span><br><span class="line">    hiredate datetime,</span><br><span class="line">    sal numeric(7, 2),</span><br><span class="line">    comm numeric(7, 2),</span><br><span class="line">    deptno numeric(2)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">insert into emp values (7369, &apos;SMITH&apos;, &apos;CLERK&apos;, 7902, &apos;1980-12-17&apos;, 800, null, 20);</span><br><span class="line">insert into emp values (7499, &apos;ALLEN&apos;, &apos;SALESMAN&apos;, 7698, &apos;1981-02-20&apos;, 1600, 300, 30);</span><br><span class="line">insert into emp values (7521, &apos;WARD&apos;, &apos;SALESMAN&apos;, 7698, &apos;1981-02-22&apos;, 1250, 500, 30);</span><br><span class="line">insert into emp values (7566, &apos;JONES&apos;, &apos;MANAGER&apos;, 7839, &apos;1981-04-02&apos;, 2975, null, 20);</span><br><span class="line">insert into emp values (7654, &apos;MARTIN&apos;, &apos;SALESMAN&apos;, 7698, &apos;1981-09-28&apos;, 1250, 1400, 30);</span><br><span class="line">insert into emp values (7698, &apos;BLAKE&apos;, &apos;MANAGER&apos;, 7839, &apos;1981-05-01&apos;, 2850, null, 30);</span><br><span class="line">insert into emp values (7782, &apos;CLARK&apos;, &apos;MANAGER&apos;, 7839, &apos;1981-06-09&apos;, 2450, null, 10);</span><br><span class="line">insert into emp values (7788, &apos;SCOTT&apos;, &apos;ANALYST&apos;, 7566, &apos;1982-12-09&apos;, 3000, null, 20);</span><br><span class="line">insert into emp values (7839, &apos;KING&apos;, &apos;PRESIDENT&apos;, null, &apos;1981-11-17&apos;, 5000, null, 10);</span><br><span class="line">insert into emp values (7844, &apos;TURNER&apos;, &apos;SALESMAN&apos;, 7698, &apos;1981-09-08&apos;, 1500, 0, 30);</span><br><span class="line">insert into emp values (7876, &apos;ADAMS&apos;, &apos;CLERK&apos;, 7788, &apos;1983-01-12&apos;, 1100, null, 20);</span><br><span class="line">insert into emp values (7900, &apos;JAMES&apos;, &apos;CLERK&apos;, 7698, &apos;1981-12-03&apos;, 950, null, 30);</span><br><span class="line">insert into emp values (7902, &apos;FORD&apos;, &apos;ANALYST&apos;, 7566, &apos;1981-12-03&apos;, 3000, null, 20);</span><br><span class="line">insert into emp values (7934, &apos;MILLER&apos;, &apos;CLERK&apos;, 7782, &apos;1982-01-23&apos;, 1300, null, 10);</span><br></pre></td></tr></table></figure>
+<h1 id="聚合函数："><a href="#聚合函数：" class="headerlink" title="聚合函数："></a>聚合函数：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum() max() min() count()</span><br></pre></td></tr></table></figure>
+<h1 id="分组函数："><a href="#分组函数：" class="headerlink" title="分组函数："></a>分组函数：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group by  ....  having ....</span><br></pre></td></tr></table></figure>
+<h1 id="列题："><a href="#列题：" class="headerlink" title="列题："></a>列题：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#1.求员工表 所有人的薪水和      as salsum 别名</span><br><span class="line">select</span><br><span class="line">sum(sal) as salsum</span><br><span class="line">from emp;</span><br><span class="line"></span><br><span class="line">#2.求每个部门的所有人的薪水和</span><br><span class="line">select</span><br><span class="line">deptno,</span><br><span class="line">sum(sal) as salsum</span><br><span class="line">from emp</span><br><span class="line">group by deptno;</span><br><span class="line"></span><br><span class="line">#总结: group by 后面出现多少个字段，那么select 后面也要一模一样</span><br><span class="line">#每/各 是为分组字段      </span><br><span class="line"></span><br><span class="line">#3.求每个部门的每个岗位的所有人的薪水和</span><br><span class="line">select</span><br><span class="line">deptno,job,</span><br><span class="line">sum(sal) as salsum</span><br><span class="line">from emp</span><br><span class="line">group by deptno,job;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#4.求每个部门的每个岗位的所有人的薪水和，及人数</span><br><span class="line">select</span><br><span class="line">deptno,job,</span><br><span class="line">sum(sal) as salsum,</span><br><span class="line">count(deptno) as pnum</span><br><span class="line">from emp</span><br><span class="line">group by deptno,job;</span><br><span class="line"></span><br><span class="line">group by deptno --》3</span><br><span class="line">group by deptno , job </span><br><span class="line">#5.求薪水和大于1500的哪些部门  ==》 每个部门的薪水和 ==》 哪些薪水和大于1500的部门</span><br><span class="line">select</span><br><span class="line">deptno,</span><br><span class="line">sum(sal) as salsum</span><br><span class="line">from emp</span><br><span class="line">group by deptno </span><br><span class="line">having sum(sal)&gt;1500;</span><br><span class="line"></span><br><span class="line">#子查询</span><br><span class="line">select </span><br><span class="line">t.* </span><br><span class="line">from </span><br><span class="line">(select</span><br><span class="line">deptno,</span><br><span class="line">sum(sal) as salsum</span><br><span class="line">from emp</span><br><span class="line">group by deptno) as t</span><br><span class="line">where t.salsum &gt; 1500;</span><br></pre></td></tr></table></figure>
+<h1 id="关联-left-join-right-join-inner-join"><a href="#关联-left-join-right-join-inner-join" class="headerlink" title="关联 left join,right join,inner join"></a>关联 left join,right join,inner join</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">重新创建表：</span><br><span class="line">drop table testa;</span><br><span class="line">create table testa(aid int,aname varchar(100),address varchar(100));</span><br><span class="line">create table testb(bid int,bname varchar(100),age int);</span><br><span class="line">create table testsal(cid int,sal int);</span><br><span class="line"></span><br><span class="line">delete from testsal;</span><br><span class="line">insert into testsal values(1,100);</span><br><span class="line">insert into testsal values(2,300);</span><br><span class="line">insert into testsal values(4,700);</span><br><span class="line">insert into testsal values(8,1300);</span><br><span class="line">insert into testsal values(9,3300);</span><br><span class="line"></span><br><span class="line">select * from testsal;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">insert into testa values(1,&apos;xiao1&apos;,&apos;SH1&apos;);</span><br><span class="line">insert into testa values(2,&apos;xiao2&apos;,&apos;SH1&apos;);</span><br><span class="line">insert into testa values(3,&apos;xiao3&apos;,null);</span><br><span class="line">insert into testa values(4,&apos;xiao4&apos;,&apos;SH2&apos;);</span><br><span class="line">insert into testa values(5,&apos;xiao5&apos;,&apos;SH2&apos;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">insert into testb values(1,&apos;xiao1&apos;,10);</span><br><span class="line">insert into testb values(2,&apos;xiao2&apos;,20);</span><br><span class="line">insert into testb values(3,&apos;xiao3&apos;,30);</span><br><span class="line">insert into testb values(4,&apos;xiao4&apos;,40);</span><br><span class="line">insert into testb values(4,&apos;xiao44&apos;,440);</span><br><span class="line"></span><br><span class="line">insert into testb values(7,&apos;xiao7&apos;,70);</span><br><span class="line">insert into testb values(8,&apos;xiao8&apos;,80);</span><br><span class="line">insert into testb values(9,&apos;xiao9&apos;,90);</span><br><span class="line"></span><br><span class="line">## left join：</span><br><span class="line"></span><br><span class="line">	 select  a.*,b.*from testa a  left join testb b on a.aid=b.bid      a &lt;-- b</span><br><span class="line">	 #以左表为主，左表数据最全，右表来匹配的，匹配多少算多少</span><br><span class="line">	 aid	aname	bid	bname	age</span><br><span class="line">	 1	xiao1	1	xiao1	10</span><br><span class="line">	 2	xiao2	2	xiao2	20</span><br><span class="line">	 3	xiao3	3	xiao3	30</span><br><span class="line">	 4	xiao4	4	xiao4	40</span><br><span class="line">	 5	xiao5	null null   null	</span><br><span class="line">	 </span><br><span class="line"></span><br><span class="line">## right join：</span><br><span class="line">	select a.*,b.*from testa a right join testb b on a.aid=b.bid</span><br><span class="line">	#以右表为主，右表数据最全，左表来匹配的，匹配多少算多少     a --&gt; b</span><br><span class="line">	 1	xiao1	1	xiao1	10</span><br><span class="line">	 2	xiao2	2	xiao2	20</span><br><span class="line">	 3	xiao3	3	xiao3	30</span><br><span class="line">	 4	xiao4	4	xiao4	40</span><br><span class="line">				7	xiao7	70</span><br><span class="line">				8	xiao8	80</span><br><span class="line">				9	xiao9	90</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## inner join</span><br><span class="line">	 select a.*,b.*from testa a inner join testb b on a.aid=b.bid</span><br><span class="line">	 #等值连接  两边都要存在</span><br><span class="line">	 1	xiao1	1	xiao1	10</span><br><span class="line">	 2	xiao2	2	xiao2	20</span><br><span class="line">	 3	xiao3	3	xiao3	30</span><br><span class="line">	 4	xiao4	4	xiao4	40</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 笛卡尔集</span><br><span class="line">	 select a.*,b.*from testa a, testb b;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 等值连接</span><br><span class="line">	 select a.*,b.*from testa a, testb b where a.aid = b.bid;</span><br></pre></td></tr></table></figure>
+<h2 id="jion相关联的题："><a href="#jion相关联的题：" class="headerlink" title="jion相关联的题："></a>jion相关联的题：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#哪些人   有薪水的有年龄的有地址</span></span><br><span class="line">select  s.*,b.*,a.*</span><br><span class="line">from testsal s</span><br><span class="line">left join testb b on s.cid =b.bid</span><br><span class="line">left join testa a on s.cid =a.aid</span><br><span class="line"><span class="built_in">where</span> </span><br><span class="line">s.sal is not null </span><br><span class="line">and b.age is not null </span><br><span class="line">and a.address is not null;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select </span><br><span class="line">s.*,b.*,a.*</span><br><span class="line">from testsal s</span><br><span class="line">left join testb b on s.cid =b.bid</span><br><span class="line">left join testa a on b.bid =a.aid</span><br><span class="line"><span class="built_in">where</span> </span><br><span class="line">s.sal is not null </span><br><span class="line">and b.age is not null </span><br><span class="line">and a.address is not null;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select </span><br><span class="line">s.*,b.*,a.*</span><br><span class="line">from testsal s</span><br><span class="line">left join testb b on s.cid =b.bid</span><br><span class="line">right join testa a on b.bid =a.aid;</span><br><span class="line"></span><br><span class="line"><span class="comment">#哪些人   有薪水的   有年龄的有地址</span></span><br><span class="line">select </span><br><span class="line">s.*,t.*</span><br><span class="line">from testsal s</span><br><span class="line">left join </span><br><span class="line">(select </span><br><span class="line">b.*,a.*</span><br><span class="line">from testb b </span><br><span class="line">right join testa a on b.bid =a.aid) t on s.cid = t.aid</span><br><span class="line"><span class="built_in">where</span> </span><br><span class="line">s.sal is not null </span><br><span class="line">and t.age is not null </span><br><span class="line">and t.address is not null;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select </span><br><span class="line">s.*,t.*</span><br><span class="line">from testsal s</span><br><span class="line">inner join </span><br><span class="line">(select </span><br><span class="line">b.*,a.*</span><br><span class="line">from testb b </span><br><span class="line">inner join testa a on b.bid =a.aid) t on s.cid = t.aid;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -478,6 +471,35 @@
 	<div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/04/05/mysql中的查询语法/">mysql查询语法</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
+  <p><span>发布时间:</span>2019年04月05日 - 19:37</p>
+  <p><span>最后更新:</span>2019年04月05日 - 19:41</p>
+  <p><span>原始链接:</span><a href="/2019/04/05/mysql中的查询语法/" title="mysql查询语法">http://yoursite.com/2019/04/05/mysql中的查询语法/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/05/mysql中的查询语法/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
       
 	</div>
 
@@ -500,6 +522,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+        </div>
+      
 
       
       
@@ -509,14 +539,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/04/05/mysql的基础语句/" rel="next" title="mysql的基础语句">
+                <i class="fa fa-chevron-left"></i> mysql的基础语句
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/04/Linux命令进阶/" rel="prev" title="Linux命令进阶">
-                Linux命令进阶 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/05/sql面试题/" rel="prev" title="sql面试题">
+                sql面试题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -689,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux基本命令："><span class="nav-number">1.</span> <span class="nav-text">Linux基本命令：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建三个表并添加数据："><span class="nav-number">1.</span> <span class="nav-text">创建三个表并添加数据：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聚合函数："><span class="nav-number">2.</span> <span class="nav-text">聚合函数：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分组函数："><span class="nav-number">3.</span> <span class="nav-text">分组函数：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列题："><span class="nav-number">4.</span> <span class="nav-text">列题：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关联-left-join-right-join-inner-join"><span class="nav-number">5.</span> <span class="nav-text">关联 left join,right join,inner join</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jion相关联的题："><span class="nav-number">5.1.</span> <span class="nav-text">jion相关联的题：</span></a></li></ol></li></ol></div>
             
 
           </div>
