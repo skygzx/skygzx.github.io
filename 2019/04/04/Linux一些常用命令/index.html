@@ -105,17 +105,17 @@
 
 
 
-<meta name="description" content="** Linux基本命令：">
+<meta name="description" content="Linux基本命令：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux命令进阶">
-<meta property="og:url" content="http://yoursite.com/2019/04/04/title/index.html">
+<meta property="og:title" content="Linux一些常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/Linux一些常用命令/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="** Linux基本命令：">
+<meta property="og:description" content="Linux基本命令：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T10:35:27.602Z">
+<meta property="og:updated_time" content="2019-04-05T10:29:23.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令进阶">
-<meta name="twitter:description" content="** Linux基本命令：">
+<meta name="twitter:title" content="Linux一些常用命令">
+<meta name="twitter:description" content="Linux基本命令：">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/04/title/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/04/Linux一些常用命令/">
 
 
 
 
 
-  <title>Linux命令进阶 | skygzx</title>
+  <title>Linux一些常用命令 | skygzx</title>
   
 
 
@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/title/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/Linux一些常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -349,7 +349,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux命令进阶</h1>
+          <h1 class="post-title" itemprop="name headline">Linux一些常用命令</h1>
         
 
         <div class="post-meta">
@@ -361,7 +361,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T22:22:57+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T17:40:23+08:00">
                 2019-04-04
               </time>
             
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  727
                 </span>
               
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  2
                 </span>
               
             </div>
@@ -432,73 +432,43 @@
       
 
       
-        <p> **</p>
-<h1 id="Linux基本命令："><a href="#Linux基本命令：" class="headerlink" title="Linux基本命令："></a>Linux基本命令：</h1><a id="more"></a>
-<p>**</p>
-<p><strong>查看用户命令：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll /usr/sbin/user*</span><br><span class="line">列如:(usermod,userdel,useradd)</span><br></pre></td></tr></table></figure>
-<p><strong>查看用户组命令：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll /usr/sbin/group*</span><br><span class="line">列如:(groupmod,groupdel,groupadd)</span><br></pre></td></tr></table></figure>
-<p><strong>添加和删除用户：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">useradd ruoze (创建一个ruoze用户，并且自动创建一个ruoze用户组)</span><br><span class="line">通过 id ruoze 命令查看信息：</span><br><span class="line">uid=501(ruoze) gid=501(ruoze) groups=501(ruoze) </span><br><span class="line">uid:(用户)	gid:(主组)	groups:(所有组)</span><br><span class="line">查看用户创建记录：cat /etc/passwd</span><br><span class="line">查看组创建记录：  cat /etc/group</span><br><span class="line">userdel ruoze (删除ruoze用户)</span><br><span class="line">如果删除用户之后，/etc/passwd中没有记录</span><br><span class="line">  				/etc/group中没有记录(因为ruoze组中只有一个ruoze用户，当删掉ruoze用户，该组经过校验发现只有自己，就会删除该组，但是家目录中用户还在，删除后再创建会提示用户存在，不过用户一样会创建出来)</span><br></pre></td></tr></table></figure>
-<p><strong>将用户添加到用户组：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">usermod -a -G 用户组 用户</span><br><span class="line">usermod -g 用户组 用户 (将用户组改为主组)</span><br></pre></td></tr></table></figure>
-<p><strong>设置密码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd 用户</span><br></pre></td></tr></table></figure>
-<p><strong>怎样切换用户：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - 用户</span><br><span class="line">su   用户</span><br><span class="line">- : 代表切用户以后，进入该用户的家目录且执行 环境变量文件</span><br></pre></td></tr></table></figure>
-<p><strong>退出当前用户：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
-<p><strong>普通用户如何临时获取root最大权限：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sudoers</span><br><span class="line">修改配置文件：(列如：</span><br><span class="line">root    ALL=(ALL)       ALL</span><br><span class="line">   用户  ALL=(root)      NOPASSWD:ALL) ：wq! 强制退出后, 输入sudo ls -l /root 命令，查看信息</span><br></pre></td></tr></table></figure>
-<p><strong>管道符和过滤：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| (管道符)</span><br><span class="line">grep (过滤)</span><br><span class="line">用法：(列如：cat /home | grep jepson 在查看home下所有用户之后自动将jepson筛选出来)</span><br></pre></td></tr></table></figure>
-<p><strong>怎样查看进程：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep tail</span><br><span class="line">显示出的信息：root  2425  1779  0 20:39 pts/0    00:00:00 tail -f install.log.syslog</span><br><span class="line">2425：进程pid</span><br><span class="line">1779：父id</span><br><span class="line">ps  -ef | grep &apos;log&apos; (模糊查询)</span><br></pre></td></tr></table></figure>
-<p><strong>杀死进程：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kill -9 进程的pid</span><br><span class="line">kill -9 pid pid(并行杀)</span><br><span class="line">如果我只想杀死包含log字符的所有进程:(kill -9 $(pgrep -f log))</span><br><span class="line">(提醒: kill前确认清楚该进程是否该杀 不要杀错 )</span><br><span class="line">(linux操作: 遇到rm kill高危命令 需确认再确认)</span><br></pre></td></tr></table></figure>
-<p><strong>查看端口号：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nlp | grep pid或者进程名字</span><br></pre></td></tr></table></figure>
-<p><strong>题目：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">老板说去A服务器 login,打开xxx软件的web界面？ip+port</span><br><span class="line">ps - ef | grep xxx  --&gt; pid --&gt;  netstat -nlp | grep pid</span><br><span class="line">等价于</span><br><span class="line">netstat -nlp | grep xxx</span><br><span class="line">(0.0.0.0:22   或者 ::: 80都表示的是本机ip，代表当前ip对外提供访问</span><br><span class="line"> 如果：127.0.0.1:80  或者 localhost:80   只针对内部当前机器访问 )</span><br></pre></td></tr></table></figure>
-<p><strong>如果出现链接拒绝错误 Connection refused应该怎样做：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window   : 控制面板 卸载程序 打开或关闭windows功能 选中Telnet客户端 部署</span><br><span class="line">           通过 cmd  ping一下ip，然后 telnet ip port，如果不行，很有可能是ip只针对内部当前机器访问	            </span><br><span class="line">   linux    :    yum install telnet.x86_64</span><br></pre></td></tr></table></figure>
-<p><strong>搜索命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">列如搜索xxx软件</span><br><span class="line"> history | grep xxx (通过查看历史命令记录来查找xxx软件)</span><br><span class="line"> ps - ef | grep xxx (通过查看进程搜索xxx软件)</span><br><span class="line"> find / -name &apos;*log*&apos; (全局 根目录模糊查询)</span><br><span class="line"> find ./ -name  &apos;*log*&apos; (当前目录开始 模糊查询)</span><br><span class="line"> * (代表模糊查询)</span><br></pre></td></tr></table></figure>
-<p><strong>Linux安装和卸载软件 rpm</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum search 软件名字: (搜索软件)</span><br><span class="line">yum install -y 软件名字: (下载软件)</span><br><span class="line">yun remove 软件名字: (卸载软件)</span><br><span class="line">rpm -qa | grep 软件名字: (搜索软件)</span><br><span class="line">rpm -e 软件名字: (卸载软件，卸载过程中可能会出现失败的情况，由于该软件包依赖于其他rpm) </span><br><span class="line">rpm -e --nodeps 软件名字: (强制卸载软件)</span><br></pre></td></tr></table></figure>
-<p><strong>查找命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which xxx (命令都是从$PATH中查找)</span><br></pre></td></tr></table></figure>
-<p>mv和cp哪个速度更快：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当在同一系统中时mv的速度会快于cp的速度</span><br></pre></td></tr></table></figure>
-<p>文本编辑命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi xxx.log: (编辑xxx.log文件)</span><br><span class="line">在生产中使用vi修改配置文件，别人的服务文件时应先要复制一份，再进行修改</span><br></pre></td></tr></table></figure>
-<p>命令行模式常见快捷键：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dd: (删除当前光标所在行)</span><br><span class="line">dG: (删除当前光标所在行下的所有行包括光标所在行)</span><br><span class="line">ndd: (删除光标所在行下的n行包括光标所在行)</span><br><span class="line">gg: (光标跳转到第一行第一个字母)</span><br><span class="line">G: (光标跳转到最后一行的第一个字)</span><br><span class="line">shift+$:(行尾)</span><br></pre></td></tr></table></figure>
-<p>生产场景下如果一个文件内容比较多，想清空该如何做：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gg --&gt; dG: (第一种方式)</span><br><span class="line">echo &quot;&quot; &gt;文件: (为清空，文件中还存留一个字节，要注意)</span><br><span class="line">cat /dev/null &gt;文件: (真正的清空)</span><br></pre></td></tr></table></figure>
-<p>当一个文件内容非常多，比如系统文件，如何快速定位到你想搜索的关键词：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在尾行模式下输入 /关键词</span><br><span class="line">set nu: (表格化，开头有行号)</span><br><span class="line">set nonu: (取消表格化)</span><br></pre></td></tr></table></figure>
-<p>权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x. 3 root root  4096 Jan 19 20:42 1</span><br><span class="line">drwxr-xr-x. 2 root root  4096 Jan 19 20:44 4</span><br><span class="line">-rw-r--r--. 1 root root 10033 Jan 19 20:57 install.log.syslog</span><br><span class="line">-rw-r--r--. 1 root root 49566 Jan 23 21:37 jepson.log</span><br><span class="line">-rw-r--r--. 1 root root     1 Jan 23 21:30 ruoze.log.1</span><br><span class="line">d rwxr-xr-x</span><br><span class="line">第一个: d:(代表文件夹)  -:(文件)  l:(连接)</span><br><span class="line">r: 读 4</span><br><span class="line">w: 写 2</span><br><span class="line">x: 执行shell脚本 1</span><br><span class="line">列如：rwxr-xr-x 755</span><br><span class="line">  rwxr--r-- 744</span><br><span class="line">  r--r--r-- 444</span><br><span class="line">  r-xrwxrw- 576</span><br><span class="line">rwxr-xr-x :分为三组</span><br><span class="line">  第一组:rwx 7 代表文件和文件夹所属用户的权限: 读写执行</span><br><span class="line">  第二组:r-x 5 代表文件和文件夹所属的用户组的权限: 读执行</span><br><span class="line">  第三组:r-x 5 代表其他组的所有用户对这个文件或者文件夹的权限: 读执行</span><br><span class="line">root root</span><br><span class="line">第三列:所属用户</span><br><span class="line">第四列:所属用户组</span><br><span class="line">第五列字节(文件大小)</span><br><span class="line">ll -h:(只能查看文件大小)</span><br><span class="line">du -sh:(即可以查看文件大小，也可以查看文件夹大小)</span><br><span class="line">第六列:文件时间</span><br></pre></td></tr></table></figure>
-<p>修改用户权限命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 目录:(修改用户权限)</span><br><span class="line">chown -R 用户:所属用户组 目录:(修改所属用户和用户组，来达到修改权限的作用)</span><br><span class="line">-R表示递归，文件夹下所有的都会被修改</span><br><span class="line">整套Linux命令中，只有这两个命令用到的是大R，其它都是小r</span><br></pre></td></tr></table></figure>
-<p>软连接：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s 原始路径 目标路径</span><br><span class="line">注意:(删除目标路径，原路径不会被删除)</span><br></pre></td></tr></table></figure>
-<p>上传和下载：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lrzsz (下载rpm)</span><br><span class="line">rz: window --&gt; linux</span><br><span class="line">rs: linux --&gt; window</span><br></pre></td></tr></table></figure>
-<p>系统命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top</span><br><span class="line">load average:0.00,0.00,0.00( 生产服务器 不要超过10经验值)</span><br></pre></td></tr></table></figure>
-<p>查看内存：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
-<p>查看硬盘：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
-<p>压缩解压：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zip:(压缩)  unzip:(解压)</span><br><span class="line">列如: zip -r 文件夹.zip 文件夹/*(压缩文件夹以及文件夹下所有内容)</span><br><span class="line">	  unzip 文件夹.zip</span><br><span class="line">tar -czvf(压缩)  tar -xzvf(解压)</span><br><span class="line">列如:tar -czvf 文件夹.tar 文件夹/*</span><br><span class="line">    tar -xzvf 文件夹.tar</span><br></pre></td></tr></table></figure>
-<p>作业调度：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">crontab -e:(edit user<span class="string">'s crontab)编辑</span></span><br><span class="line"><span class="string">crontab -l:(list user'</span>s crontab)查看</span><br><span class="line">[root@hadoop001 ~]<span class="comment"># crontab -e </span></span><br><span class="line">* * * * * /root/test.sh &gt;&gt; /root/test.log</span><br><span class="line">格式:* * * * * *</span><br><span class="line">第1个: 分</span><br><span class="line">第2个: 小时</span><br><span class="line">第3个: 日</span><br><span class="line">第4个: 月</span><br><span class="line">第5个: 周</span><br><span class="line">*代表 每</span><br><span class="line"></span><br><span class="line">每10秒？</span><br><span class="line">编写脚本:[root@hadoop001 ~]<span class="comment"># vi test.sh</span></span><br><span class="line">( <span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>((i=1;i&lt;=6;i++));</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">      	date</span><br><span class="line">      	sleep 10s</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> )</span><br></pre></td></tr></table></figure>
-<p>后台执行命令 不交互：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	 ./test.sh &amp;</span><br><span class="line">	 nohup ./test.sh &amp;</span><br><span class="line">生产:</span><br><span class="line">	 ==&gt; nohup ./test.sh &amp;</span><br><span class="line">	 	 nohup ./test.sh &gt; /root/test.log 2&gt;&amp;1 &amp;   <span class="comment"># 详细解释 https://blog.csdn.net/ggxiaobai/article/details/53507530</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Linux基本命令："><a href="#Linux基本命令：" class="headerlink" title="Linux基本命令："></a><strong>Linux基本命令：</strong></h2><a id="more"></a>
+<p><strong>查看IP:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ipconfig(windows)</span><br></pre></td></tr></table></figure>
+<p><strong>关闭防护墙：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service ipconfig stop</span><br><span class="line">chkconfig off</span><br></pre></td></tr></table></figure>
+<p><strong>查看当前光标所在路径：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+<p><strong>Linux系统中根目录是指：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/</span><br></pre></td></tr></table></figure>
+<p><strong>有关于cd相关命令：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd 或者 cd~ (切换到根目录)</span><br><span class="line">cd - (切换到上次目录)</span><br><span class="line">cd ../ (切换到上层目录)</span><br><span class="line">cd ../ ../ (切换到上两层目录)</span><br></pre></td></tr></table></figure>
+<p><strong>目录路径：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">绝对路径 (例如： /home/etc  /为开头)</span><br><span class="line">相对路径 (当前目录开始，没有/为开头)</span><br></pre></td></tr></table></figure>
+<p><strong>清空屏幕：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br></pre></td></tr></table></figure>
+<p><strong>有关于ll ls 相关知识点：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls (查看当前目录下所有文件和文件夹)</span><br><span class="line">ll (查看当前目录下所有文件和文件夹详细信息)</span><br><span class="line">ls -l == ll (别名)</span><br><span class="line">ls -l -a == ls -la (查看所有隐藏文件和文件夹)</span><br><span class="line">-a 表示查看隐藏的文件和文件夹 (以.开头的文件或者文件夹)</span><br><span class="line">ll -h (查看文件大小)</span><br><span class="line">ll -rt (文件或者文件夹按时间顺序排序)</span><br></pre></td></tr></table></figure>
+<p><strong>创建目录：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir (列如：mkdir ruozedate/)</span><br><span class="line">mkdir -p 4/5/6 (创建级联目录)</span><br><span class="line">mkdir 4 5 6 (创建并行目录)</span><br></pre></td></tr></table></figure>
+<p><strong>移动命令：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mv 原路径文件夹/文件 目标端的路径文件夹/文件</span><br><span class="line">列如 (mv instail.log ruozedate/)</span><br><span class="line">也可以在移动的过程中重命名</span><br><span class="line">列如 (mv instail.log ruozedate/instail.log2019)</span><br><span class="line">注意 (移动只有一份)</span><br></pre></td></tr></table></figure>
+<p><strong>复制命令：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp 原路径文件夹/文件 目标路径文件夹/文件</span><br><span class="line"> 列如 (cp instail.log ruozedate/instail.log2019&quot;复制的过程中可以重新命名&quot;)</span><br><span class="line">如果复制的是文件夹的话 需要加 -r</span><br><span class="line"> 列如 (cp -r d66 ruozedate/d6&quot;复制的过程可以重命名&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>查看帮助命令：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列如: ls --help</span><br></pre></td></tr></table></figure>
+<p><strong>查看文件内容：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat (文件内容一下子全部显示)</span><br><span class="line">more (文件内容分页显示，按空格往下查看，不能往回查看，按q退出)</span><br><span class="line">less（文件内容分页显示，按下箭头往下查看，上箭头往回查看，按q退出）</span><br></pre></td></tr></table></figure>
+<p><strong>实时查看：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail -f xxx.log</span><br><span class="line">tail -F xxx.log F=f+retry</span><br></pre></td></tr></table></figure>
+<p><strong>别名：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls -l==ll (ll就是别名)</span><br><span class="line">alias rzcd=&apos;cd /home/jepson/&apos; (在当前窗口输入 rzcd命令 就可以进入jespon下，注意：当前 session生效)</span><br><span class="line">永久生效该怎么配置：</span><br><span class="line"> (1)全局环境变量文件： vi /etc/profile (在profile中输入 alias rzcd=&apos;cd /home/jepson/&apos; )，wq退出，输入 source /etc/profile，这样就可以永久生效了。</span><br><span class="line">   (2)个人环境变量文件： vi .bash_profile (在profile中输入 alias rzcd=&apos;cd /home/jepson/&apos; ),退出，输入source .bash_profile或者 . .bash_profile,这样也可以永久生效。</span><br></pre></td></tr></table></figure>
+<p><strong>创建空文件：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch (列如：touch instail.log)</span><br></pre></td></tr></table></figure>
+<p><strong>删除命令：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm xxx.log (删除文件)</span><br><span class="line">rm -r xxx (删除文件夹)</span><br><span class="line">rm -f xxx.log (强制删除)</span><br><span class="line">注意：(-r 只代表文件夹   -f 表示强制)</span><br></pre></td></tr></table></figure>
+<p><strong>设置变量:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置 key=value (前后不能有空格) 使用 $&#123;key&#125;</span><br><span class="line">列如：设置path=&quot;123&quot;   之后echo $&#123;path&#125;,就会输出&quot;123&quot;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -539,15 +509,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/04/hello-world/" rel="next" title="Linux一些常用命令">
-                <i class="fa fa-chevron-left"></i> Linux一些常用命令
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/04/Linux命令进阶/" rel="prev" title="Linux命令进阶">
+                Linux命令进阶 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -631,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -701,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux基本命令："><span class="nav-number">1.</span> <span class="nav-text">Linux基本命令：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux基本命令："><span class="nav-number">1.</span> <span class="nav-text">Linux基本命令：</span></a></li></ol></div>
             
 
           </div>
