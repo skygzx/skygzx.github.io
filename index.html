@@ -597,45 +597,17 @@
 
       
         
-          
-            <a id="more"></a>
-<h2 id="Linux基本命令："><a href="#Linux基本命令：" class="headerlink" title="Linux基本命令："></a><strong>Linux基本命令：</strong></h2><p><strong>查看IP:</strong></p>
+          <h2 id="Linux基本命令："><a href="#Linux基本命令：" class="headerlink" title="Linux基本命令："></a><strong>Linux基本命令：</strong></h2><p><strong>查看IP:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ipconfig(windows)</span><br></pre></td></tr></table></figure>
 <p><strong>关闭防护墙：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service ipconfig stop</span><br><span class="line">chkconfig off</span><br></pre></td></tr></table></figure>
-<p><strong>查看当前光标所在路径：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
-<p><strong>Linux系统中根目录是指：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/</span><br></pre></td></tr></table></figure>
-<p><strong>有关于cd相关命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd 或者 cd~ (切换到根目录)</span><br><span class="line">cd - (切换到上次目录)</span><br><span class="line">cd ../ (切换到上层目录)</span><br><span class="line">cd ../ ../ (切换到上两层目录)</span><br></pre></td></tr></table></figure>
-<p><strong>目录路径：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">绝对路径 (例如： /home/etc  /为开头)</span><br><span class="line">相对路径 (当前目录开始，没有/为开头)</span><br></pre></td></tr></table></figure>
-<p><strong>清空屏幕：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clear</span><br></pre></td></tr></table></figure>
-<p><strong>有关于ll ls 相关知识点：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls (查看当前目录下所有文件和文件夹)</span><br><span class="line">ll (查看当前目录下所有文件和文件夹详细信息)</span><br><span class="line">ls -l == ll (别名)</span><br><span class="line">ls -l -a == ls -la (查看所有隐藏文件和文件夹)</span><br><span class="line">-a 表示查看隐藏的文件和文件夹 (以.开头的文件或者文件夹)</span><br><span class="line">ll -h (查看文件大小)</span><br><span class="line">ll -rt (文件或者文件夹按时间顺序排序)</span><br></pre></td></tr></table></figure>
-<p><strong>创建目录：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir (列如：mkdir ruozedate/)</span><br><span class="line">mkdir -p 4/5/6 (创建级联目录)</span><br><span class="line">mkdir 4 5 6 (创建并行目录)</span><br></pre></td></tr></table></figure>
-<p><strong>移动命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mv 原路径文件夹/文件 目标端的路径文件夹/文件</span><br><span class="line">列如 (mv instail.log ruozedate/)</span><br><span class="line">也可以在移动的过程中重命名</span><br><span class="line">列如 (mv instail.log ruozedate/instail.log2019)</span><br><span class="line">注意 (移动只有一份)</span><br></pre></td></tr></table></figure>
-<p><strong>复制命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp 原路径文件夹/文件 目标路径文件夹/文件</span><br><span class="line"> 列如 (cp instail.log ruozedate/instail.log2019&quot;复制的过程中可以重新命名&quot;)</span><br><span class="line">如果复制的是文件夹的话 需要加 -r</span><br><span class="line"> 列如 (cp -r d66 ruozedate/d6&quot;复制的过程可以重命名&quot;)</span><br></pre></td></tr></table></figure>
-<p><strong>查看帮助命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列如: ls --help</span><br></pre></td></tr></table></figure>
-<p><strong>查看文件内容：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat (文件内容一下子全部显示)</span><br><span class="line">more (文件内容分页显示，按空格往下查看，不能往回查看，按q退出)</span><br><span class="line">less（文件内容分页显示，按下箭头往下查看，上箭头往回查看，按q退出）</span><br></pre></td></tr></table></figure>
-<p><strong>实时查看：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail -f xxx.log</span><br><span class="line">tail -F xxx.log F=f+retry</span><br></pre></td></tr></table></figure>
-<p><strong>别名：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls -l==ll (ll就是别名)</span><br><span class="line">alias rzcd=&apos;cd /home/jepson/&apos; (在当前窗口输入 rzcd命令 就可以进入jespon下，注意：当前 session生效)</span><br><span class="line">永久生效该怎么配置：</span><br><span class="line"> (1)全局环境变量文件： vi /etc/profile (在profile中输入 alias rzcd=&apos;cd /home/jepson/&apos; )，wq退出，输入 source /etc/profile，这样就可以永久生效了。</span><br><span class="line">   (2)个人环境变量文件： vi .bash_profile (在profile中输入 alias rzcd=&apos;cd /home/jepson/&apos; ),退出，输入source .bash_profile或者 . .bash_profile,这样也可以永久生效。</span><br></pre></td></tr></table></figure>
-<p><strong>创建空文件：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch (列如：touch instail.log)</span><br></pre></td></tr></table></figure>
-<p><strong>删除命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm xxx.log (删除文件)</span><br><span class="line">rm -r xxx (删除文件夹)</span><br><span class="line">rm -f xxx.log (强制删除)</span><br><span class="line">注意：(-r 只代表文件夹   -f 表示强制)</span><br></pre></td></tr></table></figure>
-<p><strong>设置变量:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">设置 key=value (前后不能有空格) 使用 $&#123;key&#125;</span><br><span class="line">列如：设置path=&quot;123&quot;   之后echo $&#123;path&#125;,就会输出&quot;123&quot;</span><br></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/04/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

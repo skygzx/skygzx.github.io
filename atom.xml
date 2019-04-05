@@ -44,18 +44,14 @@
     <link href="http://yoursite.com/2019/04/04/hello-world/"/>
     <id>http://yoursite.com/2019/04/04/hello-world/</id>
     <published>2019-04-04T09:40:23.385Z</published>
-    <updated>2019-04-05T10:24:09.559Z</updated>
+    <updated>2019-04-05T10:26:42.345Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;Linux基本命令：&quot;&gt;&lt;a href=&quot;#Linux基本命令：&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;Linux基本命令：&quot;&gt;&lt;a href=&quot;#Linux基本命令：&quot; class=&quot;headerlink&quot; title=&quot;Linux基本命令：&quot;&gt;&lt;/a&gt;&lt;strong&gt;Linux基本命令：&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;查看IP:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ifconfig&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ipconfig(windows)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;关闭防护墙：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;service ipconfig stop&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;chkconfig off&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
