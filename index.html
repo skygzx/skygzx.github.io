@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/关于生产中tail -f和tail -F的坑/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/YARN HA架构图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/05/关于生产中tail -f和tail -F的坑/" itemprop="url">关于生产中tail -f和tail -F的坑</a></h1>
+                <a class="post-title-link" href="/2019/04/07/YARN HA架构图/" itemprop="url">YARN HA架构图</a></h1>
         
 
         <div class="post-meta">
@@ -363,8 +363,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T19:57:23+08:00">
-                2019-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:19:07+08:00">
+                2019-04-07
               </time>
             
 
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  291
+                  274
                 </span>
               
 
@@ -435,14 +435,12 @@
 
       
         
-          <p>大家可能都知道，tail -f 和tail -F都是用来进行实时监控的<br>那么这两者之间有什么区别呢？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/05/关于生产中tail -f和tail -F的坑/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<p><strong>1.YARN架构图：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/2019032919063379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">2.架构图详解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">YARN HA </span><br><span class="line">hadoop001：zk  rm(zkfc)  nm</span><br><span class="line">hadoop002：zk  rm(zkfc)  nm</span><br><span class="line">hadoop003：zk            nm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ZKFC: 线程  </span><br><span class="line">只作为RM进程的一个线程而非独立的进程存在</span><br><span class="line"></span><br><span class="line">RMStateStore: </span><br><span class="line">存储在zk的/rmstore目录下。</span><br><span class="line">1.activeRM会向这个目录写APP信息</span><br><span class="line">2.当activeRM挂了，另外一个standby RM通过</span><br><span class="line">ZKFC选举成功为active，会从/rmstore读取相应的作业信息。</span><br><span class="line">重新构建作业的内存信息，启动内部的服务，</span><br><span class="line">开始接收NM的心跳，构建集群的资源信息，并且接收客户端的作业提交请求。</span><br><span class="line"></span><br><span class="line">RM:</span><br><span class="line">1.启动时候会向ZK的/rmstore目录写lock文件，写成功就为active，否则standby.</span><br><span class="line">rm节点zkfc会一直监控这个lock文件是否存在，假如不存在，就为active，否则为standby.</span><br><span class="line">2.接收client的请求，接收和监控NM的资源状况的汇报，负载资源的分配和调度。</span><br><span class="line">3.启动和监控APPMASTER on NM节点的container。</span><br><span class="line">applicationsmanager RM</span><br><span class="line">applicationmaster   NM container容器里  作业的主程序</span><br><span class="line"></span><br><span class="line">NM:</span><br><span class="line">节点资源的管理  启动容器运行task计算  上报资源</span><br></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -498,7 +496,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/作业调度 crontab -e和crontab -l/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/HDFS HA架构图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -517,7 +515,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/05/作业调度 crontab -e和crontab -l/" itemprop="url">作业调度 crontab -e和crontab -l</a></h1>
+                <a class="post-title-link" href="/2019/04/07/HDFS HA架构图/" itemprop="url">HDFS HA架构图</a></h1>
         
 
         <div class="post-meta">
@@ -529,8 +527,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T19:49:49+08:00">
-                2019-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:17:30+08:00">
+                2019-04-07
               </time>
             
 
@@ -539,28 +537,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -585,7 +561,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  192
+                  456
                 </span>
               
 
@@ -623,14 +599,13 @@
 
       
         
-          <p><strong>作业调度：</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/05/作业调度 crontab -e和crontab -l/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<p><strong>1.HA进程: 假设有3台机器：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">hadoop001:ZK    NN ZKFC  JN    DN</span><br><span class="line"></span><br><span class="line">hadoop002:ZK    NN ZKFC  JN    DN</span><br><span class="line"></span><br><span class="line">hadoop003:ZK             JN    DN</span><br><span class="line"></span><br><span class="line">jounalNode数量布置的多少: 一般根据HDFS请求量 及数据量（一般部署2n+1个）</span><br><span class="line">ZK集群 ：部署2n+1 个，奇数， 选举 谁做active standby</span><br><span class="line">生产上：20台节点: 5台</span><br><span class="line">	    20~100台节点: 7/9/11台</span><br><span class="line">	    &gt;100台节点: 11台 </span><br><span class="line">但是: 不是说zk节点越多越好，如果部署的多，它选举active投票的时间就会长，会导致</span><br><span class="line">对外提供服务特别的慢。</span><br><span class="line"></span><br><span class="line">如果公司有几百台节点, 那么zk部署的机器就它一个进程，因为zk进行选举的时候，如果选</span><br><span class="line">举的快慢跟这台机器的繁忙程度有关系，跟进程数也有关系，若果机器过去繁忙，导致zk夯</span><br><span class="line">住了，那么如果这时候NN挂掉了，就会导致standby无法切换成active。</span><br></pre></td></tr></table></figure>
+<p><strong>HDFS HA架构流程图：</strong><br><img src="https://img-blog.csdnimg.cn/20190329094907897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>流程说明：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">HA是为了解决单点问题</span><br><span class="line">通过JN集群共享状态</span><br><span class="line">通过ZKFC选举active</span><br><span class="line">监控状态，自动备援。</span><br><span class="line">DN: 同时向NN1 NN2发送心跳和块报告。</span><br><span class="line">ACTIVE NN: 操作记录写到自己的editlog</span><br><span class="line">           同时写JN集群</span><br><span class="line">	   接收DN的心跳和块报告</span><br><span class="line">STANDBY NN: 同时接收JN集群的日志，显示读取执行log操作(重演)，</span><br><span class="line">            使得自己的元数据和active nn节点保持一致。</span><br><span class="line">	    接收DN的心跳和块报告</span><br><span class="line"></span><br><span class="line">JounalNode: 用于active standby nn节点的同步数据</span><br><span class="line">            一般部署2n+1</span><br><span class="line"></span><br><span class="line">ZKFC: 单独的进程</span><br><span class="line">	监控NN监控健康状态</span><br><span class="line">	向zk集群定期发送心跳，使得自己可以被选举；</span><br><span class="line">	当自己被zk选举为active的时候，zkfc进程通过RPC协议调用使NN节点的状态变为active，</span><br><span class="line">	对外提供实时服务，是无感知的。</span><br></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -686,7 +661,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/sql面试题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -705,7 +680,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/05/sql面试题/" itemprop="url">sql面试题</a></h1>
+                <a class="post-title-link" href="/2019/04/07/关于 HDFS和Yarn HA 的了解/" itemprop="url">关于 HDFS和Yarn HA 的了解</a></h1>
         
 
         <div class="post-meta">
@@ -717,8 +692,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T19:42:11+08:00">
-                2019-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:15:44+08:00">
+                2019-04-07
               </time>
             
 
@@ -727,28 +702,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/面试题/" itemprop="url" rel="index">
-                    <span itemprop="name">面试题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -773,7 +726,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  208
+                  499
                 </span>
               
 
@@ -811,14 +764,16 @@
 
       
         
-          <h1 id="面试题："><a href="#面试题：" class="headerlink" title="面试题："></a>面试题：</h1><h2 id="一-哪些部门的薪水最高两位的工种有哪些？（分组取前几位）"><a href="#一-哪些部门的薪水最高两位的工种有哪些？（分组取前几位）" class="headerlink" title="一.哪些部门的薪水最高两位的工种有哪些？（分组取前几位）"></a>一.哪些部门的薪水最高两位的工种有哪些？（分组取前几位）</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/05/sql面试题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<p><strong>1.企业中为什么要用集群：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">每一个角色都是一个进程：</span><br><span class="line">HDFS：</span><br><span class="line">	NN：老大（接受读写流程请求）Master</span><br><span class="line">	SNN：1h checkpoint secondary（每隔一小时都会备份NN中的editlog文件合并成新</span><br><span class="line">		的fsimage）</span><br><span class="line">	DN：存储数据块和数据块的校验和</span><br><span class="line"></span><br><span class="line">YARN:</span><br><span class="line">RM  老大 master</span><br><span class="line">NM</span><br><span class="line">	（注：主从架构  master-slave </span><br><span class="line">比如hdfs读写请求都是先NN节点；每一条请求都要先经过NN，如果单节点NN挂了，那么就不</span><br><span class="line">能提供对外服务，所以我们要用到集群的概念。</span><br><span class="line">	RM也是一样。)</span><br></pre></td></tr></table></figure>
+<p>==但是：hbase 读写请求不是经过老大master，这点需要注意，那什么经过master，就是建表语句，删表语句）==</p>
+<p><strong>2.企业生产中的配置：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">如果只有一台节点，如果NN挂了，那么就无法对外提供访问了。</span><br><span class="line">企业中我们一般会配置两个NN节点，（实时的，任何时候只有一台active对外，另一台standby实时</span><br><span class="line">	备份，随时准备着从stanby切换成active状态，对外提供服务。）</span><br><span class="line">NN1：active            hdfs://ip1:9000/ 代码 shell脚本</span><br><span class="line">NN2：standby           hdfs://ip2:9000/</span><br><span class="line">	（假设NN1在11点挂了，就在那一霎那，NN2会瞬间切换成actice，对外提供访问。）</span><br><span class="line">查看hdfs可以这样查看：</span><br><span class="line">	hdfs dfs -ls </span><br><span class="line"> hdfs dfs -ls /</span><br><span class="line"> hdfs dfs -ls hdfs://ip:9000/</span><br><span class="line">如果NN1挂掉了，我们切换到NN2，难道我们还要手动修改： hdfs://ip2:9000/吗?</span><br><span class="line">这个时候我们抛出一个概念：无感知的：（命名空间：nameservice1  CDH</span><br><span class="line">										 生产上：dw）</span><br></pre></td></tr></table></figure>
+<p><strong>3.命名空间：</strong><br><img src="https://img-blog.csdnimg.cn/20190328153912947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如上图所示：命名空间 RUOZEG6 不是一个进程，当我们输入命令：hdfs dfs -ls hdfs：//RUOZEG6/这个命令时，他会去找 core-size.xml 和 hdfs-site.xml这两个配置文件，这两个配置文件里配置了 hadoop001和hadoop002这两台机器挂在了 命名空间下面，它会去尝试连接第一台机器，如果第一台不是active，那么他会去连第二台机器。</span><br></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -874,7 +829,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/mysql中的查询语法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/yarn资源调优怎么调，依据是什么/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -893,7 +848,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/05/mysql中的查询语法/" itemprop="url">mysql查询语法</a></h1>
+                <a class="post-title-link" href="/2019/04/07/yarn资源调优怎么调，依据是什么/" itemprop="url">YARN资源调优怎么调，依据是什么</a></h1>
         
 
         <div class="post-meta">
@@ -905,196 +860,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T19:37:04+08:00">
-                2019-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-	 
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="创建三个表并添加数据："><a href="#创建三个表并添加数据：" class="headerlink" title="创建三个表并添加数据："></a>创建三个表并添加数据：</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/05/mysql中的查询语法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-	<div>
-      
-	</div>
-
-    
-
-
-    
-
-    
-
-    <div>
-    
-   </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/mysql的基础语句/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="skygzx">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="skygzx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/05/mysql的基础语句/" itemprop="url">mysql的基础语句</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T19:03:42+08:00">
-                2019-04-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:13:56+08:00">
+                2019-04-07
               </time>
             
 
@@ -1127,339 +894,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  965
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="mysql的基础语句："><a href="#mysql的基础语句：" class="headerlink" title="mysql的基础语句："></a>mysql的基础语句：</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/05/mysql的基础语句/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-	<div>
-      
-	</div>
-
-    
-
-
-    
-
-    
-
-    <div>
-    
-   </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/mysql二进制部署/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="skygzx">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="skygzx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/05/mysql二进制部署/" itemprop="url">mysql二进制部署</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T18:55:42+08:00">
-                2019-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-	 
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.9k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  10
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="mysql环境搭建"><a href="#mysql环境搭建" class="headerlink" title="mysql环境搭建"></a>mysql环境搭建</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/05/mysql二进制部署/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-	<div>
-      
-	</div>
-
-    
-
-
-    
-
-    
-
-    <div>
-    
-   </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/05/jdk1.8安装/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="skygzx">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="skygzx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/05/jdk1.8安装/" itemprop="url">jdk1.8安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-05T18:50:55+08:00">
-                2019-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-	 
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  136
+                  117
                 </span>
               
 
@@ -1497,14 +932,13 @@
 
       
         
-          <h2 id="JDK的安装-amp-amp-全局环境变量"><a href="#JDK的安装-amp-amp-全局环境变量" class="headerlink" title="JDK的安装&amp;&amp;全局环境变量"></a>JDK的安装&amp;&amp;全局环境变量</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/05/jdk1.8安装/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<p><strong>1.yarn的资源调优怎么调，依据是什么</strong><br>①比如服务器256G物理内存，有DN,NM,RS，三个进程，yarn调优怎么做？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个题目从两个角度回答：</span><br><span class="line">1.机器总内存，预留内存，各个进程内存的经验值</span><br><span class="line">2.余下就是yarn资源的总内存，然后参数就是公众号 里的参数。but，那些参数如何设置让资源利用最大化？</span><br></pre></td></tr></table></figure>
+<p>以后再补！</p>
+
+          
         
       
     </div>
@@ -1560,7 +994,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/Linux命令进阶/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Hive 实战/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -1579,7 +1013,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/04/Linux命令进阶/" itemprop="url">Linux命令进阶</a></h1>
+                <a class="post-title-link" href="/2019/04/07/Hive 实战/" itemprop="url">Hive 实战</a></h1>
         
 
         <div class="post-meta">
@@ -1591,8 +1025,647 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T22:22:57+08:00">
-                2019-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:11:36+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+	 
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<font color="red" size="3">需求：统计各个城市所属区域下最受欢迎的Top 3产品</font><br>　　需要用到窗口函数  （下面再说）<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">大数据处理：离线、实时（不管是离线还是实时，都要进行以下的步骤：）</span><br><span class="line"></span><br><span class="line">input ：HDFS、mysql、Hbase......                   处理之前肯定有数据输入进来（数据可以存放的位置）</span><br><span class="line"></span><br><span class="line">处理（分布式） MapReduce/Hive/Spark/Flink           处理的方式有很多种</span><br><span class="line"></span><br><span class="line">output ：mysql、HDFS.....                          处理之后肯定要输出到某个地方</span><br><span class="line"></span><br><span class="line">本次案例中，从hdfs和mysql拿数据，然后用hive进行处理，然后输入到mysql中去。</span><br><span class="line"></span><br><span class="line">本次需求：统计各个城市所属区域下最受欢迎的Top 3产品</span><br></pre></td></tr></table></figure><br><br>我们可以查看一下电商网站，点击一个商品，（再浏览器里的开发者工具，查看一下列如：log。gif的日志，）会发现：<br>　　日志中会有：商品信息，比如城市ID，产品ID，用户信息，但是没有城市所属区域的名字和产品的名字。我么可以从日志中获取所需要的商品信息，但是城市的名称和产品的名称日志里是没有的。<br>　　<font color="blue" size="3">一般固定的信息，不变的信息是存放在关系型数据库中的，比如：mysql中：</font><br>　　<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql下还会存放两张表格：</span><br><span class="line">	城市区域对应的表</span><br><span class="line">	产品信息表</span><br><span class="line">Hive中存放的是：</span><br><span class="line">	用户点击行为的日志表</span><br></pre></td></tr></table></figure><br><br>MySQL里有两张表，city_info城市信息表、product_info产品信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093056707.png" alt="在这里插入图片描述"><br>city_info城市信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093112338.png" alt="在这里插入图片描述"><br>product_info产品信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093156384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在user_click.txt中有5列，第一列是用户id，第二列是session  id 不需要关心，第三列是访问的时间，第四列是城市的id，第五列是产品的id。<br><br>现在用hive创建一张  用户点击行为日志表 ：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table user_click(</span><br><span class="line">user_id int,</span><br><span class="line">session_id string,</span><br><span class="line">action_time string,</span><br><span class="line">city_id int,</span><br><span class="line">product_id int</span><br><span class="line">) partitioned by (day string)</span><br><span class="line">row format delimited fields terminated by &apos;,&apos;;</span><br></pre></td></tr></table></figure><br><br>然后加载数据进去：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">load data local inpath &apos;/home/hadoop/data/topn/user_click.txt&apos; overwrite into</span><br><span class="line"> table user_click partition(day=&apos;2016-05-05&apos;);</span><br></pre></td></tr></table></figure><br><br>　　<font color="red" size="3">就是说现在有三张表：city_info城市信息表、product_info产品信息表（MySQL），user_click用户点击行为日志表（hive）<br>　　现在需要在hive中操作这三张表，所以需要把MySQL中的两张表想办法弄到hive上来。在Hive里面完成我们的业务逻辑统计操作，在hive中处理过后再把处理的结果输出到MySQL中去。在这里就需要一个工具：Sqoop。</font>
+
+<p>Sqoop也是个顶级项目。网址：<a href="http://sqoop.apache.org/" target="_blank" rel="noopener">http://sqoop.apache.org/</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20190319093611360.png" alt="在这里插入图片描述"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sqoop：关系型数据库 &lt;==&gt; Hadoop </span><br><span class="line">Sqoop是一个工具，可以在hadoop和关系型数据库之间高效的批量转移数据。就是把hadoop的数据</span><br><span class="line">传输到关系型数据库，或者把关系型数据库的数据传输到hadoop上。</span><br></pre></td></tr></table></figure></p>
+<p>Sqoop有两个版本 ：一和二</p>
+<p>Sqoop: 1.4.7<br>Sqoop2:  1.99.7 （用的很少，不好用）<br><img src="https://img-blog.csdnimg.cn/20190319093749221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><font color="red" size="3">下载Sqoop软件：</font><br><img src="https://img-blog.csdnimg.cn/20190319093825375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">wget <a href="http://archive.cloudera.com/cdh5/cdh/5/sqoop-1.4.6-cdh5.7.0.tar.gz" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/cdh/5/sqoop-1.4.6-cdh5.7.0.tar.gz</a></p>
+<p>解压：<br>tar -zxvf sqoop-1.4.6-cdh5.7.0.tar.gz </p>
+<p>解压之后<font color="red" size="3">把MySQL的驱动拷贝到lib目录下：</font></p>
+<p>cp mysql-connector-java.jar  sqoop-1.4.6-cdh5.7.0/lib/</p>
+<p>配置：<font color="red" size="3">进入到/home/hadoop/app/sqoop-1.4.6-cdh5.7.0/conf  目录：</font><br><img src="https://img-blog.csdnimg.cn/20190319094001714.png" alt="在这里插入图片描述">vi sqoop-env.sh 编辑一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	 加入这几行：</span><br><span class="line">export HADOOP_COMMON_HOME=/home/hadoop/software/compile/hadoop-2.6.0-cdh5.7.0</span><br><span class="line">export HADOOP_MAPRED_HOME=/home/hadoop/software/compile/hadoop-2.6.0-cdh5.7.0</span><br><span class="line">export HIVE_HOME=/home/hadoop/app/hive-1.1.0-cdh5.7.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20190319094018231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">配置完后：<br><img src="https://img-blog.csdnimg.cn/20190319094046874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">配置一下环境变量：[hadoop@10-9-140-90 ~]$ vi .bash_profile  加入这两行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export SQOOP_HOME=/home/hadoop/app/sqoop-1.4.6-cdh5.7.0</span><br><span class="line">export PATH=$SQOOP_HOME/bin:$PATH</span><br><span class="line">source生效一下。</span><br></pre></td></tr></table></figure>
+<p>然后就可以启动sqoop了：<br><img src="https://img-blog.csdnimg.cn/20190319094223979.png" alt="在这里插入图片描述">用 sqoop help  可以查看sqoop的用法：<br><img src="https://img-blog.csdnimg.cn/20190319094253420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">导入导出的出发点是Hadoop</span><br><span class="line">导入(import)： MySQL ==&gt; Hadoop</span><br><span class="line">导出(export)： Hadoop ==&gt; MySQL</span><br><span class="line"></span><br><span class="line">可以  sqoop import --help   查看import的具体用法。</span><br></pre></td></tr></table></figure>
+<p>==现在需要把MySQL上的城市区域信息和产品信息导入到hive中。==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	 MySQL ==&gt; Hive</span><br><span class="line">	 需要先在hive中建立两张表：</span><br><span class="line">	 </span><br><span class="line">create table city_info(</span><br><span class="line">city_id int,</span><br><span class="line">city_name string,</span><br><span class="line">area string</span><br><span class="line">)row format delimited fields terminated by &apos;\t&apos;;</span><br><span class="line"></span><br><span class="line">create table product_info(</span><br><span class="line">product_id int,</span><br><span class="line">product_name string,</span><br><span class="line">extend_info string</span><br><span class="line">)row format delimited fields terminated by &apos;\t&apos;;</span><br></pre></td></tr></table></figure>
+<p>==然后用sqoop工具把数据导入进来：==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">通过：sqoop import --help 看一下如何导入的。</span><br><span class="line"></span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://localhost:3306/ruozedata \</span><br><span class="line">--username root --password 123456 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--table city_info \</span><br><span class="line">--hive-import \</span><br><span class="line">--hive-table city_info \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--fields-terminated-by &apos;\t&apos; \</span><br><span class="line">--lines-terminated-by &apos;\n&apos; \</span><br><span class="line">--split-by city_id \</span><br><span class="line">-m 2</span><br></pre></td></tr></table></figure>
+<font color="red" size="3">　　看上面的语句，总结下来就是，前面先是连接到数据库、用户名、密码、表名，后面是 导入到hive、导入到hive的表名、重写、字段分隔符、行分隔符。<br>　　加delete-target-dir 是因为跑MapReduce的时候，如果指定的目录已经存在会报错，所以加上这个，如果目录存在就删除。<br>　　加split-by 是因为  在Sqoop里面默认的mapper数是4，它处理会以主键id进行区分，比如如果有40条记录，那么就是按照主键id进行分配，每个mapper处理10条数据。但是我们的表是没有主键的，所以在这里要手动指定一下。<br>　　-m 2    指定map的数量为2    m不指定的话就是4</font>
+
+
+<p>==导入的时候报错了：==<br>Exception in thread “main” java.lang.NoClassDefFoundError: org/json/JSONObject<br><img src="https://img-blog.csdnimg.cn/20190319095041346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>这是由于sqoop缺少java-json.jar包 导致的，下载这个jar包，然后放到/home/hadoop/app/sqoop-1.4.6-cdh5.7.0/lib/下即可。<br>下载：weget <a href="http://www.java2s.com/Code/JarDownload/java-json/java-json.jar.zip" target="_blank" rel="noopener">http://www.java2s.com/Code/JarDownload/java-json/java-json.jar.zip</a><br>下载后需要解压一下。</p>
+<p>然后再运行import语句，发现还有错误：<br><img src="https://img-blog.csdnimg.cn/20190319095211134.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">这是因为缺少hive下的hive-exec-1.1.0-cdh5.7.0.jar这个jar包导致的，需要把</p>
+<p>/home/hadoop/app/hive-1.1.0-cdh5.7.0/lib/hive-exec-1.1.0-cdh5.7.0.jar</p>
+<p>拷贝到   ~/app/sqoop-1.4.6-cdh5.7.0/lib/  下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">然后再运行语句，运行成功了，但是去d6_test数据库查还是没有，</span><br><span class="line">仔细检查上面那个语句发现少了个 --hive-database d6_test \    ，</span><br><span class="line">然后发现数据导入到default数据库里面了。</span><br><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:mysql://localhost:3306/ruozedata \</span><br><span class="line">--username root --password 123456 \</span><br><span class="line">--delete-target-dir \</span><br><span class="line">--table city_info \</span><br><span class="line">--hive-import \</span><br><span class="line">--hive-database d6_test \</span><br><span class="line">--hive-table city_info \</span><br><span class="line">--hive-overwrite \</span><br><span class="line">--fields-terminated-by &apos;\t&apos; \</span><br><span class="line">--lines-terminated-by &apos;\n&apos; \</span><br><span class="line">--split-by city_id \</span><br><span class="line">-m 2</span><br></pre></td></tr></table></figure>
+<p>然后就可以看到了：<br><img src="https://img-blog.csdnimg.cn/20190319095451187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">到现在 前期的准备工作已经做完，‘</p>
+<p>Hive中已经有三张表： city_info  product_info  user_click</p>
+<p>下面要做的就是统计分析：<br><img src="https://img-blog.csdnimg.cn/2019031909553634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">==先做一张   商品基础信息 表==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table tmp_product_click_basic_info</span><br><span class="line">as</span><br><span class="line">select u.product_id, u.city_id, c.city_name, c.area</span><br><span class="line">from</span><br><span class="line">(select product_id, city_id from user_click where day=&apos;2016-05-05&apos; ) u</span><br><span class="line">join</span><br><span class="line">(select city_id, city_name,area from city_info) c</span><br><span class="line">on u.city_id = c.city_id ;</span><br></pre></td></tr></table></figure>
+<p>==再创建一张  各区域下各商品的访问次数  的表==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table tmp_area_product_click_count </span><br><span class="line">as </span><br><span class="line">select </span><br><span class="line">product_id, area, count(1) click_count </span><br><span class="line">from </span><br><span class="line">tmp_product_click_basic_info </span><br><span class="line">group by </span><br><span class="line">product_id, area ;</span><br></pre></td></tr></table></figure>
+<p>==再创建一张   获取完整的商品信息的各区域的访问次数  的表：==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table tmp_area_product_click_count_full_info</span><br><span class="line">as</span><br><span class="line">select </span><br><span class="line">a.product_id, b.product_name, a.area, a.click_count</span><br><span class="line">from </span><br><span class="line">tmp_area_product_click_count a join product_info b</span><br><span class="line">on a.product_id = b.product_id</span><br></pre></td></tr></table></figure>
+<p> ==最后需要一个窗口函数，根据区域进行分组，然后过滤：==<br> 这个就是所要的结果：</p>
+<p>create table area_product_click_count_top3 as<br>select t.*,’2016-05-05’ as day<br>from (<br>select<br>product_id, product_name,area, click_count,<br>==row_number() over(partition by area order by click_count desc) rank ==<font color="red" size="3">（窗口函数，通过区域分区，再通过点击量排名）</font><br>from tmp_area_product_click_count_full_info<br>) t where t.rank &lt;=3;<font color="red" size="3">（在获取最后的结果时，要将day带上，我们是通过分区建表的，最后当然要将day带上，这样才知道统计的是哪一天的。）</font></p>
+<p><img src="https://img-blog.csdnimg.cn/20190319095951699.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>==最后把统计结果输出到MySQL 用 sqoop export。==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在MySQL中创建一张一样的表：</span><br><span class="line"></span><br><span class="line">create table area_product_click_count_top3 </span><br><span class="line">(product_id int(11),</span><br><span class="line">product_name varchar(255),</span><br><span class="line">area varchar(255),</span><br><span class="line">click_count int(11),</span><br><span class="line">rank int(11),</span><br><span class="line">day varchar(255))</span><br><span class="line">ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20190319100251497.png" alt="在这里插入图片描述"><br>==然后用 sqoop  export 把hive的这张表的数据导入进来。==</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">用下面语句：</span><br><span class="line"></span><br><span class="line">sqoop export \</span><br><span class="line">--connect jdbc:mysql://localhost:3306/ruozedata \</span><br><span class="line">--username root --password 123456 \</span><br><span class="line">--table area_product_click_count_top3 \</span><br><span class="line">--columns product_id,product_name,area,click_count,rank,day \</span><br><span class="line">--export-dir /user/hive/warehouse/d6_test.db/area_product_click_count_top3 \</span><br><span class="line">--input-fields-terminated-by &apos;\001&apos; \</span><br><span class="line">-m 2</span><br><span class="line"></span><br><span class="line">运行成功后，去mysql里看一下：</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2019031910042439.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">再重新运行一下上面的sqoop export 语句，再看：<br><img src="https://img-blog.csdnimg.cn/20190319100443521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">==发现重复了。这时需要加上两行 去重：（下面蓝色标注）==<br>sqoop export \<br>–connect jdbc:mysql://localhost:3306/ruozedata \<br>–username root –password 123456 \<br>–table area_product_click_count_top3 \<br>–columns product_id,product_name,area,click_count,rank,day \<br>–export-dir /user/hive/warehouse/d6_test.db/area_product_click_count_top3 \</p>
+<font color="blue" size="3">–update-key product_id \<br>–update-mode updateonly \</font>
+
+<p>–input-fields-terminated-by ‘\001’ \<br>-m 2</p>
+<p>另外：上面的过程如果每天需要处理，不可能每次都要像上面一样处理，需要把上面的整个过程放在shell脚本里面，每天凌晨去执行处理昨天的数据，这个就是离线处理。离线处理的时间一般都比较久，比如几小时、十几个小时等。</p>
+<p>另外，上面很多group by 这可能会导致数据倾斜，那么数据倾斜应该怎么去解决？？？（面试必问）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+	</div>
+
+    
+
+
+    
+
+    
+
+    <div>
+    
+   </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Hive 进阶/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skygzx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skygzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/Hive 进阶/" itemprop="url">Hive 进阶</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:10:27+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+	 
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>**</p>
+<h2 id="一-分区表-静态分区和动态分区"><a href="#一-分区表-静态分区和动态分区" class="headerlink" title="一.分区表:(静态分区和动态分区)"></a><font color="red" size="3">一.分区表:(静态分区和动态分区)</font></h2><p><strong>
+</strong>PARTITION 分区表：**<br>　　分区表：<br>　　话务记录、日志记录   rdbms<br>　　记录表是要分表的，因为生产上数据量是很大的，这样可以提高性能，可以当作是分表，将每一天的记录分成一张表：<br>call_record_20190808<br>​        call_record_20190809<br>​        call_record_20190810<br>​        比如：大数据  分区表<br>​          /user/hive/warehouse/emp/d=20190808/…..<br>​    /user/hive/warehouse/emp/d=20190809/…..<br>​<br>​    当你要查询某一天的记录时只需要：select …. from table where d=’20190808’    就行了，记住要加上where条件。<br>where后面带上分区条件，它会去相应的分区中查找而不需要在整张表中查询，提高了性能。</p>
+<p>大数据经常遇到的瓶颈问题：IO</p>
+<p>有几个方面：磁盘（disk）  IO      第二个：网络（network）IO    </p>
+<p>以后在优化的过程中必然要考虑的两点。</p>
+<p>下面是分区的练习：</p>
+<p>在/home/hadoop/data/目录下有个order.txt订单文件：（有订单编号和时间两个字段)</p>
+<p><img src="https://img-blog.csdnimg.cn/20190317095902860.png" alt="在这里插入图片描述"><br>创建一张分区表order_partition：</p>
+<p>create table order_partition(<br>order_no string,<br>event_time string<br>)<br>PARTITIONED BY(event_month string)<br>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>把数据加载到表里：<br>load data local inpath ‘/home/hadoop/data/order.txt’ overwrite into table order_partition<br>PARTITION  (event_month=’2014-05’);</p>
+<p>加载之后查询一下：</p>
+<p><img src="https://img-blog.csdnimg.cn/2019031710001283.png" alt="在这里插入图片描述"><br>从上面看到有三列，前面两列是真正的列，是字段名，最后一列并不是真正的列，它只是分区的一个标识，是伪列。desc可以看一下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190317100108212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190317100117913.png" alt="在这里插入图片描述">然后我们用另一种方式，然后在order_partition下面手动创建一个分区event_month=2014-06</p>
+<p>然后把order.txt文件丢进去：<br><img src="https://img-blog.csdnimg.cn/20190317100213279.png" alt="在这里插入图片描述">然后再去hive里查一下这张表：<br><img src="https://img-blog.csdnimg.cn/20190317100239844.png" alt="在这里插入图片描述"><br>发现并没有2014-06的分区；为什么？？？<br>是因为2014-06这个分区是手动去创建的，并不会在mysql的元数据里。你去查的话是查不到的。</p>
+<p>可以去mysql的partitions表里看一下：<br><img src="https://img-blog.csdnimg.cn/20190317100326257.png" alt="在这里插入图片描述"><br>此时如果要想加上这个分区该如何操作？？看官网：<br><img src="https://img-blog.csdnimg.cn/20190317100345192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">根据官网写好这个语句加个分区：<br>ALTER TABLE order_partition ADD IF NOT EXISTS PARTITION (event_month=’2014-06’) ;</p>
+<p>然后再查一下就有分区了：<br><img src="https://img-blog.csdnimg.cn/20190317100422532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190317100438880.png" alt="在这里插入图片描述">那么在hive里如何查看表有哪些分区？？</p>
+<p>show partitions 表名;     ：<br><img src="https://img-blog.csdnimg.cn/20190317100512412.png" alt="在这里插入图片描述"><br>（这些都是从mysql的元数据里查出来的）</p>
+<p>上面是创建一级分区，怎样创建多级分区？？<br>create table order_mulit_partition(<br>order_no string,<br>event_time string<br>)<br>PARTITIONED BY(event_month string, step string)<br>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>然后加载数据到表里：<br>load data local inpath ‘/home/hadoop/data/order.txt’ overwrite into table order_mulit_partition<br>PARTITION  (event_month=’2014-05’, step=’1’);</p>
+<p><img src="https://img-blog.csdnimg.cn/20190317104301283.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190317104310656.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190317104321896.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190317104332350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190317104338289.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">（上面是通过网页查看）<br>什么时候会用到多级分区？？<br>比如 数据量很大，按照 天 进行分区，然后还是很大，再按照小时进行分区。如果你去查的话，按照小时去查会更快。</p>
+<p>在生产上面，数据量大的话会有好几层分区。</p>
+<p>在写查询语句的时候，一定把条件中分区写到最底层，不然数据量很大的话，可能会被刷屏：<br>select * from  order_mulit_partition where event_month=’2014-05’ and step=’1’;<br><img src="https://img-blog.csdnimg.cn/20190317104514976.png" alt="在这里插入图片描述"><br>上面有一级分区、多级分区，这些都是静态分区。</p>
+<p>还有动态分区。</p>
+<p>（小技巧：获取一张表的创建语句： show create table 表名）<br><img src="https://img-blog.csdnimg.cn/20190317111616457.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">现在先创建一张静态分区表emp_static_partition：</p>
+<p>CREATE TABLE <code>emp_static_partition</code>(<br>  <code>empno</code> int,<br>  <code>ename</code> string,<br>  <code>job</code> string,<br>  <code>mgr</code> int,<br>  <code>hiredate</code> string,<br>  <code>sal</code> double,<br>  <code>comm</code> double)<br>partitioned by(deptno int)<br>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>然后向表里插入数据（这个要跑MapReduce的）：</p>
+<p>插入deptno=10的数据到deptno=10分区里：</p>
+<p>insert into table emp_static_partition PARTITION (deptno=10)<br>select empno,ename,job,mgr,hiredate,sal,comm from emp<br>where deptno=10;</p>
+<p>然后查一下数据：select * from emp_static_partition where deptno=10;<br><img src="https://img-blog.csdnimg.cn/20190317111752178.png" alt="在这里插入图片描述"><br>插入deptno=20的数据到deptno=20分区里：</p>
+<p>insert into table emp_static_partition PARTITION (deptno=20)<br>select empno,ename,job,mgr,hiredate,sal,comm from emp<br>where deptno=20;</p>
+<p>然后deptno=30、40、50…….</p>
+<p>加入有1万个部门呢？是不是要去insert 1万次？</p>
+<p>然后就有了动态分区：</p>
+<p>动态分区：按照部门编号写到指定的分区中去</p>
+<p>先创建一张动态分区表：（创建和静态分区创建是一样的）</p>
+<p>CREATE TABLE <code>emp_dynamic_partition</code>(<br>  <code>empno</code> int,<br>  <code>ename</code> string,<br>  <code>job</code> string,<br>  <code>mgr</code> int,<br>  <code>hiredate</code> string,<br>  <code>sal</code> double,<br>  <code>comm</code> double)<br>partitioned by(deptno int)<br>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;</p>
+<p>然后向动态分区表里插入数据：<br>insert into table emp_dynamic_partition PARTITION (deptno)<br>select empno,ename,job,mgr,hiredate,sal,comm,deptno from emp;</p>
+<font color="blue" size="3">（注意：第一个deptno是分区，后面不要加条件，只是一个key，不要value；第二个deptno，前面是插入的字段，而deptno是根据它把数据分到相应的分区里去，根据后面deptno这个字段分到前面deptno这个分区里）</font><font color="green" size="3">一定要将分区加到select 字段的最后一个。</font><br><img src="https://img-blog.csdnimg.cn/20190317112107717.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">（这个时候报错了，因为遵循严格模式，按照提示，把它修改成非严格模式即可）<br><br><font color="green" size="3">set hive.exec.dynamic.partition.mode=nonstrict</font>
+
+<p>insert完之后：<br><img src="https://img-blog.csdnimg.cn/20190317112219826.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190317112227496.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果是多级分区（要有deptno、step字段）：</p>
+<p>insert into table emp_dynamic_partition PARTITION (<font color="red" size="3">deptno，step</font>)<br>select empno,ename,job,mgr,hiredate,sal,comm,<font color="red" size="3">deptno，step</font> from emp;</p>
+<p>**</p>
+<h2 id="二、用hiveserver2和beeline-访问hive："><a href="#二、用hiveserver2和beeline-访问hive：" class="headerlink" title="二、用hiveserver2和beeline 访问hive："></a><font color="red" size="3">二、用hiveserver2和beeline 访问hive：</font></h2><p>**<br>上面hive都是hive回车，在里面输入命令，进行操作。<br>除了上面这种方式，还有什么方式呢？<br><img src="https://img-blog.csdnimg.cn/20190317135612177.png" alt="在这里插入图片描述"><br>之前使用是第2种方式，还有1和3，就是beeline和hiveserver2 这两个。<br>hiveserver2和beeline是配合使用的。（后面spark课程中还有thriftserver+beeline   其实是一模一样）<br><img src="https://img-blog.csdnimg.cn/2019031713564479.png" alt="在这里插入图片描述">去官网：<br><img src="https://img-blog.csdnimg.cn/20190317135659571.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190317135706296.png" alt="在这里插入图片描述">启了一个服务之后，就可以用客户端连到这个服务上面去，就可以执行sql了。HiveServer1已经淘汰了。HiveServer2 支持多并发和授权。</p>
+<p>一个服务+客户端。先把服务启起来，然后用客户端连进去。</p>
+<p>现在把hiveserver2启起来。可以后端启起来：</p>
+<p>比如：nohup命令  ：  nohup  /home/hadoop/app/hive-1.1.0-cdh5.7.0/bin/hiveserver2  &amp;</p>
+<p>也可以前端启起来：（后端启的话，窗口可以关掉，但是前端启的话不能关掉窗口）</p>
+<p><img src="https://img-blog.csdnimg.cn/20190317135806423.png" alt="在这里插入图片描述">然后另外启动一个窗口，启动beeline：</p>
+<p>用法：（参照官网）</p>
+<font color="red" size="3">beeline -u jdbc:hive2://10-9-140-90:10000/d6_test -n hadoop</font><br><img src="https://img-blog.csdnimg.cn/20190317135904261.png" alt="在这里插入图片描述">这样就连进来了。<br><br>在这个窗口执行sql成功后，在刚才那个前端窗口会出现一个OK。如果失败，那个窗口会出现失败以及失败的原因）<br><br>也可以再打开几个窗口，执行beeline去访问（多并发访问）。<br><br>以上hiveserver2和beeline只是访问hive的一种方式。可以用也可以不用，看个人习惯。<br><br><font color="red" size="3">三、复杂数据类型（需要掌握 ：如何存？如何取？）</font>
+
+<p>官网：<br><img src="https://img-blog.csdnimg.cn/20190317142649655.png" alt="在这里插入图片描述"><br>之前学的都是primitive_type基本数据类型。还有其他数据类型：array_type、map_type、struct_type等。</p>
+<font color="red" size="3"><strong>array_type：</strong></font>
+
+<p>现在有个文件：<br><img src="https://img-blog.csdnimg.cn/20190317142740459.png" alt="在这里插入图片描述"><br>然后创建一张表：</p>
+<p>create table hive_array(<br>name string,<br>work_locations <font color="red" size="3">array<string></string></font><br>)<br>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’</p>
+<font color="red" size="3">COLLECTION ITEMS TERMINATED BY ‘,’;           （集合的分隔符）</font>
+
+<p>然后把数据加载进来：</p>
+<p>load data local inpath ‘/home/hadoop/data/hive_array.txt’<br>overwrite into table hive_array;<br><img src="https://img-blog.csdnimg.cn/20190317142924928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>==那么如何取值呢==<br>select name,work_locations[0] from hive_array;              （取数组的第一个值，数组名[索引]）<br>select name,==size(work_locations)==  from hive_array;        （size(数组名)  取数组的有多少成员    查看每个人的工作地点有多少）</p>
+<p>select * from hive_array where ==array_contains==(work_locations,’tianjin’); </p>
+<p>（取工作地点在天津的成员记录       用函数array_contains(数组名,’成员’)）</p>
+<p><img src="https://img-blog.csdnimg.cn/20190317143120827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><font color="red" size="3"><strong>map_type：</strong></font><br>map : key-value</p>
+<p>有个文件：<br><img src="https://img-blog.csdnimg.cn/20190317145709218.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190317145716640.png" alt="在这里插入图片描述">现在创建一张表：</p>
+<p>create table hive_map(<br>id int,<br>name string,<br>members map&lt;string,string&gt;,<br>age int<br>)<br>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’     （字段之间的分隔符）<br>COLLECTION ITEMS TERMINATED BY ‘#’                   （集合之间的分隔符，这里是#）<br>MAP KEYS TERMINATED BY ‘:’;                                    （key和value之间的分隔符，这里是逗号）</p>
+<p>然后把数据加载进来：</p>
+<p>load data local inpath ‘/home/hadoop/data/hive_map.txt’<br>overwrite into table hive_map;<br><img src="https://img-blog.csdnimg.cn/20190317145758945.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">查看一下：<br><img src="https://img-blog.csdnimg.cn/20190317145814977.png" alt="在这里插入图片描述"><br>那么如何取数据呢？？？<br>select id,name,age,members[‘father’] from hive_map;<br><img src="https://img-blog.csdnimg.cn/20190317145945289.png" alt="在这里插入图片描述"><br>select map_keys(members) from hive_map;          （map_keys(数组) ：把所有的key显示出来）</p>
+<p><img src="https://img-blog.csdnimg.cn/20190317150001624.png" alt="在这里插入图片描述"><br>select map_values(members) from hive_map;        （map_values(数组) ：把所有的key的值显示出来）<br><img src="https://img-blog.csdnimg.cn/20190317150028339.png" alt="在这里插入图片描述"><br>select size(members) from hive_map;           （每个人的亲属关系有几个，每个数组有多少个成员）<br><img src="https://img-blog.csdnimg.cn/20190317150058384.png" alt="在这里插入图片描述"></p>
+<p><font color="red" size="3"><strong>struct_type：结构体类型（可以存放各种格式的）：</strong></font><br>有个文件：<br><img src="https://img-blog.csdnimg.cn/20190317152547821.png" alt="在这里插入图片描述"><br>（前面IP   后面用户信息（比如：姓名、年龄、职业、爱好等来表示一个用户的信息））</p>
+<p>现在创建一张表：</p>
+<p>create table hive_struct(<br>ip string,<br>userinfo struct<a href="name:string,age:int" target="_blank" rel="noopener">name:string,age:int</a><br>)<br>ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘#’<br>COLLECTION ITEMS TERMINATED BY ‘:’;</p>
+<p>然后加载数据进去;</p>
+<p>load data local inpath ‘/home/hadoop/data/hive_struct.txt’<br>overwrite into table hive_struct;</p>
+<p>查看一下：<br><img src="https://img-blog.csdnimg.cn/20190317152616986.png" alt="在这里插入图片描述"><br>那么如何取数据呢？<br> select userinfo.name,userinfo.age from hive_struct;    （用  .   的方式）<br> <img src="https://img-blog.csdnimg.cn/20190317152639780.png" alt="在这里插入图片描述"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+	</div>
+
+    
+
+
+    
+
+    
+
+    <div>
+    
+   </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Hive DML学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skygzx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skygzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/Hive DML学习/" itemprop="url">Hive DML学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:06:22+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+	 
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p>1.课前经验：<br>　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。<br>2.LOAD：<br>　　LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)]<br>　　<font color="pink" size="3">LOCAL：</font>表示的是本地，就是Linux上。如果不带LOCAL，相当于这个数据在hdfs上。<br>　　<font color="pink" size="3">‘filepath’ ：</font> 表示指向你数据所在的一个路径。<br>　　<font color="pink" size="3">OVERWRITE：</font> 表示将之前的数据覆盖。<br>　　<font color="pink" size="3">INTO TABLE：</font>表示追加。<br>　　<font color="pink" size="3">PARTITION ：</font>表示分区。<br>首先我们先创建一张表：<br>　　create table dept(<br>deptno int,<br>dname string,<br>location string<br>) row format delimited fields terminated by ‘\t’;</p>
+<font color="red" size="3">然后从本地LOAD数据到dept中：</font><br>LOAD DATA LOCAL INPATH ‘/home/hadoop/data/dept.txt’ OVERWRITE INTO TABLE dept;（覆盖）<br>LOAD DATA LOCAL INPATH ‘/home/hadoop/data/dept.txt’ INTO TABLE dept;（追加）<br><img src="https://img-blog.csdnimg.cn/20190315190512949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从上图就可以看出OVERWRITE和 INTO TABLE的区别。<br><font color="red" size="3">下面我们试一下从hdfs上加载数据到表里：</font><br>　　首先现在hdfs上创建一个目录，将文件放到目录下：<br>　<img src="https://img-blog.csdnimg.cn/20190315191354236.png" alt="在这里插入图片描述"><br>然后加载数据到dept表里：<br>LOAD DATA INPATH ‘/hive/dept/dept.txt’ OVERWRITE INTO TABLE dept;（没有LOCAL,表示从hdfs加载数据）<br><img src="https://img-blog.csdnimg.cn/20190315191808209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">这个时候到hdfs上看，发现文件没有了，<br><img src="https://img-blog.csdnimg.cn/20190315192137512.png" alt="在这里插入图片描述">（它被移到dept这张表默认的hdfs的路径下了，这里是：hdfs://10-9-140-90:9000/user/hive/warehouse/d6_hive.db/dept）<br><br>下面我们将hive上查询出的结果写到本地（或者hdfs）文件系统上：<br>INSERT OVERWRITE LOCAL DIRECTORY ‘/home/hadoop/data/emptmp’<br>row format delimited fields terminated by ‘,’<br>SELECT empno,ename FROM emp;<br><img src="https://img-blog.csdnimg.cn/20190315193727354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/2019031519373658.png" alt="在这里插入图片描述"><br>写到hdfs上（把LOCAL去掉即可）：<br>INSERT OVERWRITE  DIRECTORY ‘/emptmp’<br>row format delimited fields terminated by ‘,’<br>SELECT empno,ename FROM emp;<br><br><font color="blue" size="3">INSERT语法方面是支持的，但是生产中我们很少很少用，会产生很多小文件。</font>
+
+
+<font color="green" size="3">hive -e 和hive -f的使用：</font>
+
+<p>hive -e “select * from d6_test.emp”   或者</p>
+<p>hive -e “use d6_test; select * from emp”，一般生产中写到脚本中，通过执行脚本，执行。<br><img src="https://img-blog.csdnimg.cn/20190315200342574.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">这种不进入hive就可以查询表的情况适合？适合写脚本，比如写一个脚本，在里面写hive语句：<br><img src="https://img-blog.csdnimg.cn/20190315200424170.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315200402480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><font color="green" size="3">hive -f 的使用：</font><br>将sql写到文件中，<br><img src="https://img-blog.csdnimg.cn/20190315200944668.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315201013294.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<font color="red" size="3">从上面可以看出，可以把一大堆sql写到一个sql文件里面，然后用hive -f去执行这个sql文件。<br>然后如果每天需要执行一次，crontab -e  ，添加一个计划即可。</font>
+
+<p>hive里的清屏：!clear</p>
+<p>常用sql语法：<br>where = &gt; &gt;= &lt; &lt;=<br>limit<br>between and []<br>(not) in</p>
+<p>聚合函数：max min sum count avg   多进一出<br><img src="https://img-blog.csdnimg.cn/20190315202106695.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">每个部门的平均工资<br>1) 拿到每个部分的信息<br>2) 在1)的基础之上求平均工资<br><img src="https://img-blog.csdnimg.cn/20190315202250215.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">select deptno,avg(sal) from emp group by deptno;</p>
+<font color="green" size="3">（出现select中的字段要么出现在group by中，要么出现在聚合函数中）</font>
+
+<p>select deptno,avg(sal) avg_sal from emp group by deptno having avg_sal &gt;=2000;</p>
+<p>case when then 常用于报表中：</p>
+<p>select ename, sal,<br>case<br>when sal &gt; 1 and sal &lt;=1000 then ‘lower’<br>when sal &gt; 1000 and sal &lt;=2000 then ‘middle’<br>when sal &gt; 2000 and sal &lt;=3000 then ‘high’<br>else ‘highest’ end<br>from emp;<br><img src="https://img-blog.csdnimg.cn/20190315202936109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>函数 build-in<font color="green" size="3">（内置的函数：hive本身自带的函数）</font>     <font color="green" size="3">（UDFs外置的函数：自定义的函数）</font><br>看官网，在这里面可以找到相应的函数以及使用说明：<br><img src="https://img-blog.csdnimg.cn/20190315205324377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在hive里面使用： show functions;   可以看到hive所有内置的函数：<br><img src="https://img-blog.csdnimg.cn/20190315205347211.png" alt="在这里插入图片描述"></p>
+<p><font color="red" size="3">用 desc function 函数名称;   可以查看这个函数的相关说明：</font><br><img src="https://img-blog.csdnimg.cn/20190315205455722.png" alt="在这里插入图片描述"><br>create table dual(x string );<br>insert into table dual value(‘’);（造数据）<br>select abs(-9) from dual;<br><img src="https://img-blog.csdnimg.cn/20190315205531474.png" alt="在这里插入图片描述"><br>如果再看详细点的信息，可以这样：desc function extended 函数名称;     有范例example：<br><img src="https://img-blog.csdnimg.cn/20190315205555690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190315210712911.png" alt="在这里插入图片描述">(官网)<br>时间相关的函数：<br>当前时间：current_date<br>当前具体时间：current_timestamp</p>
+<p>时间戳：unix_timestamp()（经常用）<br><img src="https://img-blog.csdnimg.cn/20190315212013575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/2019031521202086.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">nix_timestamp()时间戳可以传入参数进行转换。比如<br>select unix_timestamp(‘2019-03-09 13:41:15.841’, ‘yyyy-MM-dd hh:mm:ss’) from dual;<br><img src="https://img-blog.csdnimg.cn/20190315212217159.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315212233263.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315212242848.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315212307416.png" alt="在这里插入图片描述">（加10天，减10天）</p>
+<p>求每个月月底：<br><img src="https://img-blog.csdnimg.cn/20190315212333854.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">其它函数：<br>round() 四舍五入</p>
+<p>ceil(x)  取不小于x的最小整数</p>
+<p>floor(x) 取不大于x的最大整数</p>
+<p>substr()   取子字符串</p>
+<p>concat() 连接多个字符串</p>
+<p>concat_ws()  连接两个字符串（有分隔符）</p>
+<p>split()   根据分隔符去拆分字符串<br><img src="https://img-blog.csdnimg.cn/20190316091102235.png" alt="在这里插入图片描述">substr(“abcdef”,4)<br><img src="https://img-blog.csdnimg.cn/20190316091111306.png" alt="在这里插入图片描述"> substr(“abcdef”,4,2)<br><img src="https://img-blog.csdnimg.cn/20190316091118872.png" alt="在这里插入图片描述">concat(“abc”,”def”,”ghijk”)<br><img src="https://img-blog.csdnimg.cn/20190316091147844.png" alt="在这里插入图片描述"><br>如果现在去解析，   ip:port  这个，需要把ip和port给分开。需要split()<br><img src="https://img-blog.csdnimg.cn/20190316091220302.png" alt="在这里插入图片描述">split(“192.168.11.11:8020”,”:”）<br><img src="https://img-blog.csdnimg.cn/20190316091258879.png" alt="在这里插入图片描述">split(“192.168.11.11”,”\.”) （\是转义字符）</p>
+<p><font color="red" size="3">下面我们用Hive运算一个wc的案例：</font><br>create table hive_wc(sentence string);<br>load data local inpath ‘/home/hadoop/data/hive_wc.txt’ into table hive_wc;</p>
+<p><img src="https://img-blog.csdnimg.cn/20190316094339773.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190316094349907.png" alt="在这里插入图片描述"><br>这表里面有三行，每一行都是一串字符串，现在想把它们分隔开：<br>select split(sentence,”\t”) from hive_wc;（需要用split函数，）<br><img src="https://img-blog.csdnimg.cn/20190316094443404.png" alt="在这里插入图片描述"><br>分开之后每一行变成了数组的形式。<br>现在已经把它们分隔开了，但是我们如果想要的结果是下面这样子：<br>hello<br>world<br>hello<br>hello<br>world<br>welcome<br>hello</p>
+<p><font color="red" size="3">这属于行转列、列转行。（一个非常经典的面试题目）</font></p>
+<p><font color="red" size="3">需要借助一个函数explode;</font><br><img src="https://img-blog.csdnimg.cn/20190316094652316.png" alt="在这里插入图片描述"><font color="red" size="3">select explode(split(sentence,”\t”)) from hive_wc;</font><br><img src="https://img-blog.csdnimg.cn/20190316094743153.png" alt="在这里插入图片描述"><br>再进行分组，count，就可以计算出wordcount了：<br>select word,count(1) from (select explode(split(sentence,”\t”)) as word from hive_wc)t group by word;<br><img src="https://img-blog.csdnimg.cn/20190316094811390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">select word, count(1) as count<br>from<br>(select explode(split(sentence, “\t”)) as word from hive_wc ) t<br>group by word<br>order by count desc;<br><img src="https://img-blog.csdnimg.cn/20190316094830814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+	</div>
+
+    
+
+
+    
+
+    
+
+    <div>
+    
+   </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Hive的DDL学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skygzx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skygzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/Hive的DDL学习/" itemprop="url">Hive的DDL学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:04:42+08:00">
+                2019-04-07
               </time>
             
 
@@ -1663,14 +1736,61 @@
 
       
         
-          <h1 id="Linux进阶命令："><a href="#Linux进阶命令：" class="headerlink" title="Linux进阶命令："></a>Linux进阶命令：</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/04/Linux命令进阶/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<p>1.小知识点：</p>
+<p>①<br>　　<font color="red" size="3">Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）</font><br>②<br>  　　在启动Ｈive时，一定要先将hdfs和yarn先启动起来。<br>③当启动 Hive时，会发现有一些错误，这些错误有的很短，我们应该去哪里查看错误的详细情况：<br>　　<img src="https://img-blog.csdnimg.cn/20190315085701166.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315085809867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">官方文档都是以.template结尾，需要用的时候，cp一份将.template去掉，再进行修改，hive的日志配置在这里配置：hive-log4j.properties.template，进入文件，会有下面两行信息：<br>　　hive.log.dir=${java.io.tmpdir}/${user.name}<br>　　hive.log.file=hive.log<br>第一个代表日志存放的位置：/tmp目录下（这里的tmp指的是根目录下的tmp）用户的名称（这里指的是hadoop）</p>
+<p>④<br>　　一个非常经典的错误：<br>An exception was thrown while adding/validating class(es) : Specified key was too long; max key length is 767 bytes<br>⑤<br>　　如何使用Hive；首先打开官网，我们要学会查看官网，<a href="http://hive.apache.org/" target="_blank" rel="noopener">http://hive.apache.org/</a><br>　　官网上是最权威的，不要百度，谁知道你找的是哪个版本的。<br>　　  　　<img src="https://img-blog.csdnimg.cn/20190315091004179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190315091108680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">进入到DDL中；<br><img src="https://img-blog.csdnimg.cn/20190315091147489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">这几个是常用的DDL语法；<br>　　<font color="blue" size="3">在Hive中，DB/TABLE/PARTITION（数据库、表、分区）  都是目录或者文件夹</font><br>　　<img src="https://img-blog.csdnimg.cn/20190315091642755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在Hive里组成方式要么是文件夹，要么是文件。<br>　　⑦<font color="blue" size="3">DDL学习：</font><br>　　<font color="green" size="3">Create Database：</font></p>
+<p>CREATE (DATABASE|SCHEMA) [IF NOT EXISTS] database_name</p>
+<p>  [COMMENT database_comment]               （对数据库做一个描述）</p>
+<p>  [LOCATION hdfs_path]                   （指定一个存放数据库的路径（因为数据库组织方式是文件夹））</p>
+<p>  [WITH DBPROPERTIES (property_name=property_value, …)];   （加上DB的一些属性）</p>
+<p>必选 （二选一）【可选】 必选</p>
+<pre><code>【可选】
+
+【可选】
+
+【可选】
+</code></pre><p>比如：CREATE DATABASE hive;</p>
+<p>备注：[LOCATION hdfs_path] 如果不指定路径，那么就会使用默认的路径。<br><img src="https://img-blog.csdnimg.cn/20190315093152823.png" alt="在这里插入图片描述">（默认会有一个 default数据库）<br><img src="https://img-blog.csdnimg.cn/20190315093252423.png" alt="在这里插入图片描述">（创建一个test数据库）<br><img src="https://img-blog.csdnimg.cn/20190315093335189.png" alt="在这里插入图片描述">（show一下，test数据图已经存在，但是test数据库存在哪里？）<br>　　desc database test;查看描述信息：　<img src="https://img-blog.csdnimg.cn/20190315093519539.png" alt="在这里插入图片描述"><br>　　这里的信息是：<font color="red" size="3">hdfs://10-9-140-90:9000/user/hive/warehouse/test.db</font></p>
+<font color="red" size="3">⑴</font>hdfs://10-9-140-90:9000  ：这个是 HDFS目录，可以在core-site.xml文件里查到（有些hadoop是8020端口）：<br><br>/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/etc/hadoop/core-site.xml<br><font color="red" size="3">⑵</font>/user/hive/warehouse/：默认的hive存储在HDFS上的目录<br>　　从hive官网的Hive里面进入，然后找到下图的Hive Configuration Properties：<br><img src="https://img-blog.csdnimg.cn/20190315094623877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">Hive所有配置信息在这里都可以找到。<br><br>打开后搜一下找到下面这个:<br><img src="https://img-blog.csdnimg.cn/20190315094733977.png" alt="在这里插入图片描述"><br>从这个可以看到hive数据仓库的元数据信息的默认路径是：/user/hive/warehouse<br>下面讲一下在hive中，<font color="red" size="3">修改hive参数的两种形式：</font><br>1） set hive.metastore.warehouse.dir;<br>​    set key 取值<br>​    set key=value   设置值<br>​    这种设置是局部的，只对当前窗口有效，是单session的。<br> <img src="https://img-blog.csdnimg.cn/20190315095106537.png" alt="在这里插入图片描述"><br> 2）配置hive-site.xml<br><br>在这里面配置出你要修改的参数，这里的修改是全局的。<br><br>上面两个各有优缺点，你设置了第二种方式，可能会影响到他人的使用。用第一种也最好在你用完之后，把参数再设置回去。<br><br>③hdfs://10-9-140-90:9000/user/hive/warehouse/test.db中test.db是数据的名称，固定的格式  数据库.db 后面都要加个db。<br><br><br>创建database时指定路径，创建在哪里。比如<br><img src="https://img-blog.csdnimg.cn/20190315095453752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><font color="red" size="3"><br>hive 元数据：</font>
+
+<p>hive元数据是存放在mysql里面的。在hive-site.xml里面配置。</p>
+<p>登上mysql数据库查看：<br><img src="https://img-blog.csdnimg.cn/20190315095723791.png" alt="在这里插入图片描述"><br>select * from dbs \G;  查看一下dbs这张表：（ \G表示格式化一下）<br><img src="https://img-blog.csdnimg.cn/2019031509580730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">这里面就是元数据信息。</p>
+<p>row format/ file format：行分隔符和文件分隔符<br>​    两大分隔符：行与行 字段与字段之间的分隔符<br>​        列分隔符（默认是）：\001       行与行之间的分隔符默认是 换行符（我们只需要管列就好）<br>​    file格式：行式  列式</p>
+<p>数据类型：常用的基本用这些就够了</p>
+<p>数值类型： int bigint float double DECIMAL<br>字符串：string  （包括date类型也用string来表示，这样会方便一些）</p>
+<p>小知识点补充;<br><img src="https://img-blog.csdnimg.cn/20190315100343120.png" alt="在这里插入图片描述">你用数据库的时候，不知道用的是哪个数据库，看不到相关信息，可以这样设置：<br><img src="https://img-blog.csdnimg.cn/20190315100448337.png" alt="在这里插入图片描述"><br>把hive.cli.print.current.db这个参数修改成true就可以了。<br>这个是在当前窗口生效，如果想在全局生效，需要修改hive-site.xml文件：</p>
+<p>加入这几行：<br><img src="https://img-blog.csdnimg.cn/20190315100527756.png" alt="在这里插入图片描述"></p>
+<font color="red" size="3">hive表的创建（一定要掌握的）：</font>
+
+<p>下面创建一张这个txt存放的这张表：<br><img src="https://img-blog.csdnimg.cn/20190315100620671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">（可以参照官网，不过掌握下面这个常用的基本差不多了）<br>create table emp(<br>empno int,<br>ename string,<br>job string,<br>mgr int,<br>hiredate string,<br>sal double,<br>comm double,<br>deptno int<br>) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’;<br>最后一句是列与列之间的分隔符是’\t’，行与行的分隔符默认是回车，这里不用写了。<br><img src="https://img-blog.csdnimg.cn/20190315100734805.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">（如果出现下图这种常见的错误：（这个可能跟字符集有关，比如utf-8 lating gbk32什么的）<br><img src="https://img-blog.csdnimg.cn/20190315100758981.png" alt="在这里插入图片描述">需要保证hive的字符集与mysql的元数据数据库的字符集保持一致。<br>alter database ruoze_d6 character set latin1;<br>use ruoze_d6;<br>alter table PARTITIONS convert to character set latin1;<br>alter table PARTITION_KEYS convert to character set latin1;）</p>
+<font color="red" size="3">DML语句：</font>
+
+<p>LOAD加载数据：官网有详细解释<br><img src="https://img-blog.csdnimg.cn/20190315102328871.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename ;<br>LOCAL: 从本地(linux)加载数据  ，如果没有写，就是从hdfs上加载。</p>
+<p>LOAD DATA LOCAL INPATH ‘/home/hadoop/data/emp.txt’ OVERWRITE INTO TABLE emp ;<br><img src="https://img-blog.csdnimg.cn/2019031510282994.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315102836885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">如何设置列名：</p>
+<p>在hive-site.xml里面设置下面两个参数即可。看需要去设置。也可以不设置，直接在当前session 进行set。<br><img src="https://img-blog.csdnimg.cn/20190315103157949.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315103207950.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<font color="red" size="3">创建表结构，不含数据：</font><br>CREATE TABLE emp2  LIKE emp;<br><br>创建emp一样的表，并copy数据到新表里面：<br>create table emp3 as select * from emp;<br><br><br>重命名表：<br><br>ALTER TABLE emp3 RENAME TO new_emp3;<br><br>推荐查看方式：  <font color="red" size="3">desc formatted emp;</font><br><img src="https://img-blog.csdnimg.cn/20190315103604573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><br><font color="green" size="3">内部表/外部表：（面试经常遇到）</font>
+
+<p>从上图可以看出，有个Table Type：MANAGED_TABLE</p>
+<p>MANAGED_TABLE：内部表        （hive里面默认是内部表）<br>比如：</p>
+<p>create table emp_managed as select * from emp; （这种创建的都是默认的内部表）</p>
+<p>去mysql里面查一下tbls这张元数据表，</p>
+<p>select * from tbls \G;</p>
+<p>可以看到有条记录：<br><img src="https://img-blog.csdnimg.cn/20190315103839196.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>再看hdfs上，它存放的数据：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190315103902393.png" alt="在这里插入图片描述">然后删除这张表：<br><img src="https://img-blog.csdnimg.cn/20190315103932748.png" alt="在这里插入图片描述"><br>然后再去mysql查一下，select * from tbls \G;   ，emp_managed这张表就没有元数据信息了。</p>
+<p>再去hdfs上看一下，发现也没有emp_managed数据了：<br><img src="https://img-blog.csdnimg.cn/20190315104007297.png" alt="在这里插入图片描述">外部表：</p>
+<p>现在创建一张外部表：</p>
+<p>create EXTERNAL table emp_external(<br>empno int,<br>ename string,<br>job string,<br>mgr int,<br>hiredate string,<br>sal double,<br>comm double,<br>deptno int<br>) ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘\t’<br>location ‘/d6_hive/external’;</p>
+<p><img src="https://img-blog.csdnimg.cn/20190315104049743.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315104103546.png" alt="在这里插入图片描述"><br>mysql里面tbls表中是可以查到emp_external这个表的。</p>
+<p>但是刚创建的表是没有数据的，现在用以下命令把本地的数据上传上去。<br><img src="https://img-blog.csdnimg.cn/20190315104152674.png" alt="在这里插入图片描述"><br>然后再用hive查一下就有数据了：<br><img src="https://img-blog.csdnimg.cn/20190315104244946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后把表给删掉：<br>然后再去mysql里面查： select * from tbls \G;  就没有emp_external这张表了。</p>
+<p>然后再去hdfs上查看，发现数据没有删除：<br><img src="https://img-blog.csdnimg.cn/20190315104345995.png" alt="在这里插入图片描述">所以：</p>
+<p>删除内部表：数据+元数据 删除<br>删除外部表：数据不删，元数据删</p>
+<p>1）内部表和外部的区别以及使用场景<br>其它项目组也用<br>防止误删表</p>
+<p>2）梳理元数据信息表中的DBS和TBLS中的字段信息    </p>
+<p>desc哪里来的<br>底层拼出来的SQL查询出来的</p>
+
+          
         
       
     </div>
@@ -1726,7 +1846,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/Linux一些常用命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Hive的部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -1745,7 +1865,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/04/Linux一些常用命令/" itemprop="url">Linux一些常用命令</a></h1>
+                <a class="post-title-link" href="/2019/04/07/Hive的部署/" itemprop="url">Hive的部署</a></h1>
         
 
         <div class="post-meta">
@@ -1757,8 +1877,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T17:40:23+08:00">
-                2019-04-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:03:02+08:00">
+                2019-04-07
               </time>
             
 
@@ -1791,7 +1911,186 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  727
+                  723
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<p><strong>1.hive（数据仓库:data warehouse）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	 构建再Hadoop之上的数据仓库</span><br><span class="line">	 	数据：HDFS</span><br><span class="line">	 	执行：MR（2.0过时）Spark Tez</span><br><span class="line">	 	运行：YARN</span><br><span class="line">	 	Hive 是一个使用SQL来操作分布式存储系统上面的大数据集的读写和管理操作的一个客户端，Hive它不是一个集群。</span><br><span class="line">用JDBC去连接Server的话，不应该是走查询统计分析，而是去拿到统计结果，只拿结果，不做计算。</span><br></pre></td></tr></table></figure>
+<p><strong>2.有人说Hive不难，就是写SQL实现（这是错误的说法）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">架构层面，语法层面，底层执行层面，考虑优化</span><br></pre></td></tr></table></figure>
+<p><strong>3.install hive</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://archive.cloudera.com/cdh5/cdh/5/hive-1.1.0-cdh5.7.0.tar.gz</span><br><span class="line">上传完以后将文件解压到 app文件夹下</span><br></pre></td></tr></table></figure>
+<p><strong>4.配置环境变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br><span class="line">export HIVE_HOME=/home/hadoop/app/hive-1.1.0-cdh5.7.0</span><br><span class="line">export PATH=$HIVE_HOME/bin:$PATH</span><br><span class="line">配置完成后不要忘记：source ~/.bash_profile，其他开启的窗口也要执行</span><br></pre></td></tr></table></figure>
+<p><strong>5.hive的存储</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	 由于hive是构建再Hadoop之上的数据仓库，那么他的存储数据的位置也在hdfs中。</span><br><span class="line">	 但是它的元数据（metadata）信息存储的位置是 mysql中。</span><br><span class="line">	 元数据：描述数据的数据。</span><br><span class="line">	 1、MR编程不便性</span><br><span class="line">	 2、传统的RDBMS人员的需求</span><br><span class="line">    HDFS上面的文件就是普通的文件，它并没有schema的概念</span><br><span class="line">    schema：RDBMS中的表结构</span><br><span class="line">        people.txt &lt;== id name age address</span><br><span class="line">    sql  ===&gt;  搞定海量数据的统计分析</span><br><span class="line">===&gt;  产生Hive</span><br></pre></td></tr></table></figure>
+<p><strong>6.安装步骤</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">	 1）下载</span><br><span class="line">	 2）解压到~/app</span><br><span class="line">	 3）bin添加到环境变量</span><br><span class="line">	 4）拷贝mysql的驱动到lib下</span><br><span class="line">	 5）hive-site.xml配置mysql相关信息（hive-site.xml在conf下）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> &lt;property&gt;</span><br><span class="line">        &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt;</span><br><span class="line">                &lt;value&gt;jdbc:mysql://localhost:3306/ruoze_d6?createDatabaseIfNotExist=true&amp;amp;characterEncoding=UTF-8&lt;/value&gt;</span><br><span class="line">                &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">      &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;root&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;root&lt;/value&gt;（这里注意 密码要修改成自己的）</span><br><span class="line">    &lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>7.Hive vs RDBMS</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">都可以使用SQL</span><br><span class="line">时效性：Hive底层是使用MR的，主要是做离线任务的，比较慢。</span><br></pre></td></tr></table></figure>
+<p>8.单点问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hive和mysql的链接中，mysql属于单点，如果mysql挂了，那么元数据也就没了，生产中我们一般需要让运维人员帮我们搭一个主备</span><br><span class="line">Hive属于客户端，虽然它没有集群概念，但是在生产中我们也要配备多个，如下图所示，在生产中 比如有三台机器都装有Hive，在这之上会有一个调度系统，调度系统定时的会将你的作业提交到执行机上（Executor），这时如果一个Hive坏了没有关系，可以用别的机器提交。</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20190314133556283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+	</div>
+
+    
+
+
+    
+
+    
+
+    <div>
+    
+   </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/YARN生产上调度器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skygzx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skygzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/YARN生产上调度器/" itemprop="url">YARN生产上调度器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:00:32+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+	 
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  521
                 </span>
               
 
@@ -1829,14 +2128,21 @@
 
       
         
-          <h2 id="Linux基本命令："><a href="#Linux基本命令：" class="headerlink" title="Linux基本命令："></a><strong>Linux基本命令：</strong></h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/04/Linux一些常用命令/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <a id="more"></a>
+<p>1.生产上 job去申请调度资源时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">规则：</span><br><span class="line">	 FIFO 先进先出</span><br><span class="line">	 Capacity 计算</span><br><span class="line">	 Fair   公平 生产</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20190312192133779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">图解：</span><br><span class="line">	 FiFO:表示 先进先出调度器</span><br><span class="line">	 	假设总共由40G的内存容器，job1在0点时进入运行作业，那么40G的内存全部运行job1，当job2在1点请求运行的时候，它需要等job1作业全部运行完成释放资源以后，再运行job2作业。</span><br><span class="line">	 Capacity：表示 计算调度器</span><br><span class="line">	 	假设总共有40G的内存容器，它会分成两部分，5G的内村容器留给小的作业运算，它会一直运算小作业，不释放，剩下的35G运行其他作业。</span><br><span class="line">	 	Fair：表示 公平调度器（生产上都是用这一种）</span><br><span class="line">	 	假设一共有42G的内存容器，0点的时候job1任务先申请运算，然后会将40G的容器全部用作job1的运算中，当1带点时，job2请求运算作业，这时会分给job2部分容器，让它同时运行，</span><br><span class="line"></span><br><span class="line">&gt; 注意：这时会有延迟的，必须要等到job1有资源释放出来之后，才会给job2运算。</span><br></pre></td></tr></table></figure>
+<p>CDH 动态资源池 放置规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;queuePlacementPolicy&gt;</span><br><span class="line">    &lt;rule name=&quot;specified&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;primaryGroup&quot; create=&quot;false&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;default&quot; queue=&quot;ABC&quot;/&gt;</span><br><span class="line">&lt;/queuePlacementPolicy&gt;</span><br></pre></td></tr></table></figure>
+<p>  JOB -queue ABC<br>  主组 jepson bigdata root</p>
+<p>生产上怎么配置：<br>参考官网：<a href="http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html</a></p>
+<p><img src="https://img-blog.csdnimg.cn/2019031219351887.png" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;allocations&gt;</span><br><span class="line">  &lt;queue name=&quot;ABC&quot;&gt;</span><br><span class="line">    &lt;minResources&gt;10000 mb,10vcores&lt;/minResources&gt;</span><br><span class="line">    &lt;maxResources&gt;60000 mb,30vcores&lt;/maxResources&gt;</span><br><span class="line">    &lt;weight&gt;2.0&lt;/weight&gt;</span><br><span class="line">    &lt;schedulingPolicy&gt;fair&lt;/schedulingPolicy&gt;</span><br><span class="line">  &lt;/queue&gt; </span><br><span class="line">  </span><br><span class="line">&lt;queue name=&quot;XYZ&quot;&gt;</span><br><span class="line">      &lt;minResources&gt;20000 mb,0vcores&lt;/minResources&gt;</span><br><span class="line">      &lt;maxResources&gt;80000 mb,0vcores&lt;/maxResources&gt;</span><br><span class="line">      &lt;weight&gt;3.0&lt;/weight&gt;</span><br><span class="line">      &lt;schedulingPolicy&gt;fifo&lt;/schedulingPolicy&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/queue&gt;</span><br><span class="line">&lt;queueMaxResourcesDefault&gt;40000 mb,20vcores&lt;/queueMaxResourcesDefault&gt;</span><br><span class="line"></span><br><span class="line">&lt;queuePlacementPolicy&gt;</span><br><span class="line">    &lt;rule name=&quot;specified&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;primaryGroup&quot; create=&quot;false&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;default&quot; queue=&quot;ABC&quot;/&gt;</span><br><span class="line">  &lt;/queuePlacementPolicy&gt;</span><br><span class="line">&lt;/allocations&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://netjs.blogspot.com/2018/04/fair-scheduler-in-yarn-hadoop.html" target="_blank" rel="noopener">https://netjs.blogspot.com/2018/04/fair-scheduler-in-yarn-hadoop.html</a></p>
+
+          
         
       
     </div>
@@ -1882,6 +2188,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1927,7 +2237,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1949,7 +2259,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -1993,7 +2303,7 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://michael0508.github.io/" title="wuwang" target="_blank">wuwang</a>
+                    <a href="https://my.oschina.net/u/4005872" title="wuwang" target="_blank">wuwang</a>
                   </li>
                 
               </ul>

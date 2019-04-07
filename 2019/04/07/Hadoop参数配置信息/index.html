@@ -1,0 +1,3308 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/mand.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/mand.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/mand.jpg?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="大数据,Hadoop,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="skygzx" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="前言： Hadoop三个参数文件，我不是很理解，我网上找了一篇学习下 ​       配置hadoop，主要是配置core-site.xml,hdfs-site.xml,mapred-site.xml三个配置文件，默认下来，这些配置文件都是空的，所以很难知道这些配置文件有哪些配置可以生效，上网找的配置可能因为各个hadoop版本不同，导致无法生效。浏览更多的配置，有两个方法: 1.选择相应版本的">
+<meta name="keywords" content="大数据,Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop参数配置信息">
+<meta property="og:url" content="http://yoursite.com/2019/04/07/Hadoop参数配置信息/index.html">
+<meta property="og:site_name" content="skygzx">
+<meta property="og:description" content="前言： Hadoop三个参数文件，我不是很理解，我网上找了一篇学习下 ​       配置hadoop，主要是配置core-site.xml,hdfs-site.xml,mapred-site.xml三个配置文件，默认下来，这些配置文件都是空的，所以很难知道这些配置文件有哪些配置可以生效，上网找的配置可能因为各个hadoop版本不同，导致无法生效。浏览更多的配置，有两个方法: 1.选择相应版本的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-07T02:40:27.630Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hadoop参数配置信息">
+<meta name="twitter:description" content="前言： Hadoop三个参数文件，我不是很理解，我网上找了一篇学习下 ​       配置hadoop，主要是配置core-site.xml,hdfs-site.xml,mapred-site.xml三个配置文件，默认下来，这些配置文件都是空的，所以很难知道这些配置文件有哪些配置可以生效，上网找的配置可能因为各个hadoop版本不同，导致无法生效。浏览更多的配置，有两个方法: 1.选择相应版本的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/07/Hadoop参数配置信息/">
+
+
+
+
+
+  <title>Hadoop参数配置信息 | skygzx</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+   <a href="https://skygzx.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">skygzx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home                   //首页"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user            //关于"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags		    //标签"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th    //分类"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive   //归档"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat    //公益404"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/Hadoop参数配置信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skygzx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skygzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hadoop参数配置信息</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T10:30:16+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+	 
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  29
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <a id="more"></a>
+<p>前言：</p>
+<p>Hadoop三个参数文件，我不是很理解，我网上找了一篇学习下</p>
+<p>​       配置hadoop，主要是配置core-site.xml,hdfs-site.xml,mapred-site.xml三个配置文件，默认下来，这些配置文件都是空的，所以很难知道这些配置文件有哪些配置可以生效，上网找的配置可能因为各个hadoop版本不同，导致无法生效。浏览更多的配置，有两个方法:</p>
+<p>1.选择相应版本的hadoop,下载解压后，搜索*.xml,找到core-default.xml,hdfs-default.xml,mapred-default.xml,这些就是默认配置,可以参考这些配置的说明和key，配置hadoop集群。</p>
+<p>core-site.xml是全局配置,</p>
+<p>hdfs-site.xml和mapred-site.xml分别是hdfs和mapred的局部配置。</p>
+<p>2       常用的端口配置2.1  HDFS端口</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认</th>
+<th>配置文件</th>
+<th>例子值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fs.default.name namenode</td>
+<td>namenode RPC交互端口</td>
+<td>8020</td>
+<td>core-site.xml</td>
+<td>hdfs://master:8020/</td>
+</tr>
+<tr>
+<td>dfs.http.address</td>
+<td>NameNode web管理端口</td>
+<td>50070</td>
+<td>hdfs- site.xml</td>
+<td>0.0.0.0:50070</td>
+</tr>
+<tr>
+<td>dfs.datanode.address</td>
+<td>datanode　控制端口</td>
+<td>50010</td>
+<td>hdfs -site.xml</td>
+<td>0.0.0.0:50010</td>
+</tr>
+<tr>
+<td>dfs.datanode.ipc.address</td>
+<td>datanode的RPC服务器地址和端口</td>
+<td>50020</td>
+<td>hdfs-site.xml</td>
+<td>0.0.0.0:50020</td>
+</tr>
+<tr>
+<td>dfs.datanode.http.address</td>
+<td>datanode的HTTP服务器和端口</td>
+<td>50075</td>
+<td>hdfs-site.xml</td>
+<td>0.0.0.0:50075</td>
+</tr>
+</tbody>
+</table>
+<p>2.2  MR端口</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认</th>
+<th>配置文件</th>
+<th>例子值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mapred.job.tracker</td>
+<td>job-tracker交互端口</td>
+<td>8021</td>
+<td>mapred-site.xml</td>
+<td>hdfs://master:8021/</td>
+</tr>
+<tr>
+<td>job</td>
+<td>tracker的web管理端口</td>
+<td>50030</td>
+<td>mapred-site.xml</td>
+<td>0.0.0.0:50030</td>
+</tr>
+<tr>
+<td>mapred.task.tracker.http.address</td>
+<td>task-tracker的HTTP端口</td>
+<td>50060</td>
+<td>mapred-site.xml</td>
+<td>0.0.0.0:50060</td>
+</tr>
+</tbody>
+</table>
+<p>2.3  其它端口</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认</th>
+<th>配置文件</th>
+<th>例子值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dfs.secondary.http.address</td>
+<td>secondary NameNode web管理端口</td>
+<td>50090</td>
+<td>hdfs-site.xml</td>
+<td>0.0.0.0:50090</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>3       三个缺省配置参考文件说明3.1  core-default.html</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>参数名</th>
+<th>参数值</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>hadoop.tmp.dir</td>
+<td>/tmp/hadoop-${user.name}</td>
+<td>临时目录设定</td>
+</tr>
+<tr>
+<td>2</td>
+<td>hadoop.native.lib</td>
+<td>true</td>
+<td>使用本地hadoop库标识。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>hadoop.http.filter.initializers</td>
+<td></td>
+<td>http服务器过滤链设置</td>
+</tr>
+<tr>
+<td>4</td>
+<td>hadoop.security.group.mapping</td>
+<td>org.apache.hadoop.security.ShellBasedUnixGroupsMapping</td>
+<td>组内用户的列表的类设定</td>
+</tr>
+<tr>
+<td>5</td>
+<td>hadoop.security.authorization</td>
+<td>false</td>
+<td>服务端认证开启</td>
+</tr>
+<tr>
+<td>6</td>
+<td>hadoop.security.authentication</td>
+<td>simple</td>
+<td>无认证或认证设置</td>
+</tr>
+<tr>
+<td>7</td>
+<td>hadoop.security.token.service.use_ip</td>
+<td>true</td>
+<td>是否开启使用IP地址作为连接的开关</td>
+</tr>
+<tr>
+<td>8</td>
+<td>hadoop.logfile.size</td>
+<td>10000000</td>
+<td>日志文件最大为10M</td>
+</tr>
+<tr>
+<td>9</td>
+<td>hadoop.logfile.count</td>
+<td>10</td>
+<td>日志文件数量为10个</td>
+</tr>
+<tr>
+<td>10</td>
+<td>io.file.buffer.size</td>
+<td>4096</td>
+<td>流文件的缓冲区为4K</td>
+</tr>
+<tr>
+<td>11</td>
+<td>io.bytes.per.checksum</td>
+<td>512</td>
+<td>校验位数为512字节</td>
+</tr>
+<tr>
+<td>12</td>
+<td>io.skip.checksum.errors</td>
+<td>false</td>
+<td>校验出错后是抛出异常还是略过标识。True则略过。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>io.compression.codecs</td>
+<td>org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.BZip2Codec,org.apache.hadoop.io.compress.SnappyCodec</td>
+<td>压缩和解压的方式设置</td>
+</tr>
+<tr>
+<td>14</td>
+<td>io.serializations</td>
+<td>org.apache.hadoop.io.serializer.WritableSerialization</td>
+<td>序例化和反序列化的类设定</td>
+</tr>
+<tr>
+<td>15</td>
+<td>fs.default.name</td>
+<td>file:///</td>
+<td>缺省的文件URI标识设定。</td>
+</tr>
+<tr>
+<td>16</td>
+<td>fs.trash.interval</td>
+<td>0</td>
+<td>文件废弃标识设定，0为禁止此功能</td>
+</tr>
+<tr>
+<td>17</td>
+<td>fs.file.impl</td>
+<td>org.apache.hadoop.fs.LocalFileSystem</td>
+<td>本地文件操作类设置</td>
+</tr>
+<tr>
+<td>18</td>
+<td>fs.hdfs.impl</td>
+<td>org.apache.hadoop.hdfs.DistributedFileSystem</td>
+<td>HDFS文件操作类设置</td>
+</tr>
+<tr>
+<td>19</td>
+<td>fs.s3.impl</td>
+<td>org.apache.hadoop.fs.s3.S3FileSystem</td>
+<td>S3文件操作类设置</td>
+</tr>
+<tr>
+<td>20</td>
+<td>fs.s3n.impl</td>
+<td>org.apache.hadoop.fs.s3native.NativeS3FileSystem</td>
+<td>S3文件本地操作类设置</td>
+</tr>
+<tr>
+<td>21</td>
+<td>fs.kfs.impl</td>
+<td>org.apache.hadoop.fs.kfs.KosmosFileSystem</td>
+<td>KFS文件操作类设置.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>fs.hftp.impl</td>
+<td>org.apache.hadoop.hdfs.HftpFileSystem</td>
+<td>HTTP方式操作文件设置</td>
+</tr>
+<tr>
+<td>23</td>
+<td>fs.hsftp.impl</td>
+<td>org.apache.hadoop.hdfs.HsftpFileSystem</td>
+<td>HTTPS方式操作文件设置</td>
+</tr>
+<tr>
+<td>24</td>
+<td>fs.webhdfs.impl</td>
+<td>org.apache.hadoop.hdfs.web.WebHdfsFileSystem</td>
+<td>WEB方式操作文件类设置</td>
+</tr>
+<tr>
+<td>25</td>
+<td>fs.ftp.impl</td>
+<td>org.apache.hadoop.fs.ftp.FTPFileSystem</td>
+<td>FTP文件操作类设置</td>
+</tr>
+<tr>
+<td>26</td>
+<td>fs.ramfs.impl</td>
+<td>org.apache.hadoop.fs.InMemoryFileSystem</td>
+<td>内存文件操作类设置</td>
+</tr>
+<tr>
+<td>27</td>
+<td>fs.har.impl</td>
+<td>org.apache.hadoop.fs.HarFileSystem</td>
+<td>压缩文件操作类设置.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>fs.har.impl.disable.cache</td>
+<td>true</td>
+<td>是否缓存har文件的标识设定</td>
+</tr>
+<tr>
+<td>29</td>
+<td>fs.checkpoint.dir</td>
+<td>${hadoop.tmp.dir}/dfs/namesecondary</td>
+<td>备份名称节点的存放目前录设置</td>
+</tr>
+<tr>
+<td>30</td>
+<td>fs.checkpoint.edits.dir</td>
+<td>${fs.checkpoint.dir}</td>
+<td>备份名称节点日志文件的存放目前录设置</td>
+</tr>
+<tr>
+<td>31</td>
+<td>fs.checkpoint.period</td>
+<td>3600</td>
+<td>动态检查的间隔时间设置</td>
+</tr>
+<tr>
+<td>32</td>
+<td>fs.checkpoint.size</td>
+<td>67108864</td>
+<td>日志文件大小为64M</td>
+</tr>
+<tr>
+<td>33</td>
+<td>fs.s3.block.size</td>
+<td>67108864</td>
+<td>写S3文件系统的块的大小为64M</td>
+</tr>
+<tr>
+<td>34</td>
+<td>fs.s3.buffer.dir</td>
+<td>${hadoop.tmp.dir}/s3</td>
+<td>S3文件数据的本地存放目录</td>
+</tr>
+<tr>
+<td>35</td>
+<td>fs.s3.maxRetries</td>
+<td>4</td>
+<td>S3文件数据的偿试读写次数</td>
+</tr>
+<tr>
+<td>36</td>
+<td>fs.s3.sleepTimeSeconds</td>
+<td>10</td>
+<td>S3文件偿试的间隔</td>
+</tr>
+<tr>
+<td>37</td>
+<td>local.cache.size</td>
+<td>10737418240</td>
+<td>缓存大小设置为10GB</td>
+</tr>
+<tr>
+<td>38</td>
+<td>io.seqfile.compress.blocksize</td>
+<td>1000000</td>
+<td>压缩流式文件中的最小块数为100万</td>
+</tr>
+<tr>
+<td>39</td>
+<td>io.seqfile.lazydecompress</td>
+<td>true</td>
+<td>块是否需要压缩标识设定</td>
+</tr>
+<tr>
+<td>40</td>
+<td>io.seqfile.sorter.recordlimit</td>
+<td>1000000</td>
+<td>内存中排序记录块类最小为100万</td>
+</tr>
+<tr>
+<td>41</td>
+<td>io.mapfile.bloom.size</td>
+<td>1048576</td>
+<td>BloomMapFiler过滤量为1M</td>
+</tr>
+<tr>
+<td>42</td>
+<td>io.mapfile.bloom.error.rate</td>
+<td>0.005</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>hadoop.util.hash.type</td>
+<td>murmur</td>
+<td>缺少hash方法为murmur</td>
+</tr>
+<tr>
+<td>44</td>
+<td>ipc.client.idlethreshold</td>
+<td>4000</td>
+<td>连接数据最小阀值为4000</td>
+</tr>
+<tr>
+<td>45</td>
+<td>ipc.client.kill.max</td>
+<td>10</td>
+<td>一个客户端连接数最大值为10</td>
+</tr>
+<tr>
+<td>46</td>
+<td>ipc.client.connection.maxidletime</td>
+<td>10000</td>
+<td>断开与服务器连接的时间最大为10秒</td>
+</tr>
+<tr>
+<td>47</td>
+<td>ipc.client.connect.max.retries</td>
+<td>10</td>
+<td>建立与服务器连接的重试次数为10次</td>
+</tr>
+<tr>
+<td>48</td>
+<td>ipc.server.listen.queue.size</td>
+<td>128</td>
+<td>接收客户连接的监听队例的长度为128</td>
+</tr>
+<tr>
+<td>49</td>
+<td>ipc.server.tcpnodelay</td>
+<td>false</td>
+<td>开启或关闭服务器端TCP连接算法</td>
+</tr>
+<tr>
+<td>50</td>
+<td>ipc.client.tcpnodelay</td>
+<td>false</td>
+<td>开启或关闭客户端TCP连接算法</td>
+</tr>
+<tr>
+<td>51</td>
+<td>webinterface.private.actions</td>
+<td>false</td>
+<td>Web交互的行为设定</td>
+</tr>
+<tr>
+<td>52</td>
+<td>hadoop.rpc.socket.factory.class.default</td>
+<td>org.apache.hadoop.net.StandardSocketFactory</td>
+<td>缺省的socket工厂类设置</td>
+</tr>
+<tr>
+<td>53</td>
+<td>hadoop.rpc.socket.factory.class.ClientProtocol</td>
+<td></td>
+<td>与dfs连接时的缺省socket工厂类</td>
+</tr>
+<tr>
+<td>54</td>
+<td>hadoop.socks.server</td>
+<td></td>
+<td>服务端的工厂类缺省设置为SocksSocketFactory.</td>
+</tr>
+<tr>
+<td>55</td>
+<td>topology.node.switch.mapping.impl</td>
+<td>org.apache.hadoop.net.ScriptBasedMapping</td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td>topology.script.file.name</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td>topology.script.number.args</td>
+<td>100</td>
+<td>参数数量最多为100</td>
+</tr>
+<tr>
+<td>58</td>
+<td>hadoop.security.uid.cache.secs</td>
+<td>14400</td>
+</tr>
+</tbody>
+</table>
+<p>3.2  hdfs-default.html</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>参数名</th>
+<th>参数值</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dfs.namenode.logging.level</td>
+<td>info</td>
+<td>输出日志类型</td>
+</tr>
+<tr>
+<td>2</td>
+<td>dfs.secondary.http.address</td>
+<td>0.0.0.0:50090</td>
+<td>备份名称节点的http协议访问地址与端口</td>
+</tr>
+<tr>
+<td>3</td>
+<td>dfs.datanode.address</td>
+<td>0.0.0.0:50010</td>
+<td>数据节点的TCP管理服务地址和端口</td>
+</tr>
+<tr>
+<td>4</td>
+<td>dfs.datanode.http.address</td>
+<td>0.0.0.0:50075</td>
+<td>数据节点的HTTP协议访问地址和端口</td>
+</tr>
+<tr>
+<td>5</td>
+<td>dfs.datanode.ipc.address</td>
+<td>0.0.0.0:50020</td>
+<td>数据节点的IPC服务访问地址和端口</td>
+</tr>
+<tr>
+<td>6</td>
+<td>dfs.datanode.handler.count</td>
+<td>3</td>
+<td>数据节点的服务连接处理线程数</td>
+</tr>
+<tr>
+<td>7</td>
+<td>dfs.http.address</td>
+<td>0.0.0.0:50070</td>
+<td>名称节点的http协议访问地址与端口</td>
+</tr>
+<tr>
+<td>8</td>
+<td>dfs.https.enable</td>
+<td>false</td>
+<td>支持https访问方式标识</td>
+</tr>
+<tr>
+<td>9</td>
+<td>dfs.https.need.client.auth</td>
+<td>false</td>
+<td>客户端指定https访问标识</td>
+</tr>
+<tr>
+<td>10</td>
+<td>dfs.https.server.keystore.resource</td>
+<td>ssl-server.xml</td>
+<td>Ssl密钥服务端的配置文件</td>
+</tr>
+<tr>
+<td>11</td>
+<td>dfs.https.client.keystore.resource</td>
+<td>ssl-client.xml</td>
+<td>Ssl密钥客户端的配置文件</td>
+</tr>
+<tr>
+<td>12</td>
+<td>dfs.datanode.https.address</td>
+<td>0.0.0.0:50475</td>
+<td>数据节点的HTTPS协议访问地址和端口</td>
+</tr>
+<tr>
+<td>13</td>
+<td>dfs.https.address</td>
+<td>0.0.0.0:50470</td>
+<td>名称节点的HTTPS协议访问地址和端口</td>
+</tr>
+<tr>
+<td>14</td>
+<td>dfs.datanode.dns.interface</td>
+<td>default</td>
+<td>数据节点采用IP地址标识</td>
+</tr>
+<tr>
+<td>15</td>
+<td>dfs.datanode.dns.nameserver</td>
+<td>default</td>
+<td>指定DNS的IP地址</td>
+</tr>
+<tr>
+<td>16</td>
+<td>dfs.replication.considerLoad</td>
+<td>true</td>
+<td>加载目标或不加载的标识</td>
+</tr>
+<tr>
+<td>17</td>
+<td>dfs.default.chunk.view.size</td>
+<td>32768</td>
+<td>浏览时的文件块大小设置为32K</td>
+</tr>
+<tr>
+<td>18</td>
+<td>dfs.datanode.du.reserved</td>
+<td>0</td>
+<td>每个卷预留的空闲空间数量</td>
+</tr>
+<tr>
+<td>19</td>
+<td>dfs.name.dir</td>
+<td>${hadoop.tmp.dir}/dfs/name</td>
+<td>存贮在本地的名字节点数据镜象的目录,作为名字节点的冗余备份</td>
+</tr>
+<tr>
+<td>20</td>
+<td>dfs.name.edits.dir</td>
+<td>${dfs.name.dir}</td>
+<td>存贮文件操作过程信息的存贮目录</td>
+</tr>
+<tr>
+<td>21</td>
+<td>dfs.web.ugi</td>
+<td>webuser,webgroup</td>
+<td>Web接口访问的用户名和组的帐户设定</td>
+</tr>
+<tr>
+<td>22</td>
+<td>dfs.permissions</td>
+<td>true</td>
+<td>文件操作时的权限检查标识。</td>
+</tr>
+<tr>
+<td>23</td>
+<td>dfs.permissions.supergroup</td>
+<td>supergroup</td>
+<td>超级用户的组名定义</td>
+</tr>
+<tr>
+<td>24</td>
+<td>dfs.block.access.token.enable</td>
+<td>false</td>
+<td>数据节点访问令牌标识</td>
+</tr>
+<tr>
+<td>25</td>
+<td>dfs.block.access.key.update.interval</td>
+<td>600</td>
+<td>升级访问钥时的间隔时间</td>
+</tr>
+<tr>
+<td>26</td>
+<td>dfs.block.access.token.lifetime</td>
+<td>600</td>
+<td>访问令牌的有效时间</td>
+</tr>
+<tr>
+<td>27</td>
+<td>dfs.data.dir</td>
+<td>${hadoop.tmp.dir}/dfs/data</td>
+<td>数据节点的块本地存放目录</td>
+</tr>
+<tr>
+<td>28</td>
+<td>dfs.datanode.data.dir.perm</td>
+<td>755</td>
+<td>数据节点的存贮块的目录访问权限设置</td>
+</tr>
+<tr>
+<td>29</td>
+<td>dfs.replication</td>
+<td>3</td>
+<td>缺省的块复制数量</td>
+</tr>
+<tr>
+<td>30</td>
+<td>dfs.replication.max</td>
+<td>512</td>
+<td>块复制的最大数量</td>
+</tr>
+<tr>
+<td>31</td>
+<td>dfs.replication.min</td>
+<td>1</td>
+<td>块复制的最小数量</td>
+</tr>
+<tr>
+<td>32</td>
+<td>dfs.block.size</td>
+<td>67108864</td>
+<td>缺省的文件块大小为64M</td>
+</tr>
+<tr>
+<td>33</td>
+<td>dfs.df.interval</td>
+<td>60000</td>
+<td>磁盘空间统计间隔为6秒</td>
+</tr>
+<tr>
+<td>34</td>
+<td>dfs.client.block.write.retries</td>
+<td>3</td>
+<td>块写入出错时的重试次数</td>
+</tr>
+<tr>
+<td>35</td>
+<td>dfs.blockreport.intervalMsec</td>
+<td>3600000</td>
+<td>块的报告间隔时为1小时</td>
+</tr>
+<tr>
+<td>36</td>
+<td>dfs.blockreport.initialDelay</td>
+<td>0</td>
+<td>块顺序报告的间隔时间</td>
+</tr>
+<tr>
+<td>37</td>
+<td>dfs.heartbeat.interval</td>
+<td>3</td>
+<td>数据节点的心跳检测间隔时间</td>
+</tr>
+<tr>
+<td>38</td>
+<td>dfs.namenode.handler.count</td>
+<td>10</td>
+<td>名称节点的连接处理的线程数量</td>
+</tr>
+<tr>
+<td>39</td>
+<td>dfs.safemode.threshold.pct</td>
+<td>0.999f</td>
+<td>启动安全模式的阀值设定</td>
+</tr>
+<tr>
+<td>40</td>
+<td>dfs.safemode.extension</td>
+<td>30000</td>
+<td>当阀值达到量值后扩展的时限</td>
+</tr>
+<tr>
+<td>41</td>
+<td>dfs.balance.bandwidthPerSec</td>
+<td>1048576</td>
+<td>启动负载均衡的数据节点可利用带宽最大值为1M</td>
+</tr>
+<tr>
+<td>42</td>
+<td>dfs.hosts</td>
+<td></td>
+<td>可与名称节点连接的主机地址文件指定。</td>
+</tr>
+<tr>
+<td>43</td>
+<td>dfs.hosts.exclude</td>
+<td></td>
+<td>不充计与名称节点连接的主机地址文件设定</td>
+</tr>
+<tr>
+<td>44</td>
+<td>dfs.max.objects</td>
+<td>0</td>
+<td>文件数、目录数、块数的最大数量</td>
+</tr>
+<tr>
+<td>45</td>
+<td>dfs.namenode.decommission.interval</td>
+<td>30</td>
+<td>名称节点解除命令执行时的监测时间周期</td>
+</tr>
+<tr>
+<td>46</td>
+<td>dfs.namenode.decommission.nodes.per.interval</td>
+<td>5</td>
+<td>名称节点解除命令执行是否完检测次数</td>
+</tr>
+<tr>
+<td>47</td>
+<td>dfs.replication.interval</td>
+<td>3</td>
+<td>名称节点计算数据节点的复制工作的周期数.</td>
+</tr>
+<tr>
+<td>48</td>
+<td>dfs.access.time.precision</td>
+<td>3600000</td>
+<td>充许访问文件的时间精确到1小时</td>
+</tr>
+<tr>
+<td>49</td>
+<td>dfs.support.append</td>
+<td>false</td>
+<td>是否充许链接文件指定</td>
+</tr>
+<tr>
+<td>50</td>
+<td>dfs.namenode.delegation.key.update-interval</td>
+<td>86400000</td>
+<td>名称节点上的代理令牌的主key的更新间隔时间为24小时</td>
+</tr>
+<tr>
+<td>51</td>
+<td>dfs.namenode.delegation.token.max-lifetime</td>
+<td>604800000</td>
+<td>代理令牌的有效时间最大值为7天</td>
+</tr>
+<tr>
+<td>52</td>
+<td>dfs.namenode.delegation.token.renew-interval</td>
+<td>86400000</td>
+<td>代理令牌的更新时间为24小时</td>
+</tr>
+<tr>
+<td>53</td>
+<td>dfs.datanode.failed.volumes.tolerated</td>
+<td>0</td>
+<td>决定停止数据节点提供服务充许卷的出错次数。0次则任何卷出错都要停止数据节点</td>
+</tr>
+</tbody>
+</table>
+<p>3.3  mapred-default.html</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>参数名</th>
+<th>参数值</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>hadoop.job.history.location</td>
+<td></td>
+<td>作业跟踪管理器的静态历史文件的存放目录。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>hadoop.job.history.user.location</td>
+<td></td>
+<td>可以指定具体某个作业的跟踪管理器的历史文件存放目录</td>
+</tr>
+<tr>
+<td>3</td>
+<td>mapred.job.tracker.history.completed.location</td>
+<td></td>
+<td>已完成作业的历史文件的存放目录</td>
+</tr>
+<tr>
+<td>4</td>
+<td>io.sort.factor</td>
+<td>10</td>
+<td>排完序的文件的合并时的打开文件句柄数</td>
+</tr>
+<tr>
+<td>5</td>
+<td>io.sort.mb</td>
+<td>100</td>
+<td>排序文件的内存缓存大小为100M</td>
+</tr>
+<tr>
+<td>6</td>
+<td>io.sort.record.percent</td>
+<td>0.05</td>
+<td>排序线程阻塞的内存缓存剩余比率</td>
+</tr>
+<tr>
+<td>7</td>
+<td>io.sort.spill.percent</td>
+<td>0.80</td>
+<td>当缓冲占用量为该值时，线程需要将内容先备份到磁盘中。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>io.map.index.skip</td>
+<td>0</td>
+<td>索引条目的间隔设定</td>
+</tr>
+<tr>
+<td>9</td>
+<td>mapred.job.tracker</td>
+<td>local</td>
+<td>作业跟踪管理器是否和MR任务在一个进程中</td>
+</tr>
+<tr>
+<td>10</td>
+<td>mapred.job.tracker.http.address</td>
+<td>0.0.0.0:50030</td>
+<td>作业跟踪管理器的HTTP服务器访问端口和地址</td>
+</tr>
+<tr>
+<td>11</td>
+<td>mapred.job.tracker.handler.count</td>
+<td>10</td>
+<td>作业跟踪管理器的管理线程数,线程数比例是任务管理跟踪器数量的0.04</td>
+</tr>
+<tr>
+<td>12</td>
+<td>mapred.task.tracker.report.address</td>
+<td>127.0.0.1:0</td>
+<td>任务管理跟踪器的主机地址和端口地址</td>
+</tr>
+<tr>
+<td>13</td>
+<td>mapred.local.dir</td>
+<td>${hadoop.tmp.dir}/mapred/local</td>
+<td>MR的中介数据文件存放目录</td>
+</tr>
+<tr>
+<td>14</td>
+<td>mapred.system.dir</td>
+<td>${hadoop.tmp.dir}/mapred/system</td>
+<td>MR的控制文件存放目录</td>
+</tr>
+<tr>
+<td>15</td>
+<td>mapreduce.jobtracker.staging.root.dir</td>
+<td>${hadoop.tmp.dir}/mapred/staging</td>
+<td>每个正在运行作业文件的存放区</td>
+</tr>
+<tr>
+<td>16</td>
+<td>mapred.temp.dir</td>
+<td>${hadoop.tmp.dir}/mapred/temp</td>
+<td>MR临时共享文件存放区</td>
+</tr>
+<tr>
+<td>17</td>
+<td>mapred.local.dir.minspacestart</td>
+<td>0</td>
+<td>MR本地中介文件删除时，不充许有任务执行的数量值。</td>
+</tr>
+<tr>
+<td>18</td>
+<td>mapred.local.dir.minspacekill</td>
+<td>0</td>
+<td>MR本地中介文件删除时，除非所有任务都已完成的数量值。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>mapred.tasktracker.expiry.interval</td>
+<td>600000</td>
+<td>任务管理跟踪器不发送心跳的累计时间间隔超过600秒，则任务管理跟踪器失效</td>
+</tr>
+<tr>
+<td>20</td>
+<td>mapred.tasktracker.resourcecalculatorplugin</td>
+<td></td>
+<td>指定的一个用户访问资源信息的类实例</td>
+</tr>
+<tr>
+<td>21</td>
+<td>mapred.tasktracker.taskmemorymanager.monitoring-interval</td>
+<td>5000</td>
+<td>监控任务管理跟踪器任务内存使用率的时间间隔</td>
+</tr>
+<tr>
+<td>22</td>
+<td>mapred.tasktracker.tasks.sleeptime-before-sigkill</td>
+<td>5000</td>
+<td>发出进程终止后，间隔5秒后发出进程消亡信号</td>
+</tr>
+<tr>
+<td>23</td>
+<td>mapred.map.tasks</td>
+<td>2</td>
+<td>每个作业缺省的map任务数为2</td>
+</tr>
+<tr>
+<td>24</td>
+<td>mapred.reduce.tasks</td>
+<td>1</td>
+<td>每个作业缺省的reduce任务数为1</td>
+</tr>
+<tr>
+<td>25</td>
+<td>mapreduce.tasktracker.outofband.heartbeat</td>
+<td>false</td>
+<td>让在任务结束后发出一个额外的心跳信号</td>
+</tr>
+<tr>
+<td>26</td>
+<td>mapreduce.tasktracker.outofband.heartbeat.damper</td>
+<td>1000000</td>
+<td>当额外心跳信号发出量太多时，则适当阻止</td>
+</tr>
+<tr>
+<td>27</td>
+<td>mapred.jobtracker.restart.recover</td>
+<td>false</td>
+<td>充许任务管理器恢复时采用的方式</td>
+</tr>
+<tr>
+<td>28</td>
+<td>mapred.jobtracker.job.history.block.size</td>
+<td>3145728</td>
+<td>作业历史文件块的大小为3M</td>
+</tr>
+<tr>
+<td>29</td>
+<td>mapreduce.job.split.metainfo.maxsize</td>
+<td>10000000</td>
+<td>分隔元信息文件的最大值是10M以下</td>
+</tr>
+<tr>
+<td>30</td>
+<td>mapred.jobtracker.taskScheduler</td>
+<td>org.apache.hadoop.mapred.JobQueueTaskScheduler</td>
+<td>设定任务的执行计划实现类</td>
+</tr>
+<tr>
+<td>31</td>
+<td>mapred.jobtracker.taskScheduler.maxRunningTasksPerJob</td>
+<td></td>
+<td>作业同时运行的任务数的最大值</td>
+</tr>
+<tr>
+<td>32</td>
+<td>mapred.map.max.attempts</td>
+<td>4</td>
+<td>Map任务的重试次数</td>
+</tr>
+<tr>
+<td>33</td>
+<td>mapred.reduce.max.attempts</td>
+<td>4</td>
+<td>Reduce任务的重试次数</td>
+</tr>
+<tr>
+<td>34</td>
+<td>mapred.reduce.parallel.copies</td>
+<td>5</td>
+<td>在复制阶段时reduce并行传送的值。</td>
+</tr>
+<tr>
+<td>35</td>
+<td>mapreduce.reduce.shuffle.maxfetchfailures</td>
+<td>10</td>
+<td>取map输出的最大重试次数</td>
+</tr>
+<tr>
+<td>36</td>
+<td>mapreduce.reduce.shuffle.connect.timeout</td>
+<td>180000</td>
+<td>REDUCE任务连接任务管理器获得map输出时的总耗时是3分钟</td>
+</tr>
+<tr>
+<td>37</td>
+<td>mapreduce.reduce.shuffle.read.timeout</td>
+<td>180000</td>
+<td>REDUCE任务等待map输出数据的总耗时是3分钟</td>
+</tr>
+<tr>
+<td>38</td>
+<td>mapred.task.timeout</td>
+<td>600000</td>
+<td>如果任务无读无写时的时间耗时为10分钟，将被终止</td>
+</tr>
+<tr>
+<td>39</td>
+<td>mapred.tasktracker.map.tasks.maximum</td>
+<td>2</td>
+<td>任管管理器可同时运行map任务数为2</td>
+</tr>
+<tr>
+<td>40</td>
+<td>mapred.tasktracker.reduce.tasks.maximum</td>
+<td>2</td>
+<td>任管管理器可同时运行reduce任务数为2</td>
+</tr>
+<tr>
+<td>41</td>
+<td>mapred.jobtracker.completeuserjobs.maximum</td>
+<td>100</td>
+<td>当用户的完成作业数达100个后，将其放入作业历史文件中</td>
+</tr>
+<tr>
+<td>42</td>
+<td>mapreduce.reduce.input.limit</td>
+<td>-1</td>
+<td>Reduce输入量的限制。</td>
+</tr>
+<tr>
+<td>43</td>
+<td>mapred.job.tracker.retiredjobs.cache.size</td>
+<td>1000</td>
+<td>作业状态为已不在执行的保留在内存中的量为1000</td>
+</tr>
+<tr>
+<td>44</td>
+<td>mapred.job.tracker.jobhistory.lru.cache.size</td>
+<td>5</td>
+<td>作业历史文件装载到内存的数量</td>
+</tr>
+<tr>
+<td>45</td>
+<td>mapred.child.java.opts</td>
+<td>-Xmx200m</td>
+<td>启动task管理的子进程时的内存设置</td>
+</tr>
+<tr>
+<td>46</td>
+<td>mapred.child.env</td>
+<td></td>
+<td>子进程的参数设置</td>
+</tr>
+<tr>
+<td>47</td>
+<td>mapred.child.ulimit</td>
+<td></td>
+<td>虚拟机所需内存的设定。</td>
+</tr>
+<tr>
+<td>48</td>
+<td>mapred.cluster.map.memory.mb</td>
+<td>-1</td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td>mapred.cluster.reduce.memory.mb</td>
+<td>-1</td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td>mapred.cluster.max.map.memory.mb</td>
+<td>-1</td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td>mapred.cluster.max.reduce.memory.mb</td>
+<td>-1</td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td>mapred.job.map.memory.mb</td>
+<td>-1</td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td>mapred.job.reduce.memory.mb</td>
+<td>-1</td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td>mapred.child.tmp</td>
+<td>/tmp</td>
+<td>Mr任务信息的存放目录</td>
+</tr>
+<tr>
+<td>55</td>
+<td>mapred.inmem.merge.threshold</td>
+<td>1000</td>
+<td>内存中的合并文件数设置</td>
+</tr>
+<tr>
+<td>56</td>
+<td>mapred.job.shuffle.merge.percent</td>
+<td>0.66</td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td>mapred.job.shuffle.input.buffer.percent</td>
+<td>0.70</td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>mapred.job.reduce.input.buffer.percent</td>
+<td>0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td>mapred.map.tasks.speculative.execution</td>
+<td>true</td>
+<td>Map任务的多实例并行运行标识</td>
+</tr>
+<tr>
+<td>60</td>
+<td>mapred.reduce.tasks.speculative.execution</td>
+<td>true</td>
+<td>Reduce任务的多实例并行运行标识</td>
+</tr>
+<tr>
+<td>61</td>
+<td>mapred.job.reuse.jvm.num.tasks</td>
+<td>1</td>
+<td>每虚拟机运行的任务数</td>
+</tr>
+<tr>
+<td>62</td>
+<td>mapred.min.split.size</td>
+<td>0</td>
+<td>Map的输入数据被分解的块数设置</td>
+</tr>
+<tr>
+<td>63</td>
+<td>mapred.jobtracker.maxtasks.per.job</td>
+<td>-1</td>
+<td>一个单独作业的任务数设置</td>
+</tr>
+<tr>
+<td>64</td>
+<td>mapred.submit.replication</td>
+<td>10</td>
+<td>提交作业文件的复制级别</td>
+</tr>
+<tr>
+<td>65</td>
+<td>mapred.tasktracker.dns.interface</td>
+<td>default</td>
+<td>任务管理跟踪器是否报告IP地址名的开关</td>
+</tr>
+<tr>
+<td>66</td>
+<td>mapred.tasktracker.dns.nameserver</td>
+<td>default</td>
+<td>作业和任务管理跟踪器之间通讯方式采用的DNS服务的主机名或IP地址</td>
+</tr>
+<tr>
+<td>67</td>
+<td>tasktracker.http.threads</td>
+<td>40</td>
+<td>http服务器的工作线程数量</td>
+</tr>
+<tr>
+<td>68</td>
+<td>mapred.task.tracker.http.address</td>
+<td>0.0.0.0:50060</td>
+<td>任务管理跟踪器的http服务器的地址和端口</td>
+</tr>
+<tr>
+<td>69</td>
+<td>keep.failed.task.files</td>
+<td>false</td>
+<td>失败任务是否保存到文件中</td>
+</tr>
+<tr>
+<td>70</td>
+<td>mapred.output.compress</td>
+<td>false</td>
+<td>作业的输出是否压缩</td>
+</tr>
+<tr>
+<td>71</td>
+<td>mapred.output.compression.type</td>
+<td>RECORD</td>
+<td>作业输出采用NONE, RECORD or BLOCK三种方式中一种压缩的写入到流式文件</td>
+</tr>
+<tr>
+<td>72</td>
+<td>mapred.output.compression.codec</td>
+<td>org.apache.hadoop.io.compress.DefaultCodec</td>
+<td>压缩类的设置</td>
+</tr>
+<tr>
+<td>73</td>
+<td>mapred.compress.map.output</td>
+<td>false</td>
+<td>Map的输出是否压缩</td>
+</tr>
+<tr>
+<td>74</td>
+<td>mapred.map.output.compression.codec</td>
+<td>org.apache.hadoop.io.compress.DefaultCodec</td>
+<td>Map的输出压缩的实现类指定</td>
+</tr>
+<tr>
+<td>75</td>
+<td>map.sort.class</td>
+<td>org.apache.hadoop.util.QuickSort</td>
+<td>排序键的排序类指定</td>
+</tr>
+<tr>
+<td>76</td>
+<td>mapred.userlog.limit.kb</td>
+<td>0</td>
+<td>每个任务的用户日志文件大小</td>
+</tr>
+<tr>
+<td>77</td>
+<td>mapred.userlog.retain.hours</td>
+<td>24</td>
+<td>作业完成后的用户日志留存时间为24小时</td>
+</tr>
+<tr>
+<td>78</td>
+<td>mapred.user.jobconf.limit</td>
+<td>5242880</td>
+<td>Jobconf的大小为5M</td>
+</tr>
+<tr>
+<td>79</td>
+<td>mapred.hosts</td>
+<td></td>
+<td>可与作业管理跟踪器连接的主机名</td>
+</tr>
+<tr>
+<td>80</td>
+<td>mapred.hosts.exclude</td>
+<td></td>
+<td>不可与作业管理跟踪器连接的主机名</td>
+</tr>
+<tr>
+<td>81</td>
+<td>mapred.heartbeats.in.second</td>
+<td>100</td>
+<td>作业管理跟踪器的每秒中到达的心跳数量为100</td>
+</tr>
+<tr>
+<td>82</td>
+<td>mapred.max.tracker.blacklists</td>
+<td>4</td>
+<td>任务管理跟踪器的黑名单列表的数量</td>
+</tr>
+<tr>
+<td>83</td>
+<td>mapred.jobtracker.blacklist.fault-timeout-window</td>
+<td>180</td>
+<td>任务管理跟踪器超时180分钟则訪任务将被重启</td>
+</tr>
+<tr>
+<td>84</td>
+<td>mapred.jobtracker.blacklist.fault-bucket-width</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr>
+<td>85</td>
+<td>mapred.max.tracker.failures</td>
+<td>4</td>
+<td>任务管理跟踪器的失败任务数设定</td>
+</tr>
+<tr>
+<td>86</td>
+<td>jobclient.output.filter</td>
+<td>FAILED</td>
+<td>控制任务的用户日志输出到作业端时的过滤方式</td>
+</tr>
+<tr>
+<td>87</td>
+<td>mapred.job.tracker.persist.jobstatus.active</td>
+<td>false</td>
+<td>是否持久化作业管理跟踪器的信息</td>
+</tr>
+<tr>
+<td>88</td>
+<td>mapred.job.tracker.persist.jobstatus.hours</td>
+<td>0</td>
+<td>持久化作业管理跟踪器的信息的保存时间</td>
+</tr>
+<tr>
+<td>89</td>
+<td>mapred.job.tracker.persist.jobstatus.dir</td>
+<td>/jobtracker/jobsInfo</td>
+<td>作业管理跟踪器的信息存放目录</td>
+</tr>
+<tr>
+<td>90</td>
+<td>mapreduce.job.complete.cancel.delegation.tokens</td>
+<td>true</td>
+<td>恢复时是否变更领牌</td>
+</tr>
+<tr>
+<td>91</td>
+<td>mapred.task.profile</td>
+<td>false</td>
+<td>任务分析信息是否建设标志</td>
+</tr>
+<tr>
+<td>92</td>
+<td>mapred.task.profile.maps</td>
+<td>0-2</td>
+<td>设置map任务的分析范围</td>
+</tr>
+<tr>
+<td>93</td>
+<td>mapred.task.profile.reduces</td>
+<td>0-2</td>
+<td>设置reduce任务的分析范围</td>
+</tr>
+<tr>
+<td>94</td>
+<td>mapred.line.input.format.linespermap</td>
+<td>1</td>
+<td>每次切分的行数设置</td>
+</tr>
+<tr>
+<td>95</td>
+<td>mapred.skip.attempts.to.start.skipping</td>
+<td>2</td>
+<td>在跳转模式未被设定的情况下任务的重试次数</td>
+</tr>
+<tr>
+<td>96</td>
+<td>mapred.skip.map.auto.incr.proc.count</td>
+<td>true</td>
+<td>MapRunner在调用map功能后的增量处理方式设置</td>
+</tr>
+<tr>
+<td>97</td>
+<td>mapred.skip.reduce.auto.incr.proc.count</td>
+<td>true</td>
+<td>在调用reduce功能后的增量处理方式设置</td>
+</tr>
+<tr>
+<td>98</td>
+<td>mapred.skip.out.dir</td>
+<td></td>
+<td>跳过记录的输出目录</td>
+</tr>
+<tr>
+<td>99</td>
+<td>mapred.skip.map.max.skip.records</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>100</td>
+<td>mapred.skip.reduce.max.skip.groups</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>101</td>
+<td>job.end.retry.attempts</td>
+<td>0</td>
+<td>Hadoop偿试连接通知器的次数</td>
+</tr>
+<tr>
+<td>102</td>
+<td>job.end.retry.interval</td>
+<td>30000</td>
+<td>通知偿试回应的间隔操作为30秒</td>
+</tr>
+<tr>
+<td>103</td>
+<td>hadoop.rpc.socket.factory.class.JobSubmissionProtocol</td>
+<td></td>
+<td>指定与作业跟踪管理器的通讯方式，缺省是采用rpc方式</td>
+</tr>
+<tr>
+<td>104</td>
+<td>mapred.task.cache.levels</td>
+<td>2</td>
+<td>任务缓存级别设置</td>
+</tr>
+<tr>
+<td>105</td>
+<td>mapred.queue.names</td>
+<td>default</td>
+<td>分隔作业队例的分隔符设定</td>
+</tr>
+<tr>
+<td>106</td>
+<td>mapred.acls.enabled</td>
+<td>false</td>
+<td>指定ACL访问控制列表</td>
+</tr>
+<tr>
+<td>107</td>
+<td>mapred.queue.default.state</td>
+<td>RUNNING</td>
+<td>定义队列的状态</td>
+</tr>
+<tr>
+<td>108</td>
+<td>mapred.job.queue.name</td>
+<td>default</td>
+<td>已提交作业的队列设定</td>
+</tr>
+<tr>
+<td>109</td>
+<td>mapreduce.job.acl-modify-job</td>
+<td></td>
+<td>指定可修改作业的ACL列表</td>
+</tr>
+<tr>
+<td>110</td>
+<td>mapreduce.job.acl-view-job</td>
+<td></td>
+<td>指定可浏临作业的ACL列表</td>
+</tr>
+<tr>
+<td>111</td>
+<td>mapred.tasktracker.indexcache.mb</td>
+<td>10</td>
+<td>任务管理跟踪器的索引内存的最大容器</td>
+</tr>
+<tr>
+<td>112</td>
+<td>mapred.combine.recordsBeforeProgress</td>
+<td>10000</td>
+<td>在聚合处理时的记录块数</td>
+</tr>
+<tr>
+<td>113</td>
+<td>mapred.merge.recordsBeforeProgress</td>
+<td>10000</td>
+<td>在汇总处理时的记录块数</td>
+</tr>
+<tr>
+<td>114</td>
+<td>mapred.reduce.slowstart.completed.maps</td>
+<td>0.05</td>
+<td></td>
+</tr>
+<tr>
+<td>115</td>
+<td>mapred.task.tracker.task-controller</td>
+<td>org.apache.hadoop.mapred.DefaultTaskController</td>
+<td>任务管理器的设定</td>
+</tr>
+<tr>
+<td>116</td>
+<td>mapreduce.tasktracker.group</td>
+<td></td>
+<td>任务管理器的组成员设定</td>
+</tr>
+<tr>
+<td>117</td>
+<td>mapred.healthChecker.script.path</td>
+<td></td>
+<td>脚本的绝对路径指定，这些脚本是心跳服务的</td>
+</tr>
+<tr>
+<td>118</td>
+<td>mapred.healthChecker.interval</td>
+<td>60000</td>
+<td>节点心跳信息的间隔</td>
+</tr>
+<tr>
+<td>119</td>
+<td>mapred.healthChecker.script.timeout</td>
+<td>600000</td>
+<td></td>
+</tr>
+<tr>
+<td>120</td>
+<td>mapred.healthChecker.script.args</td>
+<td></td>
+<td>参数列表</td>
+</tr>
+<tr>
+<td>121</td>
+<td>mapreduce.job.counters.limit</td>
+<td>120</td>
+<td>作业计数器的最小值</td>
+</tr>
+</tbody>
+</table>
+<p>配置hadoop，主要是配置core-site.xml,hdfs-site.xml,mapred-site.xml三个配置文件，默认下来，这些配置文件都是空的，所以很难知道这些配置文件有哪些配置可以生效，上网找的配置可能因为各个hadoop版本不同，导致无法生效。浏览更多的配置，有两个方法:</p>
+<p>1.选择相应版本的hadoop,下载解压后，搜索*.xml,找到core-default.xml,hdfs-default.xml,mapred-default.xml,这些就是默认配置,可以参考这些配置的说明和key，配置hadoop集群。</p>
+<p>2.浏览apache官网,三个配置文件链接如下:</p>
+<p>   <a href="http://hadoop.apache.org/common/docs/current/core-default.html" target="_blank" rel="noopener">http://hadoop.apache.org/common/docs/current/core-default.html</a></p>
+<p>   <a href="http://hadoop.apache.org/common/docs/current/hdfs-default.html" target="_blank" rel="noopener">http://hadoop.apache.org/common/docs/current/hdfs-default.html</a></p>
+<p>   <a href="http://hadoop.apache.org/common/docs/current/mapred-default.html" target="_blank" rel="noopener">http://hadoop.apache.org/common/docs/current/mapred-default.html</a></p>
+<p>​     这里是浏览hadoop当前版本号的默认配置文件，其他版本号，要另外去官网找。其中第一个方法找到默认的配置是最好的，因为每个属性都有说明，可以直接使用。另外，core-site.xml是全局配置,hdfs-site.xml和mapred-site.xml分别是hdfs和mapred的局部配置。</p>
+<p>2       常用的端口配置2.1  HDFS端口</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认</th>
+<th>配置文件</th>
+<th>例子值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fs.default.name namenode</td>
+<td>namenode RPC交互端口</td>
+<td>8020</td>
+<td>core-site.xml</td>
+<td>hdfs://master:8020/</td>
+</tr>
+<tr>
+<td>dfs.http.address</td>
+<td>NameNode web管理端口</td>
+<td>50070</td>
+<td>hdfs- site.xml</td>
+<td>0.0.0.0:50070</td>
+</tr>
+<tr>
+<td>dfs.datanode.address</td>
+<td>datanode　控制端口</td>
+<td>50010</td>
+<td>hdfs -site.xml</td>
+<td>0.0.0.0:50010</td>
+</tr>
+<tr>
+<td>dfs.datanode.ipc.address</td>
+<td>datanode的RPC服务器地址和端口</td>
+<td>50020</td>
+<td>hdfs-site.xml</td>
+<td>0.0.0.0:50020</td>
+</tr>
+<tr>
+<td>dfs.datanode.http.address</td>
+<td>datanode的HTTP服务器和端口</td>
+<td>50075</td>
+<td>hdfs-site.xml</td>
+<td>0.0.0.0:50075</td>
+</tr>
+</tbody>
+</table>
+<p>2.2  MR端口</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认</th>
+<th>配置文件</th>
+<th>例子值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mapred.job.tracker</td>
+<td>job-tracker交互端口</td>
+<td>8021</td>
+<td>mapred-site.xml</td>
+<td>hdfs://master:8021/</td>
+</tr>
+<tr>
+<td>job</td>
+<td>tracker的web管理端口</td>
+<td>50030</td>
+<td>mapred-site.xml</td>
+<td>0.0.0.0:50030</td>
+</tr>
+<tr>
+<td>mapred.task.tracker.http.address</td>
+<td>task-tracker的HTTP端口</td>
+<td>50060</td>
+<td>mapred-site.xml</td>
+<td>0.0.0.0:50060</td>
+</tr>
+</tbody>
+</table>
+<p>2.3  其它端口</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认</th>
+<th>配置文件</th>
+<th>例子值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dfs.secondary.http.address</td>
+<td>secondary NameNode web管理端口</td>
+<td>50090</td>
+<td>hdfs-site.xml</td>
+<td>0.0.0.0:50090</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>3       三个缺省配置参考文件说明3.1  core-default.html</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>参数名</th>
+<th>参数值</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>hadoop.tmp.dir</td>
+<td>/tmp/hadoop-${user.name}</td>
+<td>临时目录设定</td>
+</tr>
+<tr>
+<td>2</td>
+<td>hadoop.native.lib</td>
+<td>true</td>
+<td>使用本地hadoop库标识。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>hadoop.http.filter.initializers</td>
+<td></td>
+<td>http服务器过滤链设置</td>
+</tr>
+<tr>
+<td>4</td>
+<td>hadoop.security.group.mapping</td>
+<td>org.apache.hadoop.security.ShellBasedUnixGroupsMapping</td>
+<td>组内用户的列表的类设定</td>
+</tr>
+<tr>
+<td>5</td>
+<td>hadoop.security.authorization</td>
+<td>false</td>
+<td>服务端认证开启</td>
+</tr>
+<tr>
+<td>6</td>
+<td>hadoop.security.authentication</td>
+<td>simple</td>
+<td>无认证或认证设置</td>
+</tr>
+<tr>
+<td>7</td>
+<td>hadoop.security.token.service.use_ip</td>
+<td>true</td>
+<td>是否开启使用IP地址作为连接的开关</td>
+</tr>
+<tr>
+<td>8</td>
+<td>hadoop.logfile.size</td>
+<td>10000000</td>
+<td>日志文件最大为10M</td>
+</tr>
+<tr>
+<td>9</td>
+<td>hadoop.logfile.count</td>
+<td>10</td>
+<td>日志文件数量为10个</td>
+</tr>
+<tr>
+<td>10</td>
+<td>io.file.buffer.size</td>
+<td>4096</td>
+<td>流文件的缓冲区为4K</td>
+</tr>
+<tr>
+<td>11</td>
+<td>io.bytes.per.checksum</td>
+<td>512</td>
+<td>校验位数为512字节</td>
+</tr>
+<tr>
+<td>12</td>
+<td>io.skip.checksum.errors</td>
+<td>false</td>
+<td>校验出错后是抛出异常还是略过标识。True则略过。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>io.compression.codecs</td>
+<td>org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.BZip2Codec,org.apache.hadoop.io.compress.SnappyCodec</td>
+<td>压缩和解压的方式设置</td>
+</tr>
+<tr>
+<td>14</td>
+<td>io.serializations</td>
+<td>org.apache.hadoop.io.serializer.WritableSerialization</td>
+<td>序例化和反序列化的类设定</td>
+</tr>
+<tr>
+<td>15</td>
+<td>fs.default.name</td>
+<td>file:///</td>
+<td>缺省的文件URI标识设定。</td>
+</tr>
+<tr>
+<td>16</td>
+<td>fs.trash.interval</td>
+<td>0</td>
+<td>文件废弃标识设定，0为禁止此功能</td>
+</tr>
+<tr>
+<td>17</td>
+<td>fs.file.impl</td>
+<td>org.apache.hadoop.fs.LocalFileSystem</td>
+<td>本地文件操作类设置</td>
+</tr>
+<tr>
+<td>18</td>
+<td>fs.hdfs.impl</td>
+<td>org.apache.hadoop.hdfs.DistributedFileSystem</td>
+<td>HDFS文件操作类设置</td>
+</tr>
+<tr>
+<td>19</td>
+<td>fs.s3.impl</td>
+<td>org.apache.hadoop.fs.s3.S3FileSystem</td>
+<td>S3文件操作类设置</td>
+</tr>
+<tr>
+<td>20</td>
+<td>fs.s3n.impl</td>
+<td>org.apache.hadoop.fs.s3native.NativeS3FileSystem</td>
+<td>S3文件本地操作类设置</td>
+</tr>
+<tr>
+<td>21</td>
+<td>fs.kfs.impl</td>
+<td>org.apache.hadoop.fs.kfs.KosmosFileSystem</td>
+<td>KFS文件操作类设置.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>fs.hftp.impl</td>
+<td>org.apache.hadoop.hdfs.HftpFileSystem</td>
+<td>HTTP方式操作文件设置</td>
+</tr>
+<tr>
+<td>23</td>
+<td>fs.hsftp.impl</td>
+<td>org.apache.hadoop.hdfs.HsftpFileSystem</td>
+<td>HTTPS方式操作文件设置</td>
+</tr>
+<tr>
+<td>24</td>
+<td>fs.webhdfs.impl</td>
+<td>org.apache.hadoop.hdfs.web.WebHdfsFileSystem</td>
+<td>WEB方式操作文件类设置</td>
+</tr>
+<tr>
+<td>25</td>
+<td>fs.ftp.impl</td>
+<td>org.apache.hadoop.fs.ftp.FTPFileSystem</td>
+<td>FTP文件操作类设置</td>
+</tr>
+<tr>
+<td>26</td>
+<td>fs.ramfs.impl</td>
+<td>org.apache.hadoop.fs.InMemoryFileSystem</td>
+<td>内存文件操作类设置</td>
+</tr>
+<tr>
+<td>27</td>
+<td>fs.har.impl</td>
+<td>org.apache.hadoop.fs.HarFileSystem</td>
+<td>压缩文件操作类设置.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>fs.har.impl.disable.cache</td>
+<td>true</td>
+<td>是否缓存har文件的标识设定</td>
+</tr>
+<tr>
+<td>29</td>
+<td>fs.checkpoint.dir</td>
+<td>${hadoop.tmp.dir}/dfs/namesecondary</td>
+<td>备份名称节点的存放目前录设置</td>
+</tr>
+<tr>
+<td>30</td>
+<td>fs.checkpoint.edits.dir</td>
+<td>${fs.checkpoint.dir}</td>
+<td>备份名称节点日志文件的存放目前录设置</td>
+</tr>
+<tr>
+<td>31</td>
+<td>fs.checkpoint.period</td>
+<td>3600</td>
+<td>动态检查的间隔时间设置</td>
+</tr>
+<tr>
+<td>32</td>
+<td>fs.checkpoint.size</td>
+<td>67108864</td>
+<td>日志文件大小为64M</td>
+</tr>
+<tr>
+<td>33</td>
+<td>fs.s3.block.size</td>
+<td>67108864</td>
+<td>写S3文件系统的块的大小为64M</td>
+</tr>
+<tr>
+<td>34</td>
+<td>fs.s3.buffer.dir</td>
+<td>${hadoop.tmp.dir}/s3</td>
+<td>S3文件数据的本地存放目录</td>
+</tr>
+<tr>
+<td>35</td>
+<td>fs.s3.maxRetries</td>
+<td>4</td>
+<td>S3文件数据的偿试读写次数</td>
+</tr>
+<tr>
+<td>36</td>
+<td>fs.s3.sleepTimeSeconds</td>
+<td>10</td>
+<td>S3文件偿试的间隔</td>
+</tr>
+<tr>
+<td>37</td>
+<td>local.cache.size</td>
+<td>10737418240</td>
+<td>缓存大小设置为10GB</td>
+</tr>
+<tr>
+<td>38</td>
+<td>io.seqfile.compress.blocksize</td>
+<td>1000000</td>
+<td>压缩流式文件中的最小块数为100万</td>
+</tr>
+<tr>
+<td>39</td>
+<td>io.seqfile.lazydecompress</td>
+<td>true</td>
+<td>块是否需要压缩标识设定</td>
+</tr>
+<tr>
+<td>40</td>
+<td>io.seqfile.sorter.recordlimit</td>
+<td>1000000</td>
+<td>内存中排序记录块类最小为100万</td>
+</tr>
+<tr>
+<td>41</td>
+<td>io.mapfile.bloom.size</td>
+<td>1048576</td>
+<td>BloomMapFiler过滤量为1M</td>
+</tr>
+<tr>
+<td>42</td>
+<td>io.mapfile.bloom.error.rate</td>
+<td>0.005</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>hadoop.util.hash.type</td>
+<td>murmur</td>
+<td>缺少hash方法为murmur</td>
+</tr>
+<tr>
+<td>44</td>
+<td>ipc.client.idlethreshold</td>
+<td>4000</td>
+<td>连接数据最小阀值为4000</td>
+</tr>
+<tr>
+<td>45</td>
+<td>ipc.client.kill.max</td>
+<td>10</td>
+<td>一个客户端连接数最大值为10</td>
+</tr>
+<tr>
+<td>46</td>
+<td>ipc.client.connection.maxidletime</td>
+<td>10000</td>
+<td>断开与服务器连接的时间最大为10秒</td>
+</tr>
+<tr>
+<td>47</td>
+<td>ipc.client.connect.max.retries</td>
+<td>10</td>
+<td>建立与服务器连接的重试次数为10次</td>
+</tr>
+<tr>
+<td>48</td>
+<td>ipc.server.listen.queue.size</td>
+<td>128</td>
+<td>接收客户连接的监听队例的长度为128</td>
+</tr>
+<tr>
+<td>49</td>
+<td>ipc.server.tcpnodelay</td>
+<td>false</td>
+<td>开启或关闭服务器端TCP连接算法</td>
+</tr>
+<tr>
+<td>50</td>
+<td>ipc.client.tcpnodelay</td>
+<td>false</td>
+<td>开启或关闭客户端TCP连接算法</td>
+</tr>
+<tr>
+<td>51</td>
+<td>webinterface.private.actions</td>
+<td>false</td>
+<td>Web交互的行为设定</td>
+</tr>
+<tr>
+<td>52</td>
+<td>hadoop.rpc.socket.factory.class.default</td>
+<td>org.apache.hadoop.net.StandardSocketFactory</td>
+<td>缺省的socket工厂类设置</td>
+</tr>
+<tr>
+<td>53</td>
+<td>hadoop.rpc.socket.factory.class.ClientProtocol</td>
+<td></td>
+<td>与dfs连接时的缺省socket工厂类</td>
+</tr>
+<tr>
+<td>54</td>
+<td>hadoop.socks.server</td>
+<td></td>
+<td>服务端的工厂类缺省设置为SocksSocketFactory.</td>
+</tr>
+<tr>
+<td>55</td>
+<td>topology.node.switch.mapping.impl</td>
+<td>org.apache.hadoop.net.ScriptBasedMapping</td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td>topology.script.file.name</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td>topology.script.number.args</td>
+<td>100</td>
+<td>参数数量最多为100</td>
+</tr>
+<tr>
+<td>58</td>
+<td>hadoop.security.uid.cache.secs</td>
+<td>14400</td>
+</tr>
+</tbody>
+</table>
+<p>3.2  hdfs-default.html</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>参数名</th>
+<th>参数值</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>dfs.namenode.logging.level</td>
+<td>info</td>
+<td>输出日志类型</td>
+</tr>
+<tr>
+<td>2</td>
+<td>dfs.secondary.http.address</td>
+<td>0.0.0.0:50090</td>
+<td>备份名称节点的http协议访问地址与端口</td>
+</tr>
+<tr>
+<td>3</td>
+<td>dfs.datanode.address</td>
+<td>0.0.0.0:50010</td>
+<td>数据节点的TCP管理服务地址和端口</td>
+</tr>
+<tr>
+<td>4</td>
+<td>dfs.datanode.http.address</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/04/07/Hadoop参数配置信息/">Hadoop参数配置信息</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
+  <p><span>发布时间:</span>2019年04月07日 - 10:30</p>
+  <p><span>最后更新:</span>2019年04月07日 - 10:40</p>
+  <p><span>原始链接:</span><a href="/2019/04/07/Hadoop参数配置信息/" title="Hadoop参数配置信息">http://yoursite.com/2019/04/07/Hadoop参数配置信息/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/Hadoop参数配置信息/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+	</div>
+
+    
+
+
+    
+
+    
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+   </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+          
+            <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/07/HDFS HA的一些补充/" rel="next" title="Linux命令进阶">
+                <i class="fa fa-chevron-left"></i> Linux命令进阶
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/07/3.Hadoop伪分布式（MapReduce+YARN）/" rel="prev" title="Hadoop部署MapReduce+YARN">
+                Hadoop部署MapReduce+YARN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzU1Mi8yMDA5MQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="skygzx">
+            
+              <p class="site-author-name" itemprop="name">skygzx</p>
+              <p class="site-description motion-element" itemprop="description">记录skygzx的学习历程</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友链
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.itpub.net/30089851/" title="hackeruncle" target="_blank">hackeruncle</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gengzongyuan.github.io/" title="大树" target="_blank">大树</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/tch918" title="在路上" target="_blank">在路上</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://my.oschina.net/u/4005872" title="wuwang" target="_blank">wuwang</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fab fa-angellist"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">skygzx</span>
+
+  
+</div>
+
+
+
+
+ <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <!--<div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>-->
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
+
