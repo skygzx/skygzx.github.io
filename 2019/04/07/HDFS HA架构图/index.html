@@ -113,12 +113,12 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="1.HA进程: 假设有3台机器：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190329094907897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T04:28:34.311Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhFYQg.png">
+<meta property="og:updated_time" content="2019-04-07T07:20:46.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS HA架构图">
 <meta name="twitter:description" content="1.HA进程: 假设有3台机器：">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190329094907897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhFYQg.png">
 
 
 
@@ -438,7 +438,7 @@
         <p><strong>1.HA进程: 假设有3台机器：</strong></p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">hadoop001:ZK    NN ZKFC  JN    DN</span><br><span class="line"></span><br><span class="line">hadoop002:ZK    NN ZKFC  JN    DN</span><br><span class="line"></span><br><span class="line">hadoop003:ZK             JN    DN</span><br><span class="line"></span><br><span class="line">jounalNode数量布置的多少: 一般根据HDFS请求量 及数据量（一般部署2n+1个）</span><br><span class="line">ZK集群 ：部署2n+1 个，奇数， 选举 谁做active standby</span><br><span class="line">生产上：20台节点: 5台</span><br><span class="line">	    20~100台节点: 7/9/11台</span><br><span class="line">	    &gt;100台节点: 11台 </span><br><span class="line">但是: 不是说zk节点越多越好，如果部署的多，它选举active投票的时间就会长，会导致</span><br><span class="line">对外提供服务特别的慢。</span><br><span class="line"></span><br><span class="line">如果公司有几百台节点, 那么zk部署的机器就它一个进程，因为zk进行选举的时候，如果选</span><br><span class="line">举的快慢跟这台机器的繁忙程度有关系，跟进程数也有关系，若果机器过去繁忙，导致zk夯</span><br><span class="line">住了，那么如果这时候NN挂掉了，就会导致standby无法切换成active。</span><br></pre></td></tr></table></figure>
-<p><strong>HDFS HA架构流程图：</strong><br><img src="https://img-blog.csdnimg.cn/20190329094907897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>流程说明：</strong></p>
+<p><strong>HDFS HA架构流程图：</strong><br><img src="https://s2.ax1x.com/2019/04/07/AhFYQg.png" alt="在这里插入图片描述"><br><strong>流程说明：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">HA是为了解决单点问题</span><br><span class="line">通过JN集群共享状态</span><br><span class="line">通过ZKFC选举active</span><br><span class="line">监控状态，自动备援。</span><br><span class="line">DN: 同时向NN1 NN2发送心跳和块报告。</span><br><span class="line">ACTIVE NN: 操作记录写到自己的editlog</span><br><span class="line">           同时写JN集群</span><br><span class="line">	   接收DN的心跳和块报告</span><br><span class="line">STANDBY NN: 同时接收JN集群的日志，显示读取执行log操作(重演)，</span><br><span class="line">            使得自己的元数据和active nn节点保持一致。</span><br><span class="line">	    接收DN的心跳和块报告</span><br><span class="line"></span><br><span class="line">JounalNode: 用于active standby nn节点的同步数据</span><br><span class="line">            一般部署2n+1</span><br><span class="line"></span><br><span class="line">ZKFC: 单独的进程</span><br><span class="line">	监控NN监控健康状态</span><br><span class="line">	向zk集群定期发送心跳，使得自己可以被选举；</span><br><span class="line">	当自己被zk选举为active的时候，zkfc进程通过RPC协议调用使NN节点的状态变为active，</span><br><span class="line">	对外提供实时服务，是无感知的。</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -458,7 +458,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/HDFS HA架构图/">HDFS HA架构图</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:17</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:28</p>
+  <p><span>最后更新:</span>2019年04月07日 - 15:20</p>
   <p><span>原始链接:</span><a href="/2019/04/07/HDFS HA架构图/" title="HDFS HA架构图">http://yoursite.com/2019/04/07/HDFS HA架构图/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/HDFS HA架构图/" aria-label="复制成功！"></i></span>
   </p>

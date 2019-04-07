@@ -113,14 +113,14 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="1.写流程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190309190710357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190309193836161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190309195021934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T04:28:43.693Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhFWwR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhF4Fx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhF5Y6.png">
+<meta property="og:updated_time" content="2019-04-07T07:23:43.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS的读写流程及副本放置机制">
 <meta name="twitter:description" content="1.写流程">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190309190710357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhFWwR.png">
 
 
 
@@ -442,16 +442,16 @@
 <blockquote>
 <p>FSDataOutputStream</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20190309190710357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">这个过程对于我们操作者而言是无感知的</span><br><span class="line">1.Client调用FileSystem.creat(filePath)方法，去与NN进行【RPC】通信，nn check该路径</span><br><span class="line">文件是否存在以及有没有权限创建该文件。假如OK，就创建一个新的文件，但是不关联任何的block，</span><br><span class="line">nn根据上传的文件大小且块大小且副本数，计算多少块，以及块存放的dn，最终将这些信息返回给客</span><br><span class="line">户端，则为【FSDataOutputStream】</span><br><span class="line">2.Client调用FSDataOutStream.write方法，将第一个块的第一个副本写到第一个DN，写完写第</span><br><span class="line">二个副本，写完写第三个副本，当第三个副本写完，返回ack packet给第二个副本的DN，然后第二</span><br><span class="line">个副本返回ack packer给第一个DN，第一个DN返回 ack packet给FSDdataOutputStream对象，</span><br><span class="line">标识第一个块三个副本写完了，然后依次写剩余的块。</span><br><span class="line">3.当文件写入数据完成后，Client掉用FSDataOutputStream.close()方法，关闭输出流，flush</span><br><span class="line">换成区的数据包。再次调用FileSysteam.complete(),通知NN节点写入成功。</span><br><span class="line">3DN</span><br><span class="line">3副本</span><br><span class="line">副本数=DN</span><br><span class="line"></span><br><span class="line">1DN</span><br><span class="line">1副本</span><br><span class="line">测试：DN挂了 能不能写入</span><br><span class="line">同比：3DN 3副本 1DN挂了 肯定写不成功</span><br><span class="line"></span><br><span class="line">如果10DN</span><br><span class="line">3副本</span><br><span class="line">副本书&lt;DN</span><br><span class="line">测试：DN挂了，是可以写入的</span><br><span class="line"></span><br><span class="line">总结：存活的DN满足我们的副本书 就能写</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhFWwR.png" alt="在这里插入图片描述"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">这个过程对于我们操作者而言是无感知的</span><br><span class="line">1.Client调用FileSystem.creat(filePath)方法，去与NN进行【RPC】通信，nn check该路径</span><br><span class="line">文件是否存在以及有没有权限创建该文件。假如OK，就创建一个新的文件，但是不关联任何的block，</span><br><span class="line">nn根据上传的文件大小且块大小且副本数，计算多少块，以及块存放的dn，最终将这些信息返回给客</span><br><span class="line">户端，则为【FSDataOutputStream】</span><br><span class="line">2.Client调用FSDataOutStream.write方法，将第一个块的第一个副本写到第一个DN，写完写第</span><br><span class="line">二个副本，写完写第三个副本，当第三个副本写完，返回ack packet给第二个副本的DN，然后第二</span><br><span class="line">个副本返回ack packer给第一个DN，第一个DN返回 ack packet给FSDdataOutputStream对象，</span><br><span class="line">标识第一个块三个副本写完了，然后依次写剩余的块。</span><br><span class="line">3.当文件写入数据完成后，Client掉用FSDataOutputStream.close()方法，关闭输出流，flush</span><br><span class="line">换成区的数据包。再次调用FileSysteam.complete(),通知NN节点写入成功。</span><br><span class="line">3DN</span><br><span class="line">3副本</span><br><span class="line">副本数=DN</span><br><span class="line"></span><br><span class="line">1DN</span><br><span class="line">1副本</span><br><span class="line">测试：DN挂了 能不能写入</span><br><span class="line">同比：3DN 3副本 1DN挂了 肯定写不成功</span><br><span class="line"></span><br><span class="line">如果10DN</span><br><span class="line">3副本</span><br><span class="line">副本书&lt;DN</span><br><span class="line">测试：DN挂了，是可以写入的</span><br><span class="line"></span><br><span class="line">总结：存活的DN满足我们的副本书 就能写</span><br></pre></td></tr></table></figure></p>
 <p><strong>2.读流程</strong></p>
 <blockquote>
 <p>FSDataIntputStream</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20190309193836161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhF4Fx.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.Client通过FileSystem.open(filePath),去与NN进行【RPC】通信，返该文件的部分或全部</span><br><span class="line">的block列表，也就是返回FSDataInputStream对象。</span><br><span class="line">2.Client调用【FSDataInputStream】对象的read()方法，</span><br><span class="line">a.去与第一个块的最近的DN进行read，读取完后，会check，假如success，会关闭与当前DN通信。</span><br><span class="line">假如fail 会记录失败的DN +block信息，下次就不会读取，那么会去该块的第二个DN地址读取。</span><br><span class="line">b.然后去第二个块的最近的DN读取，会check，如果cuccess，会关闭与当前DN的通信</span><br><span class="line">c.假如当前block列表全部读取完成，文件还没有结束，那么FileSystem会从NN获取下一批大的</span><br><span class="line">block列表。</span><br><span class="line">3.Client调用FSDataInputStream.close()关闭输入流。</span><br></pre></td></tr></table></figure>
 <p><strong>3.副本放置策略</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生产上尽量将读写的动作 选取DN节点</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20190309195021934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhF5Y6.png" alt="在这里插入图片描述"></p>
 
       
     </div>
@@ -471,7 +471,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/HDFS的读写流程及副本放置机制/">HDFS的读写流程及副本放置机制</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 09:44</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:28</p>
+  <p><span>最后更新:</span>2019年04月07日 - 15:23</p>
   <p><span>原始链接:</span><a href="/2019/04/07/HDFS的读写流程及副本放置机制/" title="HDFS的读写流程及副本放置机制">http://yoursite.com/2019/04/07/HDFS的读写流程及副本放置机制/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/HDFS的读写流程及副本放置机制/" aria-label="复制成功！"></i></span>
   </p>

@@ -113,14 +113,14 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="** 提交 mr 作业到 yarn 上运行  wc**">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019030913342195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190309133636100.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190309133813973.png">
-<meta property="og:updated_time" content="2019-04-07T04:32:18.555Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhooeH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/Aho7TA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhoqYt.png">
+<meta property="og:updated_time" content="2019-04-07T11:43:00.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wordcount的实际操作">
 <meta name="twitter:description" content="** 提交 mr 作业到 yarn 上运行  wc**">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019030913342195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhooeH.png">
 
 
 
@@ -450,7 +450,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./share/hadoop/mapreduce2/hadoop-mapreduce-examples-2.6.0-cdh5.7.0.jar</span><br></pre></td></tr></table></figure>
 <p>5.这个时候我们需要查看命令帮助：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop 回车 向下翻看，会发现一个 jar的命令</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2019030913342195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>6.输入命令：<br><img src="https://img-blog.csdnimg.cn/20190309133636100.png" alt="在这里插入图片描述">7.继续输入命令：（注意：output1事先一定是不存在的）<br><img src="https://img-blog.csdnimg.cn/20190309133813973.png" alt="在这里插入图片描述">8.查看计算结果：</p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhooeH.png" alt="在这里插入图片描述"><br>6.输入命令：<br><img src="https://s2.ax1x.com/2019/04/07/Aho7TA.png" alt="在这里插入图片描述">7.继续输入命令：（注意：output1事先一定是不存在的）<br><img src="https://s2.ax1x.com/2019/04/07/AhoqYt.png" alt="在这里插入图片描述">8.查看计算结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ hadoop jar \</span><br><span class="line">./share/hadoop/mapreduce2/hadoop-mapreduce-examples-2.6.0-cdh5.7.0.jar \</span><br><span class="line">wordcount /wordcount/input /wordcount/output1</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ hdfs dfs -cat /wordcount/output1/part-r-00000</span><br><span class="line">19/02/16 22:05:46 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">1       3</span><br><span class="line">3       1</span><br><span class="line">5       1</span><br><span class="line">a       3</span><br><span class="line">adai    1</span><br><span class="line">b       3</span><br><span class="line">c       2</span><br><span class="line">d       1</span><br><span class="line">dashu   1</span><br><span class="line">e       1</span><br><span class="line">f       1</span><br><span class="line">fanren  1</span><br><span class="line">jepon   1</span><br><span class="line">jepson  1</span><br><span class="line">ruoze   3</span><br><span class="line">www.ruozedata.com       1</span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ hdfs dfs -get /wordcount/output1/part-r-00000 ./</span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ cat part-r-00000</span><br><span class="line">1       3</span><br><span class="line">3       1</span><br><span class="line">5       1</span><br><span class="line">a       3</span><br><span class="line">adai    1</span><br><span class="line">b       3</span><br><span class="line">c       2</span><br><span class="line">d       1</span><br><span class="line">dashu   1</span><br><span class="line">e       1</span><br><span class="line">f       1</span><br><span class="line">fanren  1</span><br><span class="line">jepon   1</span><br><span class="line">jepson  1</span><br><span class="line">ruoze   3</span><br><span class="line">www.ruozedata.com       1</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -470,7 +470,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/wordcount的实际操作/">wordcount的实际操作</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 09:30</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:32</p>
+  <p><span>最后更新:</span>2019年04月07日 - 19:43</p>
   <p><span>原始链接:</span><a href="/2019/04/07/wordcount的实际操作/" title="wordcount的实际操作">http://yoursite.com/2019/04/07/wordcount的实际操作/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/wordcount的实际操作/" aria-label="复制成功！"></i></span>
   </p>

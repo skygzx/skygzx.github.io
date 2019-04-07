@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="YARN,大数据开发,HDFS,HA,">
+  <meta name="keywords" content="YARN,HDFS,HA,大数据开发,">
 
 
 
@@ -106,19 +106,19 @@
 
 
 <meta name="description" content="1.企业中为什么要用集群：">
-<meta name="keywords" content="YARN,大数据开发,HDFS,HA">
+<meta name="keywords" content="YARN,HDFS,HA,大数据开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 HDFS和Yarn HA 的了解">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/index.html">
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="1.企业中为什么要用集群：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190328153912947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T04:34:01.965Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhTMkR.png">
+<meta property="og:updated_time" content="2019-04-07T11:46:39.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 HDFS和Yarn HA 的了解">
 <meta name="twitter:description" content="1.企业中为什么要用集群：">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190328153912947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhTMkR.png">
 
 
 
@@ -441,7 +441,7 @@
 <p>==但是：hbase 读写请求不是经过老大master，这点需要注意，那什么经过master，就是建表语句，删表语句）==</p>
 <p><strong>2.企业生产中的配置：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">如果只有一台节点，如果NN挂了，那么就无法对外提供访问了。</span><br><span class="line">企业中我们一般会配置两个NN节点，（实时的，任何时候只有一台active对外，另一台standby实时</span><br><span class="line">	备份，随时准备着从stanby切换成active状态，对外提供服务。）</span><br><span class="line">NN1：active            hdfs://ip1:9000/ 代码 shell脚本</span><br><span class="line">NN2：standby           hdfs://ip2:9000/</span><br><span class="line">	（假设NN1在11点挂了，就在那一霎那，NN2会瞬间切换成actice，对外提供访问。）</span><br><span class="line">查看hdfs可以这样查看：</span><br><span class="line">	hdfs dfs -ls </span><br><span class="line"> hdfs dfs -ls /</span><br><span class="line"> hdfs dfs -ls hdfs://ip:9000/</span><br><span class="line">如果NN1挂掉了，我们切换到NN2，难道我们还要手动修改： hdfs://ip2:9000/吗?</span><br><span class="line">这个时候我们抛出一个概念：无感知的：（命名空间：nameservice1  CDH</span><br><span class="line">										 生产上：dw）</span><br></pre></td></tr></table></figure>
-<p><strong>3.命名空间：</strong><br><img src="https://img-blog.csdnimg.cn/20190328153912947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>3.命名空间：</strong><br><img src="https://s2.ax1x.com/2019/04/07/AhTMkR.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如上图所示：命名空间 RUOZEG6 不是一个进程，当我们输入命令：hdfs dfs -ls hdfs：//RUOZEG6/这个命令时，他会去找 core-size.xml 和 hdfs-site.xml这两个配置文件，这两个配置文件里配置了 hadoop001和hadoop002这两台机器挂在了 命名空间下面，它会去尝试连接第一台机器，如果第一台不是active，那么他会去连第二台机器。</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -461,7 +461,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/关于 HDFS和Yarn HA 的了解/">关于 HDFS和Yarn HA 的了解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:15</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:34</p>
+  <p><span>最后更新:</span>2019年04月07日 - 19:46</p>
   <p><span>原始链接:</span><a href="/2019/04/07/关于 HDFS和Yarn HA 的了解/" title="关于 HDFS和Yarn HA 的了解">http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/" aria-label="复制成功！"></i></span>
   </p>
@@ -507,11 +507,11 @@
           
             <a href="/tags/YARN/" rel="tag"><i class="fa fa-tag"></i> YARN</a>
           
-            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
-          
             <a href="/tags/HDFS/" rel="tag"><i class="fa fa-tag"></i> HDFS</a>
           
             <a href="/tags/HA/" rel="tag"><i class="fa fa-tag"></i> HA</a>
+          
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
           
         </div>
       

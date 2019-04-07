@@ -113,13 +113,13 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="1.生产上 job去申请调度资源时：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190312192133779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019031219351887.png">
-<meta property="og:updated_time" content="2019-04-07T04:33:05.765Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhTV6U.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhTu79.png">
+<meta property="og:updated_time" content="2019-04-07T11:45:44.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YARN生产上调度器">
 <meta name="twitter:description" content="1.生产上 job去申请调度资源时：">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190312192133779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhTV6U.png">
 
 
 
@@ -439,13 +439,13 @@
         <p><strong>1.生产上 job去申请调度资源时：</strong></p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">规则：</span><br><span class="line">	 FIFO 先进先出</span><br><span class="line">	 Capacity 计算</span><br><span class="line">	 Fair   公平 生产</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20190312192133779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhTV6U.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">图解：</span><br><span class="line">	 FiFO:表示 先进先出调度器</span><br><span class="line">	 	假设总共由40G的内存容器，job1在0点时进入运行作业，那么40G的内存全部运行job1，当job2在1点请求运行的时候，它需要等job1作业全部运行完成释放资源以后，再运行job2作业。</span><br><span class="line">	 Capacity：表示 计算调度器</span><br><span class="line">	 	假设总共有40G的内存容器，它会分成两部分，5G的内村容器留给小的作业运算，它会一直运算小作业，不释放，剩下的35G运行其他作业。</span><br><span class="line">	 	Fair：表示 公平调度器（生产上都是用这一种）</span><br><span class="line">	 	假设一共有42G的内存容器，0点的时候job1任务先申请运算，然后会将40G的容器全部用作job1的运算中，当1带点时，job2请求运算作业，这时会分给job2部分容器，让它同时运行，</span><br><span class="line"></span><br><span class="line">&gt; 注意：这时会有延迟的，必须要等到job1有资源释放出来之后，才会给job2运算。</span><br></pre></td></tr></table></figure>
 <p>CDH 动态资源池 放置规则</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;queuePlacementPolicy&gt;</span><br><span class="line">    &lt;rule name=&quot;specified&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;primaryGroup&quot; create=&quot;false&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;default&quot; queue=&quot;ABC&quot;/&gt;</span><br><span class="line">&lt;/queuePlacementPolicy&gt;</span><br></pre></td></tr></table></figure>
 <p>  JOB -queue ABC<br>  主组 jepson bigdata root</p>
 <p>生产上怎么配置：<br>参考官网：<a href="http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html</a></p>
-<p><img src="https://img-blog.csdnimg.cn/2019031219351887.png" alt="在这里插入图片描述"></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhTu79.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;allocations&gt;</span><br><span class="line">  &lt;queue name=&quot;ABC&quot;&gt;</span><br><span class="line">    &lt;minResources&gt;10000 mb,10vcores&lt;/minResources&gt;</span><br><span class="line">    &lt;maxResources&gt;60000 mb,30vcores&lt;/maxResources&gt;</span><br><span class="line">    &lt;weight&gt;2.0&lt;/weight&gt;</span><br><span class="line">    &lt;schedulingPolicy&gt;fair&lt;/schedulingPolicy&gt;</span><br><span class="line">  &lt;/queue&gt; </span><br><span class="line">  </span><br><span class="line">&lt;queue name=&quot;XYZ&quot;&gt;</span><br><span class="line">      &lt;minResources&gt;20000 mb,0vcores&lt;/minResources&gt;</span><br><span class="line">      &lt;maxResources&gt;80000 mb,0vcores&lt;/maxResources&gt;</span><br><span class="line">      &lt;weight&gt;3.0&lt;/weight&gt;</span><br><span class="line">      &lt;schedulingPolicy&gt;fifo&lt;/schedulingPolicy&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/queue&gt;</span><br><span class="line">&lt;queueMaxResourcesDefault&gt;40000 mb,20vcores&lt;/queueMaxResourcesDefault&gt;</span><br><span class="line"></span><br><span class="line">&lt;queuePlacementPolicy&gt;</span><br><span class="line">    &lt;rule name=&quot;specified&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;primaryGroup&quot; create=&quot;false&quot; /&gt;</span><br><span class="line">    &lt;rule name=&quot;default&quot; queue=&quot;ABC&quot;/&gt;</span><br><span class="line">  &lt;/queuePlacementPolicy&gt;</span><br><span class="line">&lt;/allocations&gt;</span><br></pre></td></tr></table></figure>
 <p><a href="https://netjs.blogspot.com/2018/04/fair-scheduler-in-yarn-hadoop.html" target="_blank" rel="noopener">https://netjs.blogspot.com/2018/04/fair-scheduler-in-yarn-hadoop.html</a></p>
 
@@ -467,7 +467,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/YARN生产上调度器/">YARN生产上调度器</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:00</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:33</p>
+  <p><span>最后更新:</span>2019年04月07日 - 19:45</p>
   <p><span>原始链接:</span><a href="/2019/04/07/YARN生产上调度器/" title="YARN生产上调度器">http://yoursite.com/2019/04/07/YARN生产上调度器/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/YARN生产上调度器/" aria-label="复制成功！"></i></span>
   </p>

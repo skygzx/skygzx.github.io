@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="大数据开发,HDFS,">
+  <meta name="keywords" content="HDFS,大数据开发,">
 
 
 
@@ -106,20 +106,20 @@
 
 
 <meta name="description" content="HDFS的基本结构">
-<meta name="keywords" content="大数据开发,HDFS">
+<meta name="keywords" content="HDFS,大数据开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令进阶">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/HDFS HA的一些补充/index.html">
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="HDFS的基本结构">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20180523163634141?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI0MDczNzA3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:image" content="https://img-blog.csdn.net/20180523163703307?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI0MDczNzA3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2019-04-07T04:28:19.044Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhFKeA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhFQot.png">
+<meta property="og:updated_time" content="2019-04-07T07:19:36.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令进阶">
 <meta name="twitter:description" content="HDFS的基本结构">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180523163634141?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI0MDczNzA3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhFKeA.png">
 
 
 
@@ -437,7 +437,7 @@
 
       
         <h1 id="HDFS的基本结构"><a href="#HDFS的基本结构" class="headerlink" title="HDFS的基本结构"></a>HDFS的基本结构</h1><a id="more"></a>
-<p><img src="https://img-blog.csdn.net/20180523163634141?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI0MDczNzA3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhFKeA.png" alt="img"></p>
 <p>如上图所示，HDFS基本结构分NameNode、SecondaryNameNode、DataNode这几个。</p>
 <p>NameNode：是Master节点，有点类似Linux里的根目录。管理数据块映射；处理客户端的读写请求；配置副本策略；管理HDFS的名称空间；</p>
 <p>SecondaryNameNode：保存着NameNode的部分信息（不是全部信息NameNode宕掉之后恢复数据用），是NameNode的冷备份；合并fsimage和edits然后再发给namenode。（防止edits过大的一种解决方案）</p>
@@ -471,7 +471,7 @@
 <p>SecondaryNode</p>
 <p>执行过程：从NameNode上 下载元数据信息（fsimage,edits），然后把二者合并，生成新的fsimage，在本地保存，并将其推送到NameNode，同时重置NameNode的edits.</p>
 <p>工作原理（转自“大牛笔记”的博客，由于实现是清晰，受益很大，在此不做改动）</p>
-<p><img src="https://img-blog.csdn.net/20180523163703307?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI0MDczNzA3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhFQot.png" alt="img"></p>
 <p>有一个文件FileA，100M大小。Client将FileA写入到HDFS上。</p>
 <p>HDFS按默认配置。</p>
 <p>HDFS分布在三个机架上Rack1，Rack2，Rack3。</p>
@@ -550,9 +550,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
-          
             <a href="/tags/HDFS/" rel="tag"><i class="fa fa-tag"></i> HDFS</a>
+          
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
           
         </div>
       

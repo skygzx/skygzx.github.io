@@ -113,13 +113,13 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="解决步骤：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190407091954561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019040709231312.png">
-<meta property="og:updated_time" content="2019-04-07T04:34:38.941Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhTdAA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhT0ht.png">
+<meta property="og:updated_time" content="2019-04-07T11:50:27.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生产中如何通过日志查看错误">
 <meta name="twitter:description" content="解决步骤：">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190407091954561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhTdAA.png">
 
 
 
@@ -439,10 +439,10 @@
         <p><strong>解决步骤</strong>：</p>
 <a id="more"></a>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在生产中我们运行命令时肯定会出现失败的情况，如果遇到这样的情况我们该怎么办,</span><br><span class="line">那么这个时候我们就需要会查看日志，在日志中查找错误</span><br><span class="line"><span class="title">ps</span>：在hadoop的场景下：</span><br><span class="line"><span class="title">logs</span>/目录下：</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20190407091954561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hadoop</span>-hadoop-datanode-hadoop002.log</span><br><span class="line"> 对应的名字分别是：elm</span><br><span class="line"> hadoop-用户-进程名称-机器名称</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhTdAA.png" alt="在这里插入图片描述"><br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hadoop</span>-hadoop-datanode-hadoop002.log</span><br><span class="line"> 对应的名字分别是：elm</span><br><span class="line"> hadoop-用户-进程名称-机器名称</span><br></pre></td></tr></table></figure></p>
 <p><strong>一共有三种方法可以去查看：</strong></p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">01</span> vi :/搜索 <span class="type">ERROR</span></span><br><span class="line"><span class="number">02</span> tail <span class="number">-200</span>f xxx.log（倒着查看log中的后<span class="number">200</span>行日志）  另外窗口重启进程 为了再现这个错误</span><br><span class="line"></span><br><span class="line"><span class="number">03</span> rz上传到windows editplus去定位查看 备份 （一般对于生产中日志比较大的文件）</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2019040709231312.png" alt="在这里插入图片描述"></p>
+<p><img src="https://s2.ax1x.com/2019/04/07/AhT0ht.png" alt="在这里插入图片描述"></p>
 
       
     </div>
@@ -462,7 +462,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/生产中如何通过日志查看错误/">生产中如何通过日志查看错误</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 09:24</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:34</p>
+  <p><span>最后更新:</span>2019年04月07日 - 19:50</p>
   <p><span>原始链接:</span><a href="/2019/04/07/生产中如何通过日志查看错误/" title="生产中如何通过日志查看错误">http://yoursite.com/2019/04/07/生产中如何通过日志查看错误/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/生产中如何通过日志查看错误/" aria-label="复制成功！"></i></span>
   </p>
