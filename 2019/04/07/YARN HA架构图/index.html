@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="YARN,HA,架构图,大数据开发,">
+  <meta name="keywords" content="HA,架构图,YARN,大数据开发,">
 
 
 
@@ -106,19 +106,19 @@
 
 
 <meta name="description" content="1.YARN架构图：">
-<meta name="keywords" content="YARN,HA,架构图,大数据开发">
+<meta name="keywords" content="HA,架构图,YARN,大数据开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YARN HA架构图">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/YARN HA架构图/index.html">
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="1.YARN架构图：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="c:/Users/嘻嘻哈哈/Desktop/2019032919063379.png">
-<meta property="og:updated_time" content="2019-04-07T04:44:38.678Z">
+<meta property="og:image" content="http://yoursite.com/2019032919063379.png">
+<meta property="og:updated_time" content="2019-04-07T05:11:03.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YARN HA架构图">
 <meta name="twitter:description" content="1.YARN架构图：">
-<meta name="twitter:image" content="c:/Users/嘻嘻哈哈/Desktop/2019032919063379.png">
+<meta name="twitter:image" content="http://yoursite.com/2019032919063379.png">
 
 
 
@@ -437,7 +437,7 @@
       
         <p><strong>1.YARN架构图：</strong></p>
 <a id="more"></a>
-<p><img src="C:\Users\嘻嘻哈哈\Desktop\2019032919063379.png" alt="2019032919063379"></p>
+<p><img src="/../2019032919063379.png" alt="2019032919063379"></p>
 <p>2.架构图详解：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">YARN HA </span><br><span class="line">hadoop001：zk  rm(zkfc)  nm</span><br><span class="line">hadoop002：zk  rm(zkfc)  nm</span><br><span class="line">hadoop003：zk            nm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ZKFC: 线程  </span><br><span class="line">只作为RM进程的一个线程而非独立的进程存在</span><br><span class="line"></span><br><span class="line">RMStateStore: </span><br><span class="line">存储在zk的/rmstore目录下。</span><br><span class="line">1.activeRM会向这个目录写APP信息</span><br><span class="line">2.当activeRM挂了，另外一个standby RM通过</span><br><span class="line">ZKFC选举成功为active，会从/rmstore读取相应的作业信息。</span><br><span class="line">重新构建作业的内存信息，启动内部的服务，</span><br><span class="line">开始接收NM的心跳，构建集群的资源信息，并且接收客户端的作业提交请求。</span><br><span class="line"></span><br><span class="line">RM:</span><br><span class="line">1.启动时候会向ZK的/rmstore目录写lock文件，写成功就为active，否则standby.</span><br><span class="line">rm节点zkfc会一直监控这个lock文件是否存在，假如不存在，就为active，否则为standby.</span><br><span class="line">2.接收client的请求，接收和监控NM的资源状况的汇报，负载资源的分配和调度。</span><br><span class="line">3.启动和监控APPMASTER on NM节点的container。</span><br><span class="line">applicationsmanager RM</span><br><span class="line">applicationmaster   NM container容器里  作业的主程序</span><br><span class="line"></span><br><span class="line">NM:</span><br><span class="line">节点资源的管理  启动容器运行task计算  上报资源</span><br></pre></td></tr></table></figure>
       
@@ -458,7 +458,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/YARN HA架构图/">YARN HA架构图</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:19</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:44</p>
+  <p><span>最后更新:</span>2019年04月07日 - 13:11</p>
   <p><span>原始链接:</span><a href="/2019/04/07/YARN HA架构图/" title="YARN HA架构图">http://yoursite.com/2019/04/07/YARN HA架构图/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/YARN HA架构图/" aria-label="复制成功！"></i></span>
   </p>
@@ -502,11 +502,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/YARN/" rel="tag"><i class="fa fa-tag"></i> YARN</a>
-          
             <a href="/tags/HA/" rel="tag"><i class="fa fa-tag"></i> HA</a>
           
             <a href="/tags/架构图/" rel="tag"><i class="fa fa-tag"></i> 架构图</a>
+          
+            <a href="/tags/YARN/" rel="tag"><i class="fa fa-tag"></i> YARN</a>
           
             <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
           
