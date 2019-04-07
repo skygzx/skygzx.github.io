@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[大数据压缩]]></title>
+    <url>%2F2019%2F04%2F07%2F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9%2F</url>
+    <content type="text"><![CDATA[1.压缩的好处和坏处：好处：1.减少存储磁盘空间 2.降低IO(网络的IO和磁盘的IO) 3.加快数据在磁盘和网络中的传输速度，从而提高系统的处理速度 坏处：由于使用数据时，需要先将数据解压，加重CPU负荷 2.压缩格式： 压缩格式 工具 算法 扩展名 是否支持分割 Hadoop编码/解码 DEFLATE N/A DEFLATE .deflate No org.apache.hadoop.io.compress.DefalutCodec gzip gzip DEFLATE .gz No org.apache.hadoop.io.compress.GzipCodec bzip2 bzip2 bzip2 .bz2 Yes org.apache.hadoop.io.compress.Bzip2Codec LZO Lzop LZO .lzo Yes(if index) com.hadoop.compression.lzo.LzoCodec LZ4 N/A LZ4 .lz4 No org.apache.hadoop.io.compress.Lz4Codec Snappy N/A Snappy .snappy No org.apache.hadoop.io.compress.SnappyCodec 压缩比: 可以看出，压缩比越高，压缩时间越长，压缩比：Snappy&lt;LZ4&lt;LZO&lt;GZIP&lt;BZIP2 3.压缩格式各自优缺点a. gzip优点： 压缩比在四种压缩方式中较高；hadoop本身支持，在应用中处理gzip格式的文件就和直接处理文本一样；有hadoop native库；大部分linux系统都自带gzip命令，使用方便 缺点： 不支持split b. lzo优点： 压缩/解压速度也比较快，合理的压缩率；支持split，是hadoop中最流行的压缩格式；支持hadoop native库；需要在linux系统下自行安装lzop命令，使用方便 缺点： 压缩率比gzip要低；hadoop本身不支持，需要安装；lzo虽然支持split，但需要对lzo文件建索引，否则hadoop也是会把lzo文件看成一个普通文件（为了支持split需要建索引，需要指定inputformat为lzo格式） c. snappy优点： 压缩速度快；支持hadoop native库 缺点： 不支持split；压缩比低；hadoop本身不支持，需要安装；linux系统下没有对应的命令 d. bzip2优点： 支持split；具有很高的压缩率，比gzip压缩率都高；hadoop本身支持，但不支持native；在linux系统下自带bzip2命令，使用方便 缺点： 压缩/解压速度慢；不支持native 总结：​ 不同的场景选择不同的压缩方式，肯定没有一个一劳永逸的方法，如果选择高压缩比，那么对于cpu的性能要求要高，同时压缩、解压时间耗费也多；选择压缩比低的，对于磁盘io、网络io的时间要多，空间占据要多；对于支持分割的，可以实现并行处理。 应用场景： 一般在HDFS 、Hive、HBase中会使用； 当然一般较多的是结合Spark 来一起使用。]]></content>
+      <tags>
+        <tag>大数据开发</tag>
+        <tag>Snappy</tag>
+        <tag>Bzip2</tag>
+        <tag>LZ4</tag>
+        <tag>LZO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hadoop编译支持5种压缩格式]]></title>
+    <url>%2F2019%2F04%2F07%2FHadoop%E7%BC%96%E8%AF%91%E6%94%AF%E6%8C%815%E7%A7%8D%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[Hadoop-2.6.0-CDH-5.7.0版本编译： 前置环境：1. JDK为jdk-7u80-linux-x64.tar.gz ​ 2. Maven为apache-maven-3.3.9-bin.zip ​ 3. findbugs为findbugs-1.3.9.zip ​ 4. protoc为protobuf-2.5.0.tar.gz ​ 5. hadoop-2.6.0-cdh5.7.0-src.tar.gzprotoc为protobuf-2.5.0.tar.gz 1)下载： ​ 下载hadoop-2.6.0-cdh5.7.0-src.tar.gz 12 ​ 下载jdk-7u80-linux-x64.tar.gz 12 2）上传： ​ 上传hadoop-2.6.0-cdh5.7.0-src.tar.gz至/source下 ​ 上传jdk-7u80-linux-x64.tar.gz、apache-maven-3.3.9-bin.zip、findbugs-1.3.9.zip、protobuf-2.5.0.tar.gz至/software ​ 解压文件 3）查看环境要求： 12 12 4）配置maven目录： 12 配置本地仓库： 配置阿里源： 5）预编译安装： 12 6）配置环境变量： 12 7）yum源安装其他组件 12 9）开始编译 1234567[root@hadoop001 ~]$ cd source/hadoop-2.6.0-cdh5.7.0[root@hadoop001 hadoop-2.6.0-cdh5.7.0]$ pwd/source/hadoop-2.6.0-cdh5.7.0[root@hadoop001 hadoop-2.6.0-cdh5.7.0]$ mvn clean package -Pdist,native -DskipTests -Dtar 10）开始编译 如果看到BUILD SUCCESS，且没有异常信息，说明hadoop已经编译成功 编译完成后可以看到hadoop的压缩包 通过日志可以知道编译好的压缩包所在位置:/source/hadoop-2.6.0-cdh5.7.0/hadoop-dish/target下 编译前： 编译后：]]></content>
+      <tags>
+        <tag>大数据开发</tag>
+        <tag>编译压缩</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[YARN HA架构图]]></title>
     <url>%2F2019%2F04%2F07%2FYARN%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE%2F</url>
     <content type="text"><![CDATA[1.YARN架构图： 2.架构图详解： 12345678910111213141516171819202122232425262728YARN HA hadoop001：zk rm(zkfc) nmhadoop002：zk rm(zkfc) nmhadoop003：zk nmZKFC: 线程 只作为RM进程的一个线程而非独立的进程存在RMStateStore: 存储在zk的/rmstore目录下。1.activeRM会向这个目录写APP信息2.当activeRM挂了，另外一个standby RM通过ZKFC选举成功为active，会从/rmstore读取相应的作业信息。重新构建作业的内存信息，启动内部的服务，开始接收NM的心跳，构建集群的资源信息，并且接收客户端的作业提交请求。RM:1.启动时候会向ZK的/rmstore目录写lock文件，写成功就为active，否则standby.rm节点zkfc会一直监控这个lock文件是否存在，假如不存在，就为active，否则为standby.2.接收client的请求，接收和监控NM的资源状况的汇报，负载资源的分配和调度。3.启动和监控APPMASTER on NM节点的container。applicationsmanager RMapplicationmaster NM container容器里 作业的主程序NM:节点资源的管理 启动容器运行task计算 上报资源]]></content>

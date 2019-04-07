@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-07T06:34:15.854Z</updated>
+  <updated>2019-04-07T13:21:56.332Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>大数据压缩</title>
+    <link href="http://yoursite.com/2019/04/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/"/>
+    <id>http://yoursite.com/2019/04/07/大数据压缩/</id>
+    <published>2019-04-07T13:08:30.807Z</published>
+    <updated>2019-04-07T13:21:56.332Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-压缩的好处和坏处：&quot;&gt;&lt;a href=&quot;#1-压缩的好处和坏处：&quot; class=&quot;headerlink&quot; title=&quot;1.压缩的好处和坏处：&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.压缩的好处和坏处：&lt;/strong&gt;&lt;/h2&gt;&lt;h3 id=&quot;好处：&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Snappy" scheme="http://yoursite.com/tags/Snappy/"/>
+    
+      <category term="Bzip2" scheme="http://yoursite.com/tags/Bzip2/"/>
+    
+      <category term="LZ4" scheme="http://yoursite.com/tags/LZ4/"/>
+    
+      <category term="LZO" scheme="http://yoursite.com/tags/LZO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop编译支持5种压缩格式</title>
+    <link href="http://yoursite.com/2019/04/07/Hadoop%E7%BC%96%E8%AF%91%E6%94%AF%E6%8C%815%E7%A7%8D%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://yoursite.com/2019/04/07/Hadoop编译支持5种压缩格式/</id>
+    <published>2019-04-07T12:19:16.017Z</published>
+    <updated>2019-04-07T13:07:22.051Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Hadoop-2.6.0-CDH-5.7.0版本编译：&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="编译压缩" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91%E5%8E%8B%E7%BC%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>YARN HA架构图</title>
@@ -399,48 +451,6 @@
       <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux命令进阶</title>
-    <link href="http://yoursite.com/2019/04/07/HDFS%20HA%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A1%A5%E5%85%85/"/>
-    <id>http://yoursite.com/2019/04/07/HDFS HA的一些补充/</id>
-    <published>2019-04-07T02:12:52.146Z</published>
-    <updated>2019-04-07T07:19:36.815Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;HDFS的基本结构&quot;&gt;&lt;a href=&quot;#HDFS的基本结构&quot; class=&quot;headerlink&quot; title=&quot;HDFS的基本结构&quot;&gt;&lt;/a&gt;HDFS的基本结构&lt;/h1&gt;
-    
-    </summary>
-    
-    
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MapReduce架构设计</title>
-    <link href="http://yoursite.com/2019/04/07/MapReduce%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    <id>http://yoursite.com/2019/04/07/MapReduce架构设计/</id>
-    <published>2019-04-07T02:08:49.483Z</published>
-    <updated>2019-04-07T11:39:13.987Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-MapReduce-分布式计算框架&quot;&gt;&lt;a href=&quot;#1-MapReduce-分布式计算框架&quot; class=&quot;headerlink&quot; title=&quot;1.MapReduce 分布式计算框架&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.MapReduce 分布式计算框架&lt;/strong&gt;&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="架构设计" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="MapReduce" scheme="http://yoursite.com/tags/MapReduce/"/>
     
   </entry>
   
