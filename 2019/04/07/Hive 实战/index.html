@@ -105,13 +105,13 @@
 
 
 
-<meta name="description" content="需求：统计各个城市所属区域下最受欢迎的Top 3产品　　需要用到窗口函数  （下面再说）1234567891011大数据处理：离线、实时（不管是离线还是实时，都要进行以下的步骤：）input ：HDFS、mysql、Hbase......                   处理之前肯定有数据输入进来（数据可以存放的位置）处理（分布式） MapReduce/Hive/Spark/Flink">
+<meta name="description" content="需求：统计各个城市所属区域下最受欢迎的Top 3产品">
 <meta name="keywords" content="大数据,Hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hive 实战">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/Hive 实战/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="需求：统计各个城市所属区域下最受欢迎的Top 3产品　　需要用到窗口函数  （下面再说）1234567891011大数据处理：离线、实时（不管是离线还是实时，都要进行以下的步骤：）input ：HDFS、mysql、Hbase......                   处理之前肯定有数据输入进来（数据可以存放的位置）处理（分布式） MapReduce/Hive/Spark/Flink">
+<meta property="og:description" content="需求：统计各个城市所属区域下最受欢迎的Top 3产品">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190319093056707.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190319093112338.png">
@@ -132,10 +132,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190319100251497.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019031910042439.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190319100443521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T04:12:51.501Z">
+<meta property="og:updated_time" content="2019-04-07T04:30:34.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive 实战">
-<meta name="twitter:description" content="需求：统计各个城市所属区域下最受欢迎的Top 3产品　　需要用到窗口函数  （下面再说）1234567891011大数据处理：离线、实时（不管是离线还是实时，都要进行以下的步骤：）input ：HDFS、mysql、Hbase......                   处理之前肯定有数据输入进来（数据可以存放的位置）处理（分布式） MapReduce/Hive/Spark/Flink">
+<meta name="twitter:description" content="需求：统计各个城市所属区域下最受欢迎的Top 3产品">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190319093056707.png">
 
 
@@ -453,9 +453,20 @@
       
 
       
-        <a id="more"></a>
-<font color="red" size="3">需求：统计各个城市所属区域下最受欢迎的Top 3产品</font><br>　　需要用到窗口函数  （下面再说）<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">大数据处理：离线、实时（不管是离线还是实时，都要进行以下的步骤：）</span><br><span class="line"></span><br><span class="line">input ：HDFS、mysql、Hbase......                   处理之前肯定有数据输入进来（数据可以存放的位置）</span><br><span class="line"></span><br><span class="line">处理（分布式） MapReduce/Hive/Spark/Flink           处理的方式有很多种</span><br><span class="line"></span><br><span class="line">output ：mysql、HDFS.....                          处理之后肯定要输出到某个地方</span><br><span class="line"></span><br><span class="line">本次案例中，从hdfs和mysql拿数据，然后用hive进行处理，然后输入到mysql中去。</span><br><span class="line"></span><br><span class="line">本次需求：统计各个城市所属区域下最受欢迎的Top 3产品</span><br></pre></td></tr></table></figure><br><br>我们可以查看一下电商网站，点击一个商品，（再浏览器里的开发者工具，查看一下列如：log。gif的日志，）会发现：<br>　　日志中会有：商品信息，比如城市ID，产品ID，用户信息，但是没有城市所属区域的名字和产品的名字。我么可以从日志中获取所需要的商品信息，但是城市的名称和产品的名称日志里是没有的。<br>　　<font color="blue" size="3">一般固定的信息，不变的信息是存放在关系型数据库中的，比如：mysql中：</font><br>　　<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql下还会存放两张表格：</span><br><span class="line">	城市区域对应的表</span><br><span class="line">	产品信息表</span><br><span class="line">Hive中存放的是：</span><br><span class="line">	用户点击行为的日志表</span><br></pre></td></tr></table></figure><br><br>MySQL里有两张表，city_info城市信息表、product_info产品信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093056707.png" alt="在这里插入图片描述"><br>city_info城市信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093112338.png" alt="在这里插入图片描述"><br>product_info产品信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093156384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在user_click.txt中有5列，第一列是用户id，第二列是session  id 不需要关心，第三列是访问的时间，第四列是城市的id，第五列是产品的id。<br><br>现在用hive创建一张  用户点击行为日志表 ：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table user_click(</span><br><span class="line">user_id int,</span><br><span class="line">session_id string,</span><br><span class="line">action_time string,</span><br><span class="line">city_id int,</span><br><span class="line">product_id int</span><br><span class="line">) partitioned by (day string)</span><br><span class="line">row format delimited fields terminated by &apos;,&apos;;</span><br></pre></td></tr></table></figure><br><br>然后加载数据进去：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">load data local inpath &apos;/home/hadoop/data/topn/user_click.txt&apos; overwrite into</span><br><span class="line"> table user_click partition(day=&apos;2016-05-05&apos;);</span><br></pre></td></tr></table></figure><br><br>　　<font color="red" size="3">就是说现在有三张表：city_info城市信息表、product_info产品信息表（MySQL），user_click用户点击行为日志表（hive）<br>　　现在需要在hive中操作这三张表，所以需要把MySQL中的两张表想办法弄到hive上来。在Hive里面完成我们的业务逻辑统计操作，在hive中处理过后再把处理的结果输出到MySQL中去。在这里就需要一个工具：Sqoop。</font>
+        <font color="red" size="3">需求：统计各个城市所属区域下最受欢迎的Top 3产品</font>
 
+<a id="more"></a>
+<p>需要用到窗口函数  （下面再说）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">大数据处理：离线、实时（不管是离线还是实时，都要进行以下的步骤：）</span><br><span class="line"></span><br><span class="line">input ：HDFS、mysql、Hbase......                   处理之前肯定有数据输入进来（数据可以存放的位置）</span><br><span class="line"></span><br><span class="line">处理（分布式） MapReduce/Hive/Spark/Flink           处理的方式有很多种</span><br><span class="line"></span><br><span class="line">output ：mysql、HDFS.....                          处理之后肯定要输出到某个地方</span><br><span class="line"></span><br><span class="line">本次案例中，从hdfs和mysql拿数据，然后用hive进行处理，然后输入到mysql中去。</span><br><span class="line"></span><br><span class="line">本次需求：统计各个城市所属区域下最受欢迎的Top 3产品</span><br></pre></td></tr></table></figure>
+<p>我们可以查看一下电商网站，点击一个商品，（再浏览器里的开发者工具，查看一下列如：log。gif的日志，）会发现：<br>　　日志中会有：商品信息，比如城市ID，产品ID，用户信息，但是没有城市所属区域的名字和产品的名字。我么可以从日志中获取所需要的商品信息，但是城市的名称和产品的名称日志里是没有的。<br>　　<font color="blue" size="3">一般固定的信息，不变的信息是存放在关系型数据库中的，比如：mysql中：</font>
+　　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql下还会存放两张表格：</span><br><span class="line">	城市区域对应的表</span><br><span class="line">	产品信息表</span><br><span class="line">Hive中存放的是：</span><br><span class="line">	用户点击行为的日志表</span><br></pre></td></tr></table></figure>
+<p>MySQL里有两张表，city_info城市信息表、product_info产品信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093056707.png" alt="在这里插入图片描述"><br>city_info城市信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093112338.png" alt="在这里插入图片描述"><br>product_info产品信息表：<br><img src="https://img-blog.csdnimg.cn/20190319093156384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在user_click.txt中有5列，第一列是用户id，第二列是session  id 不需要关心，第三列是访问的时间，第四列是城市的id，第五列是产品的id。</p>
+<p>现在用hive创建一张  用户点击行为日志表 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">create table user_click(</span><br><span class="line">user_id int,</span><br><span class="line">session_id string,</span><br><span class="line">action_time string,</span><br><span class="line">city_id int,</span><br><span class="line">product_id int</span><br><span class="line">) partitioned by (day string)</span><br><span class="line">row format delimited fields terminated by &apos;,&apos;;</span><br></pre></td></tr></table></figure>
+<p>然后加载数据进去：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">load data local inpath &apos;/home/hadoop/data/topn/user_click.txt&apos; overwrite into</span><br><span class="line"> table user_click partition(day=&apos;2016-05-05&apos;);</span><br></pre></td></tr></table></figure>
+<p>　　<font color="red" size="3">就是说现在有三张表：city_info城市信息表、product_info产品信息表（MySQL），user_click用户点击行为日志表（hive）<br>　　现在需要在hive中操作这三张表，所以需要把MySQL中的两张表想办法弄到hive上来。在Hive里面完成我们的业务逻辑统计操作，在hive中处理过后再把处理的结果输出到MySQL中去。在这里就需要一个工具：Sqoop。</font></p>
 <p>Sqoop也是个顶级项目。网址：<a href="http://sqoop.apache.org/" target="_blank" rel="noopener">http://sqoop.apache.org/</a></p>
 <p><img src="https://img-blog.csdnimg.cn/20190319093611360.png" alt="在这里插入图片描述"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sqoop：关系型数据库 &lt;==&gt; Hadoop </span><br><span class="line">Sqoop是一个工具，可以在hadoop和关系型数据库之间高效的批量转移数据。就是把hadoop的数据</span><br><span class="line">传输到关系型数据库，或者把关系型数据库的数据传输到hadoop上。</span><br></pre></td></tr></table></figure></p>
 <p>Sqoop有两个版本 ：一和二</p>
@@ -520,7 +531,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/Hive 实战/">Hive 实战</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:11</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:12</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:30</p>
   <p><span>原始链接:</span><a href="/2019/04/07/Hive 实战/" title="Hive 实战">http://yoursite.com/2019/04/07/Hive 实战/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/Hive 实战/" aria-label="复制成功！"></i></span>
   </p>

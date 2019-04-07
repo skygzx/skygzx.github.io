@@ -105,21 +105,21 @@
 
 
 
-<meta name="description" content="1.MapReduce 分布式计算框架12345678910111213141516企业开发不用jiav代码，很复杂，很累赘，mr job基于磁盘运算，速度太慢Map：映射（元素的个数)hadoop001：x --》(x,1)  key,value 键值对y --》(y,1)z --》(z,1)x --》(x,1)hadoop002：x --》(x,1)z --》(z,1)Reduce: 归约x">
+<meta name="description" content="1.MapReduce 分布式计算框架">
 <meta name="keywords" content="大数据,架构设计,MapReduce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MapReduce架构设计">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/MapReduce架构设计/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.MapReduce 分布式计算框架12345678910111213141516企业开发不用jiav代码，很复杂，很累赘，mr job基于磁盘运算，速度太慢Map：映射（元素的个数)hadoop001：x --》(x,1)  key,value 键值对y --》(y,1)z --》(z,1)x --》(x,1)hadoop002：x --》(x,1)z --》(z,1)Reduce: 归约x">
+<meta property="og:description" content="1.MapReduce 分布式计算框架">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190311181914828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190311182936818.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190311184400892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T02:11:34.239Z">
+<meta property="og:updated_time" content="2019-04-07T04:31:36.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MapReduce架构设计">
-<meta name="twitter:description" content="1.MapReduce 分布式计算框架12345678910111213141516企业开发不用jiav代码，很复杂，很累赘，mr job基于磁盘运算，速度太慢Map：映射（元素的个数)hadoop001：x --》(x,1)  key,value 键值对y --》(y,1)z --》(z,1)x --》(x,1)hadoop002：x --》(x,1)z --》(z,1)Reduce: 归约x">
+<meta name="twitter:description" content="1.MapReduce 分布式计算框架">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190311181914828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 
 
@@ -437,8 +437,8 @@
       
 
       
-        <a id="more"></a>
-<h2 id="1-MapReduce-分布式计算框架"><a href="#1-MapReduce-分布式计算框架" class="headerlink" title="1.MapReduce 分布式计算框架"></a><strong>1.MapReduce 分布式计算框架</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">企业开发不用jiav代码，很复杂，很累赘，mr job基于磁盘运算，速度太慢</span><br><span class="line">Map：映射（元素的个数)</span><br><span class="line">hadoop001：</span><br><span class="line">x --》(x,1)  key,value 键值对</span><br><span class="line">y --》(y,1)</span><br><span class="line">z --》(z,1)</span><br><span class="line">x --》(x,1)</span><br><span class="line"></span><br><span class="line">hadoop002：</span><br><span class="line">x --》(x,1)</span><br><span class="line">z --》(z,1)</span><br><span class="line"></span><br><span class="line">Reduce: 归约</span><br><span class="line">x,2</span><br><span class="line">y,1</span><br><span class="line">z,1</span><br></pre></td></tr></table></figure>
+        <h2 id="1-MapReduce-分布式计算框架"><a href="#1-MapReduce-分布式计算框架" class="headerlink" title="1.MapReduce 分布式计算框架"></a><strong>1.MapReduce 分布式计算框架</strong></h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">企业开发不用jiav代码，很复杂，很累赘，mr job基于磁盘运算，速度太慢</span><br><span class="line">Map：映射（元素的个数)</span><br><span class="line">hadoop001：</span><br><span class="line">x --》(x,1)  key,value 键值对</span><br><span class="line">y --》(y,1)</span><br><span class="line">z --》(z,1)</span><br><span class="line">x --》(x,1)</span><br><span class="line"></span><br><span class="line">hadoop002：</span><br><span class="line">x --》(x,1)</span><br><span class="line">z --》(z,1)</span><br><span class="line"></span><br><span class="line">Reduce: 归约</span><br><span class="line">x,2</span><br><span class="line">y,1</span><br><span class="line">z,1</span><br></pre></td></tr></table></figure>
 <p>**</p>
 <h2 id="2-MapReduce架构（重要）"><a href="#2-MapReduce架构（重要）" class="headerlink" title="2.MapReduce架构（重要）"></a>2.MapReduce架构（重要）</h2><p><strong>
 </strong>当面试的时候问到，MapReduce 架构设计、Yarn架构设计、Yarn的工作流程、MapReduce job 提交到 Yarn的工作流程 （面试题为同一题），其实都是同一个问题。**<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">on Yarn 运行在Yarn上</span><br><span class="line">容器：container（Yarn的资源的抽象概念）</span><br><span class="line">运行在 Yarn nodemanager节点机器上，是一个虚拟的概念，将内存和cpu（vcore)封装成最小的单元，运行我们计算的任务task。</span><br></pre></td></tr></table></figure></p>
@@ -468,7 +468,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/MapReduce架构设计/">MapReduce架构设计</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 10:08</p>
-  <p><span>最后更新:</span>2019年04月07日 - 10:11</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:31</p>
   <p><span>原始链接:</span><a href="/2019/04/07/MapReduce架构设计/" title="MapReduce架构设计">http://yoursite.com/2019/04/07/MapReduce架构设计/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/MapReduce架构设计/" aria-label="复制成功！"></i></span>
   </p>

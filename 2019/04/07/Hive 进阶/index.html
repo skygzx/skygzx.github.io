@@ -105,13 +105,13 @@
 
 
 
-<meta name="description" content="** 一.分区表:(静态分区和动态分区) PARTITION 分区表：**　　分区表：　　话务记录、日志记录   rdbms　　记录表是要分表的，因为生产上数据量是很大的，这样可以提高性能，可以当作是分表，将每一天的记录分成一张表：call_record_20190808​        call_record_20190809​        call_record_20190810​">
+<meta name="description" content="** 一.分区表:(静态分区和动态分区) PARTITION 分区表：**">
 <meta name="keywords" content="大数据开发,Hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hive 进阶">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/Hive 进阶/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="** 一.分区表:(静态分区和动态分区) PARTITION 分区表：**　　分区表：　　话务记录、日志记录   rdbms　　记录表是要分表的，因为生产上数据量是很大的，这样可以提高性能，可以当作是分表，将每一天的记录分成一张表：call_record_20190808​        call_record_20190809​        call_record_20190810​">
+<meta property="og:description" content="** 一.分区表:(静态分区和动态分区) PARTITION 分区表：**">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190317095902860.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019031710001283.png">
@@ -156,10 +156,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190317152547821.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190317152616986.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190317152639780.png">
-<meta property="og:updated_time" content="2019-04-07T04:13:04.828Z">
+<meta property="og:updated_time" content="2019-04-07T04:30:06.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive 进阶">
-<meta name="twitter:description" content="** 一.分区表:(静态分区和动态分区) PARTITION 分区表：**　　分区表：　　话务记录、日志记录   rdbms　　记录表是要分表的，因为生产上数据量是很大的，这样可以提高性能，可以当作是分表，将每一天的记录分成一张表：call_record_20190808​        call_record_20190809​        call_record_20190810​">
+<meta name="twitter:description" content="** 一.分区表:(静态分区和动态分区) PARTITION 分区表：**">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190317095902860.png">
 
 
@@ -477,10 +477,11 @@
       
 
       
-        <a id="more"></a>
-<p>**</p>
+        <p>**</p>
 <h2 id="一-分区表-静态分区和动态分区"><a href="#一-分区表-静态分区和动态分区" class="headerlink" title="一.分区表:(静态分区和动态分区)"></a><font color="red" size="3">一.分区表:(静态分区和动态分区)</font></h2><p><strong>
-</strong>PARTITION 分区表：**<br>　　分区表：<br>　　话务记录、日志记录   rdbms<br>　　记录表是要分表的，因为生产上数据量是很大的，这样可以提高性能，可以当作是分表，将每一天的记录分成一张表：<br>call_record_20190808<br>​        call_record_20190809<br>​        call_record_20190810<br>​        比如：大数据  分区表<br>​          /user/hive/warehouse/emp/d=20190808/…..<br>​    /user/hive/warehouse/emp/d=20190809/…..<br>​<br>​    当你要查询某一天的记录时只需要：select …. from table where d=’20190808’    就行了，记住要加上where条件。<br>where后面带上分区条件，它会去相应的分区中查找而不需要在整张表中查询，提高了性能。</p>
+</strong>PARTITION 分区表：**</p>
+<a id="more"></a>
+<p>　　分区表：<br>　　话务记录、日志记录   rdbms<br>　　记录表是要分表的，因为生产上数据量是很大的，这样可以提高性能，可以当作是分表，将每一天的记录分成一张表：<br>call_record_20190808<br>​        call_record_20190809<br>​        call_record_20190810<br>​        比如：大数据  分区表<br>​          /user/hive/warehouse/emp/d=20190808/…..<br>​    /user/hive/warehouse/emp/d=20190809/…..<br>​<br>​    当你要查询某一天的记录时只需要：select …. from table where d=’20190808’    就行了，记住要加上where条件。<br>where后面带上分区条件，它会去相应的分区中查找而不需要在整张表中查询，提高了性能。</p>
 <p>大数据经常遇到的瓶颈问题：IO</p>
 <p>有几个方面：磁盘（disk）  IO      第二个：网络（network）IO    </p>
 <p>以后在优化的过程中必然要考虑的两点。</p>
@@ -572,7 +573,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/Hive 进阶/">Hive 进阶</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:10</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:13</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:30</p>
   <p><span>原始链接:</span><a href="/2019/04/07/Hive 进阶/" title="Hive 进阶">http://yoursite.com/2019/04/07/Hive 进阶/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/Hive 进阶/" aria-label="复制成功！"></i></span>
   </p>

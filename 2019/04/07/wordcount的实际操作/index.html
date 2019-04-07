@@ -105,21 +105,21 @@
 
 
 
-<meta name="description" content="** 提交 mr 作业到 yarn 上运行  wc**1.先编辑两个文件： 12345678910111213141516171819202122232425[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ vi a.log（先编辑一个文件保存） ruozejepson www.ruozedata.com dashu adai fanren 1	 a  b  c">
+<meta name="description" content="** 提交 mr 作业到 yarn 上运行  wc**">
 <meta name="keywords" content="大数据,Linux系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wordcount的实际操作">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/wordcount的实际操作/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="** 提交 mr 作业到 yarn 上运行  wc**1.先编辑两个文件： 12345678910111213141516171819202122232425[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ vi a.log（先编辑一个文件保存） ruozejepson www.ruozedata.com dashu adai fanren 1	 a  b  c">
+<meta property="og:description" content="** 提交 mr 作业到 yarn 上运行  wc**">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019030913342195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309133636100.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309133813973.png">
-<meta property="og:updated_time" content="2019-04-07T01:33:05.676Z">
+<meta property="og:updated_time" content="2019-04-07T04:32:18.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wordcount的实际操作">
-<meta name="twitter:description" content="** 提交 mr 作业到 yarn 上运行  wc**1.先编辑两个文件： 12345678910111213141516171819202122232425[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ vi a.log（先编辑一个文件保存） ruozejepson www.ruozedata.com dashu adai fanren 1	 a  b  c">
+<meta name="twitter:description" content="** 提交 mr 作业到 yarn 上运行  wc**">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019030913342195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 
 
@@ -437,9 +437,10 @@
       
 
       
-        <a id="more"></a>
-<p>**</p>
-<h2 id="提交-mr-作业到-yarn-上运行-wc"><a href="#提交-mr-作业到-yarn-上运行-wc" class="headerlink" title="提交 mr 作业到 yarn 上运行  wc"></a>提交 mr 作业到 yarn 上运行  wc</h2><p>**<br>1.先编辑两个文件：</p>
+        <p>**</p>
+<h2 id="提交-mr-作业到-yarn-上运行-wc"><a href="#提交-mr-作业到-yarn-上运行-wc" class="headerlink" title="提交 mr 作业到 yarn 上运行  wc"></a>提交 mr 作业到 yarn 上运行  wc</h2><p>**</p>
+<a id="more"></a>
+<p>1.先编辑两个文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ vi a.log（先编辑一个文件保存） </span><br><span class="line">ruoze</span><br><span class="line">jepson </span><br><span class="line">www.ruozedata.com</span><br><span class="line"> dashu adai fanren </span><br><span class="line">1</span><br><span class="line">	 a </span><br><span class="line"> b </span><br><span class="line"> c </span><br><span class="line"> a </span><br><span class="line">b</span><br><span class="line">c </span><br><span class="line">ruoze </span><br><span class="line">jepon </span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ vi b.txt（再编辑一个文件保存） </span><br><span class="line">a</span><br><span class="line">b </span><br><span class="line">d </span><br><span class="line">e </span><br><span class="line">f </span><br><span class="line">ruoze </span><br><span class="line">1 </span><br><span class="line">1 </span><br><span class="line">3 </span><br><span class="line">5</span><br></pre></td></tr></table></figure>
 <p>2.在 hdfs的家目录下创建一个级联目录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -mkdir -p / wordcount/input</span><br></pre></td></tr></table></figure>
@@ -469,7 +470,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/wordcount的实际操作/">wordcount的实际操作</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 09:30</p>
-  <p><span>最后更新:</span>2019年04月07日 - 09:33</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:32</p>
   <p><span>原始链接:</span><a href="/2019/04/07/wordcount的实际操作/" title="wordcount的实际操作">http://yoursite.com/2019/04/07/wordcount的实际操作/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/wordcount的实际操作/" aria-label="复制成功！"></i></span>
   </p>

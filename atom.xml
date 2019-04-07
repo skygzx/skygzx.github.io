@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-07T04:20:37.545Z</updated>
+  <updated>2019-04-07T04:32:33.572Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,30 +21,22 @@
     <link href="http://yoursite.com/2019/04/07/YARN%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
     <id>http://yoursite.com/2019/04/07/YARN HA架构图/</id>
     <published>2019-04-07T04:19:07.712Z</published>
-    <updated>2019-04-07T04:20:37.545Z</updated>
+    <updated>2019-04-07T04:32:33.572Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;1.YARN架构图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.YARN架构图：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -53,19 +45,11 @@
     <link href="http://yoursite.com/2019/04/07/HDFS%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
     <id>http://yoursite.com/2019/04/07/HDFS HA架构图/</id>
     <published>2019-04-07T04:17:30.137Z</published>
-    <updated>2019-04-07T04:18:44.460Z</updated>
+    <updated>2019-04-07T04:28:34.311Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;1.HA进程: 假设有3台机器：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.HA进程: 假设有3台机器：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -85,30 +69,22 @@
     <link href="http://yoursite.com/2019/04/07/%E5%85%B3%E4%BA%8E%20HDFS%E5%92%8CYarn%20HA%20%E7%9A%84%E4%BA%86%E8%A7%A3/"/>
     <id>http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/</id>
     <published>2019-04-07T04:15:44.273Z</published>
-    <updated>2019-04-07T04:17:11.619Z</updated>
+    <updated>2019-04-07T04:34:01.965Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;1.企业中为什么要用集群：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.企业中为什么要用集群：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -117,19 +93,11 @@
     <link href="http://yoursite.com/2019/04/07/yarn%E8%B5%84%E6%BA%90%E8%B0%83%E4%BC%98%E6%80%8E%E4%B9%88%E8%B0%83%EF%BC%8C%E4%BE%9D%E6%8D%AE%E6%98%AF%E4%BB%80%E4%B9%88/"/>
     <id>http://yoursite.com/2019/04/07/yarn资源调优怎么调，依据是什么/</id>
     <published>2019-04-07T04:13:56.026Z</published>
-    <updated>2019-04-07T04:15:27.333Z</updated>
+    <updated>2019-04-07T04:33:20.408Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;1.yarn的资源调优怎么调，依据是什么&lt;/strong&gt;&lt;br&gt;①比如服务器256G物理内存，有DN,NM,RS，三个进程，yarn调优怎么做？&lt;/p&gt;
-&lt;figure class=&quot;highlight
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.yarn的资源调优怎么调，依据是什么&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -145,18 +113,11 @@
     <link href="http://yoursite.com/2019/04/07/Hive%20%E5%AE%9E%E6%88%98/"/>
     <id>http://yoursite.com/2019/04/07/Hive 实战/</id>
     <published>2019-04-07T04:11:36.592Z</published>
-    <updated>2019-04-07T04:12:51.501Z</updated>
+    <updated>2019-04-07T04:30:34.358Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;font color=&quot;red&quot; size=&quot;3&quot;&gt;需求：统计各个城市所属区域下最受欢迎的Top 3产品&lt;/font&gt;&lt;br&gt;　　需要用到窗口函数  （下面再说）&lt;br&gt;&lt;br&gt;&lt;figure class=&quot;highlight
-        
-      
+      &lt;font color=&quot;red&quot; size=&quot;3&quot;&gt;需求：统计各个城市所属区域下最受欢迎的Top 3产品&lt;/font&gt;
     
     </summary>
     
@@ -172,19 +133,13 @@
     <link href="http://yoursite.com/2019/04/07/Hive%20%E8%BF%9B%E9%98%B6/"/>
     <id>http://yoursite.com/2019/04/07/Hive 进阶/</id>
     <published>2019-04-07T04:10:27.778Z</published>
-    <updated>2019-04-07T04:13:04.828Z</updated>
+    <updated>2019-04-07T04:30:06.209Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;**&lt;/p&gt;
-&lt;h2 id=&quot;一-分区表-静态分区和动态分区&quot;&gt;&lt;a href=&quot;#一-分区表-静态分区和动态分区&quot; class=&quot;headerlink&quot; title=&quot;一.分区表:(静态分区和动态分区)&quot;&gt;&lt;/a&gt;&lt;font
-        
-      
+      &lt;p&gt;**&lt;/p&gt;
+&lt;h2 id=&quot;一-分区表-静态分区和动态分区&quot;&gt;&lt;a href=&quot;#一-分区表-静态分区和动态分区&quot; class=&quot;headerlink&quot; title=&quot;一.分区表:(静态分区和动态分区)&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot; size=&quot;3&quot;&gt;一.分区表:(静态分区和动态分区)&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;
+&lt;/strong&gt;PARTITION 分区表：**&lt;/p&gt;
     
     </summary>
     
@@ -200,17 +155,11 @@
     <link href="http://yoursite.com/2019/04/07/Hive%20DML%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2019/04/07/Hive DML学习/</id>
     <published>2019-04-07T04:06:22.898Z</published>
-    <updated>2019-04-07T04:08:02.647Z</updated>
+    <updated>2019-04-07T04:29:30.939Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a
-        
-      
+      &lt;p&gt;1.经验：&lt;br&gt;　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。&lt;/p&gt;
     
     </summary>
     
@@ -226,19 +175,12 @@
     <link href="http://yoursite.com/2019/04/07/Hive%E7%9A%84DDL%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2019/04/07/Hive的DDL学习/</id>
     <published>2019-04-07T04:04:42.002Z</published>
-    <updated>2019-04-07T04:13:23.910Z</updated>
+    <updated>2019-04-07T04:30:48.655Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;1.小知识点：&lt;/p&gt;
-&lt;p&gt;①&lt;br&gt;　　&lt;font color=&quot;red&quot;
-        
-      
+      &lt;p&gt;1.小知识点：&lt;/p&gt;
+&lt;p&gt;①&lt;br&gt;　　&lt;font color=&quot;red&quot; size=&quot;3&quot;&gt;Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）&lt;/font&gt;&lt;/p&gt;
     
     </summary>
     
@@ -254,19 +196,11 @@
     <link href="http://yoursite.com/2019/04/07/Hive%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
     <id>http://yoursite.com/2019/04/07/Hive的部署/</id>
     <published>2019-04-07T04:03:02.578Z</published>
-    <updated>2019-04-07T04:04:25.155Z</updated>
+    <updated>2019-04-07T04:30:59.099Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;1.hive（数据仓库:data warehouse）&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.hive（数据仓库:data warehouse）&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -282,19 +216,11 @@
     <link href="http://yoursite.com/2019/04/07/YARN%E7%94%9F%E4%BA%A7%E4%B8%8A%E8%B0%83%E5%BA%A6%E5%99%A8/"/>
     <id>http://yoursite.com/2019/04/07/YARN生产上调度器/</id>
     <published>2019-04-07T04:00:32.707Z</published>
-    <updated>2019-04-07T04:02:43.499Z</updated>
+    <updated>2019-04-07T04:33:05.765Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;1.生产上 job去申请调度资源时：&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.生产上 job去申请调度资源时：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -312,19 +238,11 @@
     <link href="http://yoursite.com/2019/04/07/YARN%E7%94%9F%E4%BA%A7%E4%B8%8A%E7%9A%84%E4%BC%98%E5%8C%96/"/>
     <id>http://yoursite.com/2019/04/07/YARN生产上的优化/</id>
     <published>2019-04-07T03:58:05.756Z</published>
-    <updated>2019-04-07T04:00:07.287Z</updated>
+    <updated>2019-04-07T04:32:53.071Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;1.yarn生产上的资源管理（至关重要）&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.yarn生产上的资源管理（至关重要）&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -340,18 +258,11 @@
     <link href="http://yoursite.com/2019/04/07/%5B%E8%BD%AC%E8%BD%BD%5DMapReduce%E4%BC%98%E5%8C%96----Shuffle%E8%BF%87%E7%A8%8B%E5%89%96%E6%9E%90%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     <id>http://yoursite.com/2019/04/07/[转载]MapReduce优化----Shuffle过程剖析及性能优化/</id>
     <published>2019-04-07T03:02:43.570Z</published>
-    <updated>2019-04-07T03:04:22.626Z</updated>
+    <updated>2019-04-07T04:25:46.406Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;1-Map端&quot;&gt;&lt;a href=&quot;#1-Map端&quot; class=&quot;headerlink&quot; title=&quot;1.    Map端&quot;&gt;&lt;/a&gt;1.    Map端&lt;/h2&gt;&lt;p&gt;当Map
-        
-      
+      &lt;h2 id=&quot;1-Map端&quot;&gt;&lt;a href=&quot;#1-Map端&quot; class=&quot;headerlink&quot; title=&quot;1.    Map端&quot;&gt;&lt;/a&gt;1.    Map端&lt;/h2&gt;
     
     </summary>
     
@@ -369,17 +280,11 @@
     <link href="http://yoursite.com/2019/04/07/%5B%E8%BD%AC%E8%BD%BD%5DHadoop-2.7.2+zookeeper-3.4.6%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA(HDFS%E3%80%81YARN%20HA)/"/>
     <id>http://yoursite.com/2019/04/07/[转载]Hadoop-2.7.2+zookeeper-3.4.6完全分布式环境搭建(HDFS、YARN HA)/</id>
     <published>2019-04-07T02:58:32.037Z</published>
-    <updated>2019-04-07T03:02:19.642Z</updated>
+    <updated>2019-04-07T04:25:32.802Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a
-        
-      
+      &lt;p&gt;&lt;strong&gt;Hadoop-2.7.2+Zookeeper-3.4.6完全分布式环境搭建&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -395,18 +300,14 @@
     <link href="http://yoursite.com/2019/04/07/%5B%E8%BD%AC%E8%BD%BD%5DYARN%E7%9A%84Memory%E5%92%8CCPU%E8%B0%83%E4%BC%98%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2019/04/07/[转载]YARN的Memory和CPU调优配置详解/</id>
     <published>2019-04-07T02:55:20.148Z</published>
-    <updated>2019-04-07T02:58:00.596Z</updated>
+    <updated>2019-04-07T04:26:02.301Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;Hadoop
-        
-      
+      &lt;p&gt;Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。&lt;/p&gt;
+&lt;p&gt;YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。&lt;/p&gt;
+&lt;p&gt;在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两个container使用一块磁盘以及一个CPU核的时候可以使集群的资源得到一个比较好的利用。&lt;/p&gt;
+&lt;h1 id=&quot;内存配置&quot;&gt;&lt;a href=&quot;#内存配置&quot; class=&quot;headerlink&quot; title=&quot;内存配置&quot;&gt;&lt;/a&gt;内存配置&lt;/h1&gt;
     
     </summary>
     
@@ -422,19 +323,11 @@
     <link href="http://yoursite.com/2019/04/07/Hadoop%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E5%AE%98%E7%BD%91%E3%80%81%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E3%80%81%E6%96%87%E6%A1%A3/"/>
     <id>http://yoursite.com/2019/04/07/Hadoop生态系统官网、下载地址、文档/</id>
     <published>2019-04-07T02:51:12.942Z</published>
-    <updated>2019-04-07T02:53:05.050Z</updated>
+    <updated>2019-04-07T04:27:54.421Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;Apache版本：&lt;/p&gt;
-&lt;p&gt;Hadoop官网：&lt;a href=&quot;http://hadoop.apache.org/&quot; target=&quot;_blank&quot;
-        
-      
+      &lt;p&gt;Apache版本：&lt;/p&gt;
     
     </summary>
     
@@ -450,26 +343,19 @@
     <link href="http://yoursite.com/2019/04/07/HDFS%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/"/>
     <id>http://yoursite.com/2019/04/07/HDFS命令操作/</id>
     <published>2019-04-07T02:41:38.886Z</published>
-    <updated>2019-04-07T02:50:09.221Z</updated>
+    <updated>2019-04-07T04:29:06.323Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;&lt;strong&gt;命令基本格式:&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
+      &lt;p&gt;&lt;strong&gt;命令基本格式:&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hadoop fs -cmd &amp;lt; args &amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
     
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="命令操作" scheme="http://yoursite.com/tags/%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/"/>
     
@@ -480,18 +366,11 @@
     <link href="http://yoursite.com/2019/04/07/3.Hadoop%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%EF%BC%88MapReduce+YARN%EF%BC%89/"/>
     <id>http://yoursite.com/2019/04/07/3.Hadoop伪分布式（MapReduce+YARN）/</id>
     <published>2019-04-07T02:35:33.526Z</published>
-    <updated>2019-04-07T02:38:19.662Z</updated>
+    <updated>2019-04-07T04:26:51.472Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;1-yarn部署：&quot;&gt;&lt;a href=&quot;#1-yarn部署：&quot; class=&quot;headerlink&quot; title=&quot;1.yarn部署：&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.yarn部署：&lt;/strong&gt;&lt;/h2&gt;&lt;figure
-        
-      
+      &lt;h2 id=&quot;1-yarn部署：&quot;&gt;&lt;a href=&quot;#1-yarn部署：&quot; class=&quot;headerlink&quot; title=&quot;1.yarn部署：&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.yarn部署：&lt;/strong&gt;&lt;/h2&gt;
     
     </summary>
     
@@ -509,20 +388,13 @@
     <link href="http://yoursite.com/2019/04/07/Hadoop%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF/"/>
     <id>http://yoursite.com/2019/04/07/Hadoop参数配置信息/</id>
     <published>2019-04-07T02:30:16.785Z</published>
-    <updated>2019-04-07T02:40:27.630Z</updated>
+    <updated>2019-04-07T04:27:43.976Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;前言：&lt;/p&gt;
+      &lt;p&gt;前言：&lt;/p&gt;
 &lt;p&gt;Hadoop三个参数文件，我不是很理解，我网上找了一篇学习下&lt;/p&gt;
-&lt;p&gt;​      
-        
-      
+&lt;p&gt;​       配置hadoop，主要是配置core-site.xml,hdfs-site.xml,mapred-site.xml三个配置文件，默认下来，这些配置文件都是空的，所以很难知道这些配置文件有哪些配置可以生效，上网找的配置可能因为各个hadoop版本不同，导致无法生效。浏览更多的配置，有两个方法:&lt;/p&gt;
     
     </summary>
     
@@ -538,25 +410,18 @@
     <link href="http://yoursite.com/2019/04/07/HDFS%20HA%E7%9A%84%E4%B8%80%E4%BA%9B%E8%A1%A5%E5%85%85/"/>
     <id>http://yoursite.com/2019/04/07/HDFS HA的一些补充/</id>
     <published>2019-04-07T02:12:52.146Z</published>
-    <updated>2019-04-07T02:28:53.135Z</updated>
+    <updated>2019-04-07T04:28:19.044Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;HDFS的基本结构&quot;&gt;&lt;a href=&quot;#HDFS的基本结构&quot; class=&quot;headerlink&quot; title=&quot;HDFS的基本结构&quot;&gt;&lt;/a&gt;HDFS的基本结构&lt;/h1&gt;&lt;p&gt;&lt;img
-        
-      
+      &lt;h1 id=&quot;HDFS的基本结构&quot;&gt;&lt;a href=&quot;#HDFS的基本结构&quot; class=&quot;headerlink&quot; title=&quot;HDFS的基本结构&quot;&gt;&lt;/a&gt;HDFS的基本结构&lt;/h1&gt;
     
     </summary>
     
     
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
   </entry>
   
@@ -565,18 +430,11 @@
     <link href="http://yoursite.com/2019/04/07/MapReduce%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     <id>http://yoursite.com/2019/04/07/MapReduce架构设计/</id>
     <published>2019-04-07T02:08:49.483Z</published>
-    <updated>2019-04-07T02:11:34.239Z</updated>
+    <updated>2019-04-07T04:31:36.426Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;1-MapReduce-分布式计算框架&quot;&gt;&lt;a href=&quot;#1-MapReduce-分布式计算框架&quot; class=&quot;headerlink&quot; title=&quot;1.MapReduce
-        
-      
+      &lt;h2 id=&quot;1-MapReduce-分布式计算框架&quot;&gt;&lt;a href=&quot;#1-MapReduce-分布式计算框架&quot; class=&quot;headerlink&quot; title=&quot;1.MapReduce 分布式计算框架&quot;&gt;&lt;/a&gt;&lt;strong&gt;1.MapReduce 分布式计算框架&lt;/strong&gt;&lt;/h2&gt;
     
     </summary>
     

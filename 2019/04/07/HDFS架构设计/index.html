@@ -105,20 +105,20 @@
 
 
 
-<meta name="description" content="1.块 block 1234567891011121314151617	 &amp;lt;property&amp;gt;	         &amp;lt;name&amp;gt;dfs.blocksize&amp;lt;/name&amp;gt;	         &amp;lt;value&amp;gt;134217728&amp;lt;/value&amp;gt;	 &amp;lt;/property&amp;gt;	 &amp;lt;property&amp;gt;	         &amp;lt;n">
+<meta name="description" content="1.块 block">
 <meta name="keywords" content="大数据,HDFS,架构设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDFS架构设计">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/HDFS架构设计/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.块 block 1234567891011121314151617	 &amp;lt;property&amp;gt;	         &amp;lt;name&amp;gt;dfs.blocksize&amp;lt;/name&amp;gt;	         &amp;lt;value&amp;gt;134217728&amp;lt;/value&amp;gt;	 &amp;lt;/property&amp;gt;	 &amp;lt;property&amp;gt;	         &amp;lt;n">
+<meta property="og:description" content="1.块 block">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309150408104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309155134850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T01:41:11.906Z">
+<meta property="og:updated_time" content="2019-04-07T04:28:52.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS架构设计">
-<meta name="twitter:description" content="1.块 block 1234567891011121314151617	 &amp;lt;property&amp;gt;	         &amp;lt;name&amp;gt;dfs.blocksize&amp;lt;/name&amp;gt;	         &amp;lt;value&amp;gt;134217728&amp;lt;/value&amp;gt;	 &amp;lt;/property&amp;gt;	 &amp;lt;property&amp;gt;	         &amp;lt;n">
+<meta name="twitter:description" content="1.块 block">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190309150408104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 
 
@@ -436,8 +436,8 @@
       
 
       
-        <a id="more"></a>
-<p><strong>1.块 block</strong></p>
+        <p><strong>1.块 block</strong></p>
+<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	 &lt;property&gt;</span><br><span class="line">	         &lt;name&gt;dfs.blocksize&lt;/name&gt;</span><br><span class="line">	         &lt;value&gt;134217728&lt;/value&gt;</span><br><span class="line">	 &lt;/property&gt;</span><br><span class="line">	 &lt;property&gt;</span><br><span class="line">	         &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">	         &lt;value&gt;3&lt;/value&gt;</span><br><span class="line">	 &lt;/property&gt;</span><br><span class="line">	 块的大小为128M</span><br><span class="line">	 副本数为3</span><br><span class="line">	 比如一个文件260M</span><br><span class="line">	实际存储          规格</span><br><span class="line">块A: 128M      128M  A0 A1 A2</span><br><span class="line">块B: 128M      128M  B0 B1 B2</span><br><span class="line">块C: 4M	       128M  C0 C1 C2</span><br><span class="line">	 面试题：一个文件160m,块大小128m，副本数2。请问实际几个块，实际物理存储多少？</span><br><span class="line">	 答：一共两个块，但是副本是2，那么2*2就是4个块，实际物理存储就是160M*2=320M</span><br></pre></td></tr></table></figure>
 <h2 id="gt-2-HDFS架构设计（重要）："><a href="#gt-2-HDFS架构设计（重要）：" class="headerlink" title="&gt; 2.HDFS架构设计（重要）："></a><strong>&gt; 2.HDFS架构设计</strong>（重要）：</h2><p><img src="https://img-blog.csdnimg.cn/20190309150408104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">进程：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">namenode 也叫nn					名称节点</span><br><span class="line">datanode 也叫dn					数据节点</span><br><span class="line">ssecondary namenode 也叫snn		第二名称节点</span><br></pre></td></tr></table></figure>
@@ -469,7 +469,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/HDFS架构设计/">HDFS架构设计</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 09:39</p>
-  <p><span>最后更新:</span>2019年04月07日 - 09:41</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:28</p>
   <p><span>原始链接:</span><a href="/2019/04/07/HDFS架构设计/" title="HDFS架构设计">http://yoursite.com/2019/04/07/HDFS架构设计/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/HDFS架构设计/" aria-label="复制成功！"></i></span>
   </p>

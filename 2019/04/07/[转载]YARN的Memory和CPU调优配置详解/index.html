@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。 YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。 在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两">
+<meta name="description" content="Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。 YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。 在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两个">
 <meta name="keywords" content="大数据开发,Memory和Cpu调优">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YARN的Memory和CPU调优配置详解">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/[转载]YARN的Memory和CPU调优配置详解/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。 YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。 在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两">
+<meta property="og:description" content="Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。 YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。 在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T02:58:00.596Z">
+<meta property="og:updated_time" content="2019-04-07T04:26:02.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YARN的Memory和CPU调优配置详解">
-<meta name="twitter:description" content="Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。 YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。 在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两">
+<meta name="twitter:description" content="Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。 YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。 在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两个">
 
 
 
@@ -433,11 +433,11 @@
       
 
       
-        <a id="more"></a>
-<p>Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。</p>
+        <p>Hadoop YARN同时支持内存和CPU两种资源的调度，本文介绍如何配置YARN对内存和CPU的使用。</p>
 <p>YARN作为一个资源调度器，应该考虑到集群里面每一台机子的计算资源，然后根据application申请的资源进行分配Container。Container是YARN里面资源分配的基本单位，具有一定的内存以及CPU资源。</p>
 <p>在YARN集群中，平衡内存、CPU、磁盘的资源的很重要的，根据经验，每两个container使用一块磁盘以及一个CPU核的时候可以使集群的资源得到一个比较好的利用。</p>
-<h1 id="内存配置"><a href="#内存配置" class="headerlink" title="内存配置"></a>内存配置</h1><p>关于<em>内存</em>相关的配置可以参考hortonwork公司的文档<a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_installing_manually_book/content/rpm-chap1-11.html" target="_blank" rel="noopener">Determine HDP Memory Configuration Settings</a>来配置你的集群。</p>
+<h1 id="内存配置"><a href="#内存配置" class="headerlink" title="内存配置"></a>内存配置</h1><a id="more"></a>
+<p>关于<em>内存</em>相关的配置可以参考hortonwork公司的文档<a href="http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_installing_manually_book/content/rpm-chap1-11.html" target="_blank" rel="noopener">Determine HDP Memory Configuration Settings</a>来配置你的集群。</p>
 <blockquote>
 <p>YARN以及MAPREDUCE所有可用的内存资源应该要除去系统运行需要的以及其他的hadoop的一些程序，总共保留的内存=系统内存+HBASE内存。</p>
 </blockquote>

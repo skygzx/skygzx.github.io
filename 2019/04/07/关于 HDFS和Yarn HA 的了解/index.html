@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="YARN,HDFS,HA,大数据开发,">
+  <meta name="keywords" content="YARN,大数据开发,HDFS,HA,">
 
 
 
@@ -105,19 +105,19 @@
 
 
 
-<meta name="description" content="1.企业中为什么要用集群： 1234567891011121314每一个角色都是一个进程：HDFS：	NN：老大（接受读写流程请求）Master	SNN：1h checkpoint secondary（每隔一小时都会备份NN中的editlog文件合并成新		的fsimage）	DN：存储数据块和数据块的校验和YARN:RM  老大 masterNM	（注：主从架构  master-slave 比">
-<meta name="keywords" content="YARN,HDFS,HA,大数据开发">
+<meta name="description" content="1.企业中为什么要用集群：">
+<meta name="keywords" content="YARN,大数据开发,HDFS,HA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 HDFS和Yarn HA 的了解">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.企业中为什么要用集群： 1234567891011121314每一个角色都是一个进程：HDFS：	NN：老大（接受读写流程请求）Master	SNN：1h checkpoint secondary（每隔一小时都会备份NN中的editlog文件合并成新		的fsimage）	DN：存储数据块和数据块的校验和YARN:RM  老大 masterNM	（注：主从架构  master-slave 比">
+<meta property="og:description" content="1.企业中为什么要用集群：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190328153912947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T04:17:11.619Z">
+<meta property="og:updated_time" content="2019-04-07T04:34:01.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 HDFS和Yarn HA 的了解">
-<meta name="twitter:description" content="1.企业中为什么要用集群： 1234567891011121314每一个角色都是一个进程：HDFS：	NN：老大（接受读写流程请求）Master	SNN：1h checkpoint secondary（每隔一小时都会备份NN中的editlog文件合并成新		的fsimage）	DN：存储数据块和数据块的校验和YARN:RM  老大 masterNM	（注：主从架构  master-slave 比">
+<meta name="twitter:description" content="1.企业中为什么要用集群：">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190328153912947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 
 
@@ -435,8 +435,8 @@
       
 
       
-        <a id="more"></a>
-<p><strong>1.企业中为什么要用集群：</strong></p>
+        <p><strong>1.企业中为什么要用集群：</strong></p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">每一个角色都是一个进程：</span><br><span class="line">HDFS：</span><br><span class="line">	NN：老大（接受读写流程请求）Master</span><br><span class="line">	SNN：1h checkpoint secondary（每隔一小时都会备份NN中的editlog文件合并成新</span><br><span class="line">		的fsimage）</span><br><span class="line">	DN：存储数据块和数据块的校验和</span><br><span class="line"></span><br><span class="line">YARN:</span><br><span class="line">RM  老大 master</span><br><span class="line">NM</span><br><span class="line">	（注：主从架构  master-slave </span><br><span class="line">比如hdfs读写请求都是先NN节点；每一条请求都要先经过NN，如果单节点NN挂了，那么就不</span><br><span class="line">能提供对外服务，所以我们要用到集群的概念。</span><br><span class="line">	RM也是一样。)</span><br></pre></td></tr></table></figure>
 <p>==但是：hbase 读写请求不是经过老大master，这点需要注意，那什么经过master，就是建表语句，删表语句）==</p>
 <p><strong>2.企业生产中的配置：</strong></p>
@@ -461,7 +461,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/关于 HDFS和Yarn HA 的了解/">关于 HDFS和Yarn HA 的了解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:15</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:17</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:34</p>
   <p><span>原始链接:</span><a href="/2019/04/07/关于 HDFS和Yarn HA 的了解/" title="关于 HDFS和Yarn HA 的了解">http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/" aria-label="复制成功！"></i></span>
   </p>
@@ -507,11 +507,11 @@
           
             <a href="/tags/YARN/" rel="tag"><i class="fa fa-tag"></i> YARN</a>
           
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
+          
             <a href="/tags/HDFS/" rel="tag"><i class="fa fa-tag"></i> HDFS</a>
           
             <a href="/tags/HA/" rel="tag"><i class="fa fa-tag"></i> HA</a>
-          
-            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
           
         </div>
       

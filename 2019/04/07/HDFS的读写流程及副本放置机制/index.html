@@ -105,21 +105,21 @@
 
 
 
-<meta name="description" content="1.写流程  FSDataOutputStream  1234567891011121314151617181920212223242526这个过程对于我们操作者而言是无感知的1.Client调用FileSystem.creat(filePath)方法，去与NN进行【RPC】通信，nn check该路径文件是否存在以及有没有权限创建该文件。假如OK，就创建一个新的文件，但是不关联任何的block">
+<meta name="description" content="1.写流程">
 <meta name="keywords" content="大数据,hdfs,读写流程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDFS的读写流程及副本放置机制">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/HDFS的读写流程及副本放置机制/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.写流程  FSDataOutputStream  1234567891011121314151617181920212223242526这个过程对于我们操作者而言是无感知的1.Client调用FileSystem.creat(filePath)方法，去与NN进行【RPC】通信，nn check该路径文件是否存在以及有没有权限创建该文件。假如OK，就创建一个新的文件，但是不关联任何的block">
+<meta property="og:description" content="1.写流程">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309190710357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309193836161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190309195021934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T01:46:47.322Z">
+<meta property="og:updated_time" content="2019-04-07T04:28:43.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDFS的读写流程及副本放置机制">
-<meta name="twitter:description" content="1.写流程  FSDataOutputStream  1234567891011121314151617181920212223242526这个过程对于我们操作者而言是无感知的1.Client调用FileSystem.creat(filePath)方法，去与NN进行【RPC】通信，nn check该路径文件是否存在以及有没有权限创建该文件。假如OK，就创建一个新的文件，但是不关联任何的block">
+<meta name="twitter:description" content="1.写流程">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190309190710357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 
 
@@ -437,8 +437,8 @@
       
 
       
-        <a id="more"></a>
-<p><strong>1.写流程</strong></p>
+        <p><strong>1.写流程</strong></p>
+<a id="more"></a>
 <blockquote>
 <p>FSDataOutputStream</p>
 </blockquote>
@@ -471,7 +471,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/HDFS的读写流程及副本放置机制/">HDFS的读写流程及副本放置机制</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 09:44</p>
-  <p><span>最后更新:</span>2019年04月07日 - 09:46</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:28</p>
   <p><span>原始链接:</span><a href="/2019/04/07/HDFS的读写流程及副本放置机制/" title="HDFS的读写流程及副本放置机制">http://yoursite.com/2019/04/07/HDFS的读写流程及副本放置机制/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/HDFS的读写流程及副本放置机制/" aria-label="复制成功！"></i></span>
   </p>

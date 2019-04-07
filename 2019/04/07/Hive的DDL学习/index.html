@@ -105,13 +105,13 @@
 
 
 
-<meta name="description" content="1.小知识点： ①　　Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）②  　　在启动Ｈive时，一定要先将hdfs和yarn先启动起来。③当启动 Hive时，会发现有一些错误，这些错误有的很短，我们应该去哪里查看错误的详细情况：　　官方文档都是以.template结尾，需要用">
+<meta name="description" content="1.小知识点： ①　　Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）">
 <meta name="keywords" content="大数据开发,Hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hive的DDL学习">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/Hive的DDL学习/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.小知识点： ①　　Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）②  　　在启动Ｈive时，一定要先将hdfs和yarn先启动起来。③当启动 Hive时，会发现有一些错误，这些错误有的很短，我们应该去哪里查看错误的详细情况：　　官方文档都是以.template结尾，需要用">
+<meta property="og:description" content="1.小知识点： ①　　Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190315085701166.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190315085809867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
@@ -150,10 +150,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190315104152674.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190315104244946.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190315104345995.png">
-<meta property="og:updated_time" content="2019-04-07T04:13:23.910Z">
+<meta property="og:updated_time" content="2019-04-07T04:30:48.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive的DDL学习">
-<meta name="twitter:description" content="1.小知识点： ①　　Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）②  　　在启动Ｈive时，一定要先将hdfs和yarn先启动起来。③当启动 Hive时，会发现有一些错误，这些错误有的很短，我们应该去哪里查看错误的详细情况：　　官方文档都是以.template结尾，需要用">
+<meta name="twitter:description" content="1.小知识点： ①　　Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190315085701166.png">
 
 
@@ -471,9 +471,10 @@
       
 
       
-        <a id="more"></a>
-<p>1.小知识点：</p>
-<p>①<br>　　<font color="red" size="3">Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）</font><br>②<br>  　　在启动Ｈive时，一定要先将hdfs和yarn先启动起来。<br>③当启动 Hive时，会发现有一些错误，这些错误有的很短，我们应该去哪里查看错误的详细情况：<br>　　<img src="https://img-blog.csdnimg.cn/20190315085701166.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315085809867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">官方文档都是以.template结尾，需要用的时候，cp一份将.template去掉，再进行修改，hive的日志配置在这里配置：hive-log4j.properties.template，进入文件，会有下面两行信息：<br>　　hive.log.dir=${java.io.tmpdir}/${user.name}<br>　　hive.log.file=hive.log<br>第一个代表日志存放的位置：/tmp目录下（这里的tmp指的是根目录下的tmp）用户的名称（这里指的是hadoop）</p>
+        <p>1.小知识点：</p>
+<p>①<br>　　<font color="red" size="3">Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）</font></p>
+<a id="more"></a>
+<p>②<br>  　　在启动Ｈive时，一定要先将hdfs和yarn先启动起来。<br>③当启动 Hive时，会发现有一些错误，这些错误有的很短，我们应该去哪里查看错误的详细情况：<br>　　<img src="https://img-blog.csdnimg.cn/20190315085701166.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190315085809867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">官方文档都是以.template结尾，需要用的时候，cp一份将.template去掉，再进行修改，hive的日志配置在这里配置：hive-log4j.properties.template，进入文件，会有下面两行信息：<br>　　hive.log.dir=${java.io.tmpdir}/${user.name}<br>　　hive.log.file=hive.log<br>第一个代表日志存放的位置：/tmp目录下（这里的tmp指的是根目录下的tmp）用户的名称（这里指的是hadoop）</p>
 <p>④<br>　　一个非常经典的错误：<br>An exception was thrown while adding/validating class(es) : Specified key was too long; max key length is 767 bytes<br>⑤<br>　　如何使用Hive；首先打开官网，我们要学会查看官网，<a href="http://hive.apache.org/" target="_blank" rel="noopener">http://hive.apache.org/</a><br>　　官网上是最权威的，不要百度，谁知道你找的是哪个版本的。<br>　　  　　<img src="https://img-blog.csdnimg.cn/20190315091004179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190315091108680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">进入到DDL中；<br><img src="https://img-blog.csdnimg.cn/20190315091147489.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">这几个是常用的DDL语法；<br>　　<font color="blue" size="3">在Hive中，DB/TABLE/PARTITION（数据库、表、分区）  都是目录或者文件夹</font><br>　　<img src="https://img-blog.csdnimg.cn/20190315091642755.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在Hive里组成方式要么是文件夹，要么是文件。<br>　　⑦<font color="blue" size="3">DDL学习：</font><br>　　<font color="green" size="3">Create Database：</font></p>
 <p>CREATE (DATABASE|SCHEMA) [IF NOT EXISTS] database_name</p>
 <p>  [COMMENT database_comment]               （对数据库做一个描述）</p>
@@ -542,7 +543,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/Hive的DDL学习/">Hive的DDL学习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:04</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:13</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:30</p>
   <p><span>原始链接:</span><a href="/2019/04/07/Hive的DDL学习/" title="Hive的DDL学习">http://yoursite.com/2019/04/07/Hive的DDL学习/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/Hive的DDL学习/" aria-label="复制成功！"></i></span>
   </p>

@@ -105,13 +105,13 @@
 
 
 
-<meta name="description" content="1.课前经验：　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。2.LOAD：　　LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename">
+<meta name="description" content="1.经验：　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。">
 <meta name="keywords" content="大数据开发,Hive">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hive DML学习">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/Hive DML学习/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.课前经验：　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。2.LOAD：　　LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename">
+<meta property="og:description" content="1.经验：　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190315190512949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190315191354236.png">
@@ -153,10 +153,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190316094743153.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190316094811390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190316094830814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-04-07T04:08:02.647Z">
+<meta property="og:updated_time" content="2019-04-07T04:29:30.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive DML学习">
-<meta name="twitter:description" content="1.课前经验：　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。2.LOAD：　　LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename">
+<meta name="twitter:description" content="1.经验：　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190315190512949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70">
 
 
@@ -474,8 +474,9 @@
       
 
       
-        <a id="more"></a>
-<p>1.课前经验：<br>　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。<br>2.LOAD：<br>　　LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)]<br>　　<font color="pink" size="3">LOCAL：</font>表示的是本地，就是Linux上。如果不带LOCAL，相当于这个数据在hdfs上。<br>　　<font color="pink" size="3">‘filepath’ ：</font> 表示指向你数据所在的一个路径。<br>　　<font color="pink" size="3">OVERWRITE：</font> 表示将之前的数据覆盖。<br>　　<font color="pink" size="3">INTO TABLE：</font>表示追加。<br>　　<font color="pink" size="3">PARTITION ：</font>表示分区。<br>首先我们先创建一张表：<br>　　create table dept(<br>deptno int,<br>dname string,<br>location string<br>) row format delimited fields terminated by ‘\t’;</p>
+        <p>1.经验：<br>　　在关系型数据库中，使用insert，update的情况是很多的，但是在大数据中，比如hive中，这种使用情况是很少的，基本上都用用load，把一个文件和一批文件load进hive表里，其实就是把这些文件load到hdfs中去。</p>
+<a id="more"></a>
+<p>2.LOAD：<br>　　LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)]<br>　　<font color="pink" size="3">LOCAL：</font>表示的是本地，就是Linux上。如果不带LOCAL，相当于这个数据在hdfs上。<br>　　<font color="pink" size="3">‘filepath’ ：</font> 表示指向你数据所在的一个路径。<br>　　<font color="pink" size="3">OVERWRITE：</font> 表示将之前的数据覆盖。<br>　　<font color="pink" size="3">INTO TABLE：</font>表示追加。<br>　　<font color="pink" size="3">PARTITION ：</font>表示分区。<br>首先我们先创建一张表：<br>　　create table dept(<br>deptno int,<br>dname string,<br>location string<br>) row format delimited fields terminated by ‘\t’;</p>
 <font color="red" size="3">然后从本地LOAD数据到dept中：</font><br>LOAD DATA LOCAL INPATH ‘/home/hadoop/data/dept.txt’ OVERWRITE INTO TABLE dept;（覆盖）<br>LOAD DATA LOCAL INPATH ‘/home/hadoop/data/dept.txt’ INTO TABLE dept;（追加）<br><img src="https://img-blog.csdnimg.cn/20190315190512949.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从上图就可以看出OVERWRITE和 INTO TABLE的区别。<br><font color="red" size="3">下面我们试一下从hdfs上加载数据到表里：</font><br>　　首先现在hdfs上创建一个目录，将文件放到目录下：<br>　<img src="https://img-blog.csdnimg.cn/20190315191354236.png" alt="在这里插入图片描述"><br>然后加载数据到dept表里：<br>LOAD DATA INPATH ‘/hive/dept/dept.txt’ OVERWRITE INTO TABLE dept;（没有LOCAL,表示从hdfs加载数据）<br><img src="https://img-blog.csdnimg.cn/20190315191808209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">这个时候到hdfs上看，发现文件没有了，<br><img src="https://img-blog.csdnimg.cn/20190315192137512.png" alt="在这里插入图片描述">（它被移到dept这张表默认的hdfs的路径下了，这里是：hdfs://10-9-140-90:9000/user/hive/warehouse/d6_hive.db/dept）<br><br>下面我们将hive上查询出的结果写到本地（或者hdfs）文件系统上：<br>INSERT OVERWRITE LOCAL DIRECTORY ‘/home/hadoop/data/emptmp’<br>row format delimited fields terminated by ‘,’<br>SELECT empno,ename FROM emp;<br><img src="https://img-blog.csdnimg.cn/20190315193727354.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTg1MTQy,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/2019031519373658.png" alt="在这里插入图片描述"><br>写到hdfs上（把LOCAL去掉即可）：<br>INSERT OVERWRITE  DIRECTORY ‘/emptmp’<br>row format delimited fields terminated by ‘,’<br>SELECT empno,ename FROM emp;<br><br><font color="blue" size="3">INSERT语法方面是支持的，但是生产中我们很少很少用，会产生很多小文件。</font>
 
 
@@ -525,7 +526,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/Hive DML学习/">Hive DML学习</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 12:06</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:08</p>
+  <p><span>最后更新:</span>2019年04月07日 - 12:29</p>
   <p><span>原始链接:</span><a href="/2019/04/07/Hive DML学习/" title="Hive DML学习">http://yoursite.com/2019/04/07/Hive DML学习/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/Hive DML学习/" aria-label="复制成功！"></i></span>
   </p>
