@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[YARN HA架构图]]></title>
     <url>%2F2019%2F04%2F07%2FYARN%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[1.YARN架构图： ./assets/${2019032919063379.jpg} 2.架构图详解： 12345678910111213141516171819202122232425262728YARN HA hadoop001：zk rm(zkfc) nmhadoop002：zk rm(zkfc) nmhadoop003：zk nmZKFC: 线程 只作为RM进程的一个线程而非独立的进程存在RMStateStore: 存储在zk的/rmstore目录下。1.activeRM会向这个目录写APP信息2.当activeRM挂了，另外一个standby RM通过ZKFC选举成功为active，会从/rmstore读取相应的作业信息。重新构建作业的内存信息，启动内部的服务，开始接收NM的心跳，构建集群的资源信息，并且接收客户端的作业提交请求。RM:1.启动时候会向ZK的/rmstore目录写lock文件，写成功就为active，否则standby.rm节点zkfc会一直监控这个lock文件是否存在，假如不存在，就为active，否则为standby.2.接收client的请求，接收和监控NM的资源状况的汇报，负载资源的分配和调度。3.启动和监控APPMASTER on NM节点的container。applicationsmanager RMapplicationmaster NM container容器里 作业的主程序NM:节点资源的管理 启动容器运行task计算 上报资源]]></content>
+    <content type="text"><![CDATA[1.YARN架构图： ![../assets/2019032919063379.jpg] 2.架构图详解： 12345678910111213141516171819202122232425262728YARN HA hadoop001：zk rm(zkfc) nmhadoop002：zk rm(zkfc) nmhadoop003：zk nmZKFC: 线程 只作为RM进程的一个线程而非独立的进程存在RMStateStore: 存储在zk的/rmstore目录下。1.activeRM会向这个目录写APP信息2.当activeRM挂了，另外一个standby RM通过ZKFC选举成功为active，会从/rmstore读取相应的作业信息。重新构建作业的内存信息，启动内部的服务，开始接收NM的心跳，构建集群的资源信息，并且接收客户端的作业提交请求。RM:1.启动时候会向ZK的/rmstore目录写lock文件，写成功就为active，否则standby.rm节点zkfc会一直监控这个lock文件是否存在，假如不存在，就为active，否则为standby.2.接收client的请求，接收和监控NM的资源状况的汇报，负载资源的分配和调度。3.启动和监控APPMASTER on NM节点的container。applicationsmanager RMapplicationmaster NM container容器里 作业的主程序NM:节点资源的管理 启动容器运行task计算 上报资源]]></content>
       <tags>
         <tag>HA</tag>
         <tag>架构图</tag>
