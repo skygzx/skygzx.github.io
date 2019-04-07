@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-07T06:30:51.827Z</updated>
+  <updated>2019-04-07T06:34:15.854Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/04/07/YARN%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
     <id>http://yoursite.com/2019/04/07/YARN HA架构图/</id>
     <published>2019-04-07T04:19:07.712Z</published>
-    <updated>2019-04-07T06:30:51.827Z</updated>
+    <updated>2019-04-07T06:34:15.854Z</updated>
     
     <summary type="html">
     
@@ -32,11 +32,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -80,11 +80,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -353,9 +353,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="命令操作" scheme="http://yoursite.com/tags/%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/"/>
     
@@ -419,9 +419,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
