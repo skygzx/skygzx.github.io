@@ -3,11 +3,11 @@
   <entry>
     <title><![CDATA[YARN HA架构图]]></title>
     <url>%2F2019%2F04%2F07%2FYARN%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE%2F</url>
-    <content type="text"><![CDATA[1.YARN架构图： 2.架构图详解： 12345678910111213141516171819202122232425262728YARN HA hadoop001：zk rm(zkfc) nmhadoop002：zk rm(zkfc) nmhadoop003：zk nmZKFC: 线程 只作为RM进程的一个线程而非独立的进程存在RMStateStore: 存储在zk的/rmstore目录下。1.activeRM会向这个目录写APP信息2.当activeRM挂了，另外一个standby RM通过ZKFC选举成功为active，会从/rmstore读取相应的作业信息。重新构建作业的内存信息，启动内部的服务，开始接收NM的心跳，构建集群的资源信息，并且接收客户端的作业提交请求。RM:1.启动时候会向ZK的/rmstore目录写lock文件，写成功就为active，否则standby.rm节点zkfc会一直监控这个lock文件是否存在，假如不存在，就为active，否则为standby.2.接收client的请求，接收和监控NM的资源状况的汇报，负载资源的分配和调度。3.启动和监控APPMASTER on NM节点的container。applicationsmanager RMapplicationmaster NM container容器里 作业的主程序NM:节点资源的管理 启动容器运行task计算 上报资源]]></content>
+    <content type="text"><![CDATA[1.YARN架构图： typora-root-url:./assets/2019032919063379.jpg 2.架构图详解： 12345678910111213141516171819202122232425262728YARN HA hadoop001：zk rm(zkfc) nmhadoop002：zk rm(zkfc) nmhadoop003：zk nmZKFC: 线程 只作为RM进程的一个线程而非独立的进程存在RMStateStore: 存储在zk的/rmstore目录下。1.activeRM会向这个目录写APP信息2.当activeRM挂了，另外一个standby RM通过ZKFC选举成功为active，会从/rmstore读取相应的作业信息。重新构建作业的内存信息，启动内部的服务，开始接收NM的心跳，构建集群的资源信息，并且接收客户端的作业提交请求。RM:1.启动时候会向ZK的/rmstore目录写lock文件，写成功就为active，否则standby.rm节点zkfc会一直监控这个lock文件是否存在，假如不存在，就为active，否则为standby.2.接收client的请求，接收和监控NM的资源状况的汇报，负载资源的分配和调度。3.启动和监控APPMASTER on NM节点的container。applicationsmanager RMapplicationmaster NM container容器里 作业的主程序NM:节点资源的管理 启动容器运行task计算 上报资源]]></content>
       <tags>
+        <tag>YARN</tag>
         <tag>HA</tag>
         <tag>架构图</tag>
-        <tag>YARN</tag>
         <tag>大数据开发</tag>
       </tags>
   </entry>
@@ -27,9 +27,9 @@
     <url>%2F2019%2F04%2F07%2F%E5%85%B3%E4%BA%8E%20HDFS%E5%92%8CYarn%20HA%20%E7%9A%84%E4%BA%86%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[1.企业中为什么要用集群： 1234567891011121314每一个角色都是一个进程：HDFS： NN：老大（接受读写流程请求）Master SNN：1h checkpoint secondary（每隔一小时都会备份NN中的editlog文件合并成新 的fsimage） DN：存储数据块和数据块的校验和YARN:RM 老大 masterNM （注：主从架构 master-slave 比如hdfs读写请求都是先NN节点；每一条请求都要先经过NN，如果单节点NN挂了，那么就不能提供对外服务，所以我们要用到集群的概念。 RM也是一样。) ==但是：hbase 读写请求不是经过老大master，这点需要注意，那什么经过master，就是建表语句，删表语句）== 2.企业生产中的配置： 12345678910111213如果只有一台节点，如果NN挂了，那么就无法对外提供访问了。企业中我们一般会配置两个NN节点，（实时的，任何时候只有一台active对外，另一台standby实时 备份，随时准备着从stanby切换成active状态，对外提供服务。）NN1：active hdfs://ip1:9000/ 代码 shell脚本NN2：standby hdfs://ip2:9000/ （假设NN1在11点挂了，就在那一霎那，NN2会瞬间切换成actice，对外提供访问。）查看hdfs可以这样查看： hdfs dfs -ls hdfs dfs -ls / hdfs dfs -ls hdfs://ip:9000/如果NN1挂掉了，我们切换到NN2，难道我们还要手动修改： hdfs://ip2:9000/吗?这个时候我们抛出一个概念：无感知的：（命名空间：nameservice1 CDH 生产上：dw） 3.命名空间： 1如上图所示：命名空间 RUOZEG6 不是一个进程，当我们输入命令：hdfs dfs -ls hdfs：//RUOZEG6/这个命令时，他会去找 core-size.xml 和 hdfs-site.xml这两个配置文件，这两个配置文件里配置了 hadoop001和hadoop002这两台机器挂在了 命名空间下面，它会去尝试连接第一台机器，如果第一台不是active，那么他会去连第二台机器。]]></content>
       <tags>
+        <tag>YARN</tag>
         <tag>HDFS</tag>
         <tag>HA</tag>
-        <tag>YARN</tag>
         <tag>大数据开发</tag>
       </tags>
   </entry>
