@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhxXLt.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhzQSJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhzGex.png">
-<meta property="og:updated_time" content="2019-04-08T01:50:29.713Z">
+<meta property="og:updated_time" content="2019-04-08T01:58:46.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop编译支持5种压缩格式">
 <meta name="twitter:description" content="Hadoop-2.6.0-CDH-5.7.0版本编译：">
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  351
+                  626
                 </span>
               
 
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -457,20 +457,21 @@
 <p>​    上传jdk-7u80-linux-x64.tar.gz、apache-maven-3.3.9-bin.zip、findbugs-1.3.9.zip、protobuf-2.5.0.tar.gz至/software</p>
 <p>​    解压文件</p>
 <p>3）查看环境要求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 ~]$ cd source/hadoop-2.6.0-cdh5.7.0</span><br><span class="line"></span><br><span class="line">[root@hadoop001 hadoop-2.6.0-cdh5.7.0]$ cat BUILDING.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Requirements:</span><br><span class="line"></span><br><span class="line">* Windows System</span><br><span class="line"></span><br><span class="line">* JDK 1.7+</span><br><span class="line"></span><br><span class="line">* Maven 3.0 or later</span><br><span class="line"></span><br><span class="line">* Findbugs 1.3.9 (<span class="keyword">if</span> running findbugs)</span><br><span class="line"></span><br><span class="line">* ProtocolBuffer 2.5.0</span><br><span class="line"></span><br><span class="line">* CMake 2.6 or newer</span><br><span class="line"></span><br><span class="line">* Windows SDK or Visual Studio 2010 Professional</span><br><span class="line"></span><br><span class="line">* Unix <span class="built_in">command</span>-line tools from GnuWin32 or Cygwin: sh, mkdir, rm, cp, tar, gzip</span><br><span class="line"></span><br><span class="line">* zlib headers (<span class="keyword">if</span> building native code bindings <span class="keyword">for</span> zlib)</span><br><span class="line"></span><br><span class="line">* Internet connection <span class="keyword">for</span> first build (to fetch all Maven and Hadoop dependencies)</span><br><span class="line"></span><br><span class="line">If using Visual Studio, it must be Visual Studio 2010 Professional (not 2012).</span><br><span class="line"></span><br><span class="line">Do not use Visual Studio Express.  It does not support compiling <span class="keyword">for</span> 64-bit,</span><br><span class="line"><span class="built_in">which</span> is problematic <span class="keyword">if</span> running a 64-bit system.  The Windows SDK is free to</span><br><span class="line">download here:</span><br><span class="line"></span><br><span class="line">http://www.microsoft.com/en-us/download/details.aspx?id=8279</span><br></pre></td></tr></table></figure>
 <p>4）配置maven目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 ~]$ cd /usr/local/apache-maven-3.3.9/conf</span><br><span class="line"></span><br><span class="line">[root@hadoop001 conf]$ vi settings.xml</span><br></pre></td></tr></table></figure>
 <p>配置本地仓库：</p>
 <p><img src="https://s2.ax1x.com/2019/04/07/AhjPzR.png" alt></p>
 <p>配置阿里源：</p>
 <p><img src="https://s2.ax1x.com/2019/04/07/AhjJw8.png" alt></p>
 <p>5）预编译安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 protobuf-2.5.0]# yum install -y gcc gcc-c++ make cmake</span><br><span class="line"></span><br><span class="line">[root@hadoop001 protobuf-2.5.0]# ./configure --prefix=/usr/local/protobuf</span><br><span class="line"></span><br><span class="line">[root@hadoop001 protobuf-2.5.0]# make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 <p>6）配置环境变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 ~]$ vi .bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PATH=$PATH:$HOME/bin</span><br><span class="line"></span><br><span class="line">export PATH</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.7.0_80</span><br><span class="line"></span><br><span class="line">export MVN_HOME=/home/hadoop/app/apache-maven-3.3.9</span><br><span class="line"></span><br><span class="line">export FINDBUGS_HOME=/home/hadoop/app/findbugs-1.3.9</span><br><span class="line"></span><br><span class="line">export PROTOC_HOME=/usr/local/protobuf</span><br><span class="line"></span><br><span class="line">export PATH=$PROTOC_HOME/bin:$FINDBUGS_HOME/bin:$MVN_HOME/bin:$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
 <p>7）yum源安装其他组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 ~]# yum install -y openssl openssl-devel svn ncurses-devel zlib-devel libtool</span><br><span class="line"></span><br><span class="line">[root@hadoop001 ~]# yum install -y snappy snappy-devel bzip2 bzip2-devel lzo lzo-devel lzop autoconf automake</span><br></pre></td></tr></table></figure>
 <p>9）开始编译</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 ~]$ cd source/hadoop-2.6.0-cdh5.7.0</span><br><span class="line"></span><br><span class="line">[root@hadoop001 hadoop-2.6.0-cdh5.7.0]$ pwd</span><br><span class="line"></span><br><span class="line">/source/hadoop-2.6.0-cdh5.7.0</span><br><span class="line"></span><br><span class="line">[root@hadoop001 hadoop-2.6.0-cdh5.7.0]$ mvn clean package -Pdist,native -DskipTests -Dtar</span><br></pre></td></tr></table></figure>
 <p>10）开始编译</p>
@@ -502,7 +503,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/Hadoop编译支持5种压缩格式/">Hadoop编译支持5种压缩格式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 20:19</p>
-  <p><span>最后更新:</span>2019年04月08日 - 09:50</p>
+  <p><span>最后更新:</span>2019年04月08日 - 09:58</p>
   <p><span>原始链接:</span><a href="/2019/04/07/Hadoop编译支持5种压缩格式/" title="Hadoop编译支持5种压缩格式">http://yoursite.com/2019/04/07/Hadoop编译支持5种压缩格式/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/Hadoop编译支持5种压缩格式/" aria-label="复制成功！"></i></span>
   </p>
