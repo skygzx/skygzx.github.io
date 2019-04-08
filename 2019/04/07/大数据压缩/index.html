@@ -105,20 +105,20 @@
 
 
 
-<meta name="description" content="1.压缩的好处和坏处：好处：1.减少存储磁盘空间 2.降低IO(网络的IO和磁盘的IO) 3.加快数据在磁盘和网络中的传输速度，从而提高系统的处理速度 坏处：由于使用数据时，需要先将数据解压，加重CPU负荷 2.压缩格式：   压缩格式 工具 算法 扩展名 是否支持分割 Hadoop编码/解码     DEFLATE N/A DEFLATE .deflate No org.apache.hadoo">
+<meta name="description" content="1.压缩的好处和坏处：好处：">
 <meta name="keywords" content="大数据开发,Snappy,Bzip2,LZ4,LZO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据压缩">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/大数据压缩/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.压缩的好处和坏处：好处：1.减少存储磁盘空间 2.降低IO(网络的IO和磁盘的IO) 3.加快数据在磁盘和网络中的传输速度，从而提高系统的处理速度 坏处：由于使用数据时，需要先将数据解压，加重CPU负荷 2.压缩格式：   压缩格式 工具 算法 扩展名 是否支持分割 Hadoop编码/解码     DEFLATE N/A DEFLATE .deflate No org.apache.hadoo">
+<meta property="og:description" content="1.压缩的好处和坏处：好处：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/A4ptRe.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/A4p6JS.png">
-<meta property="og:updated_time" content="2019-04-07T13:21:56.332Z">
+<meta property="og:updated_time" content="2019-04-07T23:46:20.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据压缩">
-<meta name="twitter:description" content="1.压缩的好处和坏处：好处：1.减少存储磁盘空间 2.降低IO(网络的IO和磁盘的IO) 3.加快数据在磁盘和网络中的传输速度，从而提高系统的处理速度 坏处：由于使用数据时，需要先将数据解压，加重CPU负荷 2.压缩格式：   压缩格式 工具 算法 扩展名 是否支持分割 Hadoop编码/解码     DEFLATE N/A DEFLATE .deflate No org.apache.hadoo">
+<meta name="twitter:description" content="1.压缩的好处和坏处：好处：">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/A4ptRe.png">
 
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  648
+                  839
                 </span>
               
 
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -436,7 +436,8 @@
       
 
       
-        <h2 id="1-压缩的好处和坏处："><a href="#1-压缩的好处和坏处：" class="headerlink" title="1.压缩的好处和坏处："></a><strong>1.压缩的好处和坏处：</strong></h2><h3 id="好处："><a href="#好处：" class="headerlink" title="好处："></a>好处：</h3><p>1.减少存储磁盘空间</p>
+        <h2 id="1-压缩的好处和坏处："><a href="#1-压缩的好处和坏处：" class="headerlink" title="1.压缩的好处和坏处："></a><strong>1.压缩的好处和坏处：</strong></h2><h3 id="好处："><a href="#好处：" class="headerlink" title="好处："></a>好处：</h3><a id="more"></a>
+<p>1.减少存储磁盘空间</p>
 <p>2.降低IO(网络的IO和磁盘的IO)</p>
 <p>3.加快数据在磁盘和网络中的传输速度，从而提高系统的处理速度</p>
 <h3 id="坏处："><a href="#坏处：" class="headerlink" title="坏处："></a>坏处：</h3><p>由于使用数据时，需要先将数据解压，加重CPU负荷</p>
@@ -512,10 +513,14 @@
 <p>缺点：<br> 压缩率比gzip要低；hadoop本身不支持，需要安装；lzo虽然支持split，但需要对lzo文件建索引，否则hadoop也是会把lzo文件看成一个普通文件（为了支持split需要建索引，需要指定inputformat为lzo格式）</p>
 <h4 id="c-snappy"><a href="#c-snappy" class="headerlink" title="c. snappy"></a>c. snappy</h4><p>优点：<br> 压缩速度快；支持hadoop native库</p>
 <p>缺点：<br> 不支持split；压缩比低；hadoop本身不支持，需要安装；linux系统下没有对应的命令</p>
+<p>应用场景：</p>
+<p>  当mapreduce作业的map输出的数据比较大的时候，作为map到reduce的中间数据的压缩格式；或者作为一个mapreduce作业的输出和另外一个mapreduce作业的输入。</p>
 <h4 id="d-bzip2"><a href="#d-bzip2" class="headerlink" title="d. bzip2"></a>d. bzip2</h4><p>优点：<br> 支持split；具有很高的压缩率，比gzip压缩率都高；hadoop本身支持，但不支持native；在linux系统下自带bzip2命令，使用方便</p>
 <p>缺点：<br> 压缩/解压速度慢；不支持native</p>
 <p>总结：<br>​     不同的场景选择不同的压缩方式，肯定没有一个一劳永逸的方法，如果选择高压缩比，那么对于cpu的性能要求要高，同时压缩、解压时间耗费也多；选择压缩比低的，对于磁盘io、网络io的时间要多，空间占据要多；对于支持分割的，可以实现并行处理。</p>
 <p>应用场景：</p>
+<p>适合对速度要求不高，但需要较高的压缩率的时候，可以作为mapreduce作业的输出格式；或者输出之后的数据比较大，处理之后的数据<br>需要压缩存档减少磁盘空间并且以后数据用得比较少的情况；或者对单个很大的文本文件想压缩减少存储空间，同时又需要支持split，而且兼容之前的应用程<br>序（即应用程序不需要修改）的情况。</p>
+<p><strong>应用场景：</strong></p>
 <p>一般在HDFS 、Hive、HBase中会使用；</p>
 <p>当然一般较多的是结合Spark 来一起使用。</p>
 
@@ -537,7 +542,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/大数据压缩/">大数据压缩</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 21:08</p>
-  <p><span>最后更新:</span>2019年04月07日 - 21:21</p>
+  <p><span>最后更新:</span>2019年04月08日 - 07:46</p>
   <p><span>原始链接:</span><a href="/2019/04/07/大数据压缩/" title="大数据压缩">http://yoursite.com/2019/04/07/大数据压缩/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/大数据压缩/" aria-label="复制成功！"></i></span>
   </p>
