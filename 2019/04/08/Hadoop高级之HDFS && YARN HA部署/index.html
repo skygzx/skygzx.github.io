@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hadoop,大数据开发,HA,">
+  <meta name="keywords" content="HA,Hadoop,大数据开发,">
 
 
 
@@ -105,13 +105,13 @@
 
 
 
-<meta name="description" content="HADOOP HA 搭建：">
-<meta name="keywords" content="Hadoop,大数据开发,HA">
+<meta name="description" content="HADOOP HA 搭建：1.SSH相互信任关系配置和host文件配置：注意事项：">
+<meta name="keywords" content="HA,Hadoop,大数据开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop编译支持5种压缩格式">
 <meta property="og:url" content="http://yoursite.com/2019/04/08/Hadoop高级之HDFS && YARN HA部署/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="HADOOP HA 搭建：">
+<meta property="og:description" content="HADOOP HA 搭建：1.SSH相互信任关系配置和host文件配置：注意事项：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhIXqJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhIxaR.png">
@@ -136,10 +136,10 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/08/A4wClV.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/08/A4wuSx.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/08/A4wKl6.png">
-<meta property="og:updated_time" content="2019-04-08T03:59:23.133Z">
+<meta property="og:updated_time" content="2019-04-08T04:01:12.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop编译支持5种压缩格式">
-<meta name="twitter:description" content="HADOOP HA 搭建：">
+<meta name="twitter:description" content="HADOOP HA 搭建：1.SSH相互信任关系配置和host文件配置：注意事项：">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhIXqJ.png">
 
 
@@ -457,8 +457,8 @@
       
 
       
-        <h1 id="HADOOP-HA-搭建："><a href="#HADOOP-HA-搭建：" class="headerlink" title="HADOOP HA 搭建："></a>HADOOP HA 搭建：</h1><a id="more"></a>
-<h2 id="1-SSH相互信任关系配置和host文件配置："><a href="#1-SSH相互信任关系配置和host文件配置：" class="headerlink" title="1.SSH相互信任关系配置和host文件配置："></a>1.SSH相互信任关系配置和host文件配置：</h2><h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><p><strong>~/.ssh的权限为700</strong></p>
+        <h1 id="HADOOP-HA-搭建："><a href="#HADOOP-HA-搭建：" class="headerlink" title="HADOOP HA 搭建："></a>HADOOP HA 搭建：</h1><h2 id="1-SSH相互信任关系配置和host文件配置："><a href="#1-SSH相互信任关系配置和host文件配置：" class="headerlink" title="1.SSH相互信任关系配置和host文件配置："></a>1.SSH相互信任关系配置和host文件配置：</h2><h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><a id="more"></a>
+<p><strong>~/.ssh的权限为700</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 700 /.ssh</span><br></pre></td></tr></table></figure>
 <p><strong>~/.ssh/authorized_keys的权限是600或者640</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 600 /.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
@@ -582,7 +582,7 @@
   <p><span>本文标题:</span><a href="/2019/04/08/Hadoop高级之HDFS && YARN HA部署/">Hadoop编译支持5种压缩格式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月08日 - 10:05</p>
-  <p><span>最后更新:</span>2019年04月08日 - 11:59</p>
+  <p><span>最后更新:</span>2019年04月08日 - 12:01</p>
   <p><span>原始链接:</span><a href="/2019/04/08/Hadoop高级之HDFS && YARN HA部署/" title="Hadoop编译支持5种压缩格式">http://yoursite.com/2019/04/08/Hadoop高级之HDFS && YARN HA部署/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/08/Hadoop高级之HDFS && YARN HA部署/" aria-label="复制成功！"></i></span>
   </p>
@@ -626,11 +626,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/HA/" rel="tag"><i class="fa fa-tag"></i> HA</a>
+          
             <a href="/tags/Hadoop/" rel="tag"><i class="fa fa-tag"></i> Hadoop</a>
           
             <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
-          
-            <a href="/tags/HA/" rel="tag"><i class="fa fa-tag"></i> HA</a>
           
         </div>
       
