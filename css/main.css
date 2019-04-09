@@ -2,10 +2,10 @@ header {
   width: 100%;
 }
 .container .main-inner {
-  width: 100%;
+  width: 95%;
 }
 .content-wrap {
-  width: calc(100%);
+  width: calc(100% - 100px);
 }
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -1882,7 +1882,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6b21ff;
+  background: #4bb34f;
 }
 .links-of-blogroll {
   font-size: 13px;
