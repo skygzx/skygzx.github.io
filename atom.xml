@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-09T06:21:14.921Z</updated>
+  <updated>2019-04-09T06:24:51.632Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>如何确定block损坏的位置和修复</title>
-    <link href="http://yoursite.com/2019/04/09/hda/"/>
-    <id>http://yoursite.com/2019/04/09/hda/</id>
+    <link href="http://yoursite.com/2019/04/09/%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9Ablock%E6%8D%9F%E5%9D%8F%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E5%A4%8D%20/"/>
+    <id>http://yoursite.com/2019/04/09/如何确定block损坏的位置和修复 /</id>
     <published>2019-04-09T06:03:30.233Z</published>
-    <updated>2019-04-09T06:21:14.921Z</updated>
+    <updated>2019-04-09T06:24:51.632Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
+          &lt;h2 id=&quot;首先通过-hadf-fsck-命令帮助&quot;&gt;&lt;a href=&quot;#首先通过-hadf-fsck-命令帮助&quot; class=&quot;headerlink&quot; title=&quot;首先通过 hadf fsck 命令帮助&quot;&gt;&lt;/a&gt;首先通过 hadf fsck
         
       
     
@@ -39,28 +39,6 @@
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="block修复" scheme="http://yoursite.com/tags/block%E4%BF%AE%E5%A4%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何确定block损坏的位置和修复</title>
-    <link href="http://yoursite.com/2019/04/09/%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9Ablock%E6%8D%9F%E5%9D%8F%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E5%A4%8D%20/"/>
-    <id>http://yoursite.com/2019/04/09/如何确定block损坏的位置和修复 /</id>
-    <published>2019-04-09T04:39:55.205Z</published>
-    <updated>2019-04-09T05:57:53.377Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;首先通过-hdfs-fsck-–help-查看命令：&quot;&gt;&lt;a href=&quot;#首先通过-hdfs-fsck-–help-查看命令：&quot; class=&quot;headerlink&quot; title=&quot;首先通过 hdfs fsck –help 查看命令：&quot;&gt;&lt;/a&gt;&lt;strong&gt;首先通过 hdfs fsck –help 查看命令：&lt;/strong&gt;&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
-      <category term="block块修复" scheme="http://yoursite.com/tags/block%E5%9D%97%E4%BF%AE%E5%A4%8D/"/>
     
   </entry>
   
@@ -102,9 +80,9 @@
     
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -170,11 +148,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -218,11 +196,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -450,6 +428,26 @@
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="Memory和Cpu调优" scheme="http://yoursite.com/tags/Memory%E5%92%8CCpu%E8%B0%83%E4%BC%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop生态系统官网、下载地址、文档</title>
+    <link href="http://yoursite.com/2019/04/07/Hadoop%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E5%AE%98%E7%BD%91%E3%80%81%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E3%80%81%E6%96%87%E6%A1%A3/"/>
+    <id>http://yoursite.com/2019/04/07/Hadoop生态系统官网、下载地址、文档/</id>
+    <published>2019-04-07T02:51:12.942Z</published>
+    <updated>2019-04-07T04:27:54.421Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Apache版本：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="顶级项目官网" scheme="http://yoursite.com/tags/%E9%A1%B6%E7%BA%A7%E9%A1%B9%E7%9B%AE%E5%AE%98%E7%BD%91/"/>
     
   </entry>
   
