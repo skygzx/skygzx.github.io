@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-10T02:18:46.231Z</updated>
+  <updated>2019-04-10T02:22:14.009Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>YARN生产上的优化</title>
+    <link href="http://yoursite.com/2019/04/10/Spark%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2019/04/10/Spark基础/</id>
+    <published>2019-04-10T02:21:08.153Z</published>
+    <updated>2019-04-10T02:22:14.009Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.yarn生产上的资源管理（至关重要）&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>如何确定block损坏的位置和修复</title>
@@ -72,9 +99,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
@@ -140,11 +167,11 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
@@ -188,11 +215,11 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
@@ -422,26 +449,6 @@
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="Memory和Cpu调优" scheme="http://yoursite.com/tags/Memory%E5%92%8CCpu%E8%B0%83%E4%BC%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hadoop生态系统官网、下载地址、文档</title>
-    <link href="http://yoursite.com/2019/04/07/Hadoop%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F%E5%AE%98%E7%BD%91%E3%80%81%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E3%80%81%E6%96%87%E6%A1%A3/"/>
-    <id>http://yoursite.com/2019/04/07/Hadoop生态系统官网、下载地址、文档/</id>
-    <published>2019-04-07T02:51:12.942Z</published>
-    <updated>2019-04-07T04:27:54.421Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Apache版本：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="顶级项目官网" scheme="http://yoursite.com/tags/%E9%A1%B6%E7%BA%A7%E9%A1%B9%E7%9B%AE%E5%AE%98%E7%BD%91/"/>
     
   </entry>
   

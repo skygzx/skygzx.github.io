@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="YARN,大数据开发,">
 
 
 
@@ -105,16 +105,18 @@
 
 
 
-<meta name="description" content="记录skygzx的学习历程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="skygzx">
-<meta property="og:url" content="http://yoursite.com/tags/Memory和Cpu调优/index.html">
+<meta name="description" content="1.yarn生产上的资源管理（至关重要） 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172	 假设一台机器：48物理内存  8个core--&amp;gt;16个vcore	 Linux">
+<meta name="keywords" content="YARN,大数据开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YARN生产上的优化">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/Spark基础/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="记录skygzx的学习历程">
+<meta property="og:description" content="1.yarn生产上的资源管理（至关重要） 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172	 假设一台机器：48物理内存  8个core--&amp;gt;16个vcore	 Linux">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-10T02:22:14.009Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="skygzx">
-<meta name="twitter:description" content="记录skygzx的学习历程">
+<meta name="twitter:title" content="YARN生产上的优化">
+<meta name="twitter:description" content="1.yarn生产上的资源管理（至关重要） 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172	 假设一台机器：48物理内存  8个core--&amp;gt;16个vcore	 Linux">
 
 
 
@@ -144,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Memory和Cpu调优/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/10/Spark基础/">
 
 
 
 
 
-  <title>标签: Memory和Cpu调优 | skygzx</title>
+  <title>YARN生产上的优化 | skygzx</title>
   
 
 
@@ -170,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
    <a href="https://skygzx.github.io/" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -317,52 +319,229 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Memory和Cpu调优<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/Spark基础/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skygzx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skygzx">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/07/[转载]YARN的Memory和CPU调优配置详解/" itemprop="url">
-              
-                <span itemprop="name">YARN的Memory和CPU调优配置详解</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">YARN生产上的优化</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-07T10:55:20+08:00" content="2019-04-07">
-          04-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T10:21:08+08:00">
+                2019-04-10
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+	 
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  978
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.yarn生产上的资源管理（至关重要）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">	 假设一台机器：48物理内存  8个core--&gt;16个vcore</span><br><span class="line">	 Linux本身要占用内存+空留：20%=9.6个G（空留是根据实际机器的内存来决定的，如果内存大，可以考虑空留15%）</span><br><span class="line">	 剩余：80%=38.4G=38G</span><br><span class="line">	 DN进程：生产上4G</span><br><span class="line">	 	如何修改DN的内存配置信息：进入hadoop-env.sh脚本，</span><br><span class="line">	 	HADOOP_NAMENODE_OPTS=-Xmx1024m</span><br><span class="line">	 	HADOOP_DATANODE_OPTS=-Xmx1024m （在前面追加，如下图所示）</span><br><span class="line">	 NM进程：生产上4G</span><br><span class="line">	 	如何修改NM的内存配置信息：进入yarn-env.sh脚本，</span><br><span class="line">	 	export YARN_RESOURCEMANAGER_HEAPSIZE=1024</span><br><span class="line">	 	export YARN_NODEMANAGER_HEAPSIZE=1024 </span><br><span class="line">	 DN和NM部署在同一台机器上是为了：数据本地化</span><br><span class="line">	 NN RM 经常性部署同一台  说白了 集群节点少</span><br><span class="line">	 (正常情况下，DataNode进程和NodeManager进程部署在同一台机器： 数据本地化</span><br><span class="line">比如：在NM上运行task任务，task任务需要数据，数据是放在当前机器的hdfs上面的，发现当前</span><br><span class="line">有DataNode进程，节点上有需要的数据，那就只需要从当前节点拿数据就行了。但是如果发现当</span><br><span class="line">前机器上没有数据，要去另外的机器上拿数据，那就会通过网络，这时候会网络消耗，计算就会</span><br><span class="line">变慢了。）</span><br><span class="line"></span><br><span class="line">	 资源内存： 38G-4-4=30G（这30G是做什么？就是运行container容器）</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   30*1024MB（这是总的大小）</span><br><span class="line">	 默认配置</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  1024 （最小可分配容器的大小）</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  8192 （最大可分配容器的大小）</span><br><span class="line">	 （分配的容器的大小就是根据上面的参数来进行分配的）</span><br><span class="line">	 30G 30G/1G=30个container </span><br><span class="line">	 30G 30/8=3个container ...6G  (还留有6个G的内存被浪费掉)</span><br><span class="line">	 30个~3个（这样是不合理的）</span><br><span class="line"></span><br><span class="line">	 生产一：</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   30*1024MB</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  2G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  30G</span><br><span class="line">	 15个~1个</span><br><span class="line">	 （这个是大作业的情况。要看每个公司的作业情况，如果作业特别大的情况，就设成和总的一样</span><br><span class="line">大）</span><br><span class="line">	（容器最小2G，就是这台机器最多可以运行15个容器，容器最大30G，就是这台机器最多可以运行1</span><br><span class="line">个容器。那这台机器可以运行1-15个容器。</span><br><span class="line">当你去请求资源的时候，它先给你分配一个最小的值，比如说2G，然后你如果不够，给你加比如</span><br><span class="line">说1G，直到加到最大比如说30G。（这个是有参数可以去配置的，在hadoop官网没有，在cdh官网</span><br><span class="line">是可以找到的）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	 生产二：</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   32G（可以将预留空间再缩小一点，这样留给container容器的空间会大一点）（这个由30G调整到32G，就需要从预留的20%里面</span><br><span class="line">拿出2G出来。这样32/8=4个容器，可以整除，不会浪费了）</span><br><span class="line"></span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  2G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  8G</span><br><span class="line">	 16个~4个</span><br><span class="line"></span><br><span class="line">	 生产三:</span><br><span class="line">	 如果物理机的内存是256G:（我们预留的空间可以按15%来算）</span><br><span class="line"></span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   168G</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  4G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  24G</span><br><span class="line">	 16个~4个</span><br><span class="line"></span><br><span class="line">	 再生产中很容易遇到这样一种情况：container p memory oom ：（意思是你的最大connertion内存不够用）</span><br><span class="line">	 遇到这种情况，我们首先先把这任务kill掉，然受修改参数，将分配的内存调大一些。</span><br><span class="line"></span><br><span class="line">	 生产默认 不做修改</span><br><span class="line">	 yarn.nodemanager.pmem-check-enabled	true   （表示如果 container tast任务超过内存 就会 kill 掉进程，</span><br><span class="line">	检查容器内存，一个是物理内存，一个是虚拟内存，虚拟内存是物理内存的</span><br><span class="line">	 2倍，哪个超了都会被kill 掉）</span><br><span class="line">	 yarn.nodemanager.vmem-check-enabled	true</span><br><span class="line">	 yarn.nodemanager.vmem-pmem-ratio	2.1</span><br><span class="line">	 物理内存 1m  虚拟内存 2.1m</span><br><span class="line"></span><br><span class="line">新版本参数</span><br><span class="line">yarn.nodemanager.resource.pcores-vcores-multiplier 1    （老的是2，现在是1，需要手动把它修改成2）</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+	<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/04/10/Spark基础/">YARN生产上的优化</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
+  <p><span>发布时间:</span>2019年04月10日 - 10:21</p>
+  <p><span>最后更新:</span>2019年04月10日 - 10:22</p>
+  <p><span>原始链接:</span><a href="/2019/04/10/Spark基础/" title="YARN生产上的优化">http://yoursite.com/2019/04/10/Spark基础/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/10/Spark基础/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+      
+	</div>
+
+    
+
+
+    
+
+    
+
+    <div>
+    
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+   </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/YARN/" rel="tag"><i class="fa fa-tag"></i> YARN</a>
+          
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/09/如何确定block损坏的位置和修复 /" rel="next" title="如何确定block损坏的位置和修复">
+                <i class="fa fa-chevron-left"></i> 如何确定block损坏的位置和修复
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -370,6 +549,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzU1Mi8yMDA5MQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -640,6 +828,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -668,6 +860,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
