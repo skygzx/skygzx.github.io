@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/10/Spark基础/" itemprop="url">YARN生产上的优化</a></h1>
+                <a class="post-title-link" href="/2019/04/10/Spark基础/" itemprop="url">如何确定block损坏的位置和修复</a></h1>
         
 
         <div class="post-meta">
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  978
+                  1.4k
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -435,11 +435,14 @@
 
       
         
-          
-            <p>1.yarn生产上的资源管理（至关重要）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">	 假设一台机器：48物理内存  8个core--&gt;16个vcore</span><br><span class="line">	 Linux本身要占用内存+空留：20%=9.6个G（空留是根据实际机器的内存来决定的，如果内存大，可以考虑空留15%）</span><br><span class="line">	 剩余：80%=38.4G=38G</span><br><span class="line">	 DN进程：生产上4G</span><br><span class="line">	 	如何修改DN的内存配置信息：进入hadoop-env.sh脚本，</span><br><span class="line">	 	HADOOP_NAMENODE_OPTS=-Xmx1024m</span><br><span class="line">	 	HADOOP_DATANODE_OPTS=-Xmx1024m （在前面追加，如下图所示）</span><br><span class="line">	 NM进程：生产上4G</span><br><span class="line">	 	如何修改NM的内存配置信息：进入yarn-env.sh脚本，</span><br><span class="line">	 	export YARN_RESOURCEMANAGER_HEAPSIZE=1024</span><br><span class="line">	 	export YARN_NODEMANAGER_HEAPSIZE=1024 </span><br><span class="line">	 DN和NM部署在同一台机器上是为了：数据本地化</span><br><span class="line">	 NN RM 经常性部署同一台  说白了 集群节点少</span><br><span class="line">	 (正常情况下，DataNode进程和NodeManager进程部署在同一台机器： 数据本地化</span><br><span class="line">比如：在NM上运行task任务，task任务需要数据，数据是放在当前机器的hdfs上面的，发现当前</span><br><span class="line">有DataNode进程，节点上有需要的数据，那就只需要从当前节点拿数据就行了。但是如果发现当</span><br><span class="line">前机器上没有数据，要去另外的机器上拿数据，那就会通过网络，这时候会网络消耗，计算就会</span><br><span class="line">变慢了。）</span><br><span class="line"></span><br><span class="line">	 资源内存： 38G-4-4=30G（这30G是做什么？就是运行container容器）</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   30*1024MB（这是总的大小）</span><br><span class="line">	 默认配置</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  1024 （最小可分配容器的大小）</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  8192 （最大可分配容器的大小）</span><br><span class="line">	 （分配的容器的大小就是根据上面的参数来进行分配的）</span><br><span class="line">	 30G 30G/1G=30个container </span><br><span class="line">	 30G 30/8=3个container ...6G  (还留有6个G的内存被浪费掉)</span><br><span class="line">	 30个~3个（这样是不合理的）</span><br><span class="line"></span><br><span class="line">	 生产一：</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   30*1024MB</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  2G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  30G</span><br><span class="line">	 15个~1个</span><br><span class="line">	 （这个是大作业的情况。要看每个公司的作业情况，如果作业特别大的情况，就设成和总的一样</span><br><span class="line">大）</span><br><span class="line">	（容器最小2G，就是这台机器最多可以运行15个容器，容器最大30G，就是这台机器最多可以运行1</span><br><span class="line">个容器。那这台机器可以运行1-15个容器。</span><br><span class="line">当你去请求资源的时候，它先给你分配一个最小的值，比如说2G，然后你如果不够，给你加比如</span><br><span class="line">说1G，直到加到最大比如说30G。（这个是有参数可以去配置的，在hadoop官网没有，在cdh官网</span><br><span class="line">是可以找到的）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	 生产二：</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   32G（可以将预留空间再缩小一点，这样留给container容器的空间会大一点）（这个由30G调整到32G，就需要从预留的20%里面</span><br><span class="line">拿出2G出来。这样32/8=4个容器，可以整除，不会浪费了）</span><br><span class="line"></span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  2G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  8G</span><br><span class="line">	 16个~4个</span><br><span class="line"></span><br><span class="line">	 生产三:</span><br><span class="line">	 如果物理机的内存是256G:（我们预留的空间可以按15%来算）</span><br><span class="line"></span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   168G</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  4G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  24G</span><br><span class="line">	 16个~4个</span><br><span class="line"></span><br><span class="line">	 再生产中很容易遇到这样一种情况：container p memory oom ：（意思是你的最大connertion内存不够用）</span><br><span class="line">	 遇到这种情况，我们首先先把这任务kill掉，然受修改参数，将分配的内存调大一些。</span><br><span class="line"></span><br><span class="line">	 生产默认 不做修改</span><br><span class="line">	 yarn.nodemanager.pmem-check-enabled	true   （表示如果 container tast任务超过内存 就会 kill 掉进程，</span><br><span class="line">	检查容器内存，一个是物理内存，一个是虚拟内存，虚拟内存是物理内存的</span><br><span class="line">	 2倍，哪个超了都会被kill 掉）</span><br><span class="line">	 yarn.nodemanager.vmem-check-enabled	true</span><br><span class="line">	 yarn.nodemanager.vmem-pmem-ratio	2.1</span><br><span class="line">	 物理内存 1m  虚拟内存 2.1m</span><br><span class="line"></span><br><span class="line">新版本参数</span><br><span class="line">yarn.nodemanager.resource.pcores-vcores-multiplier 1    （老的是2，现在是1，需要手动把它修改成2）</span><br></pre></td></tr></table></figure>
-
-          
+          <p><strong>首先通过 hadf fsck 命令帮助</strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/10/Spark基础/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2050,7 +2053,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

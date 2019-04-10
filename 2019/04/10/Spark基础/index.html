@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="YARN,大数据开发,">
+  <meta name="keywords" content="大数据开发,block块,">
 
 
 
@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="1.yarn生产上的资源管理（至关重要） 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172	 假设一台机器：48物理内存  8个core--&amp;gt;16个vcore	 Linux">
-<meta name="keywords" content="YARN,大数据开发">
+<meta name="description" content="首先通过 hadf fsck 命令帮助">
+<meta name="keywords" content="大数据开发,block块">
 <meta property="og:type" content="article">
-<meta property="og:title" content="YARN生产上的优化">
+<meta property="og:title" content="如何确定block损坏的位置和修复">
 <meta property="og:url" content="http://yoursite.com/2019/04/10/Spark基础/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.yarn生产上的资源管理（至关重要） 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172	 假设一台机器：48物理内存  8个core--&amp;gt;16个vcore	 Linux">
+<meta property="og:description" content="首先通过 hadf fsck 命令帮助">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-10T02:22:14.009Z">
+<meta property="og:updated_time" content="2019-04-10T02:31:46.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YARN生产上的优化">
-<meta name="twitter:description" content="1.yarn生产上的资源管理（至关重要） 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172	 假设一台机器：48物理内存  8个core--&amp;gt;16个vcore	 Linux">
+<meta name="twitter:title" content="如何确定block损坏的位置和修复">
+<meta name="twitter:description" content="首先通过 hadf fsck 命令帮助">
 
 
 
@@ -152,7 +152,7 @@
 
 
 
-  <title>YARN生产上的优化 | skygzx</title>
+  <title>如何确定block损坏的位置和修复 | skygzx</title>
   
 
 
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">YARN生产上的优化</h1>
+          <h1 class="post-title" itemprop="name headline">如何确定block损坏的位置和修复</h1>
         
 
         <div class="post-meta">
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  978
+                  1.4k
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -433,8 +433,39 @@
       
 
       
-        <p>1.yarn生产上的资源管理（至关重要）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">	 假设一台机器：48物理内存  8个core--&gt;16个vcore</span><br><span class="line">	 Linux本身要占用内存+空留：20%=9.6个G（空留是根据实际机器的内存来决定的，如果内存大，可以考虑空留15%）</span><br><span class="line">	 剩余：80%=38.4G=38G</span><br><span class="line">	 DN进程：生产上4G</span><br><span class="line">	 	如何修改DN的内存配置信息：进入hadoop-env.sh脚本，</span><br><span class="line">	 	HADOOP_NAMENODE_OPTS=-Xmx1024m</span><br><span class="line">	 	HADOOP_DATANODE_OPTS=-Xmx1024m （在前面追加，如下图所示）</span><br><span class="line">	 NM进程：生产上4G</span><br><span class="line">	 	如何修改NM的内存配置信息：进入yarn-env.sh脚本，</span><br><span class="line">	 	export YARN_RESOURCEMANAGER_HEAPSIZE=1024</span><br><span class="line">	 	export YARN_NODEMANAGER_HEAPSIZE=1024 </span><br><span class="line">	 DN和NM部署在同一台机器上是为了：数据本地化</span><br><span class="line">	 NN RM 经常性部署同一台  说白了 集群节点少</span><br><span class="line">	 (正常情况下，DataNode进程和NodeManager进程部署在同一台机器： 数据本地化</span><br><span class="line">比如：在NM上运行task任务，task任务需要数据，数据是放在当前机器的hdfs上面的，发现当前</span><br><span class="line">有DataNode进程，节点上有需要的数据，那就只需要从当前节点拿数据就行了。但是如果发现当</span><br><span class="line">前机器上没有数据，要去另外的机器上拿数据，那就会通过网络，这时候会网络消耗，计算就会</span><br><span class="line">变慢了。）</span><br><span class="line"></span><br><span class="line">	 资源内存： 38G-4-4=30G（这30G是做什么？就是运行container容器）</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   30*1024MB（这是总的大小）</span><br><span class="line">	 默认配置</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  1024 （最小可分配容器的大小）</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  8192 （最大可分配容器的大小）</span><br><span class="line">	 （分配的容器的大小就是根据上面的参数来进行分配的）</span><br><span class="line">	 30G 30G/1G=30个container </span><br><span class="line">	 30G 30/8=3个container ...6G  (还留有6个G的内存被浪费掉)</span><br><span class="line">	 30个~3个（这样是不合理的）</span><br><span class="line"></span><br><span class="line">	 生产一：</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   30*1024MB</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  2G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  30G</span><br><span class="line">	 15个~1个</span><br><span class="line">	 （这个是大作业的情况。要看每个公司的作业情况，如果作业特别大的情况，就设成和总的一样</span><br><span class="line">大）</span><br><span class="line">	（容器最小2G，就是这台机器最多可以运行15个容器，容器最大30G，就是这台机器最多可以运行1</span><br><span class="line">个容器。那这台机器可以运行1-15个容器。</span><br><span class="line">当你去请求资源的时候，它先给你分配一个最小的值，比如说2G，然后你如果不够，给你加比如</span><br><span class="line">说1G，直到加到最大比如说30G。（这个是有参数可以去配置的，在hadoop官网没有，在cdh官网</span><br><span class="line">是可以找到的）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	 生产二：</span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   32G（可以将预留空间再缩小一点，这样留给container容器的空间会大一点）（这个由30G调整到32G，就需要从预留的20%里面</span><br><span class="line">拿出2G出来。这样32/8=4个容器，可以整除，不会浪费了）</span><br><span class="line"></span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  2G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  8G</span><br><span class="line">	 16个~4个</span><br><span class="line"></span><br><span class="line">	 生产三:</span><br><span class="line">	 如果物理机的内存是256G:（我们预留的空间可以按15%来算）</span><br><span class="line"></span><br><span class="line">	 yarn.nodemanager.resource.memory-mb   168G</span><br><span class="line">	 yarn.scheduler.minimum-allocation-mb  4G</span><br><span class="line">	 yarn.scheduler.maximum-allocation-mb  24G</span><br><span class="line">	 16个~4个</span><br><span class="line"></span><br><span class="line">	 再生产中很容易遇到这样一种情况：container p memory oom ：（意思是你的最大connertion内存不够用）</span><br><span class="line">	 遇到这种情况，我们首先先把这任务kill掉，然受修改参数，将分配的内存调大一些。</span><br><span class="line"></span><br><span class="line">	 生产默认 不做修改</span><br><span class="line">	 yarn.nodemanager.pmem-check-enabled	true   （表示如果 container tast任务超过内存 就会 kill 掉进程，</span><br><span class="line">	检查容器内存，一个是物理内存，一个是虚拟内存，虚拟内存是物理内存的</span><br><span class="line">	 2倍，哪个超了都会被kill 掉）</span><br><span class="line">	 yarn.nodemanager.vmem-check-enabled	true</span><br><span class="line">	 yarn.nodemanager.vmem-pmem-ratio	2.1</span><br><span class="line">	 物理内存 1m  虚拟内存 2.1m</span><br><span class="line"></span><br><span class="line">新版本参数</span><br><span class="line">yarn.nodemanager.resource.pcores-vcores-multiplier 1    （老的是2，现在是1，需要手动把它修改成2）</span><br></pre></td></tr></table></figure>
+        <p><strong>首先通过 hadf fsck 命令帮助</strong></p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop ~]$ hdfs fsck</span><br><span class="line"></span><br><span class="line">Usage: hdfs fsck &lt;path&gt; [-list-corruptfileblocks | [-move | -delete | -openforwrite] [-files [-blocks [-locations | -racks | -replicaDetails | -upgradedomains]]]] [-includeSnapshots] [-storagepolicies] [-blockId &lt;blk_Id&gt;]</span><br><span class="line">	&lt;path&gt;	start checking from this path</span><br><span class="line">	-move	move corrupted files to /lost+found</span><br><span class="line">	-delete	delete corrupted files</span><br><span class="line">	-files	print out files being checked</span><br><span class="line">	-openforwrite	print out files opened for write</span><br><span class="line">	-includeSnapshots	include snapshot data if the given path indicates a snapshottable directory or there are snapshottable directories under it</span><br><span class="line">	-list-corruptfileblocks	print out list of missing blocks and files they belong to</span><br><span class="line">	-files -blocks	print out block report</span><br><span class="line">	-files -blocks -locations	print out locations for every block</span><br><span class="line">	-files -blocks -racks	print out network topology for data-node locations</span><br><span class="line">	-files -blocks -replicaDetails	print out each replica details </span><br><span class="line">	-files -blocks -upgradedomains	print out upgrade domains for every block</span><br><span class="line">	-storagepolicies	print out storage policy summary for the blocks</span><br><span class="line">	-blockId	print out which file this blockId belongs to, locations (nodes, racks) of this block, and other diagnostics info (under replicated, corrupted or not, etc)</span><br><span class="line"></span><br><span class="line">Please Note:</span><br><span class="line">	1. By default fsck ignores files opened for write, use -openforwrite to report such files. They are usually  tagged CORRUPT or HEALTHY depending on their block allocation status</span><br><span class="line">	2. Option -includeSnapshots should not be used for comparing stats, should be used only for HEALTH check, as this may contain duplicates if the same file present in both original fs tree and inside snapshots.</span><br><span class="line"></span><br><span class="line">Generic options supported are</span><br><span class="line">-conf &lt;configuration file&gt;     specify an application configuration file</span><br><span class="line">-D &lt;property=value&gt;            use value for given property</span><br><span class="line">-fs &lt;file:///|hdfs://namenode:port&gt; specify default filesystem URL to use, overrides &apos;fs.defaultFS&apos; property from configurations.</span><br><span class="line">-jt &lt;local|resourcemanager:port&gt;    specify a ResourceManager</span><br><span class="line">-files &lt;comma separated list of files&gt;    specify comma separated files to be copied to the map reduce cluster</span><br><span class="line">-libjars &lt;comma separated list of jars&gt;    specify comma separated jar files to include in the classpath.</span><br><span class="line">-archives &lt;comma separated list of archives&gt;    specify comma separated archives to be unarchived on the compute machines.</span><br><span class="line"></span><br><span class="line">The general command line syntax is</span><br><span class="line">command [genericOptions] [commandOptions]</span><br></pre></td></tr></table></figure>
+<p><strong>1.现象:</strong></p>
+<p>断电 导致HDFS服务不正常或者显示块损坏</p>
+<p><strong>2.检查HDFS系统文件健康</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs fsck /</span><br></pre></td></tr></table></figure>
+<p>3.检查hdfs fsck -list-corruptfileblocks</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Connecting to namenode via http://hadoop36:50070/fsck?ugi=hdfs&amp;listcorruptfileblocks=1&amp;path=%2F</span><br><span class="line">The list of corrupt files under path &apos;/&apos; are:</span><br><span class="line">blk_1075229920  /hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd</span><br><span class="line">blk_1075229921  /hbase/data/JYDW/WMS_PO_ITEMS/c96cb6bfef12795181c966a8fc4ef91d/0/cf44ae0411824708bf6a894554e19780</span><br><span class="line">The filesystem under path &apos;/&apos; has 2 CORRUPT files</span><br></pre></td></tr></table></figure>
+<p><strong>4.分析</strong></p>
+<p> MySQL–》大数据平台<br>​    只需要从MySQL这个表的数据重新刷新一份到HDFS平台</p>
+<p><strong>5.想要知道文件的哪些块分布在哪些机器上面？手工删除linux文件/dfs/dn/…..</strong></p>
+<p>hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;</p>
+<p>-files       文件分块信息，<br>-blocks      在带-files参数后才显示block信息<br>-locations   在带-blocks参数后才显示block块所在datanode的具体IP位置，<br>-racks       在带-files参数后显示机架位置</p>
+<p><strong>无法显示,无法手工删除块文件:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">hdfs fsck /hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd -files  -locations -blocks  -racks</span><br><span class="line">Connecting to namenode via http://hadoop36:50070/fsck?ugi=hdfs&amp;locations=1&amp;blocks=1&amp;files=1&amp;path=%2Fhbase%2Fdata%2FJYDW%2FWMS_PO_ITEMS%2Fc71f5f49535e0728ca72fd1ad0166597%2F0%2Ff4d3d97bb3f64820b24cd9b4a1af5cdd</span><br><span class="line">FSCK started by hdfs (auth:SIMPLE) from /192.168.1.100 for path /hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd at Sat Jan 20 15:46:55 CST 2018</span><br><span class="line">/hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd 2934 bytes, 1 block(s): </span><br><span class="line">/hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd: CORRUPT blockpool BP-1437036909-192.168.1.100-1509097205664 block blk_1075229920</span><br><span class="line"> MISSING 1 blocks of total size 2934 B</span><br><span class="line"></span><br><span class="line">1. BP-1437036909-192.168.1.100-1509097205664:blk_1075229920_1492007 len=2934 MISSING!</span><br><span class="line"></span><br><span class="line">Status: CORRUPT</span><br><span class="line"> Total size:    2934 B</span><br><span class="line"> Total dirs:    0</span><br><span class="line"> Total files:   1</span><br><span class="line"> Total symlinks:                0</span><br><span class="line"> Total blocks (validated):      1 (avg. block size 2934 B)</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">  UNDER MIN REPL&apos;D BLOCKS:      1 (100.0 %)</span><br><span class="line">  dfs.namenode.replication.min: 1</span><br><span class="line">  CORRUPT FILES:        1</span><br><span class="line">  MISSING BLOCKS:       1</span><br><span class="line">  MISSING SIZE:         2934 B</span><br><span class="line">  CORRUPT BLOCKS:       1</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"> Minimally replicated blocks:   0 (0.0 %)</span><br><span class="line"> Over-replicated blocks:        0 (0.0 %)</span><br><span class="line"> Under-replicated blocks:       0 (0.0 %)</span><br><span class="line"> Mis-replicated blocks:         0 (0.0 %)</span><br><span class="line"> Default replication factor:    3</span><br><span class="line"> Average block replication:     0.0</span><br><span class="line"> Corrupt blocks:                1</span><br><span class="line"> Missing replicas:              0</span><br><span class="line"> Number of data-nodes:          12</span><br><span class="line"> Number of racks:               1</span><br><span class="line">FSCK ended at Sat Jan 20 15:46:55 CST 2018 in 0 milliseconds</span><br><span class="line"></span><br><span class="line">The filesystem under path &apos;/hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd&apos; is CORRUPT</span><br><span class="line">hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;</span><br></pre></td></tr></table></figure>
+<p>好的文件是显示块分布情况的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;hdfs fsck /hbase/data/JYDW/WMS_TO/011dea9ae46dae6c1f1f3a24a75af100/0/1d60f56773984e4cac614a8b5f7e93a6 -files  -locations -blocks  -racks</span><br><span class="line">Connecting to namenode via http://hadoop36:50070/fsck?ugi=hdfs&amp;files=1&amp;locations=1&amp;blocks=1&amp;racks=1&amp;path=%2Fhbase%2Fdata%2FJYDW%2FWMS_TO%2F011dea9ae46dae6c1f1f3a24a75af100%2F0%2F1d60f56773984e4cac614a8b5f7e93a6</span><br><span class="line">FSCK started by hdfs (auth:SIMPLE) from /192.168.1.100 for path /hbase/data/JYDW/WMS_TO/011dea9ae46dae6c1f1f3a24a75af100/0/1d60f56773984e4cac614a8b5f7e93a6 at Sat Jan 20 15:58:25 CST 2018</span><br><span class="line">/hbase/data/JYDW/WMS_TO/011dea9ae46dae6c1f1f3a24a75af100/0/1d60f56773984e4cac614a8b5f7e93a6 1697 bytes, 1 block(s):  OK</span><br><span class="line"></span><br><span class="line">1. BP-1437036909-192.168.1.100-1509097205664:blk_1075227504_1489591 len=1697 Live_repl=3 [/default/192.168.1.150:50010, /default/192.168.1.153:50010, /default/192.168.1.145:50010]</span><br><span class="line"></span><br><span class="line">blk_1075227504_1489591 len=1697 Live_repl=3 </span><br><span class="line">[/default/192.168.1.150:50010, /default/192.168.1.153:50010, /default/192.168.1.145:50010]</span><br></pre></td></tr></table></figure>
+<p>最终选择一了百了，删除损坏的块文件，然后业务系统数据重刷<br>hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;hdfs fsck / -delete</p>
+<p><strong>7.假设数据仅有HDFS上</strong> 【文件只有hdfs上有；其他来源没有；这个时候如果有副本是完好的；有的副本是损坏的】<br>7.1 hdfs dfs -ls /xxxx<br>​    hdfs dfs -get /xxxx ./        下载好完好的副本到Linux环境<br>​    hdfs dfs -rm /xxx            删除已有的文件包括损坏的副本文件<br>​    hdfs dfs -put xxx /            上传完好的副本文件；此时hdfs就会自动完善3个副本。</p>
+<p><strong>注意：</strong></p>
+<p>log文件丢一丢丢 没有关系<br>文件是业务数据 订单数据 丢了，需要报告</p>
+<p><strong>手动修复损坏的块【hdfs debug】</strong></p>
+<font color="red" size="5">hdfs命令帮助是没有debug的，但是确实有hdfs debug这个组合命令，切记。</font>
+
+
+
+<font color="red" size="5">hdfs debug recoverLease -path hdfs文件位置 -retries 10</font>
+
+
+
+<p><strong>自动修复</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">当数据块损坏后，DN节点执⾏行行directoryscan操作之前，都不会发现损坏；</span><br><span class="line"> 也就是directoryscan操作是间隔6h</span><br><span class="line"> dfs.datanode.directoryscan.interval : 21600</span><br><span class="line"> 在DN向NN进行blockreport前，都不会恢复数据块;</span><br><span class="line"> 也就是blockreport操作是间隔6h</span><br><span class="line"> dfs.blockreport.intervalMsec : 21600000</span><br><span class="line"> 当NN收到blockreport才会进行恢复操作。</span><br><span class="line"></span><br><span class="line">注意：手动修复方式，但是前提要手动删除损坏的block块。</span><br><span class="line"> 切记，是删除损坏block文件和meta⽂文件，而不是删除hdfs文件。</span><br><span class="line"> 当然还可以先把文件get下载，然后hdfs删除，再对应上传。</span><br><span class="line"> 切记删除不要执行: hdfs fsck / -delete 这是删除损坏的文件， 那么数据不就丢了了嘛；除非无所谓丢数据，或者有信心从其他地方可以补数据到hdfs！</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -451,11 +482,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/04/10/Spark基础/">YARN生产上的优化</a></p>
+  <p><span>本文标题:</span><a href="/2019/04/10/Spark基础/">如何确定block损坏的位置和修复</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月10日 - 10:21</p>
-  <p><span>最后更新:</span>2019年04月10日 - 10:22</p>
-  <p><span>原始链接:</span><a href="/2019/04/10/Spark基础/" title="YARN生产上的优化">http://yoursite.com/2019/04/10/Spark基础/</a>
+  <p><span>最后更新:</span>2019年04月10日 - 10:31</p>
+  <p><span>原始链接:</span><a href="/2019/04/10/Spark基础/" title="如何确定block损坏的位置和修复">http://yoursite.com/2019/04/10/Spark基础/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/10/Spark基础/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
@@ -498,9 +529,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/YARN/" rel="tag"><i class="fa fa-tag"></i> YARN</a>
-          
             <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
+          
+            <a href="/tags/block块/" rel="tag"><i class="fa fa-tag"></i> block块</a>
           
         </div>
       
@@ -618,7 +649,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
