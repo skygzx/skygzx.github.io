@@ -113,10 +113,12 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="1.安装软件包：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-12T11:49:19.725Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/12/Aqn340.png">
+<meta property="og:updated_time" content="2019-04-12T11:53:07.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 使用Mailx发送邮件">
 <meta name="twitter:description" content="1.安装软件包：">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/12/Aqn340.png">
 
 
 
@@ -396,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  817
+                  905
                 </span>
               
 
@@ -457,7 +459,9 @@
 <p>编辑 up.sh脚本：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">if</span> <span class="selector-attr">[ $# -lt 2 ]</span>;</span><br><span class="line"><span class="selector-tag">then</span></span><br><span class="line">        echo "传入参数有误，请重新传入"</span><br><span class="line">        echo "Useage: up.sh &lt;mail-address&gt; &lt;attachment&gt;"</span><br><span class="line">        <span class="selector-tag">exit</span> <span class="selector-tag">1</span></span><br><span class="line"><span class="selector-tag">fi</span></span><br><span class="line"></span><br><span class="line">first=1</span><br><span class="line"></span><br><span class="line">attachment=""</span><br><span class="line"></span><br><span class="line">for x in $@</span><br><span class="line"><span class="selector-tag">do</span></span><br><span class="line">    <span class="selector-tag">if</span> <span class="selector-attr">[ $first -eq 1 ]</span>;</span><br><span class="line">    <span class="selector-tag">then</span></span><br><span class="line">          first=0</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">else</span></span><br><span class="line">          attachment="$attachment -a $x"</span><br><span class="line">    <span class="selector-tag">fi</span></span><br><span class="line"><span class="selector-tag">done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat /var/up/uploading.txt | mail -s $1 $attachment user@qq.com</span><br></pre></td></tr></table></figure>
 <p><strong>11.运行up.sh脚本：</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 up]# sh -x up.sh "shell发送QQ邮件" ./haha.jpg ./xixi.png </span><br><span class="line">+ '[' 3 -lt 2 ']'</span><br><span class="line">+ first=1</span><br><span class="line">+ attachment=</span><br><span class="line">+ for x in '$@'</span><br><span class="line">+ '[' 1 -eq 1 ']'</span><br><span class="line">+ first=0</span><br><span class="line">+ for x in '$@'</span><br><span class="line">+ '[' 0 -eq 1 ']'</span><br><span class="line">+ attachment=' -a ./haha.jpg'</span><br><span class="line">+ for x in '$@'</span><br><span class="line">+ '[' 0 -eq 1 ']'</span><br><span class="line">+ attachment=' -a ./haha.jpg -a ./xixi.png'</span><br><span class="line">+ mail -s $'shell\345\217\221\351\200\201QQ\351\202\256\344\273\266' -a ./haha.jpg -a ./xixi.png user@qq.com</span><br><span class="line">+ <span class="selector-tag">cat</span> /<span class="selector-tag">var</span>/<span class="selector-tag">up</span>/<span class="selector-tag">uploading</span><span class="selector-class">.txt</span></span><br></pre></td></tr></table></figure>
+<p>成功发送邮件:</p>
+<p><img src="https://s2.ax1x.com/2019/04/12/Aqn340.png" alt></p>
 
       
     </div>
@@ -477,7 +481,7 @@
   <p><span>本文标题:</span><a href="/2019/04/12/Linux 使用Mailx发送邮件/">Linux 使用Mailx发送邮件</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月12日 - 11:35</p>
-  <p><span>最后更新:</span>2019年04月12日 - 19:49</p>
+  <p><span>最后更新:</span>2019年04月12日 - 19:53</p>
   <p><span>原始链接:</span><a href="/2019/04/12/Linux 使用Mailx发送邮件/" title="Linux 使用Mailx发送邮件">http://yoursite.com/2019/04/12/Linux 使用Mailx发送邮件/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/12/Linux 使用Mailx发送邮件/" aria-label="复制成功！"></i></span>
   </p>
