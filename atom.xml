@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-12T11:53:07.450Z</updated>
+  <updated>2019-04-12T12:25:44.863Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,11 +21,16 @@
     <link href="http://yoursite.com/2019/04/12/Linux%20%E4%BD%BF%E7%94%A8Mailx%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <id>http://yoursite.com/2019/04/12/Linux 使用Mailx发送邮件/</id>
     <published>2019-04-12T03:35:41.964Z</published>
-    <updated>2019-04-12T11:53:07.450Z</updated>
+    <updated>2019-04-12T12:25:44.863Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;1.安装软件包：&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;strong&gt;1.开启 QQ 邮箱的 SMTP，获取授权码&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1 这里使用了 QQ 邮箱的 SMTP，需要做以下配置:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/04/12/AqQaz6.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.2 qq 邮箱通过生成授权码来设置密码 :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/04/12/AqQBLD.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.安装软件包：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -112,9 +117,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
@@ -180,11 +185,11 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
@@ -228,11 +233,11 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
