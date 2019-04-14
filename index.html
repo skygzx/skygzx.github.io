@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  90
+                  539
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -437,14 +437,14 @@
         
           
             <p>1.Hadoop生态离线项目涉及到的技术：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Hadoop</span>生态离线项目</span><br><span class="line"></span><br><span class="line"><span class="type">Hadoop</span>：</span><br><span class="line">	<span class="type">HDFS</span> <span class="type">MapReduce</span>(清洗)</span><br><span class="line">	<span class="type">YARN</span> <span class="type">Hadoop</span>集群 </span><br><span class="line">	</span><br><span class="line"><span class="type">Hive</span>：</span><br><span class="line">	外部表 </span><br><span class="line">	<span class="type">SQL</span></span><br><span class="line">	数据倾斜 </span><br><span class="line">	优化 </span><br><span class="line">	基于元数据管理 </span><br><span class="line">	<span class="type">SQL</span> ==&gt; <span class="type">MapReduce</span> </span><br><span class="line"></span><br><span class="line"><span class="type">Flume</span> </span><br><span class="line">	调度： </span><br><span class="line">	crontab、shell </span><br><span class="line">	<span class="type">Azkaban</span> </span><br><span class="line"></span><br><span class="line"><span class="type">HUE</span>：</span><br><span class="line">	可视化的notebook <span class="type">CM</span> </span><br><span class="line">	排查数据</span><br></pre></td></tr></table></figure>
 <p>2.面试会问： 你们的集群规模是多少？=&gt;每台机器的配置是什么？=&gt;机型（物理机）是什么？</p>
 <p>3.离线处理架构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">需要先将日志用Flume方式从某个server上采集日志信息到hdfs上（建议压缩的文本格式），或者用Sqoop/Spark技术从RDBMS上采集过来。</span><br><span class="line"></span><br><span class="line">原始的日志信息不规整，需要有一个ETL操作，（比如MapReduce或者Sqark来实现），有一个解析、规则匹配的过程。 </span><br><span class="line"></span><br><span class="line">清洗之后的数据放在hdfs上的一个地方，对应分区表。（hive外部表）</span><br><span class="line"></span><br><span class="line">（分区其实就是hdfs上的一个key=value的目录，外加一批元数据信息。）</span><br><span class="line"></span><br><span class="line">还要通过alter刷一下元数据信息才能通过hive查到表里的数据。 最后通过 Web UI 界面（比如HUE、Zeppelin、BI展示工具），把结果展示出来。</span><br></pre></td></tr></table></figure>
 <p>3.1整个流程步骤</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">①数据采集：从Web server用Flume采集到hadoop</span><br><span class="line"></span><br><span class="line">②做一个ETL过程</span><br><span class="line"></span><br><span class="line">③把清洗后的数据移到目标目录（外部表）</span><br><span class="line"></span><br><span class="line">④业务统计：考验SQL的能力   执行的结果放在dest table里。</span><br><span class="line"></span><br><span class="line">⑤web UI界面展示</span><br><span class="line"></span><br><span class="line">开发的重点是②③④</span><br></pre></td></tr></table></figure>
 <p>3.2关于ETL过程：（在这里先用MapReduce来进行操作）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">对于之前的用sqoop从RDBMS抽数据到hadoop上，ETL操作只涉及到Map，而不涉及reduce。</span><br><span class="line"></span><br><span class="line">这个过程其实是字段的选择和行的过滤，就是select where</span><br><span class="line"></span><br><span class="line">MapReduce的两个阶段，map阶段处理后的数据，会经过shuffle端，到reduce端，由reduce端进行统一的规约的操作。</span><br><span class="line"></span><br><span class="line">而sqoop只是数据的导入和导出，可以研究一下sqoop的工作原理。所以只是涉及map。</span><br><span class="line"></span><br><span class="line">1)Map去HDFS的input文件夹（原始的日志数据）下读取数据 </span><br><span class="line"></span><br><span class="line">2)map方法中进行数据的清洗操作，清洗不符合规范的数据</span><br></pre></td></tr></table></figure>
 <p>3.2ETL详解图：</p>
 <p><img src="https://s2.ax1x.com/2019/04/14/AOMcKf.png" alt></p>
 

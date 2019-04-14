@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-14T02:06:38.156Z</updated>
+  <updated>2019-04-14T02:12:11.846Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/04/14/Hadoop%E9%A1%B9%E7%9B%AE%E7%A6%BB%E7%BA%BF%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B/"/>
     <id>http://yoursite.com/2019/04/14/Hadoop项目离线处理流程/</id>
     <published>2019-04-14T01:53:41.157Z</published>
-    <updated>2019-04-14T02:06:38.156Z</updated>
+    <updated>2019-04-14T02:12:11.846Z</updated>
     
     <summary type="html">
     
@@ -37,9 +37,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="etl流程" scheme="http://yoursite.com/tags/etl%E6%B5%81%E7%A8%8B/"/>
     
@@ -146,11 +146,11 @@
     </summary>
     
     
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
   </entry>
   
@@ -214,13 +214,13 @@
     </summary>
     
     
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
   </entry>
   
@@ -262,13 +262,13 @@
     </summary>
     
     
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
   </entry>
   
@@ -286,9 +286,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -409,9 +409,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="调度器" scheme="http://yoursite.com/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/"/>
     
@@ -431,9 +431,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
