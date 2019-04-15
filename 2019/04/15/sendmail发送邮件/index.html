@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="大数据,hadoop,hdfs,">
+  <meta name="keywords" content="大数据开发,shell,邮件,">
 
 
 
@@ -105,18 +105,23 @@
 
 
 
-<meta name="description" content="Hadoop： 12广义：以apache hadoop软件为主的生态圈（hive,zookeeper,spark,hbase）狭义：apache hadoop软件">
-<meta name="keywords" content="大数据,hadoop,hdfs">
+<meta name="description" content="1.开启 QQ 邮箱的 SMTP，获取授权码">
+<meta name="keywords" content="大数据开发,shell,邮件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.hdfs为分布式部署">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/1.hadoop伪分布式部署-hdfs/index.html">
+<meta property="og:title" content="Linux 使用 sendmail发送html格式邮件">
+<meta property="og:url" content="http://yoursite.com/2019/04/15/sendmail发送邮件/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="Hadoop： 12广义：以apache hadoop软件为主的生态圈（hive,zookeeper,spark,hbase）狭义：apache hadoop软件">
+<meta property="og:description" content="1.开启 QQ 邮箱的 SMTP，获取授权码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T04:26:26.010Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/12/AqQaz6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/12/AqQBLD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/12/Aqn340.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/15/AjnYDO.png">
+<meta property="og:updated_time" content="2019-04-15T05:01:47.843Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.hdfs为分布式部署">
-<meta name="twitter:description" content="Hadoop： 12广义：以apache hadoop软件为主的生态圈（hive,zookeeper,spark,hbase）狭义：apache hadoop软件">
+<meta name="twitter:title" content="Linux 使用 sendmail发送html格式邮件">
+<meta name="twitter:description" content="1.开启 QQ 邮箱的 SMTP，获取授权码">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/12/AqQaz6.png">
 
 
 
@@ -146,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/07/1.hadoop伪分布式部署-hdfs/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/15/sendmail发送邮件/">
 
 
 
 
 
-  <title>1.hdfs为分布式部署 | skygzx</title>
+  <title>Linux 使用 sendmail发送html格式邮件 | skygzx</title>
   
 
 
@@ -333,7 +338,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/1.hadoop伪分布式部署-hdfs/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/sendmail发送邮件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -350,7 +355,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.hdfs为分布式部署</h1>
+          <h1 class="post-title" itemprop="name headline">Linux 使用 sendmail发送html格式邮件</h1>
         
 
         <div class="post-meta">
@@ -362,8 +367,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T09:02:21+08:00">
-                2019-04-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T12:45:21+08:00">
+                2019-04-15
               </time>
             
 
@@ -396,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  937
                 </span>
               
 
@@ -412,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  4
                 </span>
               
             </div>
@@ -433,35 +438,21 @@
       
 
       
-        <p><strong>Hadoop：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">广义：以apache hadoop软件为主的生态圈（hive,zookeeper,spark,hbase）</span><br><span class="line">狭义：apache hadoop软件</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><strong>查询组件的官网：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hadoop.apache</span><br><span class="line">hive.apache.org</span><br><span class="line">spark.apache.org</span><br></pre></td></tr></table></figure>
-<p><strong>hadoop软件有哪些组件：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hdfs:存储，分布式文件系统</span><br><span class="line">mapreduce：计算</span><br><span class="line">yarn：资源（cpu，memory）和作业调度</span><br></pre></td></tr></table></figure>
-<p>我所用的版本为 hadoop2.6.0-cdh5.7.0<br>cdh hadoop：<a href="http://archive.cloudera.com/cdh5/cdh/5/" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/cdh/5/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以通过wget上传：http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.7.0.tar.gz</span><br></pre></td></tr></table></figure>
-<p><strong>1.创建用户和上传hadoop软件：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useradd hadoop</span><br><span class="line">su - hadoop 切换用户</span><br><span class="line">[hadoop@hadoop002 ~]$ mkdir app （需创建一个 app 文件夹 下存放hadoop软件）</span><br><span class="line">[hadoop@hadoop002 ~]$ cd app/</span><br><span class="line">[hadoop@hadoop002 ~]$ wget http://archive.cloudera.com/cdh5/cdh/5/hadoop-2.6.0-cdh5.7.0.tar.gz或</span><br><span class="line">[hadoop@hadoop002 ~]$ rz 上传</span><br></pre></td></tr></table></figure>
-<p><strong>2.部署jdk：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">由于CDH环境的要求：jdk必须要部署在 /usr/java 目录下，否则会出现一些坑。</span><br><span class="line">以后需要在/usr/shara/java 下部署CDH 需要的 mysql jdbc 的jar包</span><br><span class="line">rz上传 jdk-8u45-linux-x64.gz</span><br><span class="line"></span><br><span class="line">解压：</span><br><span class="line">[root@hadoop002 java]# tar -xzvf jdk-8u45-linux-x64.gz</span><br><span class="line">[root@hadoop002 java]# ll</span><br><span class="line">total 319156</span><br><span class="line">drwxr-xr-x 8 uucp  143      4096 Apr 11  2015 jdk1.8.0_45</span><br><span class="line">-rw-r--r-- 1 root root 173271626 Sep 19 11:49 jdk-8u45-linux-x64.gz</span><br><span class="line">注意：（解压之后会出现 jdk中的用户和用户组不对的情况，需要修改用户和用户组，这是查看 cat /etc/passwd，会发现有这两种形式：/bin/bash和/sbin/nologin，将用户的bash修改成nologin，用户就会无法登陆，</span><br><span class="line">su - zookeeper切不了：This account is currently not available.</span><br><span class="line">生产怎么做：/sbin/nologin --》 /bin/bash）</span><br><span class="line"></span><br><span class="line">权限修正</span><br><span class="line">[root@hadoop002 java]# chown -R root:root jdk1.8.0_45</span><br><span class="line">[root@hadoop002 java]# ll</span><br><span class="line">total 319156</span><br><span class="line">drwxr-xr-x 8 root root      4096 Apr 11  2015 jdk1.8.0_45</span><br><span class="line">-rw-r--r-- 1 root root 173271626 Sep 19 11:49 jdk-8u45-linux-x64.gz</span><br><span class="line">配置环境变量：</span><br><span class="line">[root@hadoop002 java]# vi /etc/profile</span><br><span class="line">#env</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_45</span><br><span class="line">export JRE_HOME=$JAVA_HOME/jre</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JER_HOME/lib:$CLASSPATH</span><br><span class="line">export PATH=$JAVA_HOME/bin:$JER_HOME/bin:$PATH</span><br><span class="line">配置完成后 source /etc/peofile</span><br></pre></td></tr></table></figure>
-<p><strong>3.解压hadoop：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">3.解压hadoop</span><br><span class="line">	 [hadoop@hadoop002 app]$ tar -xzvf hadoop-2.6.0-cdh5.7.0.tar.gz</span><br><span class="line">	 [hadoop@hadoop002 app]$ cd hadoop-2.6.0-cdh5.7.0</span><br><span class="line">	 [hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ ll</span><br><span class="line">	 total 76</span><br><span class="line">	 drwxr-xr-x  2 hadoop hadoop  4096 Mar 24  2016 bin  可执行脚本</span><br><span class="line">	 drwxr-xr-x  2 hadoop hadoop  4096 Mar 24  2016 bin-mapreduce1</span><br><span class="line">	 drwxr-xr-x  3 hadoop hadoop  4096 Mar 24  2016 cloudera</span><br><span class="line">	 drwxr-xr-x  6 hadoop hadoop  4096 Mar 24  2016 etc  配置目录(conf)</span><br><span class="line">	 drwxr-xr-x  5 hadoop hadoop  4096 Mar 24  2016 examples</span><br><span class="line">	 drwxr-xr-x  3 hadoop hadoop  4096 Mar 24  2016 examples-mapreduce1</span><br><span class="line">	 drwxr-xr-x  2 hadoop hadoop  4096 Mar 24  2016 include</span><br><span class="line">	 drwxr-xr-x  3 hadoop hadoop  4096 Mar 24  2016 lib  jar包目录</span><br><span class="line">	 drwxr-xr-x  2 hadoop hadoop  4096 Mar 24  2016 libexec</span><br><span class="line">	 drwxr-xr-x  3 hadoop hadoop  4096 Mar 24  2016 sbin hadoop组件的启动 停止脚本</span><br><span class="line">	 drwxr-xr-x  4 hadoop hadoop  4096 Mar 24  2016 share</span><br><span class="line">	 drwxr-xr-x 17 hadoop hadoop  4096 Mar 24  2016 src</span><br></pre></td></tr></table></figure>
-<p><strong>4.修改配置文件信息Configuration：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Use the following:</span><br><span class="line"></span><br><span class="line">etc/hadoop/core-site.xml:</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">etc/hadoop/hdfs-site.xml:</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>5.配置ssh localhost无密码信任关系：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line"></span><br><span class="line">&gt;  这里要注意 我用的和官方的方法不一样</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop002 ~]$ ssh-keygen（密钥生成）</span><br><span class="line">Generating public/private rsa key pair.（三下回车）</span><br><span class="line">Enter file in which to save the key (/home/hadoop/.ssh/id_rsa): </span><br><span class="line">Created directory &apos;/home/hadoop/.ssh&apos;.</span><br><span class="line">Enter passphrase (empty for no passphrase): </span><br><span class="line">Enter same passphrase again: </span><br><span class="line">Your identification has been saved in /home/hadoop/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /home/hadoop/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">ba:48:3d:ff:af:4d:da:74:67:31:d6:98:ad:a0:b3:76 hadoop@hadoop002</span><br><span class="line">The key&apos;s randomart image is:</span><br><span class="line">+--[ RSA 2048]----+</span><br><span class="line">|                 |</span><br><span class="line">|                 |</span><br><span class="line">|                 |</span><br><span class="line">|               +.|</span><br><span class="line">|        S   . o+o|</span><br><span class="line">|     . .   . ...o|</span><br><span class="line">|    . +   o o o o|</span><br><span class="line">|   . . +  .OE. o |</span><br><span class="line">|    . . .o=++    |</span><br><span class="line">+-----------------+</span><br><span class="line">[hadoop@hadoop002 ~]$ cd .ssh</span><br><span class="line">[hadoop@hadoop002 .ssh]$ ll</span><br><span class="line">total 8</span><br><span class="line">-rw------- 1 hadoop hadoop 1675 Feb 13 22:36 id_rsa     私钥</span><br><span class="line">-rw-r--r-- 1 hadoop hadoop  398 Feb 13 22:36 id_rsa.pub 公钥</span><br><span class="line">[hadoop@hadoop002 .ssh]$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys（将公钥放到认证文件中，来提供访问）</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop002 .ssh]$ ll</span><br><span class="line">total 12</span><br><span class="line">-rw-rw-r-- 1 hadoop hadoop  398 Feb 13 22:37 authorized_keys</span><br><span class="line">-rw------- 1 hadoop hadoop 1675 Feb 13 22:36 id_rsa</span><br><span class="line">-rw-r--r-- 1 hadoop hadoop  398 Feb 13 22:36 id_rsa.pub</span><br><span class="line">-rw-r--r-- 1 hadoop hadoop    0 Feb 13 22:39 known_hosts</span><br><span class="line"></span><br><span class="line">ssh localhost date 是需要输入密码，但是这个用户是没有配置密码。</span><br><span class="line">我们应该在没有配置密码情况下去完成无密码信任呢？</span><br><span class="line"></span><br><span class="line">将authorized_keys 权限修改成 640</span><br><span class="line">[hadoop@hadoop002 .ssh]$ chmod 600 authorized_keys</span><br><span class="line">[hadoop@hadoop002 .ssh]$ ssh localhost date</span><br><span class="line">The authenticity of host &apos;localhost (127.0.0.1)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is b1:94:33:ec:95:89:bf:06:3b:ef:30:2f:d7:8e:d2:4c.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;localhost&apos; (RSA) to the list of known hosts.</span><br><span class="line">Wed Feb 13 22:41:17 CST 2019</span><br></pre></td></tr></table></figure>
-<p><strong>6.格式化：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
-<p><strong>7.启动：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ sbin/start-dfs.sh（启动）</span><br><span class="line">19/02/13 22:57:23 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Starting namenodes on [localhost]</span><br><span class="line">localhost: starting namenode, logging to /home/hadoop/app/hadoop-2.6.0-cdh5.7.0/logs/hadoop-hadoop-namenode-hadoop002.out</span><br><span class="line">localhost: starting datanode, logging to /home/hadoop/app/hadoop-2.6.0-cdh5.7.0/logs/hadoop-hadoop-datanode-hadoop002.out</span><br><span class="line"></span><br><span class="line">&gt; ssh 信任关系 是配置localhost</span><br><span class="line"></span><br><span class="line">Starting secondary namenodes [0.0.0.0]</span><br><span class="line">0.0.0.0: starting secondarynamenode, logging to /home/hadoop/app/hadoop-2.6.0-cdh5.7.0/logs/hadoop-hadoop-secondarynamenode-hadoop002.out</span><br><span class="line">19/02/13 22:57:38 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ </span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ jps</span><br><span class="line">15059 Jps</span><br><span class="line">14948 SecondaryNameNode 第二名称节点 老二</span><br><span class="line">14783 DataNode  数据节点  小弟</span><br><span class="line">14655 NameNode  名称节点  老大 读写</span><br><span class="line">（必须保证这三个进程都有）</span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ </span><br><span class="line"></span><br><span class="line">open http://ip:50070</span><br></pre></td></tr></table></figure>
-<p><strong>8.配置环境变量：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$ vi ~/.bash_profile</span><br><span class="line"># .bash_profile</span><br><span class="line"></span><br><span class="line"># Get the aliases and functions</span><br><span class="line">if [ -f ~/.bashrc ]; then</span><br><span class="line">        . ~/.bashrc</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># User specific environment and startup programs</span><br><span class="line">export HADOOP_PREFIX=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0</span><br><span class="line">export PATH=$HADOOP_PREFIX/bin:$PATH</span><br><span class="line">[hadoop@hadoop002 hadoop-2.6.0-cdh5.7.0]$</span><br></pre></td></tr></table></figure>
-<p><strong>9.命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -mkdir /ruozedate(在根目录下创建一个ruozedate文件夹)</span><br><span class="line">hdfs dfs -ls /（查看根目录下文件或者文件夹）</span><br></pre></td></tr></table></figure>
-<p>10.如何查看命令帮助：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs</span><br></pre></td></tr></table></figure>
+        <h3 id="1-开启-QQ-邮箱的-SMTP，获取授权码"><a href="#1-开启-QQ-邮箱的-SMTP，获取授权码" class="headerlink" title="1.开启 QQ 邮箱的 SMTP，获取授权码"></a>1.开启 QQ 邮箱的 SMTP，获取授权码</h3><a id="more"></a>
+<p><strong>1.1 这里使用了 QQ 邮箱的 SMTP，需要做以下配置:</strong></p>
+<p><img src="https://s2.ax1x.com/2019/04/12/AqQaz6.png" alt></p>
+<p><strong>1.2 qq 邮箱通过生成授权码来设置密码 :</strong></p>
+<p><img src="https://s2.ax1x.com/2019/04/12/AqQBLD.png" alt></p>
+<h3 id="3-安装sendEmail"><a href="#3-安装sendEmail" class="headerlink" title="3.安装sendEmail"></a>3.安装sendEmail</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#下载安装包</span><br><span class="line"><span class="title">wget</span> http://caspian.dotconf.net/menu/<span class="type">Software</span>/<span class="type">SendEmail</span>/sendEmail-v1<span class="number">.56</span>.tar.gz</span><br><span class="line">#创建目录</span><br><span class="line"><span class="title">mkdir</span> -p /usr/local/bin</span><br><span class="line">#解压</span><br><span class="line"><span class="title">tar</span> zxf sendEmail-v1<span class="number">.56</span>.tar.gz -<span class="type">C</span> /usr/src/</span><br><span class="line">#进入解压目录</span><br><span class="line"><span class="title">cd</span> /usr/src/sendEmail-v1<span class="number">.56</span>/</span><br><span class="line">#复制程序到指定目录</span><br><span class="line"><span class="title">cp</span> -a sendEmail /usr/local/bin/</span><br><span class="line">#给执行权限</span><br><span class="line"><span class="title">chmod</span> +x /usr/local/bin/sendEmail</span><br><span class="line">#安装组件</span><br><span class="line"><span class="title">yum</span> install perl-<span class="type">Net</span>-<span class="type">SSLeay</span> perl-<span class="type">IO</span>-<span class="type">Socket</span>-<span class="type">SSL</span> -y</span><br></pre></td></tr></table></figure>
+<h3 id="4-使用脚本发送测试邮件"><a href="#4-使用脚本发送测试邮件" class="headerlink" title="4.使用脚本发送测试邮件"></a>4.使用脚本发送测试邮件</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#!/<span class="selector-tag">bin</span>/<span class="selector-tag">bash</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#收件者邮箱</span><br><span class="line">EMAIL_RECIVER=979915941@qq.com</span><br><span class="line">#发送者邮箱</span><br><span class="line">EMAIL_SENDER=979915941@qq.com</span><br><span class="line">#邮箱用户名</span><br><span class="line">EMAIL_USERNAME=979915941</span><br><span class="line">#邮箱密码</span><br><span class="line">#使用<span class="selector-tag">qq</span>邮箱进行发送需要注意：首先需要开启：<span class="selector-tag">POP3</span>/<span class="selector-tag">SMTP</span>服务，其次发送邮件的密码需要使用在开启<span class="selector-tag">POP3</span>/<span class="selector-tag">SMTP</span>服务时候腾讯提供的第三方客户端登陆&gt;码。</span><br><span class="line">EMAIL_PASSWORD=ubwrvzzafgdnbbjb</span><br><span class="line">#附件路径</span><br><span class="line">FILE1_PATH="/var/up/haha.jpg"</span><br><span class="line"><span class="selector-id">#smtp</span>服务器地址</span><br><span class="line">EMAIL_SMTPHOST=smtp.qq.com</span><br><span class="line"></span><br><span class="line">EMAIL_TITLE="测试"</span><br><span class="line">EMAIL_CONTENT="谢谢!"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sendEmail -f $&#123;EMAIL_SENDER&#125; -t $&#123;EMAIL_RECIVER&#125; -s $&#123;EMAIL_SMTPHOST&#125; -u $&#123;EMAIL_TITLE&#125; -xu $&#123;EMAIL_USERNAME&#125; -xp $&#123;EMAIL_PASSWORD&#125; -m $&#123;EMAIL_CONTENT&#125; -a $&#123;FILE1_PATH&#125; -o message-charset=utf-8</span><br><span class="line"></span><br><span class="line">#附件路径</span><br><span class="line">FILE1_PATH="/root/anaconda-ks.cfg"</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#smtp</span>服务器地址</span><br><span class="line">EMAIL_SMTPHOST=smtp.qq.com</span><br><span class="line"></span><br><span class="line">EMAIL_TITLE="测试"</span><br><span class="line">EMAIL_CONTENT="谢谢!"</span><br><span class="line"></span><br><span class="line">sendEmail -f $&#123;EMAIL_SENDER&#125; -t $&#123;EMAIL_RECIVER&#125; -s $&#123;EMAIL_SMTPHOST&#125; -u $&#123;EMAIL_TITLE&#125; -xu $&#123;EMAIL_USERNAME&#125; -xp $&#123;EMAIL_PASSWORD&#125; -m $&#123;EMAIL_CONTENT&#125; -a $&#123;FILE1_PATH&#125; -o message-charset=utf-8</span><br></pre></td></tr></table></figure>
+<p><strong>执行成功查看结果:</strong><br><img src="https://s2.ax1x.com/2019/04/12/Aqn340.png" alt></p>
+<h3 id="5-发送带html表格的邮件"><a href="#5-发送带html表格的邮件" class="headerlink" title="5.发送带html表格的邮件"></a>5.发送带html表格的邮件</h3><h4 id="4-1表格数据"><a href="#4-1表格数据" class="headerlink" title="4.1表格数据"></a>4.1表格数据</h4><p>第一列为表名称，第二列为原mysql表数据总量，第三列为数仓HBase的数据总量，目的是将table_counts.txt中的数据以表格的显示邮件发出，若表的数据不一致当前行以红色标出。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@hadoop001 wsktest]</span># <span class="selector-tag">cat</span> <span class="selector-tag">count</span> </span><br><span class="line"><span class="selector-tag">table_name_1</span>,<span class="selector-tag">10000</span>,<span class="selector-tag">10000</span></span><br><span class="line"><span class="selector-tag">table_name_2</span>,<span class="selector-tag">12000</span>,<span class="selector-tag">12000</span></span><br><span class="line"><span class="selector-tag">table_name_3</span>,<span class="selector-tag">90000</span>,<span class="selector-tag">90002</span></span><br><span class="line"><span class="selector-tag">table_name_4</span>,<span class="selector-tag">550</span>,<span class="selector-tag">550</span></span><br><span class="line"><span class="selector-tag">table_name_5</span>,<span class="selector-tag">8000</span>,<span class="selector-tag">7999</span></span><br><span class="line"><span class="selector-tag">table_name_6</span>,<span class="selector-tag">30000</span>,<span class="selector-tag">30000</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-2脚本如下"><a href="#4-2脚本如下" class="headerlink" title="4.2脚本如下"></a>4.2脚本如下</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">#!/<span class="selector-tag">bin</span>/<span class="selector-tag">bash</span></span><br><span class="line"></span><br><span class="line">#收件箱</span><br><span class="line">EMAIL_RECIVER=979915941@qq.com</span><br><span class="line">#发送者邮箱</span><br><span class="line">EMAIL_SENDER=979915941@qq.com</span><br><span class="line">#邮箱用户名</span><br><span class="line">EMAIL_USERNAME=979915941</span><br><span class="line">#使用<span class="selector-tag">qq</span>邮箱进行发送需要注意：首先需要开启：<span class="selector-tag">POP3</span>/<span class="selector-tag">SMTP</span>服务，其次发送邮件的密码需要使用在开启<span class="selector-tag">POP3</span>/<span class="selector-tag">SMTP</span>服务时候腾讯提供的第三方客户端登陆&gt;码。</span><br><span class="line">EMAIL_PASSWORD=ubwrvzzafgdnbbjb</span><br><span class="line">#附件</span><br><span class="line">FILE1_PATH="/var/up/haha.jpg"</span><br><span class="line"><span class="selector-id">#smtp</span>服务器地址</span><br><span class="line">EMAIL_SMTPHOST=smtp.qq.com</span><br><span class="line">#标题</span><br><span class="line">EMAIL_TITLE="sendmail"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html_input</span>()&#123;</span><br><span class="line"></span><br><span class="line">   echo "&lt;tr&gt;</span><br><span class="line">          &lt;td&gt;$1&lt;/td&gt;</span><br><span class="line">          &lt;td&gt;$2&lt;/td&gt;</span><br><span class="line">          &lt;td&gt;$3&lt;/td&gt;</span><br><span class="line">          </span><br><span class="line">         &lt;/tr&gt;" &gt;&gt; /var/up/mail.html</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html_input_red</span>()&#123;</span><br><span class="line"></span><br><span class="line">   echo "&lt;tr bgcolor="#FF0000"&gt;</span><br><span class="line">           &lt;td&gt;$1&lt;/td&gt;</span><br><span class="line">           &lt;td&gt;$2&lt;/td&gt;</span><br><span class="line">           &lt;td&gt;$3&lt;/td&gt;</span><br><span class="line"></span><br><span class="line">&lt;/tr&gt;" &gt;&gt; /var/up/mail.html</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">set_info</span>()&#123;</span><br><span class="line"></span><br><span class="line">i=1</span><br><span class="line">echo "&lt;table border=1&gt;</span><br><span class="line">&lt;tr&gt;</span><br><span class="line">&lt;th&gt;table_name&lt;/th&gt;</span><br><span class="line">&lt;th&gt;source_count&lt;/th&gt;</span><br><span class="line">&lt;th&gt;target_count&lt;/th&gt;</span><br><span class="line">&lt;/tr&gt;" &gt; /var/up/mail.html</span><br><span class="line"></span><br><span class="line">        table_counts=$(awk -F "," '&#123;print $1&#125;' /root/date/count ) #第一列的信息</span><br><span class="line">        for tablename in $table_counts</span><br><span class="line">        </span><br><span class="line">        <span class="selector-tag">do</span></span><br><span class="line">           j=2</span><br><span class="line">        </span><br><span class="line">         html_sour_count=$(awk -F "," 'NR==i &#123;print $j&#125;' i=$i j=$j /root/date/count) #mysql中对应的计数</span><br><span class="line">         let "j++"</span><br><span class="line">         html_tar_count=$(awk -F "," 'NR==i &#123; print $j&#125;' i=$i j=$j /root/date/count) #数仓中对应的计数</span><br><span class="line">         </span><br><span class="line">         <span class="selector-tag">if</span> <span class="selector-attr">[ "$html_sour_count" ==  "$html_tar_count" ]</span>;<span class="selector-tag">then</span></span><br><span class="line"></span><br><span class="line">              html_input $tablename $html_sour_count $html_tar_count  #构造每行表格信息</span><br><span class="line">         <span class="selector-tag">else</span></span><br><span class="line">              html_input_red $tablename $html_sour_count $html_tar_count #构造每行表格信息</span><br><span class="line"></span><br><span class="line">          <span class="selector-tag">fi</span></span><br><span class="line"></span><br><span class="line">           let "i++"</span><br><span class="line">           echo $tablename $html_sour_count $html_tar_count $i $j</span><br><span class="line">        <span class="selector-tag">done</span></span><br><span class="line">        echo "&lt;/table&gt;" &gt;&gt; /var/up/mail.html</span><br><span class="line">        &#125; #制作<span class="selector-tag">mail</span><span class="selector-class">.html</span>,并使用邮件发送</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">set_info</span></span><br><span class="line"></span><br><span class="line">EMAIL_EXCEL=$(cat /var/up/mail.html)</span><br><span class="line"></span><br><span class="line">sendEmail -f $&#123;EMAIL_SENDER&#125; -t $&#123;EMAIL_RECIVER&#125; -s $&#123;EMAIL_SMTPHOST&#125; -u $&#123;EMAIL_TITLE&#125; -xu $&#123;EMAIL_USERNAME&#125; -xp $&#123;EMAIL_PASSWORD&#125; -m $&#123;EMAIL_EXCEL&#125; $&#123;EMAIL_CONTENT&#125; -a $&#123;FILE1_PATH&#125; -o message-charset=utf-8 -o message-content-type=html</span><br></pre></td></tr></table></figure>
+<h5 id="4-3执行脚本"><a href="#4-3执行脚本" class="headerlink" title="4.3执行脚本"></a>4.3执行脚本</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 up]# sh sendmail.sh </span><br><span class="line">table_name_1 10000 10000 2 3</span><br><span class="line">table_name_2 12000 12000 3 3</span><br><span class="line">table_name_3 90000 90002 4 3</span><br><span class="line">table_name_4 550 550 5 3</span><br><span class="line">table_name_5 8000 7999 6 3</span><br><span class="line">table_name_6 30000 30000 7 3</span><br></pre></td></tr></table></figure>
+<p><strong>4.4执行结果</strong></p>
+<p><img src="https://s2.ax1x.com/2019/04/15/AjnYDO.png" alt></p>
+
       
     </div>
     
@@ -477,12 +468,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/04/07/1.hadoop伪分布式部署-hdfs/">1.hdfs为分布式部署</a></p>
+  <p><span>本文标题:</span><a href="/2019/04/15/sendmail发送邮件/">Linux 使用 sendmail发送html格式邮件</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
-  <p><span>发布时间:</span>2019年04月07日 - 09:02</p>
-  <p><span>最后更新:</span>2019年04月07日 - 12:26</p>
-  <p><span>原始链接:</span><a href="/2019/04/07/1.hadoop伪分布式部署-hdfs/" title="1.hdfs为分布式部署">http://yoursite.com/2019/04/07/1.hadoop伪分布式部署-hdfs/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/1.hadoop伪分布式部署-hdfs/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年04月15日 - 12:45</p>
+  <p><span>最后更新:</span>2019年04月15日 - 13:01</p>
+  <p><span>原始链接:</span><a href="/2019/04/15/sendmail发送邮件/" title="Linux 使用 sendmail发送html格式邮件">http://yoursite.com/2019/04/15/sendmail发送邮件/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/15/sendmail发送邮件/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -524,11 +515,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/大数据/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
           
-            <a href="/tags/hadoop/" rel="tag"><i class="fa fa-tag"></i> hadoop</a>
+            <a href="/tags/shell/" rel="tag"><i class="fa fa-tag"></i> shell</a>
           
-            <a href="/tags/hdfs/" rel="tag"><i class="fa fa-tag"></i> hdfs</a>
+            <a href="/tags/邮件/" rel="tag"><i class="fa fa-tag"></i> 邮件</a>
           
         </div>
       
@@ -541,8 +532,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/07/普通用户如何临时获取root最大权限/" rel="next" title="普通用户如何获取root最大权限">
-                <i class="fa fa-chevron-left"></i> 普通用户如何获取root最大权限
+              <a href="/2019/04/14/Hadoop项目离线处理流程/" rel="next" title="Hadoop 项目离线处理流程">
+                <i class="fa fa-chevron-left"></i> Hadoop 项目离线处理流程
               </a>
             
           </div>
@@ -550,10 +541,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/07/2.Hadoop重新部署伪分布式hdfs/" rel="prev" title="2.hadoop伪分布式部署-hdfs进程启动的机器修改-yarn部署">
-                2.hadoop伪分布式部署-hdfs进程启动的机器修改-yarn部署 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -610,8 +597,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -706,6 +702,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-开启-QQ-邮箱的-SMTP，获取授权码"><span class="nav-number">1.</span> <span class="nav-text">1.开启 QQ 邮箱的 SMTP，获取授权码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装sendEmail"><span class="nav-number">2.</span> <span class="nav-text">3.安装sendEmail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用脚本发送测试邮件"><span class="nav-number">3.</span> <span class="nav-text">4.使用脚本发送测试邮件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-发送带html表格的邮件"><span class="nav-number">4.</span> <span class="nav-text">5.发送带html表格的邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1表格数据"><span class="nav-number">4.1.</span> <span class="nav-text">4.1表格数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2脚本如下"><span class="nav-number">4.2.</span> <span class="nav-text">4.2脚本如下</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3执行脚本"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.3执行脚本</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

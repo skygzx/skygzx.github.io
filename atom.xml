@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-14T02:12:11.846Z</updated>
+  <updated>2019-04-15T05:01:47.843Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 使用 sendmail发送html格式邮件</title>
+    <link href="http://yoursite.com/2019/04/15/sendmail%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
+    <id>http://yoursite.com/2019/04/15/sendmail发送邮件/</id>
+    <published>2019-04-15T04:45:21.187Z</published>
+    <updated>2019-04-15T05:01:47.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-开启-QQ-邮箱的-SMTP，获取授权码&quot;&gt;&lt;a href=&quot;#1-开启-QQ-邮箱的-SMTP，获取授权码&quot; class=&quot;headerlink&quot; title=&quot;1.开启 QQ 邮箱的 SMTP，获取授权码&quot;&gt;&lt;/a&gt;1.开启 QQ 邮箱的 SMTP，获取授权码&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
+    
+      <category term="邮件" scheme="http://yoursite.com/tags/%E9%82%AE%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Hadoop 项目离线处理流程</title>
@@ -50,16 +72,11 @@
     <link href="http://yoursite.com/2019/04/12/Linux%20%E4%BD%BF%E7%94%A8Mailx%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/"/>
     <id>http://yoursite.com/2019/04/12/Linux 使用Mailx发送邮件/</id>
     <published>2019-04-12T03:35:41.964Z</published>
-    <updated>2019-04-12T12:25:44.863Z</updated>
+    <updated>2019-04-15T05:02:04.170Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;1.开启 QQ 邮箱的 SMTP，获取授权码&lt;/strong&gt; &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.1 这里使用了 QQ 邮箱的 SMTP，需要做以下配置:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/04/12/AqQaz6.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.2 qq 邮箱通过生成授权码来设置密码 :&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/04/12/AqQBLD.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2.安装软件包：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -434,28 +451,6 @@
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MapReduce优化----Shuffle过程剖析及性能优化</title>
-    <link href="http://yoursite.com/2019/04/07/%5B%E8%BD%AC%E8%BD%BD%5DMapReduce%E4%BC%98%E5%8C%96----Shuffle%E8%BF%87%E7%A8%8B%E5%89%96%E6%9E%90%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://yoursite.com/2019/04/07/[转载]MapReduce优化----Shuffle过程剖析及性能优化/</id>
-    <published>2019-04-07T03:02:43.570Z</published>
-    <updated>2019-04-07T04:25:46.406Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-Map端&quot;&gt;&lt;a href=&quot;#1-Map端&quot; class=&quot;headerlink&quot; title=&quot;1.    Map端&quot;&gt;&lt;/a&gt;1.    Map端&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="MapReduce优化" scheme="http://yoursite.com/tags/MapReduce%E4%BC%98%E5%8C%96/"/>
-    
-      <category term="Shuffle" scheme="http://yoursite.com/tags/Shuffle/"/>
     
   </entry>
   

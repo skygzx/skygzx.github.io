@@ -105,21 +105,21 @@
 
 
 
-<meta name="description" content="1.开启 QQ 邮箱的 SMTP，获取授权码  1.1 这里使用了 QQ 邮箱的 SMTP，需要做以下配置:  1.2 qq 邮箱通过生成授权码来设置密码 :  2.安装软件包：">
+<meta name="description" content="1.开启 QQ 邮箱的 SMTP，获取授权码">
 <meta name="keywords" content="大数据开发,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 使用Mailx发送邮件">
 <meta property="og:url" content="http://yoursite.com/2019/04/12/Linux 使用Mailx发送邮件/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.开启 QQ 邮箱的 SMTP，获取授权码  1.1 这里使用了 QQ 邮箱的 SMTP，需要做以下配置:  1.2 qq 邮箱通过生成授权码来设置密码 :  2.安装软件包：">
+<meta property="og:description" content="1.开启 QQ 邮箱的 SMTP，获取授权码">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/12/AqQaz6.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/12/AqQBLD.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/12/Aqn340.png">
-<meta property="og:updated_time" content="2019-04-12T12:25:44.863Z">
+<meta property="og:updated_time" content="2019-04-15T05:02:04.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 使用Mailx发送邮件">
-<meta name="twitter:description" content="1.开启 QQ 邮箱的 SMTP，获取授权码  1.1 这里使用了 QQ 邮箱的 SMTP，需要做以下配置:  1.2 qq 邮箱通过生成授权码来设置密码 :  2.安装软件包：">
+<meta name="twitter:description" content="1.开启 QQ 邮箱的 SMTP，获取授权码">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/04/12/AqQaz6.png">
 
 
@@ -438,12 +438,13 @@
 
       
         <p><strong>1.开启 QQ 邮箱的 SMTP，获取授权码</strong> </p>
+<a id="more"></a>
 <p><strong>1.1 这里使用了 QQ 邮箱的 SMTP，需要做以下配置:</strong></p>
 <p><img src="https://s2.ax1x.com/2019/04/12/AqQaz6.png" alt></p>
 <p><strong>1.2 qq 邮箱通过生成授权码来设置密码 :</strong></p>
 <p><img src="https://s2.ax1x.com/2019/04/12/AqQBLD.png" alt></p>
 <p><strong>2.安装软件包：</strong></p>
-<a id="more"></a>
+<!--more-->
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">yum</span> <span class="selector-tag">install</span> <span class="selector-tag">mail</span></span><br></pre></td></tr></table></figure>
 <p><strong>3.编辑配置文件在/etc/mail.rc ：</strong></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">set from=979915941@qq.com</span><br><span class="line">set smtp=smtp.qq.com</span><br><span class="line">set smtp-auth-user=979915941 #邮箱账号</span><br><span class="line"></span><br><span class="line">set smtp-auth-password=ubwrvzzafgdnbbjb #客户端授权码</span><br><span class="line">set smtp-auth=login</span><br><span class="line"><span class="selector-tag">set</span> <span class="selector-tag">smtp-use-starttls</span></span><br><span class="line">set ssl-verify=ignore</span><br><span class="line">set nss-config-dir=/root/.certs</span><br></pre></td></tr></table></figure>
@@ -488,7 +489,7 @@
   <p><span>本文标题:</span><a href="/2019/04/12/Linux 使用Mailx发送邮件/">Linux 使用Mailx发送邮件</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月12日 - 11:35</p>
-  <p><span>最后更新:</span>2019年04月12日 - 20:25</p>
+  <p><span>最后更新:</span>2019年04月15日 - 13:02</p>
   <p><span>原始链接:</span><a href="/2019/04/12/Linux 使用Mailx发送邮件/" title="Linux 使用Mailx发送邮件">http://yoursite.com/2019/04/12/Linux 使用Mailx发送邮件/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/12/Linux 使用Mailx发送邮件/" aria-label="复制成功！"></i></span>
   </p>
@@ -634,7 +635,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -656,7 +657,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
