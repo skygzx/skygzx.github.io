@@ -74,9 +74,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="etl流程" scheme="http://yoursite.com/tags/etl%E6%B5%81%E7%A8%8B/"/>
     
@@ -180,9 +180,9 @@
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
   </entry>
   
@@ -250,9 +250,9 @@
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
   </entry>
   
@@ -298,9 +298,9 @@
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
   </entry>
   
@@ -318,9 +318,9 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
   </entry>
   
@@ -441,9 +441,9 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="调度器" scheme="http://yoursite.com/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/"/>
     
