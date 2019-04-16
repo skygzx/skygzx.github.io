@@ -114,8 +114,15 @@
 <meta property="og:description" content="1.压缩的好处和坏处：好处：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/07/A4ptRe.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/A4p6JS.png">
-<meta property="og:updated_time" content="2019-04-15T12:11:06.571Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Av2gbt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Av2f58.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AvhYRO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Av5D8f.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AvIPqH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AvoTHJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AvHX3q.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Avq5Tg.png">
+<meta property="og:updated_time" content="2019-04-16T07:55:44.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据压缩">
 <meta name="twitter:description" content="1.压缩的好处和坏处：好处：">
@@ -399,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  953
+                  2.1k
                 </span>
               
 
@@ -415,7 +422,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  8
                 </span>
               
             </div>
@@ -441,6 +448,7 @@
 <p>2.降低IO(网络的IO和磁盘的IO)</p>
 <p>3.加快数据在磁盘和网络中的传输速度，从而提高系统的处理速度</p>
 <h3 id="坏处："><a href="#坏处：" class="headerlink" title="坏处："></a>坏处：</h3><p>由于使用数据时，需要先将数据解压，加重CPU负荷</p>
+<p>当我们要使用压缩的时候，需要根据场景来判断，比如当我们的生产上的cpu利用率非常高的时候，就不合适用压缩</p>
 <h2 id="2-压缩格式："><a href="#2-压缩格式：" class="headerlink" title="2.压缩格式："></a>2.压缩格式：</h2><table>
 <thead>
 <tr>
@@ -505,11 +513,12 @@
 </table>
 <p><img src="https://s2.ax1x.com/2019/04/07/A4ptRe.png" alt></p>
 <p><strong>压缩比:</strong></p>
-<p><img src="https://s2.ax1x.com/2019/04/07/A4p6JS.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/04/16/Av2gbt.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/04/16/Av2f58.png" alt></p>
 <p><strong><font color="red" size="4">面试常问：</font>可以看出，压缩比越高，压缩时间越长，压缩比：Snappy&lt;LZ4&lt;LZO&lt;GZIP&lt;BZIP2</strong></p>
-<p>各个压缩的压缩比</p>
-<p>3.选择压缩格式的前提：</p>
-<p>​    1）压缩比 vs 压缩速度</p>
+<p><strong>各种压缩的压缩比：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Snappy:49.9%</span><br><span class="line">LZ4:   49.3%</span><br><span class="line">LZO:   48.7%</span><br><span class="line">Gzip:  31.8%</span><br><span class="line">Bzip2: 27.7%</span><br></pre></td></tr></table></figure>
+<h2 id="3-选择压缩格式的前提："><a href="#3-选择压缩格式的前提：" class="headerlink" title="3.选择压缩格式的前提："></a>3.选择压缩格式的前提：</h2><p>​    1）压缩比 vs 压缩速度</p>
 <p>​    2）是否分片</p>
 <p>text文本：200M   （自带分片功能），===》 2InputSplit    128M+72M</p>
 <p>BZIP2：支持分片</p>
@@ -532,6 +541,63 @@
 <p><strong>应用场景：</strong></p>
 <p>一般在HDFS 、Hive、HBase中会使用；</p>
 <p>当然一般较多的是结合Spark 来一起使用。</p>
+<h2 id="5-压缩场景："><a href="#5-压缩场景：" class="headerlink" title="5.压缩场景："></a>5.压缩场景：</h2><p>​    input： Flume Sink HDFS &lt;== Spark/MapReduce （从Flume采集到HDFS上的过程中）</p>
+<p>​    temp:   Sink DISK  （map和reduce的中间环节数据需要先进入到环形缓冲区，然后落盘）</p>
+<p>​    output: Spark/MapReduce ==&gt; Sink Hadoop （mapreduce输出数据）</p>
+<p><strong>1）执行mapreduce的过程中要用到压缩的时候</strong></p>
+<p>红色星星表示：压缩</p>
+<p>蓝色星星表示：解压</p>
+<p><img src="https://s2.ax1x.com/2019/04/16/AvhYRO.png" alt></p>
+<p><strong>分析</strong>：</p>
+<p>1）Flume采集数据到Hadoop上时，可以采用压缩（注：必须要用用支持分片的压缩）</p>
+<p>2）Map输出 Spill落盘的时候，需要压缩（注：必须要压缩和解压速度快的，一般map和reduce</p>
+<p>​    中间选择 Snappy压缩）</p>
+<p>3）Reduce 输出文件，需要压缩（注：这里的压缩又两种场景）</p>
+<p>①Reduce输出的文件作为下一个Reduce输入的文件：（注：这个时候就不能用高压缩比的压缩方</p>
+<p>​    式，并且压缩必须支持分片）</p>
+<p>②Reduce输出的文件用作归档，或者不再用了（注：这个时候可以采用高压缩比的压缩方式）</p>
+<h2 id="6-配置压缩文件："><a href="#6-配置压缩文件：" class="headerlink" title="6.配置压缩文件："></a>6.配置压缩文件：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>配置完以后，做一个wordcount例子：</strong></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="7-在hive上压缩文件："><a href="#7-在hive上压缩文件：" class="headerlink" title="7.在hive上压缩文件："></a>7.在hive上压缩文件：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">创建一个表格并获取数据：</span><br><span class="line"></span><br><span class="line">create table g6_access_copy as select * from g6_access;</span><br></pre></td></tr></table></figure>
+<p>进入 hive官网</p>
+<p><img src="https://s2.ax1x.com/2019/04/16/Av5D8f.png" alt></p>
+<p>设置压缩：</p>
+<p><img src="https://s2.ax1x.com/2019/04/16/AvIPqH.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hive (d6_hive)&gt; SET hive.exec.compress.output=true;   设置打开压缩</span><br><span class="line">hive (d6_hive)&gt; set mapreduce.output.fileoutputformat.compress.codec</span><br><span class="line">              &gt; ;</span><br><span class="line">mapreduce.output.fileoutputformat.compress.codec=org.apache.hadoop.io.compress.BZip2Codec	</span><br><span class="line"></span><br><span class="line">默认压缩格式是：Bzip2，也可以设置成自己想要的</span><br><span class="line"></span><br><span class="line">之后再加载数据 都会变成压缩的形式</span><br></pre></td></tr></table></figure>
+<h2 id="8-创建表的时候指定压缩格式："><a href="#8-创建表的时候指定压缩格式：" class="headerlink" title="8.创建表的时候指定压缩格式："></a>8.创建表的时候指定压缩格式：</h2><p><img src="https://s2.ax1x.com/2019/04/16/AvoTHJ.png" alt></p>
+<p>进入到 DDL中 可以查看 压缩格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>怎么用呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>TEXTFILE：是默认的存储格式，文本格式。</p>
+<p>生产上用的最多的（列式）：ORC和PARQUET    </p>
+<p><strong>行式存储和列式存储</strong></p>
+<p><img src="https://s2.ax1x.com/2019/04/16/AvHX3q.png" alt></p>
+<p><strong>1)行式存储</strong>：textfile</p>
+<p>​    所有的内容都放在一个 BLOCK 中</p>
+<p>①优点：当select * 的时候，会直接将所有内容全部查出来</p>
+<p>②缺点：当select a，c from xx 的时候，它还是将所有内容都查一遍，然后显示a，c列。</p>
+<p><strong>2）列式存储：</strong>orc  parquet<br>​    按照列的方式 存储在几个 BLOCK 中</p>
+<p>①优点：当select a，c from xx 的时候，它只需要查询 a，c所在的块，不需要多余的io。</p>
+<p>②缺点：当select *  的时候，数据会发生 重组。</p>
+<p>99%都是采用列式存储的。</p>
+<font color="red" size="4">（注：导入数据的时候不能将文本中的数据导入到其它格式中，需要借助中间表）</font>
+
+<p>原文件大小：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>SEQUENCEFILE：序列化  &lt;key,value&gt;   采用这种方式存储以后文件会变大，生产中不用</p>
+<p>RCFILE：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">hive (d6_hive)&gt; create table g6_access_copy_RC (</span><br><span class="line">              &gt; cdn string,</span><br><span class="line">              &gt; region string,</span><br><span class="line">              &gt; level string,</span><br><span class="line">              &gt; time string,</span><br><span class="line">              &gt; ip string,</span><br><span class="line">              &gt; domain string,</span><br><span class="line">              &gt; url string,</span><br><span class="line">              &gt; traffic bigint,</span><br><span class="line">              &gt; day string</span><br><span class="line">              &gt; )ROW FORMAT DELIMITED FIELDS TERMINATED BY &apos;\t&apos;</span><br><span class="line">              &gt; STORED AS RCFILE;</span><br><span class="line">              </span><br><span class="line"> 创建一个表格</span><br><span class="line"> </span><br><span class="line"> 借助中间报表导入数据：</span><br><span class="line"> </span><br><span class="line"> INSERT OVERWRITE TABLE g6_access_copy_RC SELECT * from g6_access_copy;</span><br><span class="line"> </span><br><span class="line"> 查看文件大小：</span><br><span class="line"> [hadoop@hadoop001 hadoop-2.6.0-cdh5.7.0]$ hadoop fs -du -s -h /user/hive/warehouse/d6_hive.db/g6_access_copy_rc</span><br><span class="line"> </span><br><span class="line">7.1 M  7.1 M  /user/hive/warehouse/d6_hive.db/g6_access_copy_rc</span><br></pre></td></tr></table></figure>
+<p>ORC：默认采用了压缩</p>
+<p><img src="https://s2.ax1x.com/2019/04/16/Avq5Tg.png" alt></p>
+<p>Index Data 中 存储了id以及其它，当查询的时候，读数据之前先会去读索引，通过查询id，可以知道查询内容属于哪一部分，只读取那一部分的内容即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>PARQUET：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>刚才是存储，那么接下来我们看一下查询</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">首先 我们查询一下表g6_access_copy：</span><br><span class="line"></span><br><span class="line">hive (d6_hive)&gt; select count(*) from g6_access_copy where domain=&quot;v3.go2yd.com&quot;;</span><br><span class="line"></span><br><span class="line">显示结果信息：</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.74 sec   HDFS Read: 7866238 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read：7866238M   读了7.8M 也就是说我们读的是一个普通的表，也就是全表扫描</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表: g6_access_copy_rc：</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.3 sec   HDFS Read: 668319 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read:668319M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表：g6_access_copy_orc</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.14 sec   HDFS Read: 41340 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read：41340M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表：g6_access_copy_parquet:</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.38 sec   HDFS Read: 22535 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read: 22535M</span><br></pre></td></tr></table></figure>
+<p>以后测性能的时候需要从两个角度考虑，一个是存储，一个是查询。</p>
 
       
     </div>
@@ -551,7 +617,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/大数据压缩/">大数据压缩</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 21:08</p>
-  <p><span>最后更新:</span>2019年04月15日 - 20:11</p>
+  <p><span>最后更新:</span>2019年04月16日 - 15:55</p>
   <p><span>原始链接:</span><a href="/2019/04/07/大数据压缩/" title="大数据压缩">http://yoursite.com/2019/04/07/大数据压缩/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/大数据压缩/" aria-label="复制成功！"></i></span>
   </p>
@@ -800,7 +866,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-压缩的好处和坏处："><span class="nav-number">1.</span> <span class="nav-text">1.压缩的好处和坏处：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#好处："><span class="nav-number">1.1.</span> <span class="nav-text">好处：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坏处："><span class="nav-number">1.2.</span> <span class="nav-text">坏处：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-压缩格式："><span class="nav-number">2.</span> <span class="nav-text">2.压缩格式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-压缩格式各自优缺点"><span class="nav-number">3.</span> <span class="nav-text">4.压缩格式各自优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-gzip"><span class="nav-number">3.0.1.</span> <span class="nav-text">a. gzip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-lzo"><span class="nav-number">3.0.2.</span> <span class="nav-text">b. lzo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-snappy"><span class="nav-number">3.0.3.</span> <span class="nav-text">c. snappy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-bzip2"><span class="nav-number">3.0.4.</span> <span class="nav-text">d. bzip2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-压缩的好处和坏处："><span class="nav-number">1.</span> <span class="nav-text">1.压缩的好处和坏处：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#好处："><span class="nav-number">1.1.</span> <span class="nav-text">好处：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坏处："><span class="nav-number">1.2.</span> <span class="nav-text">坏处：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-压缩格式："><span class="nav-number">2.</span> <span class="nav-text">2.压缩格式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-选择压缩格式的前提："><span class="nav-number">3.</span> <span class="nav-text">3.选择压缩格式的前提：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-压缩格式各自优缺点"><span class="nav-number">4.</span> <span class="nav-text">4.压缩格式各自优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-gzip"><span class="nav-number">4.0.1.</span> <span class="nav-text">a. gzip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b-lzo"><span class="nav-number">4.0.2.</span> <span class="nav-text">b. lzo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-snappy"><span class="nav-number">4.0.3.</span> <span class="nav-text">c. snappy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-bzip2"><span class="nav-number">4.0.4.</span> <span class="nav-text">d. bzip2</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#5-压缩场景："><span class="nav-number">5.</span> <span class="nav-text">5.压缩场景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置压缩文件："><span class="nav-number">6.</span> <span class="nav-text">6.配置压缩文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-在hive上压缩文件："><span class="nav-number">7.</span> <span class="nav-text">7.在hive上压缩文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-创建表的时候指定压缩格式："><span class="nav-number">8.</span> <span class="nav-text">8.创建表的时候指定压缩格式：</span></a></li></div>
             
 
           </div>
