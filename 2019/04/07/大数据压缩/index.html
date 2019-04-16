@@ -122,7 +122,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AvoTHJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AvHX3q.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Avq5Tg.png">
-<meta property="og:updated_time" content="2019-04-16T13:39:44.237Z">
+<meta property="og:updated_time" content="2019-04-16T13:42:59.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据压缩">
 <meta name="twitter:description" content="1.压缩的好处和坏处：好处：">
@@ -592,9 +592,9 @@
 <p>ORC：默认采用了压缩</p>
 <p><img src="https://s2.ax1x.com/2019/04/16/Avq5Tg.png" alt></p>
 <p>Index Data 中 存储了id以及其它，当查询的时候，读数据之前先会去读索引，通过查询id，可以知道查询内容属于哪一部分，只读取那一部分的内容即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>PARQUET：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>刚才是存储，那么接下来我们看一下查询</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">首先 我们查询一下表g6_access_copy：</span><br><span class="line"></span><br><span class="line">hive (d6_hive)&gt; select count(*) from g6_access_copy where domain=&quot;v3.go2yd.com&quot;;</span><br><span class="line"></span><br><span class="line">显示结果信息：</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.74 sec   HDFS Read: 7866238 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read：7866238M   读了7.8M 也就是说我们读的是一个普通的表，也就是全表扫描</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表: g6_access_copy_rc：</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.3 sec   HDFS Read: 668319 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read:668319M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表：g6_access_copy_orc</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.14 sec   HDFS Read: 41340 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read：41340M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表：g6_access_copy_parquet:</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.38 sec   HDFS Read: 22535 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read: 22535M</span><br></pre></td></tr></table></figure>
 <p>以后测性能的时候需要从两个角度考虑，一个是存储，一个是查询。</p>
@@ -617,7 +617,7 @@
   <p><span>本文标题:</span><a href="/2019/04/07/大数据压缩/">大数据压缩</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月07日 - 21:08</p>
-  <p><span>最后更新:</span>2019年04月16日 - 21:39</p>
+  <p><span>最后更新:</span>2019年04月16日 - 21:42</p>
   <p><span>原始链接:</span><a href="/2019/04/07/大数据压缩/" title="大数据压缩">http://yoursite.com/2019/04/07/大数据压缩/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/大数据压缩/" aria-label="复制成功！"></i></span>
   </p>
