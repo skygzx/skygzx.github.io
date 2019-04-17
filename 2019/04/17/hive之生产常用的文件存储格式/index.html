@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Av5D8f.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/16/AvIPqH.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/16/Avq5Tg.png">
-<meta property="og:updated_time" content="2019-04-17T00:29:13.334Z">
+<meta property="og:updated_time" content="2019-04-17T01:21:25.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive之生产常用的文件存储格式">
 <meta name="twitter:description" content="1.生产常用的文件格式">
@@ -495,6 +495,7 @@ INPUTFORMAT：生产中几乎不用，不用考虑
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">创建表：  指定文件形式</span><br><span class="line"></span><br><span class="line">hive (d6_hive)&gt; create table g6_access_copy_PA (</span><br><span class="line">              &gt; cdn string,</span><br><span class="line">              &gt; region string,</span><br><span class="line">              &gt; level string,</span><br><span class="line">              &gt; time string,</span><br><span class="line">              &gt; ip string,</span><br><span class="line">              &gt; domain string,</span><br><span class="line">              &gt; url string,</span><br><span class="line">              &gt; traffic bigint,</span><br><span class="line">              &gt; day string</span><br><span class="line">              &gt; )ROW FORMAT DELIMITED FIELDS TERMINATED BY &apos;\t&apos;</span><br><span class="line">              &gt; STORED AS PARQUET;</span><br><span class="line">              </span><br><span class="line">   通过中间表加载数据：</span><br><span class="line"></span><br><span class="line">hive (d6_hive)&gt;  INSERT OVERWRITE TABLE g6_access_copy_PA SELECT * from g6_access_copy;</span><br><span class="line"></span><br><span class="line">查看文件大小：</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop001 hadoop-2.6.0-cdh5.7.0]$ hadoop fs -du -s -h /user/hive/warehouse/d6_hive.db/g6_access_copy_pa</span><br><span class="line">1.3 M  1.3 M  /user/hive/warehouse/d6_hive.db/g6_access_copy_pa</span><br></pre></td></tr></table></figure>
 <p><strong>刚才是存储，那么接下来我们看一下查询</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">首先 我们查询一下表g6_access_copy：</span><br><span class="line"></span><br><span class="line">hive (d6_hive)&gt; select count(*) from g6_access_copy where domain=&quot;v3.go2yd.com&quot;;</span><br><span class="line"></span><br><span class="line">显示结果信息：</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.74 sec   HDFS Read: 7866238 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read：7866238M   读了7.8M 也就是说我们读的是一个普通的表，也就是全表扫描</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表: g6_access_copy_rc：</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.3 sec   HDFS Read: 668319 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read:668319M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表：g6_access_copy_orc</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.14 sec   HDFS Read: 41340 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read：41340M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">我们再查一下表：g6_access_copy_parquet:</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 3.38 sec   HDFS Read: 22535 HDFS Write: 6 SUCCESS</span><br><span class="line"></span><br><span class="line">HDFS Read: 22535M</span><br></pre></td></tr></table></figure>
+<p>由此可以看出 orc 和 parquet 查询时所读取的数据量是比较少的，所以性能也比较好。</p>
 <p>以后测性能的时候需要从两个角度考虑，一个是存储，一个是查询。</p>
 <p><strong>总结：</strong></p>
 <p>​    相同数据量的数据，列式存储（ORC、PARQUET）占的磁盘空间远远低于行式存储（如textfile），当查询部分字段是，列式存储的数据只需加载对应的列数据即可。<br>存少读少，极大磁盘使用以及IO，相对减少资源（内存，cpu）不必要的浪费，故列式存储在大数据领域完爆行式存储。</p>
@@ -517,7 +518,7 @@ INPUTFORMAT：生产中几乎不用，不用考虑
   <p><span>本文标题:</span><a href="/2019/04/17/hive之生产常用的文件存储格式/">hive之生产常用的文件存储格式</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月17日 - 07:41</p>
-  <p><span>最后更新:</span>2019年04月17日 - 08:29</p>
+  <p><span>最后更新:</span>2019年04月17日 - 09:21</p>
   <p><span>原始链接:</span><a href="/2019/04/17/hive之生产常用的文件存储格式/" title="hive之生产常用的文件存储格式">http://yoursite.com/2019/04/17/hive之生产常用的文件存储格式/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/17/hive之生产常用的文件存储格式/" aria-label="复制成功！"></i></span>
   </p>
@@ -589,6 +590,10 @@ INPUTFORMAT：生产中几乎不用，不用考虑
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/hadoop之使用LZO压缩并支持分片/" rel="prev" title="hadoop之使用LZO压缩并支持分片">
+                hadoop之使用LZO压缩并支持分片 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -672,7 +677,7 @@ INPUTFORMAT：生产中几乎不用，不用考虑
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -694,7 +699,7 @@ INPUTFORMAT：生产中几乎不用，不用考虑
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
