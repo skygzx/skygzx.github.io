@@ -435,30 +435,14 @@
 
       
         
-          
-            <h2 id="1-简介："><a href="#1-简介：" class="headerlink" title="1.简介："></a>1.简介：</h2><p>安装LZO:</p>
-<p>lzo并不是Linux系统原生支持，所以需要下载安装软件包，这里至少需要安装3个软件包。</p>
-<p>lzo, lzop, hadoop-gpl-packaging。</p>
-<p>增加索引：<br>gpl-packaging主要作用是对压缩的lzo文件创建索引，否则的话，无论压缩的文件是否大于hdfs上的block大小，都只会是一个分片处理。</p>
-<h3 id="2-安装lzo并生成数据："><a href="#2-安装lzo并生成数据：" class="headerlink" title="2.安装lzo并生成数据："></a>2.安装lzo并生成数据：</h3><h4 id="2-1生成数据"><a href="#2-1生成数据" class="headerlink" title="2.1生成数据"></a>2.1生成数据</h4><p>​    数据可以通过 cat a &gt;&gt; b, cat b&gt;&gt;a 这种方式快速生成，尽量让数据大一些，保证压缩后的数据比blocksize大，这样才能测试分片。</p>
-<h4 id="2-2安装lzo相关的工具"><a href="#2-2安装lzo相关的工具" class="headerlink" title="2.2安装lzo相关的工具"></a>2.2安装lzo相关的工具</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@hadoop001 ~]</span># <span class="selector-tag">yum</span> <span class="selector-tag">install</span> <span class="selector-tag">-y</span> <span class="selector-tag">svn</span> <span class="selector-tag">ncurses-devel</span></span><br><span class="line"><span class="selector-attr">[root@hadoop001 ~]</span># <span class="selector-tag">yum</span> <span class="selector-tag">install</span> <span class="selector-tag">-y</span> <span class="selector-tag">gcc</span> <span class="selector-tag">gcc-c</span>++ <span class="selector-tag">make</span> <span class="selector-tag">cmake</span></span><br><span class="line"><span class="selector-attr">[root@hadoop001 ~]</span># <span class="selector-tag">yum</span> <span class="selector-tag">install</span> <span class="selector-tag">-y</span> <span class="selector-tag">openssl</span> <span class="selector-tag">openssl-devel</span> <span class="selector-tag">svn</span> <span class="selector-tag">ncurses-devel</span> <span class="selector-tag">zlib-devel</span> <span class="selector-tag">libtool</span> </span><br><span class="line"><span class="selector-attr">[root@hadoop001 ~]</span># <span class="selector-tag">yum</span> <span class="selector-tag">install</span> <span class="selector-tag">-y</span> <span class="selector-tag">lzo</span> <span class="selector-tag">lzo-devel</span> <span class="selector-tag">lzop</span> <span class="selector-tag">autoconf</span> <span class="selector-tag">automake</span> <span class="selector-tag">cmake</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-3使用lzop工具压缩测试数据"><a href="#2-3使用lzop工具压缩测试数据" class="headerlink" title="2.3使用lzop工具压缩测试数据"></a>2.3使用lzop工具压缩测试数据</h4><p>lzo压缩：lzop -v file<br>lzo解压：lzop -dv file</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 date]$ lzop -v lzodate.txt</span><br><span class="line"><span class="title">compressinglzodate</span>.txt into lzodate.txt.lzo</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop001 data]$ du -sh lzodate.txt.lzo </span><br><span class="line"><span class="number">344</span>M	lzodate.txt.lzo</span><br><span class="line"></span><br><span class="line">将lzodate.txt文件压缩成lzo格式</span><br></pre></td></tr></table></figure>
-<h3 id="3-编译hadoop-lzo"><a href="#3-编译hadoop-lzo" class="headerlink" title="3.编译hadoop-lzo"></a>3.编译hadoop-lzo</h3><h4 id="3-1下载并配置-hadoop—lzo"><a href="#3-1下载并配置-hadoop—lzo" class="headerlink" title="3.1下载并配置 hadoop—lzo"></a>3.1下载并配置 hadoop—lzo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop software]$ wget https://github.com/twitter/hadoop-lzo/archive/master.zip</span><br><span class="line"></span><br><span class="line">解压：</span><br><span class="line">[hadoop@hadoop software]$ unzip master.zip</span><br><span class="line"></span><br><span class="line">进入解压目录</span><br><span class="line">[hadoop@hadoop app]$ cd hadoop-lzo-master/</span><br><span class="line">[hadoop@hadoop hadoop-lzo-master]$ </span><br><span class="line"></span><br><span class="line">因为hadoop使用的是2.6.0；所以版本修改为2.6.0：</span><br><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">    &lt;hadoop.current.version&gt;2.6.0&lt;/hadoop.current.version&gt;</span><br><span class="line">    &lt;hadoop.old.version&gt;1.0.4&lt;/hadoop.old.version&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop hadoop-lzo-master]$ export CFLAGS=-m64</span><br><span class="line">[hadoop@hadoop hadoop-lzo-master]$ export CXXFLAGS=-m64</span><br><span class="line"></span><br><span class="line">修改为自己hadoop的实际路径</span><br><span class="line">[hadoop@hadoop hadoop-lzo-master]$ export C_INCLUDE_PATH=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/lzo/include</span><br><span class="line">[hadoop@hadoop hadoop-lzo-master]$ export LIBRARY_PATH=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0/lzo/lib</span><br></pre></td></tr></table></figure>
-<h4 id="3-2mvn编译源码"><a href="#3-2mvn编译源码" class="headerlink" title="3.2mvn编译源码"></a>3.2mvn编译源码</h4><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop hadoop-lzo-master]$ mvn clean package -<span class="type">Dmaven</span>.test.skip=true</span><br><span class="line"></span><br><span class="line">[<span class="type">INFO</span>] <span class="type">Building</span> jar: /home/hadoop/software/hadoop-lzo-master/target/hadoop-lzo<span class="number">-0.4</span><span class="number">.21</span>-<span class="type">SNAPSHOT</span>-javadoc.jar</span><br><span class="line">[<span class="type">INFO</span>] <span class="comment">------------------------------------------------------------------------</span></span><br><span class="line">[<span class="type">INFO</span>] <span class="type">BUILD</span> <span class="type">SUCCESS</span></span><br><span class="line">[<span class="type">INFO</span>] <span class="comment">------------------------------------------------------------------------</span></span><br><span class="line">[<span class="type">INFO</span>] <span class="type">Total</span> time: <span class="number">8</span>:<span class="number">43.929</span>s</span><br><span class="line">[<span class="type">INFO</span>] <span class="type">Finished</span> at: <span class="type">Sun</span> <span class="type">Apr</span> <span class="number">14</span> <span class="number">16</span>:<span class="number">42</span>:<span class="number">02</span> <span class="type">CST</span> <span class="number">2019</span></span><br><span class="line">[<span class="type">INFO</span>] <span class="type">Final</span> <span class="type">Memory</span>: <span class="number">25</span>M/<span class="number">61</span>M</span><br><span class="line">[<span class="type">INFO</span>] <span class="comment">---------------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">[hadoop@hadoop hadoop-lzo-master]$ </span><br><span class="line">进入target文件夹</span><br><span class="line">[hadoop@hadoop hadoop-lzo-master]$ cd target/native/<span class="type">Linux</span>-amd64<span class="number">-64</span>/</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop <span class="type">Linux</span>-amd64<span class="number">-64</span>]$ mkdir ~/app/hadoop-lzo-files</span><br><span class="line">[hadoop@hadoop <span class="type">Linux</span>-amd64<span class="number">-64</span>]$ tar -cBf - -<span class="type">C</span> lib . | tar -xBvf - -<span class="type">C</span> ~/app/hadoop-lzo-files</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop hadoop-lzo-files]$ cp ~/app/hadoop-lzo-files/libgplcompression* $<span class="type">HADOOP_HOME</span>/lib/native/</span><br><span class="line"></span><br><span class="line">将文件都复制到 app/hadoop-lzo-files中</span><br></pre></td></tr></table></figure>
-<font color="red" size="4"><strong>注：这一步很重要</strong></font>
-
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#将hadoop-lzo<span class="number">-0.4</span><span class="number">.21</span>-<span class="type">SNAPSHOT</span>.jar 复制到每台hadoop的common目录 </span><br><span class="line"></span><br><span class="line">[hadoop@hadoop001 hadoop-lzo-master]$ cp hadoop-lzo<span class="number">-0.4</span><span class="number">.21</span>-<span class="type">SNAPSHOT</span>.jar ~/app/hadoop<span class="number">-2.6</span><span class="number">.0</span>-cdh5<span class="number">.7</span><span class="number">.0</span>/share/hadoop/common/ </span><br><span class="line"></span><br><span class="line">[hadoop@hadoop001 hadoop-lzo-master]$ ll ~/app/hadoop<span class="number">-2.6</span><span class="number">.0</span>-cdh5<span class="number">.7</span><span class="number">.0</span>/share/hadoop/common/hadoop-lzo* -rw-rw-r<span class="comment">--. 1 hadoop hadoop 180667 Apr 14 08:52 /home/hadoop/app/hadoop-2.6.0-cdh5.7.0/share/hadoop/common/hadoop-lzo-0.4.21-SNAPSHOT.jar</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-3配置core-site-xml"><a href="#3-3配置core-site-xml" class="headerlink" title="3.3配置core.site.xml"></a>3.3配置core.site.xml</h4><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 停止hadoop</span><br><span class="line">[hadoop@hadoop001 hadoop-lzo-master]$ stop-all.sh </span><br><span class="line"></span><br><span class="line">#编辑core-site.xml添加或修改如下内容 [hadoop@hadoop001 ~]$ vim ~/app/hadoop<span class="number">-2.6</span><span class="number">.0</span>-cdh5<span class="number">.7</span><span class="number">.0</span>/etc/hadoop/core-site.xml </span><br><span class="line"></span><br><span class="line"><span class="comment">-----------------------开始-------------------------------</span></span><br><span class="line">&lt;property&gt;</span><br><span class="line">	&lt;name&gt;io.compression.codecs&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;org.apache.hadoop.io.compress.<span class="type">GzipCodec</span>,</span><br><span class="line">    	org.apache.hadoop.io.compress.<span class="type">DefaultCodec</span>,</span><br><span class="line">		org.apache.hadoop.io.compress.<span class="type">BZip2Codec</span>,</span><br><span class="line">		org.apache.hadoop.io.compress.<span class="type">SnappyCodec</span>,</span><br><span class="line">		com.hadoop.compression.lzo.<span class="type">LzoCodec</span>,</span><br><span class="line">		com.hadoop.compression.lzo.<span class="type">LzopCodec</span></span><br><span class="line">    &lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;io.compression.codec.lzo.class&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;com.hadoop.compression.lzo.<span class="type">LzoCodec</span>&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	<span class="comment">-----------------------结束------------------------------- </span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">解析：主要是配置com.hadoop.compression.lzo.<span class="type">LzoCodec</span></span><br><span class="line">			 com.hadoopcompression.lzo.<span class="type">LzopCodec</span>压缩类</span><br><span class="line"></span><br><span class="line"><span class="title">io</span>.compression.codec.lzo.class必须指定为<span class="type">LzoCodec</span>非<span class="type">LzopCodec</span>，不然压缩后的文件不会支持分片的</span><br></pre></td></tr></table></figure>
-<h4 id="3-3配置mapred-site-xml"><a href="#3-3配置mapred-site-xml" class="headerlink" title="3.3配置mapred-site.xml"></a>3.3配置mapred-site.xml</h4><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#编辑mapred-site.xml添加或修改如下内容 </span><br><span class="line"></span><br><span class="line">[hadoop@hadoop001 ~]$ vim ~/app/hadoop<span class="number">-2.6</span><span class="number">.0</span>-cdh5<span class="number">.7</span><span class="number">.0</span>/etc/hadoop/mapred-site.xml </span><br><span class="line"></span><br><span class="line"><span class="comment">-----------------------开始-------------------------------</span></span><br><span class="line">中间阶段的压缩</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.map.output.compress&lt;/name&gt;</span><br><span class="line">&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.map.output.compress.codec&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.hadoop.io.compress.<span class="type">SnappyCodec</span>&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">最终阶段的压缩</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.output.fileoutputformat.compress&lt;/name&gt;</span><br><span class="line">&lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;mapreduce.output.fileoutputformat.compress.codec&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.hadoop.io.compress.<span class="type">BZip2Codec</span>&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"><span class="comment">-----------------------结束-------------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#启动hadoop</span><br><span class="line">[hadoop@hadoop001 ~]$ start-all.sh</span><br></pre></td></tr></table></figure>
-<h3 id="4-LZO文件测试"><a href="#4-LZO文件测试" class="headerlink" title="4.LZO文件测试"></a>4.LZO文件测试</h3><h5 id="4-1LZO文件不支持分片"><a href="#4-1LZO文件不支持分片" class="headerlink" title="4.1LZO文件不支持分片"></a>4.1LZO文件不支持分片</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#创建LZO压缩文件测试表，若hadoop的common目录没有hadoop-lzo的jar，就会报类DeprecatedLzoTextInputFormat找不到异常</span><br><span class="line"></span><br><span class="line">create table g6_access_copy_lzo (</span><br><span class="line">cdn string,</span><br><span class="line">region string,</span><br><span class="line">level string,</span><br><span class="line">time string,</span><br><span class="line">ip string,</span><br><span class="line">domain string,</span><br><span class="line">url string,</span><br><span class="line">traffic bigint</span><br><span class="line">)row format delimited fields terminated by &apos;\t&apos;</span><br><span class="line">STORED AS INPUTFORMAT &quot;com.hadoop.mapred.DeprecatedLzoTextInputFormat&quot;</span><br><span class="line">OUTPUTFORMAT &quot;org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat&quot;;</span><br><span class="line"></span><br><span class="line">#加载lzo格式的测试数据，注意：</span><br><span class="line">LOAD DATA LOCAL INPATH &apos;/home/hadoop/data/lzodate.txt.lzo&apos; OVERWRITE INTO TABLE g6_access_copy_lzo;</span><br><span class="line"></span><br><span class="line">#查看数据：</span><br><span class="line">[hadoop@hadoop001 hadoop-2.6.0-cdh5.7.0]$ hadoop fs -du -s -h /user/hive/warehouse/d6_hive.db/g6_access_copy_lzo</span><br><span class="line">343.6 M  343.6 M  /user/hive/warehouse/d6_hive.db/g6_access_copy_lzo</span><br><span class="line"></span><br><span class="line">#查询测试</span><br><span class="line">select count(1) from g6_access_copy_lzo;</span><br><span class="line"></span><br><span class="line">控制台日志截取：</span><br><span class="line">Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 16.01 sec   HDFS Read: 360300298 HDFS Write: 9 SUCCESS</span><br></pre></td></tr></table></figure>
-<p>由日志我们可以看出只有一个<font color="red" size="4"><strong>map</strong></font>任务，而我们的数据文件是远大于128M的，说明当前lzo文件默认不支持数据切片</p>
-<h5 id="4-2LZO文件支持分片"><a href="#4-2LZO文件支持分片" class="headerlink" title="4.2LZO文件支持分片"></a>4.2LZO文件支持分片</h5><p>注意若不是直接load的lzo文件，需要开启压缩，且压缩格式为LzopCodec，<font color="red" size="4"><strong>load数据并不能改变文件格式和压缩格式。</strong></font></p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#开启压缩，生成的压缩文件格式必须设置为<span class="type">LzopCodec</span>,lzoCode的压缩文件格式后缀为.lzo_deflate是无法创建索引的。</span><br><span class="line"></span><br><span class="line">SET hive.exec.compress.output=true;</span><br><span class="line"></span><br><span class="line">SET mapreduce.output.fileoutputformat.compress.codec=com.hadoop.compression.lzo.LzopCodec;</span><br><span class="line"></span><br><span class="line">#创建<span class="type">LZO</span>压缩文件测试表</span><br><span class="line"><span class="title">create</span> table g6_access_copy_lzo_split</span><br><span class="line"><span class="type">STORED</span> <span class="type">AS</span> <span class="type">INPUTFORMAT</span> <span class="string">"com.hadoop.mapred.DeprecatedLzoTextInputFormat"</span></span><br><span class="line"><span class="type">OUTPUTFORMAT</span> <span class="string">"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"</span></span><br><span class="line">as select *  from g6_access_copy_lzo;</span><br><span class="line"></span><br><span class="line">#构建<span class="type">LZO</span>文件索引，使用我们之前打的jar包中的工具类</span><br><span class="line"><span class="title">hadoop</span> jar ~/app/hadoop<span class="number">-2.6</span><span class="number">.0</span>-cdh5<span class="number">.7</span><span class="number">.0</span>/share/hadoop/common/hadoop-lzo<span class="number">-0.4</span><span class="number">.21</span>-<span class="type">SNAPSHOT</span>.jar \ com.hadoop.compression.lzo.<span class="type">LzoIndexer</span> /user/hive/warehouse/d6_hive.db/g6_access_copy_lzo_split</span><br><span class="line"></span><br><span class="line">#查询hdfs数据目录，可知在lzo文件同级目录有个.index索引文件</span><br><span class="line">[hadoop@hadoop001 hadoop<span class="number">-2.6</span><span class="number">.0</span>-cdh5<span class="number">.7</span><span class="number">.0</span>]$ hadoop fs -ls /user/hive/warehouse/d6_hive.db/g6_access_copy_lzo_split</span><br><span class="line"><span class="type">Found</span> <span class="number">2</span> items</span><br><span class="line"></span><br><span class="line">-rwxr-xr-x   <span class="number">1</span> hadoop supergroup  <span class="number">190593490</span> <span class="number">2019</span><span class="number">-04</span><span class="number">-16</span> <span class="number">21</span>:<span class="number">03</span> /user/hive/warehouse/d6_hive.db/g6_access_copy_lzo_split/<span class="number">000000</span>_0.lzo</span><br><span class="line"></span><br><span class="line">-rw-r<span class="comment">--r--   1 hadoop supergroup      22256 2019-04-16 21:06 /user/hive/warehouse/d6_hive.db/g6_access_copy_lzo_split/000000_0.lzo.index</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#执行统计分析</span><br><span class="line">select count(1) from g6_access_copy_lzo_split;</span><br><span class="line"></span><br><span class="line">控制台日志：</span><br><span class="line"><span class="type">Stage</span>-<span class="type">Stage</span><span class="number">-1</span>: <span class="type">Map</span>: <span class="number">2</span>  <span class="type">Reduce</span>: <span class="number">1</span>   <span class="type">Cumulative</span> <span class="type">CPU</span>: <span class="number">11.63</span> sec   <span class="type">HDFS</span> <span class="type">Read</span>: <span class="number">190673124</span> <span class="type">HDFS</span> <span class="type">Write</span>: <span class="number">9</span> <span class="type">SUCCESS</span></span><br></pre></td></tr></table></figure>
-<p>由日志可知 此时有两个map任务。<font color="red" size="4"><strong>即构建索引后支持数据分片。</strong></font></p>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p><strong>大数据中常见的压缩格式只有bzip2是支持数据分片的，lzo在文件构建索引后才会支持数据分片</strong></p>
-
-          
+          <h3 id="1-简介："><a href="#1-简介：" class="headerlink" title="1.简介："></a>1.简介：</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/17/hadoop之使用LZO压缩并支持分片/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -625,176 +609,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-	<div>
-      
-	</div>
-
-    
-
-
-    
-
-    
-
-    <div>
-    
-   </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/压缩和存储/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="skygzx">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="skygzx">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/15/压缩和存储/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T13:20:00+08:00">
-                2019-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-	 
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  158
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 压缩和存储</span><br><span class="line">date: </span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">   - 大数据开发</span><br><span class="line">   - 压缩</span><br><span class="line">copyright: true</span><br></pre></td></tr></table></figure>
-<p>1.压缩的好处：</p>
-<p>1）有利于节省磁盘空间</p>
-<p>2）加速网络传输</p>
-<p>2.压缩的缺点：</p>
-<p>1）耗费cpu</p>
-<p>当我们要使用压缩的时候，需要根据场景来判断，比如当我们的生厂上的cpu利用率非常高的时候，就不合适用压缩</p>
-<p>3.压缩场景：</p>
-<p>​    input： Flume Sink HDFS &lt;== Spark/MapReduce （从Flume采集到HDFS上的过程中）<br>​    temp:   Sink DISK  （map和reduce的中间环节数据需要先进入到环形缓冲区，然后落盘）<br>​    output: Spark/MapReduce ==&gt; Sink Hadoop （mapreduce输出数据）</p>
-
-          
         
       
     </div>
@@ -1999,6 +1813,172 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/大数据压缩/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="skygzx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="skygzx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/大数据压缩/" itemprop="url">大数据压缩</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T21:08:30+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+	 
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-压缩的好处和坏处："><a href="#1-压缩的好处和坏处：" class="headerlink" title="1.压缩的好处和坏处："></a><strong>1.压缩的好处和坏处：</strong></h2><h3 id="好处："><a href="#好处：" class="headerlink" title="好处："></a>好处：</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/07/大数据压缩/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+	<div>
+      
+	</div>
+
+    
+
+
+    
+
+    
+
+    <div>
+    
+   </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2051,7 +2031,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
