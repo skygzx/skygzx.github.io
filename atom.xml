@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-15T12:11:13.052Z</updated>
+  <updated>2019-04-17T00:19:19.169Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hive之生产常用的文件存储格式</title>
+    <link href="http://yoursite.com/2019/04/17/hive%E4%B9%8B%E7%94%9F%E4%BA%A7%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://yoursite.com/2019/04/17/hive之生产常用的文件存储格式/</id>
+    <published>2019-04-16T23:41:01.321Z</published>
+    <updated>2019-04-17T00:19:19.169Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-生产常用的文件格式&quot;&gt;&lt;a href=&quot;#1-生产常用的文件格式&quot; class=&quot;headerlink&quot; title=&quot;1.生产常用的文件格式&quot;&gt;&lt;/a&gt;1.生产常用的文件格式&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="RC" scheme="http://yoursite.com/tags/RC/"/>
+    
+      <category term="ORC" scheme="http://yoursite.com/tags/ORC/"/>
+    
+      <category term="PAQUET" scheme="http://yoursite.com/tags/PAQUET/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -74,9 +98,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="etl流程" scheme="http://yoursite.com/tags/etl%E6%B5%81%E7%A8%8B/"/>
     
@@ -178,11 +202,11 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -191,7 +215,7 @@
     <link href="http://yoursite.com/2019/04/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/"/>
     <id>http://yoursite.com/2019/04/07/大数据压缩/</id>
     <published>2019-04-07T13:08:30.807Z</published>
-    <updated>2019-04-16T23:29:56.968Z</updated>
+    <updated>2019-04-17T00:20:35.660Z</updated>
     
     <summary type="html">
     
@@ -246,13 +270,13 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -294,13 +318,13 @@
     </summary>
     
     
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
+      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
+    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -318,9 +342,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -424,28 +448,6 @@
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="Hive" scheme="http://yoursite.com/tags/Hive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>YARN生产上调度器</title>
-    <link href="http://yoursite.com/2019/04/07/YARN%E7%94%9F%E4%BA%A7%E4%B8%8A%E8%B0%83%E5%BA%A6%E5%99%A8/"/>
-    <id>http://yoursite.com/2019/04/07/YARN生产上调度器/</id>
-    <published>2019-04-07T04:00:32.707Z</published>
-    <updated>2019-04-07T11:45:44.351Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;1.生产上 job去申请调度资源时：&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
-      <category term="调度器" scheme="http://yoursite.com/tags/%E8%B0%83%E5%BA%A6%E5%99%A8/"/>
     
   </entry>
   
