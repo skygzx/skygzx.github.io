@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF   可查看hive内置函数 1.UDF分类：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-18T13:51:11.166Z">
+<meta property="og:updated_time" content="2019-04-18T13:53:17.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hive UDF函数编写流程详解">
 <meta name="twitter:description" content="参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF   可查看hive内置函数 1.UDF分类：">
@@ -438,7 +438,7 @@
 <p>（什么是UDF：User-Defined Function）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UDF: one-to-one row mapping : upper substr</span><br><span class="line">UDAF: Aggregation   Many-to-one row mapping   sum/min</span><br><span class="line">UDTF: Table-generating  one-to-many    lateral view explode()</span><br></pre></td></tr></table></figure>
 <h3 id="2-UDF编写步骤："><a href="#2-UDF编写步骤：" class="headerlink" title="2.UDF编写步骤："></a>2.UDF编写步骤：</h3><p>2.1使用idea创建maven工程，在pom下添加以下依赖：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="3-编写-Hive-UDF函数："><a href="#3-编写-Hive-UDF函数：" class="headerlink" title="3.编写 Hive UDF函数："></a>3.编写 Hive UDF函数：</h3><p>1）新建一个类，名字为connectUDF.java</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">继承<span class="type">UDF</span>类，并重写evaluate方法</span><br><span class="line"></span><br><span class="line">package com.ruozedata.hadoop.UDF;</span><br><span class="line">import org.apache.hadoop.hive.ql.exec.UDF;</span><br><span class="line"></span><br><span class="line">import java.util.Random;</span><br><span class="line"></span><br><span class="line">//input abc   输出：<span class="number">0</span>到<span class="number">10</span>的数字_abc</span><br><span class="line"><span class="title">public</span> class connectUDF extends <span class="type">UDF</span> &#123;</span><br><span class="line">    public <span class="type">String</span> evaluate(<span class="type">String</span> input)&#123;</span><br><span class="line">        Random random = new Random();</span><br><span class="line">        int num = random.nextInt(10);</span><br><span class="line"></span><br><span class="line">        return num+"_"+input;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>2)创建第二个类，名字为splitUDF.java</p>
@@ -454,9 +454,9 @@
 <p>USING JAR;<font color="red" size="4">  ‘hdfs://hadoop001:8020/date/g6-hadoop-1.0.jar’</font></p>
 <p>红色部分改成自己的</p>
 <p>函数验证：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>从元数据中查看函数：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -476,7 +476,7 @@
   <p><span>本文标题:</span><a href="/2019/04/18/Hive UDF函数编写流程详解/">Hive UDF函数编写流程详解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月18日 - 20:05</p>
-  <p><span>最后更新:</span>2019年04月18日 - 21:51</p>
+  <p><span>最后更新:</span>2019年04月18日 - 21:53</p>
   <p><span>原始链接:</span><a href="/2019/04/18/Hive UDF函数编写流程详解/" title="Hive UDF函数编写流程详解">http://yoursite.com/2019/04/18/Hive UDF函数编写流程详解/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/18/Hive UDF函数编写流程详解/" aria-label="复制成功！"></i></span>
   </p>
