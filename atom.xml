@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-18T14:11:20.264Z</updated>
+  <updated>2019-04-18T23:12:47.460Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/04/18/Hive%20UDF%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2019/04/18/Hive UDF函数编写流程详解/</id>
     <published>2019-04-18T12:05:37.708Z</published>
-    <updated>2019-04-18T14:11:20.264Z</updated>
+    <updated>2019-04-18T23:12:47.460Z</updated>
     
     <summary type="html">
     
@@ -295,9 +295,9 @@
     
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -363,11 +363,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -411,11 +411,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
