@@ -408,7 +408,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -430,7 +430,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -1024,7 +1024,24 @@
 <script type="text/javascript" src="/js/src/love.js"></script>
 </html>
 
-   })
+ articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
             };
             if (keywords.length === 1 && keywords[0] === "") {
               resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
