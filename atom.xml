@@ -44,7 +44,7 @@
     <link href="http://yoursite.com/2019/04/18/%E8%87%AA%E5%AE%9A%E4%B9%89UDF%E7%BC%96%E8%AF%91%E5%88%B0Hive%E6%BA%90%E7%A0%81%E4%B8%AD/"/>
     <id>http://yoursite.com/2019/04/18/自定义UDF编译到Hive源码中/</id>
     <published>2019-04-18T10:50:47.546Z</published>
-    <updated>2019-04-18T11:48:37.040Z</updated>
+    <updated>2019-04-18T14:21:04.701Z</updated>
     
     <summary type="html">
     
@@ -295,9 +295,9 @@
     
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
   </entry>
   
@@ -363,11 +363,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -411,11 +411,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
