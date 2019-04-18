@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-17T04:11:06.866Z</updated>
+  <updated>2019-04-18T05:46:13.726Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/04/18/hue-3.9-cdh-5.7.0%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2019/04/18/hue-3.9-cdh-5.7.0安装/</id>
+    <published>2019-04-18T04:30:04.462Z</published>
+    <updated>2019-04-18T05:46:13.726Z</updated>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;title: hue-3.9-cdh-5.7.0安装&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;date: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;categories:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tags:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - 大数据开发&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - hue&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;copyright: true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;编译HUE&quot;&gt;&lt;a href=&quot;#编译HUE&quot; class=&quot;headerlink&quot; title=&quot;编译HUE&quot;&gt;&lt;/a&gt;编译HUE&lt;/h3&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>hadoop之使用LZO压缩并支持分片</title>
@@ -204,11 +221,11 @@
     </summary>
     
     
+      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
   </entry>
   
@@ -272,13 +289,13 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
   </entry>
   
@@ -296,9 +313,9 @@
     </summary>
     
     
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
       <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
@@ -320,13 +337,13 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
   </entry>
   
@@ -423,26 +440,6 @@
     
       &lt;p&gt;1.小知识点：&lt;/p&gt;
 &lt;p&gt;①&lt;br&gt;　　&lt;font color=&quot;red&quot; size=&quot;3&quot;&gt;Ｈive数据一共分为两部分，一种是以数据形式存储在hdfs上，另一种是以元数据的形式存储在数据库上或者是关系型数据库上（元数据相关的配置在hive-size.xml中）&lt;/font&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="Hive" scheme="http://yoursite.com/tags/Hive/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hive的部署</title>
-    <link href="http://yoursite.com/2019/04/07/Hive%E7%9A%84%E9%83%A8%E7%BD%B2/"/>
-    <id>http://yoursite.com/2019/04/07/Hive的部署/</id>
-    <published>2019-04-07T04:03:02.578Z</published>
-    <updated>2019-04-07T11:32:18.554Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;1.hive（数据仓库:data warehouse）&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
