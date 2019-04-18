@@ -351,7 +351,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/18/Hive UDF函数编写流程详解/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/04/18/Hive UDF函数编写流程详解/" itemprop="url">Hive UDF函数编写流程详解</a></h1>
         
 
         <div class="post-meta">
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  519
+                  498
                 </span>
               
 
@@ -435,33 +435,15 @@
 
       
         
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: Hive UDF函数编写流程详解</span><br><span class="line">date: </span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">   - 大数据开发</span><br><span class="line">   - Hive</span><br><span class="line">   - UDF</span><br><span class="line">copyright: true</span><br></pre></td></tr></table></figure>
-<h3 id="参考官网："><a href="#参考官网：" class="headerlink" title="参考官网："></a>参考官网：</h3><p><a href="https://cwiki.apache.org/confluence/display/Hive/HivePlugins" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/HivePlugins</a>     添加hive UDF函数<br><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF</a>   可查看hive内置函数</p>
-<h3 id="1-UDF分类："><a href="#1-UDF分类：" class="headerlink" title="1.UDF分类："></a>1.UDF分类：</h3><p>（什么是UDF：User-Defined Function）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UDF: one-to-one row mapping : upper substr</span><br><span class="line">UDAF: Aggregation   Many-to-one row mapping   sum/min</span><br><span class="line">UDTF: Table-generating  one-to-many    lateral view explode()</span><br></pre></td></tr></table></figure>
-<h3 id="2-UDF编写步骤："><a href="#2-UDF编写步骤：" class="headerlink" title="2.UDF编写步骤："></a>2.UDF编写步骤：</h3><p>2.1使用idea创建maven工程，在pom下添加以下依赖：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="3-编写-Hive-UDF函数："><a href="#3-编写-Hive-UDF函数：" class="headerlink" title="3.编写 Hive UDF函数："></a>3.编写 Hive UDF函数：</h3><p>1）新建一个类，名字为connectUDF.java</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">继承<span class="type">UDF</span>类，并重写evaluate方法</span><br><span class="line"></span><br><span class="line">package com.ruozedata.hadoop.UDF;</span><br><span class="line">import org.apache.hadoop.hive.ql.exec.UDF;</span><br><span class="line"></span><br><span class="line">import java.util.Random;</span><br><span class="line"></span><br><span class="line">//input abc   输出：<span class="number">0</span>到<span class="number">10</span>的数字_abc</span><br><span class="line"><span class="title">public</span> class connectUDF extends <span class="type">UDF</span> &#123;</span><br><span class="line">    public <span class="type">String</span> evaluate(<span class="type">String</span> input)&#123;</span><br><span class="line">        Random random = new Random();</span><br><span class="line">        int num = random.nextInt(10);</span><br><span class="line"></span><br><span class="line">        return num+"_"+input;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>2)创建第二个类，名字为splitUDF.java</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">继承<span class="type">UDF</span>类，并重写evaluate方法</span><br><span class="line"></span><br><span class="line">package com.ruozedata.hadoop.UDF;</span><br><span class="line"></span><br><span class="line">import org.apache.hadoop.hive.ql.exec.UDF;</span><br><span class="line"></span><br><span class="line">//input  <span class="number">1</span>_a   输出：a</span><br><span class="line"><span class="title">public</span> class splitUDF extends <span class="type">UDF</span> &#123;</span><br><span class="line">    //input:<span class="number">1</span>_abc</span><br><span class="line">    public <span class="type">String</span> evaluate(<span class="type">String</span> input) &#123;</span><br><span class="line">        return  input.split("_")[1];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-打包编译生成jar包，注册UDF函数"><a href="#4-打包编译生成jar包，注册UDF函数" class="headerlink" title="4.打包编译生成jar包，注册UDF函数"></a>4.打包编译生成jar包，注册UDF函数</h3><p>生成jar包：g6-hadoop-1.0.jar</p>
-<p>1）临时生效，即只在当前窗口生效</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">首先要先添加 jar，否则会找不到jar包</span><br><span class="line"></span><br><span class="line"><span class="title">hive</span> (d6_hive)&gt; add jar /home/hadoop/lib/g6-hadoop<span class="number">-1.0</span>.jar；</span><br><span class="line">              </span><br><span class="line"><span class="type">Added</span> [/home/hadoop/lib/g6-hadoop<span class="number">-1.0</span>.jar] to class path</span><br><span class="line"><span class="type">Added</span> resources: [/home/hadoop/lib/g6-hadoop<span class="number">-1.0</span>.jar]</span><br><span class="line"></span><br><span class="line">查看jar包</span><br><span class="line"><span class="title">hive</span> (d6_hive)&gt; list jar；</span><br><span class="line">/home/hadoop/lib/g6-hadoop<span class="number">-1.0</span>.jar</span><br><span class="line"></span><br><span class="line">创建临时函数</span><br><span class="line">hive (d6_hive)&gt; create temporary function connectUDF as 'com.ruozedata.hadoop.UDF.connectUDF';</span><br><span class="line"><span class="type">OK</span></span><br><span class="line"><span class="type">Time</span> taken: <span class="number">0.039</span> seconds</span><br><span class="line"></span><br><span class="line">查看函数：发现有connectUDF函数</span><br><span class="line">hive (d6_hive)&gt; show functions;</span><br><span class="line"></span><br><span class="line">执行函数命令：</span><br><span class="line">hive (d6_hive)&gt; select cdn,connectudf("ruoze") from g6_access limit 10; </span><br><span class="line"><span class="type">OK</span></span><br><span class="line"><span class="title">cdn</span>	_c1</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br><span class="line"><span class="title">baidu</span>	<span class="number">1</span>_ruoze</span><br></pre></td></tr></table></figure>
-<p>2）永久有效，可以在多hive shell回话窗口使用udf函数</p>
-<p>把jar包上传到hdfs，路径如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop001 hadoop-2.6.0-cdh5.7.0]$ hadoop fs -put /home/hadoop/lib/g6-hadoop-1.0.jar /date/</span><br></pre></td></tr></table></figure>
-<p>执行命令：</p>
-<p>hive (d6_hive)&gt; CREATE FUNCTION<font color="red" size="4"> splitUDF</font> AS<font color="red" size="4">  ‘com.ruozedata.hadoop.UDF.splitUDF’</font> </p>
-<p>USING JAR;<font color="red" size="4">  ‘hdfs://hadoop001:8020/date/g6-hadoop-1.0.jar’</font></p>
-<p>红色部分改成自己的</p>
-<p>函数验证：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>从元数据中查看函数：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-          
+          <h3 id="参考官网："><a href="#参考官网：" class="headerlink" title="参考官网："></a>参考官网：</h3><p><a href="https://cwiki.apache.org/confluence/display/Hive/HivePlugins" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/HivePlugins</a>     添加hive UDF函数<br><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF</a>   可查看hive内置函数</p>
+<h3 id="1-UDF分类："><a href="#1-UDF分类：" class="headerlink" title="1.UDF分类："></a>1.UDF分类：</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/18/Hive UDF函数编写流程详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

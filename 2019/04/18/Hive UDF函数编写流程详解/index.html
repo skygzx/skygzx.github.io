@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="大数据开发,Hive,UDF,">
 
 
 
@@ -105,17 +105,18 @@
 
 
 
-<meta name="description" content="12345678title: Hive UDF函数编写流程详解date: categories:tags:   - 大数据开发   - Hive   - UDFcopyright: true 参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.o">
+<meta name="description" content="参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF   可查看hive内置函数 1.UDF分类：">
+<meta name="keywords" content="大数据开发,Hive,UDF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="skygzx">
+<meta property="og:title" content="Hive UDF函数编写流程详解">
 <meta property="og:url" content="http://yoursite.com/2019/04/18/Hive UDF函数编写流程详解/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="12345678title: Hive UDF函数编写流程详解date: categories:tags:   - 大数据开发   - Hive   - UDFcopyright: true 参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.o">
+<meta property="og:description" content="参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF   可查看hive内置函数 1.UDF分类：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-18T13:43:38.755Z">
+<meta property="og:updated_time" content="2019-04-18T13:49:22.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="skygzx">
-<meta name="twitter:description" content="12345678title: Hive UDF函数编写流程详解date: categories:tags:   - 大数据开发   - Hive   - UDFcopyright: true 参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.o">
+<meta name="twitter:title" content="Hive UDF函数编写流程详解">
+<meta name="twitter:description" content="参考官网：https://cwiki.apache.org/confluence/display/Hive/HivePlugins     添加hive UDF函数https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF   可查看hive内置函数 1.UDF分类：">
 
 
 
@@ -151,7 +152,7 @@
 
 
 
-  <title> | skygzx</title>
+  <title>Hive UDF函数编写流程详解 | skygzx</title>
   
 
 
@@ -349,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Hive UDF函数编写流程详解</h1>
         
 
         <div class="post-meta">
@@ -395,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  519
+                  498
                 </span>
               
 
@@ -432,9 +433,9 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: Hive UDF函数编写流程详解</span><br><span class="line">date: </span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">   - 大数据开发</span><br><span class="line">   - Hive</span><br><span class="line">   - UDF</span><br><span class="line">copyright: true</span><br></pre></td></tr></table></figure>
-<h3 id="参考官网："><a href="#参考官网：" class="headerlink" title="参考官网："></a>参考官网：</h3><p><a href="https://cwiki.apache.org/confluence/display/Hive/HivePlugins" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/HivePlugins</a>     添加hive UDF函数<br><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF</a>   可查看hive内置函数</p>
-<h3 id="1-UDF分类："><a href="#1-UDF分类：" class="headerlink" title="1.UDF分类："></a>1.UDF分类：</h3><p>（什么是UDF：User-Defined Function）</p>
+        <h3 id="参考官网："><a href="#参考官网：" class="headerlink" title="参考官网："></a>参考官网：</h3><p><a href="https://cwiki.apache.org/confluence/display/Hive/HivePlugins" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/HivePlugins</a>     添加hive UDF函数<br><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF</a>   可查看hive内置函数</p>
+<h3 id="1-UDF分类："><a href="#1-UDF分类：" class="headerlink" title="1.UDF分类："></a>1.UDF分类：</h3><a id="more"></a>
+<p>（什么是UDF：User-Defined Function）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UDF: one-to-one row mapping : upper substr</span><br><span class="line">UDAF: Aggregation   Many-to-one row mapping   sum/min</span><br><span class="line">UDTF: Table-generating  one-to-many    lateral view explode()</span><br></pre></td></tr></table></figure>
 <h3 id="2-UDF编写步骤："><a href="#2-UDF编写步骤：" class="headerlink" title="2.UDF编写步骤："></a>2.UDF编写步骤：</h3><p>2.1使用idea创建maven工程，在pom下添加以下依赖：</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -466,6 +467,35 @@
 	<div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/04/18/Hive UDF函数编写流程详解/">Hive UDF函数编写流程详解</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
+  <p><span>发布时间:</span>2019年04月18日 - 20:05</p>
+  <p><span>最后更新:</span>2019年04月18日 - 21:49</p>
+  <p><span>原始链接:</span><a href="/2019/04/18/Hive UDF函数编写流程详解/" title="Hive UDF函数编写流程详解">http://yoursite.com/2019/04/18/Hive UDF函数编写流程详解/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/18/Hive UDF函数编写流程详解/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
       
 	</div>
 
@@ -487,6 +517,16 @@
    </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
+          
+            <a href="/tags/Hive/" rel="tag"><i class="fa fa-tag"></i> Hive</a>
+          
+            <a href="/tags/UDF/" rel="tag"><i class="fa fa-tag"></i> UDF</a>
+          
+        </div>
       
 
       

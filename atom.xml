@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-18T13:43:38.755Z</updated>
+  <updated>2019-04-18T13:49:22.755Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,24 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Hive UDF函数编写流程详解</title>
     <link href="http://yoursite.com/2019/04/18/Hive%20UDF%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2019/04/18/Hive UDF函数编写流程详解/</id>
     <published>2019-04-18T12:05:37.708Z</published>
-    <updated>2019-04-18T13:43:38.755Z</updated>
+    <updated>2019-04-18T13:49:22.755Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span
-        
-      
+      &lt;h3 id=&quot;参考官网：&quot;&gt;&lt;a href=&quot;#参考官网：&quot; class=&quot;headerlink&quot; title=&quot;参考官网：&quot;&gt;&lt;/a&gt;参考官网：&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://cwiki.apache.org/confluence/display/Hive/HivePlugins&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://cwiki.apache.org/confluence/display/Hive/HivePlugins&lt;/a&gt;     添加hive UDF函数&lt;br&gt;&lt;a href=&quot;https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF&lt;/a&gt;   可查看hive内置函数&lt;/p&gt;
+&lt;h3 id=&quot;1-UDF分类：&quot;&gt;&lt;a href=&quot;#1-UDF分类：&quot; class=&quot;headerlink&quot; title=&quot;1.UDF分类：&quot;&gt;&lt;/a&gt;1.UDF分类：&lt;/h3&gt;
     
     </summary>
     
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hive" scheme="http://yoursite.com/tags/Hive/"/>
+    
+      <category term="UDF" scheme="http://yoursite.com/tags/UDF/"/>
     
   </entry>
   
