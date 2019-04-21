@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-21T03:50:48.414Z</updated>
+  <updated>2019-04-21T05:49:43.753Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hive的元数据表结构详解</title>
+    <link href="http://yoursite.com/2019/04/21/Hive%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2019/04/21/Hive的元数据表结构详解/</id>
+    <published>2019-04-21T04:24:14.656Z</published>
+    <updated>2019-04-21T05:49:43.753Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;查看信息&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="hive" scheme="http://yoursite.com/tags/hive/"/>
+    
+      <category term="窗口函数" scheme="http://yoursite.com/tags/%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>hive中的窗口函数详解</title>
@@ -434,26 +456,6 @@
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>YARN资源调优怎么调，依据是什么</title>
-    <link href="http://yoursite.com/2019/04/07/yarn%E8%B5%84%E6%BA%90%E8%B0%83%E4%BC%98%E6%80%8E%E4%B9%88%E8%B0%83%EF%BC%8C%E4%BE%9D%E6%8D%AE%E6%98%AF%E4%BB%80%E4%B9%88/"/>
-    <id>http://yoursite.com/2019/04/07/yarn资源调优怎么调，依据是什么/</id>
-    <published>2019-04-07T04:13:56.026Z</published>
-    <updated>2019-04-07T04:33:20.408Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;1.yarn的资源调优怎么调，依据是什么&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
