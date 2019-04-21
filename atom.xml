@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-21T03:43:06.896Z</updated>
+  <updated>2019-04-21T03:50:48.414Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/04/20/hive%E4%B8%AD%E7%9A%84%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2019/04/20/hive中的窗口函数详解/</id>
     <published>2019-04-20T04:20:13.451Z</published>
-    <updated>2019-04-21T03:43:06.896Z</updated>
+    <updated>2019-04-21T03:50:48.414Z</updated>
     
     <summary type="html">
     
@@ -315,9 +315,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
@@ -383,11 +383,11 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
@@ -431,11 +431,11 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
       <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
     
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
