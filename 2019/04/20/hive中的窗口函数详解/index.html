@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="大数据,HDFS,架构设计,">
+  <meta name="keywords" content="大数据开发,hive,窗口函数,">
 
 
 
@@ -105,21 +105,18 @@
 
 
 
-<meta name="description" content="1.块 block">
-<meta name="keywords" content="大数据,HDFS,架构设计">
+<meta name="description" content="概念：">
+<meta name="keywords" content="大数据开发,hive,窗口函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDFS架构设计">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/HDFS架构设计/index.html">
+<meta property="og:title" content="hive中的窗口函数详解">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/hive中的窗口函数详解/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.块 block">
+<meta property="og:description" content="概念：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/Ahkk0s.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhknpT.png">
-<meta property="og:updated_time" content="2019-04-07T07:31:36.045Z">
+<meta property="og:updated_time" content="2019-04-21T03:17:27.809Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDFS架构设计">
-<meta name="twitter:description" content="1.块 block">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/Ahkk0s.png">
+<meta name="twitter:title" content="hive中的窗口函数详解">
+<meta name="twitter:description" content="概念：">
 
 
 
@@ -149,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/07/HDFS架构设计/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/20/hive中的窗口函数详解/">
 
 
 
 
 
-  <title>HDFS架构设计 | skygzx</title>
+  <title>hive中的窗口函数详解 | skygzx</title>
   
 
 
@@ -336,7 +333,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/HDFS架构设计/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/20/hive中的窗口函数详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -353,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HDFS架构设计</h1>
+          <h1 class="post-title" itemprop="name headline">hive中的窗口函数详解</h1>
         
 
         <div class="post-meta">
@@ -365,8 +362,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T09:39:14+08:00">
-                2019-04-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T12:20:13+08:00">
+                2019-04-20
               </time>
             
 
@@ -399,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  809
+                  716
                 </span>
               
 
@@ -415,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -436,20 +433,93 @@
       
 
       
-        <p><strong>1.块 block</strong></p>
-<a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	 &lt;property&gt;</span><br><span class="line">	         &lt;name&gt;dfs.blocksize&lt;/name&gt;</span><br><span class="line">	         &lt;value&gt;134217728&lt;/value&gt;</span><br><span class="line">	 &lt;/property&gt;</span><br><span class="line">	 &lt;property&gt;</span><br><span class="line">	         &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">	         &lt;value&gt;3&lt;/value&gt;</span><br><span class="line">	 &lt;/property&gt;</span><br><span class="line">	 块的大小为128M</span><br><span class="line">	 副本数为3</span><br><span class="line">	 比如一个文件260M</span><br><span class="line">	实际存储          规格</span><br><span class="line">块A: 128M      128M  A0 A1 A2</span><br><span class="line">块B: 128M      128M  B0 B1 B2</span><br><span class="line">块C: 4M	       128M  C0 C1 C2</span><br><span class="line">	 面试题：一个文件160m,块大小128m，副本数2。请问实际几个块，实际物理存储多少？</span><br><span class="line">	 答：一共两个块，但是副本是2，那么2*2就是4个块，实际物理存储就是160M*2=320M</span><br></pre></td></tr></table></figure>
-<h2 id="gt-2-HDFS架构设计（重要）："><a href="#gt-2-HDFS架构设计（重要）：" class="headerlink" title="&gt; 2.HDFS架构设计（重要）："></a><strong>&gt; 2.HDFS架构设计</strong>（重要）：</h2><p><img src="https://s2.ax1x.com/2019/04/07/Ahkk0s.png" alt="在这里插入图片描述">进程：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">namenode 也叫nn					名称节点</span><br><span class="line">datanode 也叫dn					数据节点</span><br><span class="line">ssecondary namenode 也叫snn		第二名称节点</span><br></pre></td></tr></table></figure>
-<p>主从架构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Rack :  机架 可以放多个主机 10个， GPU主机 5个，放多少是根据机柜的电流来计算的，</span><br><span class="line">		 总的电流量除以单个主机的电流量 然后初步估算。</span><br></pre></td></tr></table></figure>
-<p><strong>nn：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">	 nn是文件系统的命名空间</span><br><span class="line">	 a.文件名称</span><br><span class="line">	 b.文件目录结构</span><br><span class="line">	 c.文件属性 创建时间 权限 副本数</span><br><span class="line">	 d.文件对应哪些数据块</span><br><span class="line">	 ---&gt;数据块对应在哪些datanode节点上</span><br><span class="line">	 nn维护的blockmap：</span><br><span class="line">	 nn节点不会持久存储这种映射关系，dn定期发送blockreport 给nn，以此nn在【内存】</span><br><span class="line">	 中动态维护这种映射关系！</span><br><span class="line"></span><br><span class="line">	 (生产上 hdfs不适合存储小文件？为什么不合适？如果真的有小文件，该怎么办？该怎么合并)</span><br><span class="line">	 假设 nn 内存空间8G</span><br><span class="line">	 如果全是小文件，那么内存很容易被撑爆了</span><br><span class="line">	 1个小文件：nn节点需要250字节，一亿：1亿*250个字节。</span><br><span class="line">	 </span><br><span class="line">	 假如真的有小文件，那么我们就将小文件合并成一个大文件</span><br><span class="line">	 100个小文件合并成一个大文件：nn节点可能只需要300字节，一亿/100*300字节</span><br><span class="line">	 建议：合并为一个文件尽量小于块的大小 120M&lt;=128m</span><br><span class="line">	 </span><br><span class="line">	 持久化数据</span><br><span class="line">	 作用：</span><br><span class="line">	 管理文件系统的命名空间</span><br><span class="line">	 维护文件系统树，以两种文件永久保存在磁盘上</span><br><span class="line">	 一种是 命名空间镜像文件： fsimage</span><br><span class="line">	 另一种是 编辑日志： editlog</span><br><span class="line">[root@hadoop001 current]# pwd</span><br><span class="line">/tmp/hadoop-root/dfs/name/current</span><br><span class="line">[root@hadoop001 current]# ll</span><br><span class="line">total 1040</span><br><span class="line">-rw-r--r--. 1 root root 1048576 Feb 17 20:23 edits_inprogress_0000000000000000001</span><br><span class="line">-rw-r--r--. 1 root root     321 Feb 17 19:23 fsimage_0000000000000000000</span><br><span class="line">-rw-r--r--. 1 root root      62 Feb 17 19:23 fsimage_0000000000000000000.md5</span><br><span class="line">-rw-r--r--. 1 root root       2 Feb 17 19:23 seen_txid</span><br><span class="line">-rw-r--r--. 1 root root     219 Feb 17 19:23 VERSION</span><br><span class="line">[root@hadoop001 current]#</span><br></pre></td></tr></table></figure>
-<p><strong>dn：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">存储数据块 和数据块的校验和</span><br><span class="line">与nn通信：</span><br><span class="line">a.每隔3秒发送一次心跳  在datanode上可以看到上一次的通信时间，每3秒刷新一次</span><br><span class="line">b.每10次心跳发送一次当前节点的blockreport</span><br><span class="line">作用：读写文件的数据块</span><br></pre></td></tr></table></figure>
-<p><strong>snn：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 存储：fsiamage+editlog</span><br><span class="line"> 作用：定期合并fsimage+editlog文件为新的fsimage文件，推送给nn节点，简称为检查点checkpoint</span><br><span class="line"> 参数：dfs.namenode.checkpoint.period  3600s </span><br><span class="line"> 由于snn只能备份一小时之前的数据，这一小时的数据不会被备份，所以在生产上一般还会采用其他</span><br><span class="line">方式进行热备份</span><br></pre></td></tr></table></figure>
-<p><img src="https://s2.ax1x.com/2019/04/07/AhknpT.png" alt="在这里插入图片描述"></p>
+        <h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="窗口函数与分析函数"><a href="#窗口函数与分析函数" class="headerlink" title="窗口函数与分析函数"></a>窗口函数与分析函数</h3><p><strong>应用场景：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.用于分区排序</span><br><span class="line">2.动态GROUP BY</span><br><span class="line">3.TOP N</span><br><span class="line">4.累计计算</span><br><span class="line">5.层次查询</span><br></pre></td></tr></table></figure>
+<p><strong>窗口函数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>返回类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>row_number()</code></td>
+<td><code>bigint</code></td>
+<td>在其分区中的当前行号，从1计</td>
+</tr>
+<tr>
+<td><code>rank()</code></td>
+<td><code>bigint</code></td>
+<td>有间隔的当前行排名；与它的第一个相同行的<code>row_number</code>相同</td>
+</tr>
+<tr>
+<td><code>dense_rank()</code></td>
+<td><code>bigint</code></td>
+<td>没有间隔的当前行排名；这个函数计数对等组。</td>
+</tr>
+<tr>
+<td><code>percent_rank()</code></td>
+<td><code>double precision</code></td>
+<td>当前行的相对排名: (<code>rank</code> - 1) / (总行数 - 1)</td>
+</tr>
+<tr>
+<td><code>cume_dist()</code></td>
+<td><code>double precision</code></td>
+<td>当前行的相对排名：(前面的行数或与当前行相同的行数)/(总行数)</td>
+</tr>
+<tr>
+<td><code>ntile(*num_buckets* integer)</code></td>
+<td><code>integer</code></td>
+<td>从1到参数值的整数范围，尽可能相等的划分分区。</td>
+</tr>
+<tr>
+<td><code>lag(*value* any              [, *offset* integer              [, *default* any ]])</code></td>
+<td><code>类型同 *value*</code></td>
+<td>计算分区当前行的前<code>*offset*</code>    行，返回<code>*value*</code> 。如果没有这样的行，    返回<code>*default*</code>替代。    <code>*offset*</code>和<code>*default*</code>    都是当前行计算的结果。如果忽略了，则<code>*offset*</code>    默认是1，<code>*default*</code>默认是 null。</td>
+</tr>
+<tr>
+<td><code>lead(value* any               [, *offset* integer               [, *default* any ]])</code></td>
+<td><code>类型同*value*</code></td>
+<td>计算分区当前行的后<code>*offset*</code>行，    返回<code>*value*</code>。如果没有这样的行，    返回<code>*default*</code>替代。   <code>*offset*</code>和<code>*default*</code>   都是当前行计算的结果。如果忽略了，则<code>*offset*</code>   默认是1，<code>*default*</code>默认是 null。</td>
+</tr>
+<tr>
+<td><code>first_value(*value* any)</code></td>
+<td><code>类型同*value*</code></td>
+<td>返回窗口第一行的计算<code>*value*</code>值。</td>
+</tr>
+<tr>
+<td><code>last_value(*value* any)</code></td>
+<td><code>类型同*value*</code></td>
+<td>返回窗口最后一行的计算<code>*value*</code>值。</td>
+</tr>
+<tr>
+<td><code>nth_value(*value* any, *nth* integer)</code></td>
+<td><code>类型同*value*</code></td>
+<td>返回窗口第<code>*nth*</code>行的计算   <code>*value*</code>值（行从1计数）；没有这样的行则返回 null。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>partition by子句</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Over子句之后第一个提到的就是Partition By.Partition By子句也可以称为查询分区子句，非常类似于Group By，都是将数据按照边界值分组，而Over之前的函数在每一个分组之内进行，如果超出了分组，则函数会重新计算。</span><br></pre></td></tr></table></figure>
+<p><strong>order by子句</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上述的场景,假如我们想要将cost按照月进行累加.这时我们引入order by子句.</span><br><span class="line"></span><br><span class="line">order by子句会让输入的数据强制排序（文章前面提到过，窗口函数是SQL语句最后执行的函数，因此可以把SQL结果集想象成输入数据）。Order By子句对于诸如Row_Number()，Lead()，LAG()等函数是必须的，因为如果数据无序，这些函数的结果就没有任何意义。因此如果有了Order By子句，则Count()，Min()等计算出来的结果就没有任何意义。</span><br></pre></td></tr></table></figure>
+<p><strong>子查询语句：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h3><p><strong>先准备 一张表：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>用窗口函数进行累加查询：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>查询结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>详细解释：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>先通过 partition by 分区，然后 通过 order by 选择需要按指定字段排序累加的 字段。</strong></p>
+<p><strong>order by 后跟的 字段 表示 ：你要按这个字段进行累加。</strong> </p>
 
       
     </div>
@@ -466,12 +536,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/04/07/HDFS架构设计/">HDFS架构设计</a></p>
+  <p><span>本文标题:</span><a href="/2019/04/20/hive中的窗口函数详解/">hive中的窗口函数详解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
-  <p><span>发布时间:</span>2019年04月07日 - 09:39</p>
-  <p><span>最后更新:</span>2019年04月07日 - 15:31</p>
-  <p><span>原始链接:</span><a href="/2019/04/07/HDFS架构设计/" title="HDFS架构设计">http://yoursite.com/2019/04/07/HDFS架构设计/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/HDFS架构设计/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年04月20日 - 12:20</p>
+  <p><span>最后更新:</span>2019年04月21日 - 11:17</p>
+  <p><span>原始链接:</span><a href="/2019/04/20/hive中的窗口函数详解/" title="hive中的窗口函数详解">http://yoursite.com/2019/04/20/hive中的窗口函数详解/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/20/hive中的窗口函数详解/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -513,11 +583,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/大数据/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
           
-            <a href="/tags/HDFS/" rel="tag"><i class="fa fa-tag"></i> HDFS</a>
+            <a href="/tags/hive/" rel="tag"><i class="fa fa-tag"></i> hive</a>
           
-            <a href="/tags/架构设计/" rel="tag"><i class="fa fa-tag"></i> 架构设计</a>
+            <a href="/tags/窗口函数/" rel="tag"><i class="fa fa-tag"></i> 窗口函数</a>
           
         </div>
       
@@ -530,8 +600,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/07/window系统的hosts配置，主机名代替ip访问web界面/" rel="next" title="window系统的hosts配置，主机名代替ip访问web界面">
-                <i class="fa fa-chevron-left"></i> window系统的hosts配置，主机名代替ip访问web界面
+              <a href="/2019/04/18/Hive UDF函数编写流程详解/" rel="next" title="Hive UDF函数编写流程详解">
+                <i class="fa fa-chevron-left"></i> Hive UDF函数编写流程详解
               </a>
             
           </div>
@@ -539,10 +609,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/07/Hadoop Web界面解读/" rel="prev" title="Hadoop Web界面解读">
-                Hadoop Web界面解读 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -714,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gt-2-HDFS架构设计（重要）："><span class="nav-number">1.</span> <span class="nav-text">&gt; 2.HDFS架构设计（重要）：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口函数与分析函数"><span class="nav-number">2.</span> <span class="nav-text">窗口函数与分析函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例："><span class="nav-number">3.</span> <span class="nav-text">实例：</span></a></li></ol></div>
             
 
           </div>

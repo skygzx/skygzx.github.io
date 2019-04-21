@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-18T23:12:47.460Z</updated>
+  <updated>2019-04-21T03:17:27.809Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hive中的窗口函数详解</title>
+    <link href="http://yoursite.com/2019/04/20/hive%E4%B8%AD%E7%9A%84%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2019/04/20/hive中的窗口函数详解/</id>
+    <published>2019-04-20T04:20:13.451Z</published>
+    <updated>2019-04-21T03:17:27.809Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;概念：&quot;&gt;&lt;a href=&quot;#概念：&quot; class=&quot;headerlink&quot; title=&quot;概念：&quot;&gt;&lt;/a&gt;概念：&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="hive" scheme="http://yoursite.com/tags/hive/"/>
+    
+      <category term="窗口函数" scheme="http://yoursite.com/tags/%E7%AA%97%E5%8F%A3%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Hive UDF函数编写流程详解</title>
@@ -90,7 +112,7 @@
     <link href="http://yoursite.com/2019/04/18/hue-3.9-cdh-5.7.0%E5%AE%89%E8%A3%85/"/>
     <id>http://yoursite.com/2019/04/18/hue-3.9-cdh-5.7.0安装/</id>
     <published>2019-04-18T04:30:04.462Z</published>
-    <updated>2019-04-18T05:56:23.045Z</updated>
+    <updated>2019-04-19T08:30:04.047Z</updated>
     
     <summary type="html">
     
@@ -293,11 +315,11 @@
     </summary>
     
     
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
   </entry>
   
@@ -361,13 +383,13 @@
     </summary>
     
     
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
-      <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
+      <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
     
   </entry>
   
@@ -409,13 +431,13 @@
     </summary>
     
     
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
+      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
+    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
   </entry>
   
@@ -436,26 +458,6 @@
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hive 之实战统计地区产品点击TOPN</title>
-    <link href="http://yoursite.com/2019/04/07/Hive%20%E4%B9%8B%E5%AE%9E%E6%88%98%E7%BB%9F%E8%AE%A1%E5%9C%B0%E5%8C%BA%E4%BA%A7%E5%93%81%E7%82%B9%E5%87%BBTOPN/"/>
-    <id>http://yoursite.com/2019/04/07/Hive 之实战统计地区产品点击TOPN/</id>
-    <published>2019-04-07T04:11:36.592Z</published>
-    <updated>2019-04-09T02:58:55.653Z</updated>
-    
-    <summary type="html">
-    
-      &lt;font color=&quot;red&quot; size=&quot;3&quot;&gt;需求：统计各个城市所属区域下最受欢迎的Top 3产品&lt;/font&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-      <category term="Hive" scheme="http://yoursite.com/tags/Hive/"/>
     
   </entry>
   
