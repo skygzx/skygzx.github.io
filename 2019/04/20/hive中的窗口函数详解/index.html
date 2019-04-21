@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="概念：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-21T03:39:25.326Z">
+<meta property="og:updated_time" content="2019-04-21T03:43:06.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hive中的窗口函数详解">
 <meta name="twitter:description" content="概念：">
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  1.4k
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -434,7 +434,7 @@
 
       
         <h3 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h3><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们都知道在sql中有一类函数叫做聚合函数,例如sum()、avg()、max()等等,这类函数可以将多行数据按照规则聚集为一行,一般来讲聚集后的行数是要少于聚集前的行数的.但是有时我们想要既显示聚集前的数据,又要显示聚集后的数据,这时我们便引入了窗口函数。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">我们都知道在sql中有一类函数叫做聚合函数,例如sum()、avg()、max()等等,</span><br><span class="line">这类函数可以将多行数据按照规则聚集为一行,一般来讲聚集后的行数是要少于聚</span><br><span class="line">集前的行数的。但是有时我们想要既显示聚集前的数据,又要显示聚集后的数据,</span><br><span class="line">这时我们便引入了窗口函数。</span><br></pre></td></tr></table></figure>
 <h3 id="窗口函数与分析函数"><a href="#窗口函数与分析函数" class="headerlink" title="窗口函数与分析函数"></a>窗口函数与分析函数</h3><p><strong>应用场景：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.用于分区排序</span><br><span class="line">2.动态GROUP BY</span><br><span class="line">3.TOP N</span><br><span class="line">4.累计计算</span><br><span class="line">5.层次查询</span><br></pre></td></tr></table></figure>
 <p><strong>窗口函数：</strong></p>
@@ -505,19 +505,19 @@
 </tbody>
 </table>
 <p><strong>partition by子句</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Over子句之后第一个提到的就是Partition By，Partition By子句也可以称为查询分区子句，非常类似于Group By，都是将数据按照边界值分组，而Over之前的函数在每一个分组之内进行，如果超出了分组，则函数会重新计算。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Over子句之后第一个提到的就是Partition By，Partition By子句也可以</span><br><span class="line">称为查询分区子句，非常类似于Group By，都是将数据按照边界值分组，而Over</span><br><span class="line">之前的函数在每一个分组之内进行，如果超出了分组，则函数会重新计算。</span><br></pre></td></tr></table></figure>
 <p><strong>order by子句</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上述的场景,假如我们想要将cost按照月进行累加。这时我们引入order by子句。</span><br><span class="line"></span><br><span class="line">order by子句会让输入的数据强制排序（文章前面提到过，窗口函数是SQL语句最后执行的函数，因此可以把SQL结果集想象成输入数据）。Order By子句对于诸如Row_Number()，Lead()，LAG()等函数是必须的，因为如果数据无序，这些函数的结果就没有任何意义。因此如果有了Order By子句，则Count()，Min()等计算出来的结果就没有任何意义。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">上述的场景,假如我们想要将cost按照月进行累加。这时我们引入order by子句。</span><br><span class="line"></span><br><span class="line">order by子句会让输入的数据强制排序（文章前面提到过，窗口函数是SQL语句最后执行的函数，</span><br><span class="line">因此可以把SQL结果集想象成输入数据）。Order By子句对于诸如Row_Number()，Lead()</span><br><span class="line">，LAG()等函数是必须的，因为如果数据无序，这些函数的结果就没有任何意义。</span><br><span class="line">因此如果有了Order By子句，则Count()，Min()等计算出来的结果就没有任何意义。</span><br></pre></td></tr></table></figure>
 <p><strong>子查询语句：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">window子句</span><br><span class="line"></span><br><span class="line">我们在上面已经通过使用partition by子句将数据进行了分组的处理.如果我们想要更细粒度的划分，我们就要引入window子句了。</span><br><span class="line"></span><br><span class="line">我们首先要理解两个概念:</span><br><span class="line">- 如果只使用partition by子句,未指定order by的话,我们的聚合是分组内的聚合。</span><br><span class="line">- 使用了order by子句,未使用window子句的情况下,默认从起点到当前行。</span><br><span class="line"></span><br><span class="line">当同一个select查询中存在多个窗口函数时,他们相互之间是没有影响的.每个窗口函数应用自己的规则.</span><br><span class="line"></span><br><span class="line">window子句：</span><br><span class="line">- PRECEDING：往前</span><br><span class="line">- FOLLOWING：往后</span><br><span class="line">- CURRENT ROW：当前行</span><br><span class="line">- UNBOUNDED：起点，UNBOUNDED PRECEDING 表示从前面的起点， UNBOUNDED FOLLOWING：表示到后面的终点</span><br></pre></td></tr></table></figure>
 <h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h3><p><strong>先准备 一张表：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">hive (d6_hive)&gt; select * from full</span><br><span class="line">OK</span><br><span class="line">full.user	full.month	full.count</span><br><span class="line">A	2018-01	5</span><br><span class="line">B	2018-01	18</span><br><span class="line">C	2018-02	10</span><br><span class="line">A	2018-04	21</span><br><span class="line">B	2018-03	25</span><br><span class="line">C	2018-04	3</span><br><span class="line">A	2018-02	33</span><br><span class="line">B	2018-02	15</span><br><span class="line">C	2018-03	25</span><br><span class="line">A	2018-05	18</span><br><span class="line">A	2018-03	2</span><br><span class="line">C	2018-01	10</span><br><span class="line">C	2018-05	28</span><br></pre></td></tr></table></figure>
 <p><strong>用窗口函数进行累加查询：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hive (d6_hive)&gt; select </span><br><span class="line">              &gt;   user,month,count, </span><br><span class="line">              &gt;    sum(count) over (partition by user order by month rows between unbounded preceding and current row) as pv1, </span><br><span class="line">              &gt;    sum(count) over (partition by user order by month) as pv2, </span><br><span class="line">              &gt;    sum(count) over (partition by user) as pv3, </span><br><span class="line">              &gt;    sum(count) over (partition by user order by month rows between 3 preceding and current row) as pv4, </span><br><span class="line">              &gt;    sum(count) over (partition by user order by month rows between 3 preceding and 1 following) as pv5, </span><br><span class="line">              &gt;    sum(count) over (partition by user order by month rows between current row and unbounded following) as pv6 </span><br><span class="line">              &gt; from full</span><br></pre></td></tr></table></figure>
 <p>查询结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">user	month	count	pv1	pv2	pv3	pv4	pv5	pv6</span><br><span class="line">A	2018-02		33		38	38	79	38	40	74</span><br><span class="line">A	2018-01		5		5	5	79	5	38	79</span><br><span class="line">A	2018-03		2		40	40	79	40	61	41</span><br><span class="line">A	2018-04		21		61	61	79	61	79	39</span><br><span class="line">A	2018-05		18		79	79	79	74	74	18</span><br><span class="line">B	2018-02		15		33	33	58	33	58	40</span><br><span class="line">B	2018-03		25		58	58	58	58	58	25</span><br><span class="line">B	2018-01		18		18	18	58	18	33	58</span><br><span class="line">C	2018-01		10		10	10	76	10	20	76</span><br><span class="line">C	2018-02		10		20	20	76	20	45	66</span><br><span class="line">C	2018-03		25		45	45	76	45	48	56</span><br><span class="line">C	2018-04		3		48	48	76	48	76	31</span><br><span class="line">C	2018-05		28		76	76	76	66	66	28</span><br></pre></td></tr></table></figure>
 <p><strong>详细解释：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pv1: 分组内从起点到当前行的pv累积，如：A组2月的pv1=1月的pv+2月的pv, 3月=1月+2月+3月</span><br><span class="line">pv2: 同pv1</span><br><span class="line">pv3: 分组内(count)所有的pv累加</span><br><span class="line">pv4: 分组内当前行+往前3行，如：2月=1月+2月， 3月=1月+2月+3月， 4月=1月+2月+3月+4月 </span><br><span class="line">pv5: 分组内当前行+往前3行+往后1行，如：4月=1月+2月+3月+4月+5月</span><br><span class="line">pv6: 分组内当前行+往后所有行，如：3月=3月+4月+5月</span><br></pre></td></tr></table></figure>
 <p><strong>先通过 partition by 分区，然后 通过 order by 选择需要按指定字段排序累加的 字段。</strong></p>
 <p><strong>order by 后跟的 字段 表示 ：你要按这个字段进行累加。</strong> </p>
 
@@ -539,7 +539,7 @@
   <p><span>本文标题:</span><a href="/2019/04/20/hive中的窗口函数详解/">hive中的窗口函数详解</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月20日 - 12:20</p>
-  <p><span>最后更新:</span>2019年04月21日 - 11:39</p>
+  <p><span>最后更新:</span>2019年04月21日 - 11:43</p>
   <p><span>原始链接:</span><a href="/2019/04/20/hive中的窗口函数详解/" title="hive中的窗口函数详解">http://yoursite.com/2019/04/20/hive中的窗口函数详解/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/20/hive中的窗口函数详解/" aria-label="复制成功！"></i></span>
   </p>
