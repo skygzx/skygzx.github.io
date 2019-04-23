@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-21T06:07:51.878Z</updated>
+  <updated>2019-04-23T11:00:19.373Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scala（1）</title>
+    <link href="http://yoursite.com/2019/04/23/scala(1)/"/>
+    <id>http://yoursite.com/2019/04/23/scala(1)/</id>
+    <published>2019-04-23T02:04:23.154Z</published>
+    <updated>2019-04-23T11:00:19.373Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1定义名称：&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="scala" scheme="http://yoursite.com/tags/scala/"/>
+    
+  </entry>
   
   <entry>
     <title>Hive的元数据表结构详解</title>
@@ -337,11 +364,11 @@
     </summary>
     
     
+      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
+    
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
   </entry>
   
@@ -405,13 +432,13 @@
     </summary>
     
     
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    
+      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -436,30 +463,6 @@
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 HDFS和Yarn HA 的了解</title>
-    <link href="http://yoursite.com/2019/04/07/%E5%85%B3%E4%BA%8E%20HDFS%E5%92%8CYarn%20HA%20%E7%9A%84%E4%BA%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/</id>
-    <published>2019-04-07T04:15:44.273Z</published>
-    <updated>2019-04-07T11:46:39.294Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;1.企业中为什么要用集群：&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="HDFS" scheme="http://yoursite.com/tags/HDFS/"/>
-    
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
   </entry>
   

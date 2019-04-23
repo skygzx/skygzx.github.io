@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="大数据开发,block块,">
+  <meta name="keywords" content="大数据开发,scala,">
 
 
 
@@ -105,18 +105,20 @@
 
 
 
-<meta name="description" content="首先通过 hadf fsck 命令帮助">
-<meta name="keywords" content="大数据开发,block块">
+<meta name="description" content="1定义名称： 12345678scala中只有两种方式定义名称：val，var （1） val name:String=&quot;武松&quot;    val修饰的是值，不可改变，String 类型可省略 （2） var money:Int=10000    var修饰的是变量，可重新赋值，Int类型可省略          money=100  //给money重新赋值 2.数据类型转换： 12 3.函数,方法">
+<meta name="keywords" content="大数据开发,scala">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何确定block损坏的位置和修复">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/如何确定block损坏的位置和修复/index.html">
+<meta property="og:title" content="scala（1）">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/scala(1)/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="首先通过 hadf fsck 命令帮助">
+<meta property="og:description" content="1定义名称： 12345678scala中只有两种方式定义名称：val，var （1） val name:String=&quot;武松&quot;    val修饰的是值，不可改变，String 类型可省略 （2） var money:Int=10000    var修饰的是变量，可重新赋值，Int类型可省略          money=100  //给money重新赋值 2.数据类型转换： 12 3.函数,方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-10T02:31:46.881Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/04/23/EAc7Ie.png">
+<meta property="og:updated_time" content="2019-04-23T11:00:19.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何确定block损坏的位置和修复">
-<meta name="twitter:description" content="首先通过 hadf fsck 命令帮助">
+<meta name="twitter:title" content="scala（1）">
+<meta name="twitter:description" content="1定义名称： 12345678scala中只有两种方式定义名称：val，var （1） val name:String=&quot;武松&quot;    val修饰的是值，不可改变，String 类型可省略 （2） var money:Int=10000    var修饰的是变量，可重新赋值，Int类型可省略          money=100  //给money重新赋值 2.数据类型转换： 12 3.函数,方法">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/23/EAc7Ie.png">
 
 
 
@@ -146,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/10/如何确定block损坏的位置和修复/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/23/scala(1)/">
 
 
 
 
 
-  <title>如何确定block损坏的位置和修复 | skygzx</title>
+  <title>scala（1） | skygzx</title>
   
 
 
@@ -333,7 +335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/如何确定block损坏的位置和修复/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/scala(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -350,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如何确定block损坏的位置和修复</h1>
+          <h1 class="post-title" itemprop="name headline">scala（1）</h1>
         
 
         <div class="post-meta">
@@ -362,8 +364,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T10:21:08+08:00">
-                2019-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T10:04:23+08:00">
+                2019-04-23
               </time>
             
 
@@ -396,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  849
                 </span>
               
 
@@ -412,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  4
                 </span>
               
             </div>
@@ -433,39 +435,31 @@
       
 
       
-        <p><strong>首先通过 hadf fsck 命令帮助</strong></p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop ~]$ hdfs fsck</span><br><span class="line"></span><br><span class="line">Usage: hdfs fsck &lt;path&gt; [-list-corruptfileblocks | [-move | -delete | -openforwrite] [-files [-blocks [-locations | -racks | -replicaDetails | -upgradedomains]]]] [-includeSnapshots] [-storagepolicies] [-blockId &lt;blk_Id&gt;]</span><br><span class="line">	&lt;path&gt;	start checking from this path</span><br><span class="line">	-move	move corrupted files to /lost+found</span><br><span class="line">	-delete	delete corrupted files</span><br><span class="line">	-files	print out files being checked</span><br><span class="line">	-openforwrite	print out files opened for write</span><br><span class="line">	-includeSnapshots	include snapshot data if the given path indicates a snapshottable directory or there are snapshottable directories under it</span><br><span class="line">	-list-corruptfileblocks	print out list of missing blocks and files they belong to</span><br><span class="line">	-files -blocks	print out block report</span><br><span class="line">	-files -blocks -locations	print out locations for every block</span><br><span class="line">	-files -blocks -racks	print out network topology for data-node locations</span><br><span class="line">	-files -blocks -replicaDetails	print out each replica details </span><br><span class="line">	-files -blocks -upgradedomains	print out upgrade domains for every block</span><br><span class="line">	-storagepolicies	print out storage policy summary for the blocks</span><br><span class="line">	-blockId	print out which file this blockId belongs to, locations (nodes, racks) of this block, and other diagnostics info (under replicated, corrupted or not, etc)</span><br><span class="line"></span><br><span class="line">Please Note:</span><br><span class="line">	1. By default fsck ignores files opened for write, use -openforwrite to report such files. They are usually  tagged CORRUPT or HEALTHY depending on their block allocation status</span><br><span class="line">	2. Option -includeSnapshots should not be used for comparing stats, should be used only for HEALTH check, as this may contain duplicates if the same file present in both original fs tree and inside snapshots.</span><br><span class="line"></span><br><span class="line">Generic options supported are</span><br><span class="line">-conf &lt;configuration file&gt;     specify an application configuration file</span><br><span class="line">-D &lt;property=value&gt;            use value for given property</span><br><span class="line">-fs &lt;file:///|hdfs://namenode:port&gt; specify default filesystem URL to use, overrides &apos;fs.defaultFS&apos; property from configurations.</span><br><span class="line">-jt &lt;local|resourcemanager:port&gt;    specify a ResourceManager</span><br><span class="line">-files &lt;comma separated list of files&gt;    specify comma separated files to be copied to the map reduce cluster</span><br><span class="line">-libjars &lt;comma separated list of jars&gt;    specify comma separated jar files to include in the classpath.</span><br><span class="line">-archives &lt;comma separated list of archives&gt;    specify comma separated archives to be unarchived on the compute machines.</span><br><span class="line"></span><br><span class="line">The general command line syntax is</span><br><span class="line">command [genericOptions] [commandOptions]</span><br></pre></td></tr></table></figure>
-<p><strong>1.现象:</strong></p>
-<p>断电 导致HDFS服务不正常或者显示块损坏</p>
-<p><strong>2.检查HDFS系统文件健康</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs fsck /</span><br></pre></td></tr></table></figure>
-<p>3.检查hdfs fsck -list-corruptfileblocks</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Connecting to namenode via http://hadoop36:50070/fsck?ugi=hdfs&amp;listcorruptfileblocks=1&amp;path=%2F</span><br><span class="line">The list of corrupt files under path &apos;/&apos; are:</span><br><span class="line">blk_1075229920  /hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd</span><br><span class="line">blk_1075229921  /hbase/data/JYDW/WMS_PO_ITEMS/c96cb6bfef12795181c966a8fc4ef91d/0/cf44ae0411824708bf6a894554e19780</span><br><span class="line">The filesystem under path &apos;/&apos; has 2 CORRUPT files</span><br></pre></td></tr></table></figure>
-<p><strong>4.分析</strong></p>
-<p> MySQL–》大数据平台<br>​    只需要从MySQL这个表的数据重新刷新一份到HDFS平台</p>
-<p><strong>5.想要知道文件的哪些块分布在哪些机器上面？手工删除linux文件/dfs/dn/…..</strong></p>
-<p>hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;</p>
-<p>-files       文件分块信息，<br>-blocks      在带-files参数后才显示block信息<br>-locations   在带-blocks参数后才显示block块所在datanode的具体IP位置，<br>-racks       在带-files参数后显示机架位置</p>
-<p><strong>无法显示,无法手工删除块文件:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">hdfs fsck /hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd -files  -locations -blocks  -racks</span><br><span class="line">Connecting to namenode via http://hadoop36:50070/fsck?ugi=hdfs&amp;locations=1&amp;blocks=1&amp;files=1&amp;path=%2Fhbase%2Fdata%2FJYDW%2FWMS_PO_ITEMS%2Fc71f5f49535e0728ca72fd1ad0166597%2F0%2Ff4d3d97bb3f64820b24cd9b4a1af5cdd</span><br><span class="line">FSCK started by hdfs (auth:SIMPLE) from /192.168.1.100 for path /hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd at Sat Jan 20 15:46:55 CST 2018</span><br><span class="line">/hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd 2934 bytes, 1 block(s): </span><br><span class="line">/hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd: CORRUPT blockpool BP-1437036909-192.168.1.100-1509097205664 block blk_1075229920</span><br><span class="line"> MISSING 1 blocks of total size 2934 B</span><br><span class="line"></span><br><span class="line">1. BP-1437036909-192.168.1.100-1509097205664:blk_1075229920_1492007 len=2934 MISSING!</span><br><span class="line"></span><br><span class="line">Status: CORRUPT</span><br><span class="line"> Total size:    2934 B</span><br><span class="line"> Total dirs:    0</span><br><span class="line"> Total files:   1</span><br><span class="line"> Total symlinks:                0</span><br><span class="line"> Total blocks (validated):      1 (avg. block size 2934 B)</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">  UNDER MIN REPL&apos;D BLOCKS:      1 (100.0 %)</span><br><span class="line">  dfs.namenode.replication.min: 1</span><br><span class="line">  CORRUPT FILES:        1</span><br><span class="line">  MISSING BLOCKS:       1</span><br><span class="line">  MISSING SIZE:         2934 B</span><br><span class="line">  CORRUPT BLOCKS:       1</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"> Minimally replicated blocks:   0 (0.0 %)</span><br><span class="line"> Over-replicated blocks:        0 (0.0 %)</span><br><span class="line"> Under-replicated blocks:       0 (0.0 %)</span><br><span class="line"> Mis-replicated blocks:         0 (0.0 %)</span><br><span class="line"> Default replication factor:    3</span><br><span class="line"> Average block replication:     0.0</span><br><span class="line"> Corrupt blocks:                1</span><br><span class="line"> Missing replicas:              0</span><br><span class="line"> Number of data-nodes:          12</span><br><span class="line"> Number of racks:               1</span><br><span class="line">FSCK ended at Sat Jan 20 15:46:55 CST 2018 in 0 milliseconds</span><br><span class="line"></span><br><span class="line">The filesystem under path &apos;/hbase/data/JYDW/WMS_PO_ITEMS/c71f5f49535e0728ca72fd1ad0166597/0/f4d3d97bb3f64820b24cd9b4a1af5cdd&apos; is CORRUPT</span><br><span class="line">hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;</span><br></pre></td></tr></table></figure>
-<p>好的文件是显示块分布情况的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;hdfs fsck /hbase/data/JYDW/WMS_TO/011dea9ae46dae6c1f1f3a24a75af100/0/1d60f56773984e4cac614a8b5f7e93a6 -files  -locations -blocks  -racks</span><br><span class="line">Connecting to namenode via http://hadoop36:50070/fsck?ugi=hdfs&amp;files=1&amp;locations=1&amp;blocks=1&amp;racks=1&amp;path=%2Fhbase%2Fdata%2FJYDW%2FWMS_TO%2F011dea9ae46dae6c1f1f3a24a75af100%2F0%2F1d60f56773984e4cac614a8b5f7e93a6</span><br><span class="line">FSCK started by hdfs (auth:SIMPLE) from /192.168.1.100 for path /hbase/data/JYDW/WMS_TO/011dea9ae46dae6c1f1f3a24a75af100/0/1d60f56773984e4cac614a8b5f7e93a6 at Sat Jan 20 15:58:25 CST 2018</span><br><span class="line">/hbase/data/JYDW/WMS_TO/011dea9ae46dae6c1f1f3a24a75af100/0/1d60f56773984e4cac614a8b5f7e93a6 1697 bytes, 1 block(s):  OK</span><br><span class="line"></span><br><span class="line">1. BP-1437036909-192.168.1.100-1509097205664:blk_1075227504_1489591 len=1697 Live_repl=3 [/default/192.168.1.150:50010, /default/192.168.1.153:50010, /default/192.168.1.145:50010]</span><br><span class="line"></span><br><span class="line">blk_1075227504_1489591 len=1697 Live_repl=3 </span><br><span class="line">[/default/192.168.1.150:50010, /default/192.168.1.153:50010, /default/192.168.1.145:50010]</span><br></pre></td></tr></table></figure>
-<p>最终选择一了百了，删除损坏的块文件，然后业务系统数据重刷<br>hadoop36:hdfs:/var/lib/hadoop-hdfs:&gt;hdfs fsck / -delete</p>
-<p><strong>7.假设数据仅有HDFS上</strong> 【文件只有hdfs上有；其他来源没有；这个时候如果有副本是完好的；有的副本是损坏的】<br>7.1 hdfs dfs -ls /xxxx<br>​    hdfs dfs -get /xxxx ./        下载好完好的副本到Linux环境<br>​    hdfs dfs -rm /xxx            删除已有的文件包括损坏的副本文件<br>​    hdfs dfs -put xxx /            上传完好的副本文件；此时hdfs就会自动完善3个副本。</p>
-<p><strong>注意：</strong></p>
-<p>log文件丢一丢丢 没有关系<br>文件是业务数据 订单数据 丢了，需要报告</p>
-<p><strong>手动修复损坏的块【hdfs debug】</strong></p>
-<font color="red" size="5">hdfs命令帮助是没有debug的，但是确实有hdfs debug这个组合命令，切记。</font>
-
-
-
-<font color="red" size="5">hdfs debug recoverLease -path hdfs文件位置 -retries 10</font>
-
-
-
-<p><strong>自动修复</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">当数据块损坏后，DN节点执⾏行行directoryscan操作之前，都不会发现损坏；</span><br><span class="line"> 也就是directoryscan操作是间隔6h</span><br><span class="line"> dfs.datanode.directoryscan.interval : 21600</span><br><span class="line"> 在DN向NN进行blockreport前，都不会恢复数据块;</span><br><span class="line"> 也就是blockreport操作是间隔6h</span><br><span class="line"> dfs.blockreport.intervalMsec : 21600000</span><br><span class="line"> 当NN收到blockreport才会进行恢复操作。</span><br><span class="line"></span><br><span class="line">注意：手动修复方式，但是前提要手动删除损坏的block块。</span><br><span class="line"> 切记，是删除损坏block文件和meta⽂文件，而不是删除hdfs文件。</span><br><span class="line"> 当然还可以先把文件get下载，然后hdfs删除，再对应上传。</span><br><span class="line"> 切记删除不要执行: hdfs fsck / -delete 这是删除损坏的文件， 那么数据不就丢了了嘛；除非无所谓丢数据，或者有信心从其他地方可以补数据到hdfs！</span><br></pre></td></tr></table></figure>
+        <p>1定义名称：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala中只有两种方式定义名称：val，<span class="keyword">var</span></span><br><span class="line"> （<span class="number">1</span>） val name:String=<span class="string">"武松"</span></span><br><span class="line">    val修饰的是值，不可改变，String 类型可省略</span><br><span class="line"></span><br><span class="line"> （<span class="number">2</span>） <span class="keyword">var</span> money:Int=<span class="number">10000</span></span><br><span class="line">    <span class="keyword">var</span>修饰的是变量，可重新赋值，Int类型可省略</span><br><span class="line">    </span><br><span class="line">      money=<span class="number">100</span>  <span class="comment">//给money重新赋值</span></span><br></pre></td></tr></table></figure>
+<p>2.数据类型转换：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>3.函数,方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Scala函数定义：</span><br><span class="line">	def max（x:<span class="keyword">int</span>,y:<span class="keyword">int</span>）:<span class="keyword">int</span>（这里的<span class="keyword">int</span>表示返回值类型，可省略）=&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&gt;y)&#123;</span><br><span class="line">        x （函数体最后一行表示返回值）</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        y （函数体最后一行表示返回值）</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>def:定义函数关键字</p>
+<p>max：函数的名称</p>
+<p>(x:int,y:int)：函数的入参（可能有，可能没有）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def sum(x:Int,y:Int): Unit =&#123;</span><br><span class="line">      printly（&quot;你好&quot;）</span><br><span class="line">    &#125;</span><br><span class="line">Unit表示没有返回值。</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.ax1x.com/2019/04/23/EAc7Ie.png" alt></p>
+<p>4.函数的调用</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">package</span> com.ruozedata.scala</span><br><span class="line"></span><br><span class="line"><span class="title">object</span> expertion &#123;</span><br><span class="line">  def main(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    sayHello()                   //调用方法 </span><br><span class="line">    另一种调用方法：sayHello       //不加括号，适合于没有入参的方法</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">(方法)</span><br><span class="line">  def sayHello(): <span class="type">Unit</span> =&#123;</span><br><span class="line">    print(<span class="string">"今天你好"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.循环表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>6.面向对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">object ClassDemo &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">     val people=new people			//引用people类，创建对象</span><br><span class="line">    people.name=&quot;二傻&quot;			   //给people中的name属性赋值</span><br><span class="line">     println(people.sleep())		//调用people中sleep方法，并打印返回值</span><br><span class="line">     people.py(&quot;小强&quot;)			  //调用 people中与py方法，并传入值。</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">类：</span><br><span class="line">class people&#123;</span><br><span class="line">  var name=&quot;&quot;      //属性</span><br><span class="line">  val city=&quot;&quot;</span><br><span class="line"></span><br><span class="line">   def sleep()=&#123;       //方法 带有返回值</span><br><span class="line">      name+&quot;ZZZZZ...&quot;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def py(pyname:String): Unit =&#123;              //方法  没有返回值</span><br><span class="line">    println(name+&quot;正在和&quot;+pyname+&quot;打游戏&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7.占位符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var name：String=_  (表示占位符)  注意：必须要加数据类型，否则不知道自己是什么数据类型</span><br></pre></td></tr></table></figure>
+<p>8.编写SparkConf</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruozedata.scala</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.&#123;ConcurrentHashMap, ConcurrentMap&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.javafx.tk.quantum.MasterTimer</span><br><span class="line"></span><br><span class="line">object SparkConfApp &#123;</span><br><span class="line">  <span class="function">def <span class="title">main</span><span class="params">(args: Array[String])</span>: Unit </span>= &#123;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">var</span> sparkConf=<span class="keyword">new</span> SparkConf</span><br><span class="line">    sparkConf.setappname(<span class="string">"SparkConfApp"</span>).setMaster(<span class="string">"yarn"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//也可以这么设置</span></span><br><span class="line">   <span class="comment">// sparkConf.set("spark.master","yarn")  //如果 方法加了 paivate 就调用不了了，只能内部类自己调用，</span></span><br><span class="line">    <span class="comment">// sparkConf.set("spark.app.name","SparkConfApp")</span></span><br><span class="line">    sparkConf.print()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SparkConf</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> master:String=_</span><br><span class="line">   <span class="keyword">var</span> appname:String=_</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//底层是Map</span></span><br><span class="line">  <span class="keyword">var</span> setting=<span class="keyword">new</span> ConcurrentHashMap[String,String]()</span><br><span class="line"></span><br><span class="line">  <span class="function">def <span class="title">setMaster</span><span class="params">(master:String)</span>:SparkConf </span>=&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// this.master=master</span></span><br><span class="line">    set(<span class="string">"spark.master"</span>,master)</span><br><span class="line">    <span class="keyword">this</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function">def <span class="title">setappname</span><span class="params">(name:String)</span>:SparkConf</span>=&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">//this.appname=name</span></span><br><span class="line">    set(<span class="string">"spark.app.name"</span>,name)</span><br><span class="line">    <span class="keyword">this</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>[<span class="keyword">this</span>]<span class="function">def <span class="title">set</span><span class="params">(key:String,value:String)</span>:SparkConf</span>=&#123;  <span class="comment">//private 表示私有的</span></span><br><span class="line">    setting.put(key,value)  <span class="comment">//将 key，value 传到 ConcurrentHashMap中</span></span><br><span class="line">    						<span class="comment">//每调用一次set方法，就会上传一次</span></span><br><span class="line">    <span class="keyword">this</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function">def <span class="title">print</span><span class="params">()</span>:Unit</span>=&#123;</span><br><span class="line">  </span><br><span class="line">    val appName=setting.get(<span class="string">"spark.app.name"</span>)</span><br><span class="line">    val master=setting.get(<span class="string">"spark.master"</span>)</span><br><span class="line">    println(appName+<span class="string">"======="</span>+master)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>9.构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">object gouzao &#123;</span><br><span class="line">  <span class="function">def <span class="title">main</span><span class="params">(args: Array[String])</span>: Unit </span>= &#123;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">var</span> person=<span class="keyword">new</span> Person(<span class="string">"小强"</span>,<span class="string">"北京"</span>)</span><br><span class="line">    println(person.name+<span class="string">"======"</span>+person.city)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 跟在class后面的是 主构造器（构造方法） </span></span><br><span class="line">  class Person(val name:String,val city:String)&#123;</span><br><span class="line">   </span><br><span class="line">    println(<span class="string">"Person 进来了"</span>)</span><br><span class="line"></span><br><span class="line">     println(<span class="string">"Person 出去了"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">Person 进来了</span><br><span class="line">Person 出去了</span><br><span class="line">小强======北京</span><br></pre></td></tr></table></figure>
+<p>10.附属构造器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruozedata.scala</span><br><span class="line"></span><br><span class="line">object gouzao &#123;</span><br><span class="line">  <span class="function">def <span class="title">main</span><span class="params">(args: Array[String])</span>: Unit </span>= &#123;</span><br><span class="line">      <span class="keyword">var</span> person=<span class="keyword">new</span> Person(<span class="string">"小强"</span>,<span class="string">"北京"</span>,<span class="number">18</span>)</span><br><span class="line">    println(person.name+<span class="string">"======"</span>+person.city+<span class="string">"======"</span>+person.age)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//跟在class后面的是 主构造器（构造方法）</span></span><br><span class="line">  class Person(val name:String,val city:String)&#123;</span><br><span class="line"></span><br><span class="line">    println(<span class="string">"Person 进来了"</span>)</span><br><span class="line">    <span class="keyword">var</span> age:Int=_</span><br><span class="line">  <span class="comment">//附属构造器，</span></span><br><span class="line">    <span class="function">def <span class="title">this</span><span class="params">(name:String,city:String,age:Int)</span></span>&#123;</span><br><span class="line">      <span class="comment">//第一行必须要调用著构造器或者其它附属构造器</span></span><br><span class="line">      <span class="keyword">this</span>(name,city)</span><br><span class="line">      <span class="keyword">this</span>.age=age</span><br><span class="line">    &#125;</span><br><span class="line">   println(<span class="string">"Person 出去了"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">Person 进来了</span><br><span class="line">Person 出去了</span><br><span class="line">小强======北京======<span class="number">18</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -482,12 +476,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/04/10/如何确定block损坏的位置和修复/">如何确定block损坏的位置和修复</a></p>
+  <p><span>本文标题:</span><a href="/2019/04/23/scala(1)/">scala（1）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
-  <p><span>发布时间:</span>2019年04月10日 - 10:21</p>
-  <p><span>最后更新:</span>2019年04月10日 - 10:31</p>
-  <p><span>原始链接:</span><a href="/2019/04/10/如何确定block损坏的位置和修复/" title="如何确定block损坏的位置和修复">http://yoursite.com/2019/04/10/如何确定block损坏的位置和修复/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/10/如何确定block损坏的位置和修复/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年04月23日 - 10:04</p>
+  <p><span>最后更新:</span>2019年04月23日 - 19:00</p>
+  <p><span>原始链接:</span><a href="/2019/04/23/scala(1)/" title="scala（1）">http://yoursite.com/2019/04/23/scala(1)/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/23/scala(1)/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -531,7 +525,7 @@
           
             <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
           
-            <a href="/tags/block块/" rel="tag"><i class="fa fa-tag"></i> block块</a>
+            <a href="/tags/scala/" rel="tag"><i class="fa fa-tag"></i> scala</a>
           
         </div>
       
@@ -544,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/08/number of splits 划分的条件/" rel="next" title="number of splits 划分的条件">
-                <i class="fa fa-chevron-left"></i> number of splits 划分的条件
+              <a href="/2019/04/21/Hive的元数据表结构详解/" rel="next" title="Hive的元数据表结构详解">
+                <i class="fa fa-chevron-left"></i> Hive的元数据表结构详解
               </a>
             
           </div>
@@ -553,10 +547,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/11/shell基础编程/" rel="prev" title="Shell基础编程">
-                Shell基础编程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
