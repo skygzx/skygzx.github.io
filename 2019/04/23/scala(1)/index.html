@@ -105,19 +105,19 @@
 
 
 
-<meta name="description" content="1定义名称： 12345678scala中只有两种方式定义名称：val，var （1） val name:String=&quot;武松&quot;    val修饰的是值，不可改变，String 类型可省略 （2） var money:Int=10000    var修饰的是变量，可重新赋值，Int类型可省略          money=100  //给money重新赋值 2.数据类型转换： 12 3.函数,方法">
+<meta name="description" content="1定义名称：">
 <meta name="keywords" content="大数据开发,scala">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scala（1）">
 <meta property="og:url" content="http://yoursite.com/2019/04/23/scala(1)/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1定义名称： 12345678scala中只有两种方式定义名称：val，var （1） val name:String=&quot;武松&quot;    val修饰的是值，不可改变，String 类型可省略 （2） var money:Int=10000    var修饰的是变量，可重新赋值，Int类型可省略          money=100  //给money重新赋值 2.数据类型转换： 12 3.函数,方法">
+<meta property="og:description" content="1定义名称：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/04/23/EAc7Ie.png">
-<meta property="og:updated_time" content="2019-04-23T11:00:19.373Z">
+<meta property="og:updated_time" content="2019-04-23T11:07:34.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scala（1）">
-<meta name="twitter:description" content="1定义名称： 12345678scala中只有两种方式定义名称：val，var （1） val name:String=&quot;武松&quot;    val修饰的是值，不可改变，String 类型可省略 （2） var money:Int=10000    var修饰的是变量，可重新赋值，Int类型可省略          money=100  //给money重新赋值 2.数据类型转换： 12 3.函数,方法">
+<meta name="twitter:description" content="1定义名称：">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/04/23/EAc7Ie.png">
 
 
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  849
+                  952
                 </span>
               
 
@@ -436,20 +436,21 @@
 
       
         <p>1定义名称：</p>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala中只有两种方式定义名称：val，<span class="keyword">var</span></span><br><span class="line"> （<span class="number">1</span>） val name:String=<span class="string">"武松"</span></span><br><span class="line">    val修饰的是值，不可改变，String 类型可省略</span><br><span class="line"></span><br><span class="line"> （<span class="number">2</span>） <span class="keyword">var</span> money:Int=<span class="number">10000</span></span><br><span class="line">    <span class="keyword">var</span>修饰的是变量，可重新赋值，Int类型可省略</span><br><span class="line">    </span><br><span class="line">      money=<span class="number">100</span>  <span class="comment">//给money重新赋值</span></span><br></pre></td></tr></table></figure>
 <p>2.数据类型转换：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">val a=<span class="number">10</span>.asInstanceOf[Double]  	将Int类型转换成Double类型</span><br><span class="line">	</span><br><span class="line">	println(a)</span><br><span class="line">   Double=<span class="number">10.0</span></span><br><span class="line"></span><br><span class="line">val b=<span class="number">10</span>.isInstanceOf[Double]  	判断 b是否是Double类型</span><br><span class="line"></span><br><span class="line">println(b)</span><br><span class="line">   Boolean=<span class="keyword">false</span></span><br></pre></td></tr></table></figure>
 <p>3.函数,方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Scala函数定义：</span><br><span class="line">	def max（x:<span class="keyword">int</span>,y:<span class="keyword">int</span>）:<span class="keyword">int</span>（这里的<span class="keyword">int</span>表示返回值类型，可省略）=&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&gt;y)&#123;</span><br><span class="line">        x （函数体最后一行表示返回值）</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        y （函数体最后一行表示返回值）</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <p>def:定义函数关键字</p>
 <p>max：函数的名称</p>
 <p>(x:int,y:int)：函数的入参（可能有，可能没有）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def sum(x:Int,y:Int): Unit =&#123;</span><br><span class="line">      printly（&quot;你好&quot;）</span><br><span class="line">    &#125;</span><br><span class="line">Unit表示没有返回值。</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">sum</span><span class="params">(x:Int,y:Int)</span>: Unit </span>=&#123;</span><br><span class="line">      printly（<span class="string">"你好"</span>）</span><br><span class="line">    &#125;</span><br><span class="line">Unit表示没有返回值。</span><br></pre></td></tr></table></figure>
 <p><img src="https://s2.ax1x.com/2019/04/23/EAc7Ie.png" alt></p>
 <p>4.函数的调用</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">package</span> com.ruozedata.scala</span><br><span class="line"></span><br><span class="line"><span class="title">object</span> expertion &#123;</span><br><span class="line">  def main(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    sayHello()                   //调用方法 </span><br><span class="line">    另一种调用方法：sayHello       //不加括号，适合于没有入参的方法</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">(方法)</span><br><span class="line">  def sayHello(): <span class="type">Unit</span> =&#123;</span><br><span class="line">    print(<span class="string">"今天你好"</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>5.循环表达式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> to <span class="number">10</span>==<span class="number">1</span>.to(<span class="number">10</span>)  	 	调用的是Range.Inclusive【<span class="number">1</span>，<span class="number">2</span>......<span class="number">10</span>】</span><br><span class="line"></span><br><span class="line">Range(<span class="number">1</span>,<span class="number">10</span>) 			从<span class="number">1</span>取到<span class="number">9</span>，【左闭又开）</span><br><span class="line">Range（<span class="number">1</span>，<span class="number">10</span>，<span class="number">2</span>）		  <span class="number">2</span>表示步长，一次长几个数</span><br><span class="line"></span><br><span class="line"><span class="number">1</span> until <span class="number">10</span> 和 Range是一样的</span><br><span class="line"></span><br><span class="line">列如：</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(i&lt;- <span class="number">1</span>.to(<span class="number">10</span>) <span class="keyword">if</span> i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">      print(i)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">结果：<span class="number">2</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p>6.面向对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">object ClassDemo &#123;</span><br><span class="line">  def main(args: Array[String]): Unit = &#123;</span><br><span class="line">     val people=new people			//引用people类，创建对象</span><br><span class="line">    people.name=&quot;二傻&quot;			   //给people中的name属性赋值</span><br><span class="line">     println(people.sleep())		//调用people中sleep方法，并打印返回值</span><br><span class="line">     people.py(&quot;小强&quot;)			  //调用 people中与py方法，并传入值。</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">类：</span><br><span class="line">class people&#123;</span><br><span class="line">  var name=&quot;&quot;      //属性</span><br><span class="line">  val city=&quot;&quot;</span><br><span class="line"></span><br><span class="line">   def sleep()=&#123;       //方法 带有返回值</span><br><span class="line">      name+&quot;ZZZZZ...&quot;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def py(pyname:String): Unit =&#123;              //方法  没有返回值</span><br><span class="line">    println(name+&quot;正在和&quot;+pyname+&quot;打游戏&quot;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>7.占位符</p>
@@ -479,7 +480,7 @@
   <p><span>本文标题:</span><a href="/2019/04/23/scala(1)/">scala（1）</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年04月23日 - 10:04</p>
-  <p><span>最后更新:</span>2019年04月23日 - 19:00</p>
+  <p><span>最后更新:</span>2019年04月23日 - 19:07</p>
   <p><span>原始链接:</span><a href="/2019/04/23/scala(1)/" title="scala（1）">http://yoursite.com/2019/04/23/scala(1)/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/23/scala(1)/" aria-label="复制成功！"></i></span>
   </p>
