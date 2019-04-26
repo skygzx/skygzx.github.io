@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-26T09:34:17.334Z</updated>
+  <updated>2019-04-26T09:44:54.423Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,19 +17,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>scala（2）</title>
     <link href="http://yoursite.com/2019/04/24/scala(2)/"/>
     <id>http://yoursite.com/2019/04/24/scala(2)/</id>
     <published>2019-04-23T23:53:03.980Z</published>
-    <updated>2019-04-26T09:34:17.334Z</updated>
+    <updated>2019-04-26T09:44:54.423Z</updated>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;title: scala（2）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;date: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;categories:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tags:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - 大数据开发&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   - scala&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;copyright: true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;1.父类和子类的继承关系&lt;/p&gt;
+      &lt;p&gt;1.父类和子类的继承关系&lt;/p&gt;
     
     </summary>
     
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="scala" scheme="http://yoursite.com/tags/scala/"/>
     
   </entry>
   
@@ -376,9 +379,9 @@
     
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
   </entry>
   
@@ -444,11 +447,11 @@
     
       <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
     
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
       <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
     
       <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
