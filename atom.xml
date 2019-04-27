@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-27T04:37:24.425Z</updated>
+  <updated>2019-04-27T06:21:50.934Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,21 +21,11 @@
     <link href="http://yoursite.com/2019/04/26/Scala(3)/"/>
     <id>http://yoursite.com/2019/04/26/Scala(3)/</id>
     <published>2019-04-26T11:45:19.744Z</published>
-    <updated>2019-04-27T04:37:24.425Z</updated>
+    <updated>2019-04-27T06:21:50.934Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;强调：&lt;/p&gt;
-&lt;p&gt;（1）子类继承父类，如果new一个子类，那么一定会先去调用父类的构造方法。&lt;/p&gt;
-&lt;p&gt;（2）private[this] 表示私有的，只能在自己的类里面使用，子类不能用&lt;/p&gt;
-&lt;p&gt;1.字符串插值&lt;/p&gt;
-&lt;figure
-        
-      
+      &lt;p&gt;强调：&lt;/p&gt;
     
     </summary>
     
