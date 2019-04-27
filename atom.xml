@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-26T10:04:09.906Z</updated>
+  <updated>2019-04-27T04:37:24.425Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scala（3）</title>
+    <link href="http://yoursite.com/2019/04/26/Scala(3)/"/>
+    <id>http://yoursite.com/2019/04/26/Scala(3)/</id>
+    <published>2019-04-26T11:45:19.744Z</published>
+    <updated>2019-04-27T04:37:24.425Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;强调：&lt;/p&gt;
+&lt;p&gt;（1）子类继承父类，如果new一个子类，那么一定会先去调用父类的构造方法。&lt;/p&gt;
+&lt;p&gt;（2）private[this] 表示私有的，只能在自己的类里面使用，子类不能用&lt;/p&gt;
+&lt;p&gt;1.字符串插值&lt;/p&gt;
+&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="scala" scheme="http://yoursite.com/tags/scala/"/>
+    
+  </entry>
   
   <entry>
     <title>scala（2）</title>
@@ -428,30 +458,6 @@
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="编译压缩" scheme="http://yoursite.com/tags/%E7%BC%96%E8%AF%91%E5%8E%8B%E7%BC%A9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>YARN HA架构图</title>
-    <link href="http://yoursite.com/2019/04/07/YARN%20HA%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
-    <id>http://yoursite.com/2019/04/07/YARN HA架构图/</id>
-    <published>2019-04-07T04:19:07.712Z</published>
-    <updated>2019-04-07T06:34:15.854Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;1.YARN架构图：&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="HA" scheme="http://yoursite.com/tags/HA/"/>
-    
-      <category term="架构图" scheme="http://yoursite.com/tags/%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
-    
-      <category term="YARN" scheme="http://yoursite.com/tags/YARN/"/>
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
