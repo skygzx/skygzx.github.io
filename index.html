@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  331
+                  332
                 </span>
               
 
@@ -435,23 +435,14 @@
 
       
         
-          
-            <p>1.什么是RDD</p>
-<p><strong>RDD（Resilient Distributed Dataset）</strong>叫做<strong>弹性分布式数据集</strong>，<strong>是Spark中最基本的数据抽象</strong>，</p>
-<p>​    一个RDD就是一个分布式对象集合，本质上是一个只读的分区记录集合，每个RDD可以分成多个分区，每个分区就是一个数据集片段，并且一个RDD的不同分区可以被保存到集群中不同的节点上，从而可以在集群中的不同节点上进行并行计算。</p>
-<p>​    它代表一个不可变，可分区，里面的元素可并行计算的集合，RDD具有数据流模型的特点：自动容错、位置感知性调度和可伸缩性。RDD允许用户在执行多个查询时显式地将工作集缓存在内存中，后续的查询能够重用工作集，这极大地提升了查询速度。</p>
-<p>2.RDD的五大特性：</p>
-<p>可查看源码：<a href="https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala" target="_blank" rel="noopener">https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*  - A list of partitions</span><br><span class="line">*  - A function <span class="keyword">for</span> computing each split</span><br><span class="line">*  - A list of dependencies on other RDDs</span><br><span class="line">*  - Optionally, a Partitioner <span class="keyword">for</span> key-<span class="function">value <span class="title">RDDs</span> <span class="params">(e.g. to say that the RDD is hash-partitioned)</span></span></span><br><span class="line"><span class="function">*  - Optionally, a list of preferred locations to compute each split <span class="title">on</span> <span class="params">(e.g. block locations <span class="keyword">for</span></span></span></span><br><span class="line"><span class="function"><span class="params">*    an HDFS file)</span></span></span><br></pre></td></tr></table></figure>
-<p><strong>五大特性在源码中的体现：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>RDD图形理解：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/05/01/EJESgK.png" alt></p>
-<p><strong>WordCount图解RDD：</strong></p>
-<p><img src="https://s2.ax1x.com/2019/05/01/EJEE4I.png" alt></p>
-<p><img src="https://s2.ax1x.com/2019/05/01/EJEiHH.png" alt></p>
-
-          
+          <h3 id="1-什么是RDD"><a href="#1-什么是RDD" class="headerlink" title="1.什么是RDD"></a>1.什么是RDD</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/01/RDD理解及五大特性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
