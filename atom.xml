@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-01T01:35:43.971Z</updated>
+  <updated>2019-05-01T01:37:54.011Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/05/01/RDD%E7%90%86%E8%A7%A3%E5%8F%8A%E4%BA%94%E5%A4%A7%E7%89%B9%E6%80%A7/"/>
     <id>http://yoursite.com/2019/05/01/RDD理解及五大特性/</id>
     <published>2019-05-01T00:33:26.274Z</published>
-    <updated>2019-05-01T01:35:43.971Z</updated>
+    <updated>2019-05-01T01:37:54.011Z</updated>
     
     <summary type="html">
     
@@ -283,9 +283,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="LZO压缩" scheme="http://yoursite.com/tags/LZO%E5%8E%8B%E7%BC%A9/"/>
     
@@ -353,9 +353,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="etl流程" scheme="http://yoursite.com/tags/etl%E6%B5%81%E7%A8%8B/"/>
     
