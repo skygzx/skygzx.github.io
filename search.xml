@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[RDD理解及五大特性]]></title>
+    <url>%2F2019%2F05%2F01%2FRDD%E7%90%86%E8%A7%A3%E5%8F%8A%E4%BA%94%E5%A4%A7%E7%89%B9%E6%80%A7%2F</url>
+    <content type="text"><![CDATA[1.什么是RDD RDD（Resilient Distributed Dataset）叫做弹性分布式数据集，是Spark中最基本的数据抽象， ​ 一个RDD就是一个分布式对象集合，本质上是一个只读的分区记录集合，每个RDD可以分成多个分区，每个分区就是一个数据集片段，并且一个RDD的不同分区可以被保存到集群中不同的节点上，从而可以在集群中的不同节点上进行并行计算。 ​ 它代表一个不可变，可分区，里面的元素可并行计算的集合，RDD具有数据流模型的特点：自动容错、位置感知性调度和可伸缩性。RDD允许用户在执行多个查询时显式地将工作集缓存在内存中，后续的查询能够重用工作集，这极大地提升了查询速度。 2.RDD的五大特性： 可查看源码：https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala 123456* - A list of partitions* - A function for computing each split* - A list of dependencies on other RDDs* - Optionally, a Partitioner for key-value RDDs (e.g. to say that the RDD is hash-partitioned)* - Optionally, a list of preferred locations to compute each split on (e.g. block locations for* an HDFS file) 五大特性在源码中的体现： 12 RDD图形理解： WordCount图解RDD：]]></content>
+      <tags>
+        <tag>大数据开发</tag>
+        <tag>RDD</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MapReduce生产上的缺点]]></title>
     <url>%2F2019%2F04%2F30%2FMapReduce%E7%9A%84%E7%BC%BA%E7%82%B9%2F</url>
     <content type="text"><![CDATA[Spark产生背景： 1.MapReduce的局限性： 1）繁杂 ​ map/reduce算子 （mapjoin没有ruduce） 2）效率低 ​ 进程级别：MapTask，ReduceTask ​ IO：（网络加磁盘）第一个作业的输出作为第二个作业的输入，这个中间阶段需要将作业存在一个地方 ​ 排序：面试题：MapReduce 中的key类型需要实现哪个接口：WritableComparable这个接口。 为了是这个框架能够提供排序的功能,key和value都要实现 Writable接口。 ​ Memory： 不适合迭代处理 不适合实时流式处理 2.如何学习Spark 1）首先看官网，**非常重要 2）其次看 github 3）看源码 3.Spark中bin和sbin的含义： bin：存放客户端的脚本 sbin：存放服务端相关的脚本，启停集群]]></content>

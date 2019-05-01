@@ -108,7 +108,7 @@
 <meta name="description" content="记录skygzx的学习历程">
 <meta property="og:type" content="website">
 <meta property="og:title" content="skygzx">
-<meta property="og:url" content="http://yoursite.com/tags/Hadoop/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/hadoop/index.html">
 <meta property="og:site_name" content="skygzx">
 <meta property="og:description" content="记录skygzx的学习历程">
 <meta property="og:locale" content="zh-Hans">
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Hadoop/">
+  <link rel="canonical" href="http://yoursite.com/tags/hadoop/">
 
 
 
 
 
-  <title>标签: Hadoop | skygzx</title>
+  <title>标签: hadoop | skygzx</title>
   
 
 
@@ -324,7 +324,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Hadoop<small>标签</small>
+        <h1>hadoop<small>标签</small>
         </h1>
       </div>
 
@@ -336,94 +336,16 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/04/17/hadoop之使用LZO压缩并支持分片/" itemprop="url">
+            <a class="post-title-link" href="/2019/04/07/2.Hadoop重新部署伪分布式hdfs/" itemprop="url">
               
-                <span itemprop="name">hadoop之使用LZO压缩并支持分片</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-17T09:24:55+08:00" content="2019-04-17">
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/14/Hadoop项目离线处理流程/" itemprop="url">
-              
-                <span itemprop="name">Hadoop 项目离线处理流程</span>
+                <span itemprop="name">2.hadoop伪分布式部署-hdfs进程启动的机器修改-yarn部署</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-14T09:53:41+08:00" content="2019-04-14">
-          04-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/08/Hadoop高级之HDFS && YARN HA部署/" itemprop="url">
-              
-                <span itemprop="name">Hadoop高级之HDFS && YARN HA部署</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-08T10:05:36+08:00" content="2019-04-08">
-          04-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/07/3.Hadoop伪分布式（MapReduce+YARN）/" itemprop="url">
-              
-                <span itemprop="name">Hadoop部署MapReduce+YARN</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-07T10:35:33+08:00" content="2019-04-07">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-07T09:07:24+08:00" content="2019-04-07">
           04-07
         </time>
       </div>
@@ -440,16 +362,16 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/04/07/Hadoop参数配置信息/" itemprop="url">
+            <a class="post-title-link" href="/2019/04/07/1.hadoop伪分布式部署-hdfs/" itemprop="url">
               
-                <span itemprop="name">Hadoop参数配置信息</span>
+                <span itemprop="name">1.hdfs为分布式部署</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-07T10:30:16+08:00" content="2019-04-07">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-07T09:02:21+08:00" content="2019-04-07">
           04-07
         </time>
       </div>
@@ -512,7 +434,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -534,7 +456,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -1046,6 +968,89 @@
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
                   return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
+
+ft.searchTextCount;
                 } else if (resultLeft.hitCount !== resultRight.hitCount) {
                   return resultRight.hitCount - resultLeft.hitCount;
                 } else {
