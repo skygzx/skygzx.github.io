@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-06T05:48:56.121Z</updated>
+  <updated>2019-05-06T05:55:10.158Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,29 +17,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>RDD基本操作</title>
     <link href="http://yoursite.com/2019/05/03/RDD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
     <id>http://yoursite.com/2019/05/03/RDD的基本操作/</id>
     <published>2019-05-03T03:50:26.463Z</published>
-    <updated>2019-05-06T05:48:56.121Z</updated>
+    <updated>2019-05-06T05:55:10.158Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;1.注意：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在spark中，计算时，有多少个partitions就有多少个&lt;strong&gt;task&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;2.SparkContext(Spark程序的入口)&lt;/p&gt;
-&lt;p&gt;运行s
-        
-      
+      &lt;p&gt;&lt;strong&gt;1.注意：&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="RDD" scheme="http://yoursite.com/tags/RDD/"/>
     
   </entry>
   
@@ -310,9 +303,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="LZO压缩" scheme="http://yoursite.com/tags/LZO%E5%8E%8B%E7%BC%A9/"/>
     
@@ -380,9 +373,9 @@
     </summary>
     
     
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
       <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
+    
+      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="etl流程" scheme="http://yoursite.com/tags/etl%E6%B5%81%E7%A8%8B/"/>
     

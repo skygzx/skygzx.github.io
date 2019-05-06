@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="大数据开发,RDD,">
 
 
 
@@ -105,17 +105,18 @@
 
 
 
-<meta name="description" content="1.注意： 在spark中，计算时，有多少个partitions就有多少个task 2.SparkContext(Spark程序的入口) 运行spark程序的第一步：SparkConf()——&amp;gt;SparkContext() SparkContext表示：如何连接一个集群，运行在哪种模式上 创建SparkConf对象，支持set链式编程，将SparkConf中包含的一些信息（Applica">
+<meta name="description" content="1.注意：">
+<meta name="keywords" content="大数据开发,RDD">
 <meta property="og:type" content="article">
-<meta property="og:title" content="skygzx">
+<meta property="og:title" content="RDD基本操作">
 <meta property="og:url" content="http://yoursite.com/2019/05/03/RDD的基本操作/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.注意： 在spark中，计算时，有多少个partitions就有多少个task 2.SparkContext(Spark程序的入口) 运行spark程序的第一步：SparkConf()——&amp;gt;SparkContext() SparkContext表示：如何连接一个集群，运行在哪种模式上 创建SparkConf对象，支持set链式编程，将SparkConf中包含的一些信息（Applica">
+<meta property="og:description" content="1.注意：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-06T05:48:56.121Z">
+<meta property="og:updated_time" content="2019-05-06T05:55:10.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="skygzx">
-<meta name="twitter:description" content="1.注意： 在spark中，计算时，有多少个partitions就有多少个task 2.SparkContext(Spark程序的入口) 运行spark程序的第一步：SparkConf()——&amp;gt;SparkContext() SparkContext表示：如何连接一个集群，运行在哪种模式上 创建SparkConf对象，支持set链式编程，将SparkConf中包含的一些信息（Applica">
+<meta name="twitter:title" content="RDD基本操作">
+<meta name="twitter:description" content="1.注意：">
 
 
 
@@ -151,7 +152,7 @@
 
 
 
-  <title> | skygzx</title>
+  <title>RDD基本操作 | skygzx</title>
   
 
 
@@ -349,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">RDD基本操作</h1>
         
 
         <div class="post-meta">
@@ -395,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  2.3k
                 </span>
               
 
@@ -411,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  12
                 </span>
               
             </div>
@@ -432,9 +433,8 @@
       
 
       
-        <hr>
-<hr>
-<p><strong>1.注意：</strong></p>
+        <p><strong>1.注意：</strong></p>
+<a id="more"></a>
 <p>在spark中，计算时，有多少个partitions就有多少个<strong>task</strong></p>
 <p>2.SparkContext(Spark程序的入口)</p>
 <p>运行spark程序的第一步：SparkConf()——&gt;SparkContext()</p>
@@ -449,7 +449,7 @@
 <p>1).把一个集合转换为RDD  测试的时候用</p>
 <p>2).使用外部存储系统的数据集(HDFS,HBase…) 生产的时候用</p>
 <p>方式一：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val data = Array(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">data: Array[Int] = Array(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组转换为RDD scala&gt; val distData = sc.parallelize(data) </span></span><br><span class="line">distData: org.apache.spark.rdd.RDD[Int] = ParallelCollectionRDD[<span class="number">0</span>] at parallelize at &lt;console&gt;:<span class="number">26</span></span><br><span class="line">    </span><br><span class="line">scala&gt; distData.collect()</span><br><span class="line">res0: Array[Int] = Array(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组里面的数两两相加</span></span><br><span class="line">scala&gt; distData.reduce((a, b) =&gt; a + b)</span><br><span class="line">res1: Int = <span class="number">15</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">// 一个task对应于一个partition，下面的命令会有5个task </span></span><br><span class="line">scala&gt; val distData = sc.parallelize(data,<span class="number">5</span>) </span><br><span class="line">distData: org.apache.spark.rdd.RDD[Int] = ParallelCollectionRDD[<span class="number">1</span>] at parallelize at &lt;console&gt;:<span class="number">26</span></span><br></pre></td></tr></table></figure>
 <p>方法2：</p>
 <p>外部数据集的方式创建RDD， 支持Hadoop,Hbase…支持 文本格式、sequenceFile</p>
 <p>textFile:</p>
@@ -508,6 +508,35 @@
 	<div>
       
         
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/05/03/RDD的基本操作/">RDD基本操作</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
+  <p><span>发布时间:</span>2019年05月03日 - 11:50</p>
+  <p><span>最后更新:</span>2019年05月06日 - 13:55</p>
+  <p><span>原始链接:</span><a href="/2019/05/03/RDD的基本操作/" title="RDD基本操作">http://yoursite.com/2019/05/03/RDD的基本操作/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/05/03/RDD的基本操作/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
       
 	</div>
 
@@ -529,6 +558,14 @@
    </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
+          
+            <a href="/tags/RDD/" rel="tag"><i class="fa fa-tag"></i> RDD</a>
+          
+        </div>
       
 
       
