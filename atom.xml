@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-05-06T05:55:10.158Z</updated>
+  <updated>2019-05-07T07:19:02.084Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spark运行架构</title>
+    <link href="http://yoursite.com/2019/05/07/Spark%E8%BF%90%E8%A1%8C%E6%9E%B6%E6%9E%84/"/>
+    <id>http://yoursite.com/2019/05/07/Spark运行架构/</id>
+    <published>2019-05-07T06:28:59.561Z</published>
+    <updated>2019-05-07T07:19:02.084Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.Spark架构：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Spark" scheme="http://yoursite.com/tags/Spark/"/>
+    
+      <category term="Spark架构" scheme="http://yoursite.com/tags/Spark%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SparkCore的Topn的代码书写案例</title>
+    <link href="http://yoursite.com/2019/05/07/Sparkcore%E7%9A%84Topn%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/"/>
+    <id>http://yoursite.com/2019/05/07/Sparkcore的Topn代码书写/</id>
+    <published>2019-05-07T02:16:50.981Z</published>
+    <updated>2019-05-07T04:02:04.721Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.需求：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="SparkCore" scheme="http://yoursite.com/tags/SparkCore/"/>
+    
+  </entry>
   
   <entry>
     <title>RDD基本操作</title>
@@ -303,9 +341,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="LZO压缩" scheme="http://yoursite.com/tags/LZO%E5%8E%8B%E7%BC%A9/"/>
     
@@ -373,9 +411,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="etl流程" scheme="http://yoursite.com/tags/etl%E6%B5%81%E7%A8%8B/"/>
     
@@ -398,46 +436,6 @@
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
     
       <category term="shell" scheme="http://yoursite.com/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Shell基础编程</title>
-    <link href="http://yoursite.com/2019/04/11/shell%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/04/11/shell基础编程/</id>
-    <published>2019-04-11T01:11:46.102Z</published>
-    <updated>2019-04-12T12:10:01.022Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-3种运行shell脚本的方式：&quot;&gt;&lt;a href=&quot;#1-3种运行shell脚本的方式：&quot; class=&quot;headerlink&quot; title=&quot;1. 3种运行shell脚本的方式：&quot;&gt;&lt;/a&gt;1. 3种运行shell脚本的方式：&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="Shell脚本" scheme="http://yoursite.com/tags/Shell%E8%84%9A%E6%9C%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何确定block损坏的位置和修复</title>
-    <link href="http://yoursite.com/2019/04/10/%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9Ablock%E6%8D%9F%E5%9D%8F%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%92%8C%E4%BF%AE%E5%A4%8D/"/>
-    <id>http://yoursite.com/2019/04/10/如何确定block损坏的位置和修复/</id>
-    <published>2019-04-10T02:21:08.153Z</published>
-    <updated>2019-04-10T02:31:46.881Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;首先通过 hadf fsck 命令帮助&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
-    
-      <category term="block块" scheme="http://yoursite.com/tags/block%E5%9D%97/"/>
     
   </entry>
   
