@@ -341,9 +341,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="LZO压缩" scheme="http://yoursite.com/tags/LZO%E5%8E%8B%E7%BC%A9/"/>
     
@@ -411,9 +411,9 @@
     </summary>
     
     
-      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
-    
       <category term="大数据开发" scheme="http://yoursite.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Hadoop" scheme="http://yoursite.com/tags/Hadoop/"/>
     
       <category term="etl流程" scheme="http://yoursite.com/tags/etl%E6%B5%81%E7%A8%8B/"/>
     
