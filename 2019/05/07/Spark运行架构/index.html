@@ -114,7 +114,7 @@
 <meta property="og:description" content="1.Spark架构：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/05/07/EsibKH.png">
-<meta property="og:updated_time" content="2019-05-07T07:19:02.084Z">
+<meta property="og:updated_time" content="2019-05-09T11:38:51.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark运行架构">
 <meta name="twitter:description" content="1.Spark架构：">
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  408
+                  649
                 </span>
               
 
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -443,10 +443,22 @@
 <p>(2)Application jar:  打包生成的jar包</p>
 <p>(3)Driver program: 运行application中的main方法并且创建一个SparkContext</p>
 <p>(4)Cluster manager: 一个从cluster中申请资源的外部服务</p>
-<p>(5)Deploy mode: 决定 drive进程跑在哪里， 如果是 client，表示driver跑在本地，如果是cluster，表示泡在集群里面</p>
+<p>(5)Deploy mode: 决定 drive进程跑在哪里， 如果是 client，表示driver跑在本地，如果是cluster，表示跑在集群里面</p>
 <p>(6)Executor ：启动应用程序的进程在workernodes上，它能够运行多个task，保存数据到disk和memory中，每个应用程序都有自己的executors</p>
 <p>(7)Task：作业的基本单元，每个task都会被送到executor上执行</p>
 <p>(8)job:众多task组成的并行计算，一个Spark的action算子产生一个job</p>
+<p>(9)stage:一个job会有很多stages，根据shuffle决定， 只要有shuffle就会一分为两个stage，一个stage下会有多个task，stage之间是存在依赖关系的。（例如：map和reduce，必须map先执行完成再执行reduce）</p>
+<p>注：grouby和reduceByKey都会触发shuffle，一个stage的task数是由分区数决定的，一个partition就是一个task。</p>
+<p>(10)cache：它是一个lazy，将数据缓存到内存中，缓存后的数据会变大。</p>
+<p>面试题：cache（）：底层调用persist（）方法</p>
+<p>​        persist（）：底层调用persist方法重载，传入MEMORY_NOLY参数</p>
+<p>​        unpersist（）：去掉缓存</p>
+<p>(11)面试题：</p>
+<p>​        窄依赖：（Narrow）一个父RDD的partition只能被一个子RDD的partition使用一次</p>
+<p>​        宽依赖：（Wide，shuffle后的就是宽依赖）一个父RDD的partition能被一个子RDD的partition使用多次</p>
+<p>​        注：（问join是不是宽依赖，这里需要分情况）</p>
+<p>（12）面试题：</p>
+<p>​        reduceByKey是哪一个类里面的：PairRDDFunction（底层用了隐式转换，new了PairRDDFuction对象，将rdd传入进去）</p>
 <p>2.架构图：</p>
 <p><img src="https://s2.ax1x.com/2019/05/07/EsibKH.png" alt></p>
 <p>应用程序他是一堆独立的进程在集群上，它是通过SparkContext对象在你的main方法中。</p>
@@ -476,7 +488,7 @@
   <p><span>本文标题:</span><a href="/2019/05/07/Spark运行架构/">Spark运行架构</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
   <p><span>发布时间:</span>2019年05月07日 - 14:28</p>
-  <p><span>最后更新:</span>2019年05月07日 - 15:19</p>
+  <p><span>最后更新:</span>2019年05月09日 - 19:38</p>
   <p><span>原始链接:</span><a href="/2019/05/07/Spark运行架构/" title="Spark运行架构">http://yoursite.com/2019/05/07/Spark运行架构/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/05/07/Spark运行架构/" aria-label="复制成功！"></i></span>
   </p>
@@ -544,6 +556,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/10/Spark on YARN/" rel="prev" title="Spark on YARN">
+                Spark on YARN <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -618,7 +634,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -640,7 +656,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

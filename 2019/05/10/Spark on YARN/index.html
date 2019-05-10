@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="YARN,HDFS,HA,大数据开发,">
+  <meta name="keywords" content="Spark,Spark on YARN,">
 
 
 
@@ -105,20 +105,22 @@
 
 
 
-<meta name="description" content="1.企业中为什么要用集群：">
-<meta name="keywords" content="YARN,HDFS,HA,大数据开发">
+<meta name="description" content="1.Spark的架构图 一个excutor中可以跑多个Task （1）MR：base-process ​    每个Task都有自己的进程，：MapTask，ReduceTask   （process） ​    每个Task完成，这个进程也就结束 （2）Spark：base-thread ​    多个Task（线程）并发的运行在一个进程中，这个进程会一直存在于整个生命周期，即使没有job运行，">
+<meta name="keywords" content="Spark,Spark on YARN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于 HDFS和Yarn HA 的了解">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/index.html">
+<meta property="og:title" content="Spark on YARN">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/Spark on YARN/index.html">
 <meta property="og:site_name" content="skygzx">
-<meta property="og:description" content="1.企业中为什么要用集群：">
+<meta property="og:description" content="1.Spark的架构图 一个excutor中可以跑多个Task （1）MR：base-process ​    每个Task都有自己的进程，：MapTask，ReduceTask   （process） ​    每个Task完成，这个进程也就结束 （2）Spark：base-thread ​    多个Task（线程）并发的运行在一个进程中，这个进程会一直存在于整个生命周期，即使没有job运行，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s2.ax1x.com/2019/04/07/AhTMkR.png">
-<meta property="og:updated_time" content="2019-04-07T11:46:39.294Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/07/EsibKH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/10/ERfYnS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/05/10/ERfLAH.png">
+<meta property="og:updated_time" content="2019-05-10T09:07:33.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于 HDFS和Yarn HA 的了解">
-<meta name="twitter:description" content="1.企业中为什么要用集群：">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/04/07/AhTMkR.png">
+<meta name="twitter:title" content="Spark on YARN">
+<meta name="twitter:description" content="1.Spark的架构图 一个excutor中可以跑多个Task （1）MR：base-process ​    每个Task都有自己的进程，：MapTask，ReduceTask   （process） ​    每个Task完成，这个进程也就结束 （2）Spark：base-thread ​    多个Task（线程）并发的运行在一个进程中，这个进程会一直存在于整个生命周期，即使没有job运行，">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/05/07/EsibKH.png">
 
 
 
@@ -148,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/10/Spark on YARN/">
 
 
 
 
 
-  <title>关于 HDFS和Yarn HA 的了解 | skygzx</title>
+  <title>Spark on YARN | skygzx</title>
   
 
 
@@ -335,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/Spark on YARN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="skygzx">
@@ -352,7 +354,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于 HDFS和Yarn HA 的了解</h1>
+          <h1 class="post-title" itemprop="name headline">Spark on YARN</h1>
         
 
         <div class="post-meta">
@@ -364,8 +366,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T12:15:44+08:00">
-                2019-04-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-10T16:14:56+08:00">
+                2019-05-10
               </time>
             
 
@@ -398,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  499
+                  1.1k
                 </span>
               
 
@@ -414,7 +416,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -435,14 +437,50 @@
       
 
       
-        <p><strong>1.企业中为什么要用集群：</strong></p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">每一个角色都是一个进程：</span><br><span class="line">HDFS：</span><br><span class="line">	NN：老大（接受读写流程请求）Master</span><br><span class="line">	SNN：1h checkpoint secondary（每隔一小时都会备份NN中的editlog文件合并成新</span><br><span class="line">		的fsimage）</span><br><span class="line">	DN：存储数据块和数据块的校验和</span><br><span class="line"></span><br><span class="line">YARN:</span><br><span class="line">RM  老大 master</span><br><span class="line">NM</span><br><span class="line">	（注：主从架构  master-slave </span><br><span class="line">比如hdfs读写请求都是先NN节点；每一条请求都要先经过NN，如果单节点NN挂了，那么就不</span><br><span class="line">能提供对外服务，所以我们要用到集群的概念。</span><br><span class="line">	RM也是一样。)</span><br></pre></td></tr></table></figure>
-<p>==但是：hbase 读写请求不是经过老大master，这点需要注意，那什么经过master，就是建表语句，删表语句）==</p>
-<p><strong>2.企业生产中的配置：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">如果只有一台节点，如果NN挂了，那么就无法对外提供访问了。</span><br><span class="line">企业中我们一般会配置两个NN节点，（实时的，任何时候只有一台active对外，另一台standby实时</span><br><span class="line">	备份，随时准备着从stanby切换成active状态，对外提供服务。）</span><br><span class="line">NN1：active            hdfs://ip1:9000/ 代码 shell脚本</span><br><span class="line">NN2：standby           hdfs://ip2:9000/</span><br><span class="line">	（假设NN1在11点挂了，就在那一霎那，NN2会瞬间切换成actice，对外提供访问。）</span><br><span class="line">查看hdfs可以这样查看：</span><br><span class="line">	hdfs dfs -ls </span><br><span class="line"> hdfs dfs -ls /</span><br><span class="line"> hdfs dfs -ls hdfs://ip:9000/</span><br><span class="line">如果NN1挂掉了，我们切换到NN2，难道我们还要手动修改： hdfs://ip2:9000/吗?</span><br><span class="line">这个时候我们抛出一个概念：无感知的：（命名空间：nameservice1  CDH</span><br><span class="line">										 生产上：dw）</span><br></pre></td></tr></table></figure>
-<p><strong>3.命名空间：</strong><br><img src="https://s2.ax1x.com/2019/04/07/AhTMkR.png" alt="在这里插入图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如上图所示：命名空间 RUOZEG6 不是一个进程，当我们输入命令：hdfs dfs -ls hdfs：//RUOZEG6/这个命令时，他会去找 core-size.xml 和 hdfs-site.xml这两个配置文件，这两个配置文件里配置了 hadoop001和hadoop002这两台机器挂在了 命名空间下面，它会去尝试连接第一台机器，如果第一台不是active，那么他会去连第二台机器。</span><br></pre></td></tr></table></figure>
+        <h2 id="1-Spark的架构图"><a href="#1-Spark的架构图" class="headerlink" title="1.Spark的架构图"></a>1.Spark的架构图</h2><p><img src="https://s2.ax1x.com/2019/05/07/EsibKH.png" alt></p>
+<p>一个excutor中可以跑多个Task</p>
+<p>（1）MR：base-process</p>
+<p>​    每个Task都有自己的进程，：MapTask，ReduceTask   （process）</p>
+<p>​    每个Task完成，这个进程也就结束</p>
+<p>（2）Spark：base-thread</p>
+<p>​    多个Task（线程）并发的运行在一个进程中，这个进程会一直存在于整个生命周期，即使没有job运行，空的也没有关系</p>
+<p>​    Spark这样的好处：speed（速度快），Tasks可以直接启动</p>
+<p>（3）Cluster Manager</p>
+<p>​    SparkApplication—–&gt;Cluster Manager(通过Cluster Manager去申请资源)</p>
+<p>这一过程可以跑在 Local，standalone，YARN,K8S,Mesos—–&gt;pluggable(可插拔的)</p>
+<p>（4）Application Master：AM</p>
+<p>​    YARN Application—–&gt;AM(first container,启动的第一个container)</p>
+<p>​    YARN 上是没有WorkNode的</p>
+<p>​    YARN：executor跑在container（所以container的内存肯定要大于executor内存）</p>
+<p>（5）Deploy Mode</p>
+<p>​    client：Driver  跑在Local：AM只负责申请资源</p>
+<p>​    cluster：Driver跑在cluster（Driver在集群的AM中）AM申请资源，task的调度（AM和driver在一起）</p>
+<h2 id="2-Client模式"><a href="#2-Client模式" class="headerlink" title="2.Client模式"></a>2.Client模式</h2><p><img src="https://s2.ax1x.com/2019/05/10/ERfYnS.png" alt></p>
+<p>说明如下：</p>
+<ul>
+<li>Spark Yarn Client向YARN的ResourceManager申请启动Application  Master。同时在SparkContent初始化中将创建DAGScheduler和TASKScheduler等，由于我们选择的是Yarn-Client模式，程序会选择YarnClientClusterScheduler和YarnClientSchedulerBackend；</li>
+<li>ResourceManager收到请求后，在集群中选择一个NodeManager，为该应用程序分配第一个Container，要求它在这个Container中启动应用程序的ApplicationMaster，与YARN-Cluster区别的是在该ApplicationMaster不运行SparkContext，只与SparkContext进行联系进行资源的分派；</li>
+<li>Client中的SparkContext初始化完毕后，与ApplicationMaster建立通讯，向ResourceManager注册，根据任务信息向ResourceManager申请资源（Container）；</li>
+<li>一旦ApplicationMaster申请到资源（也就是Container）后，便与对应的NodeManager通信，要求它在获得的Container中启动CoarseGrainedExecutorBackend，CoarseGrainedExecutorBackend启动后会向Client中的SparkContext注册并申请Task；</li>
+<li>client中的SparkContext分配Task给CoarseGrainedExecutorBackend执行，CoarseGrainedExecutorBackend运行Task并向Driver汇报运行的状态和进度，以让Client随时掌握各个任务的运行状态，从而可以在任务失败时重新启动任务；</li>
+<li>应用程序运行完成后，Client的SparkContext向ResourceManager申请注销并关闭自己；</li>
+</ul>
+<h2 id="3-Cluster模式"><a href="#3-Cluster模式" class="headerlink" title="3.Cluster模式"></a>3.Cluster模式</h2><p><img src="https://s2.ax1x.com/2019/05/10/ERfLAH.png" alt></p>
+<p>说明如下：</p>
+<ul>
+<li>Spark Yarn Client向YARN中提交应用程序，包括ApplicationMaster程序、启动ApplicationMaster的命令、需要在Executor中运行的程序等；</li>
+<li>ResourceManager收到请求后，在集群中选择一个NodeManager，为该应用程序分配第一个Container，要求它在这个Container中启动应用程序的ApplicationMaster，其中ApplicationMaster进行SparkContext等的初始化；</li>
+<li>ApplicationMaster向ResourceManager注册，这样用户可以直接通过ResourceManage查看应用程序的运行状态，然后它将采用轮询的方式通过RPC协议为各个任务申请资源，并监控它们的运行状态直到运行结束；</li>
+<li>一旦ApplicationMaster申请到资源（也就是Container）后，便与对应的NodeManager通信，要求它在获得的Container中启动CoarseGrainedExecutorBackend，CoarseGrainedExecutorBackend启动后会向ApplicationMaster中的SparkContext注册并申请Task。这一点和Standalone模式一样，只不过SparkContext在Spark   Application中初始化时，使用CoarseGrainedSchedulerBackend配合YarnClusterScheduler进行任务的调度，其中YarnClusterScheduler只是对TaskSchedulerImpl的一个简单包装，增加了对Executor的等待逻辑等；</li>
+<li>ApplicationMaster中的SparkContext分配Task给CoarseGrainedExecutorBackend执行，CoarseGrainedExecutorBackend运行Task并向ApplicationMaster汇报运行的状态和进度，以让ApplicationMaster随时掌握各个任务的运行状态，从而可以在任务失败时重新启动任务；</li>
+<li>应用程序运行完成后，ApplicationMaster向ResourceManager申请注销并关闭自己；</li>
+</ul>
+<h2 id="4-Client模式-vs-Cluster模式"><a href="#4-Client模式-vs-Cluster模式" class="headerlink" title="4 Client模式 vs Cluster模式"></a>4 Client模式 vs Cluster模式</h2><ul>
+<li>理解YARN-Client和YARN-Cluster深层次的区别之前先清楚一个概念：Application  Master。在YARN中，每个Application实例都有一个ApplicationMaster进程，它是Application启动的第一个容器。它负责和ResourceManager打交道并请求资源，获取资源之后告诉NodeManager为其启动Container。从深层次的含义讲YARN-Cluster和YARN-Client模式的区别其实就是ApplicationMaster进程的区别；</li>
+<li>YARN-Cluster模式下，Driver运行在AM(Application  Master)中，它负责向YARN申请资源，并监督作业的运行状况。当用户提交了作业之后，就可以关掉Client，作业会继续在YARN上运行，因而YARN-Cluster模式不适合运行交互类型的作业；</li>
+<li>YARN-Client模式下，Application Master仅仅向YARN请求Executor，Client会和请求的Container通信来调度他们工作，也就是说Client不能离开；</li>
+</ul>
+
       
     </div>
     
@@ -458,12 +496,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2019/04/07/关于 HDFS和Yarn HA 的了解/">关于 HDFS和Yarn HA 的了解</a></p>
+  <p><span>本文标题:</span><a href="/2019/05/10/Spark on YARN/">Spark on YARN</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 skygzx 的个人博客">skygzx</a></p>
-  <p><span>发布时间:</span>2019年04月07日 - 12:15</p>
-  <p><span>最后更新:</span>2019年04月07日 - 19:46</p>
-  <p><span>原始链接:</span><a href="/2019/04/07/关于 HDFS和Yarn HA 的了解/" title="关于 HDFS和Yarn HA 的了解">http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/04/07/关于 HDFS和Yarn HA 的了解/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年05月10日 - 16:14</p>
+  <p><span>最后更新:</span>2019年05月10日 - 17:07</p>
+  <p><span>原始链接:</span><a href="/2019/05/10/Spark on YARN/" title="Spark on YARN">http://yoursite.com/2019/05/10/Spark on YARN/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/05/10/Spark on YARN/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -505,13 +543,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/YARN/" rel="tag"><i class="fa fa-tag"></i> YARN</a>
+            <a href="/tags/Spark/" rel="tag"><i class="fa fa-tag"></i> Spark</a>
           
-            <a href="/tags/HDFS/" rel="tag"><i class="fa fa-tag"></i> HDFS</a>
-          
-            <a href="/tags/HA/" rel="tag"><i class="fa fa-tag"></i> HA</a>
-          
-            <a href="/tags/大数据开发/" rel="tag"><i class="fa fa-tag"></i> 大数据开发</a>
+            <a href="/tags/Spark-on-YARN/" rel="tag"><i class="fa fa-tag"></i> Spark on YARN</a>
           
         </div>
       
@@ -524,8 +558,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/07/yarn资源调优怎么调，依据是什么/" rel="next" title="YARN资源调优怎么调，依据是什么">
-                <i class="fa fa-chevron-left"></i> YARN资源调优怎么调，依据是什么
+              <a href="/2019/05/07/Spark运行架构/" rel="next" title="Spark运行架构">
+                <i class="fa fa-chevron-left"></i> Spark运行架构
               </a>
             
           </div>
@@ -533,10 +567,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/07/HDFS HA架构图/" rel="prev" title="HDFS HA架构图">
-                HDFS HA架构图 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -593,8 +623,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -689,6 +728,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Spark的架构图"><span class="nav-number">1.</span> <span class="nav-text">1.Spark的架构图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Client模式"><span class="nav-number">2.</span> <span class="nav-text">2.Client模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Cluster模式"><span class="nav-number">3.</span> <span class="nav-text">3.Cluster模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Client模式-vs-Cluster模式"><span class="nav-number">4.</span> <span class="nav-text">4 Client模式 vs Cluster模式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
